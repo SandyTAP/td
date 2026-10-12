@@ -17,6 +17,20 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/029faeaf17deacd1488e9cca2a14269b57b537946565759f223f1a79f1258701",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/049c4d9436cc6e5719f28b24a0d513c937aea5efb5f1586fbd45c1319d19804b",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=226; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=expired-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/06df03c6c16701878c96584f2f2c46b2cc9362cba97ead6e69e2609773686bb1",
       "resolution": {
         "action": "reject-if-present",
@@ -53,10 +67,24 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/215a402fe0aab28f9c074c71a67dc3f9fefe2cc538b466a0904c1de70e08969a",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=226; direction=canonical-to-profile; semantic=function:bots.checkUsername; wire=0xe3ac4c61-\u003e0x87f2219b; field=additional-\u003e; type=true-\u003e; source_shape=219ca7e4dd1586723911b92f86876abfbed289809164c187f7a3af08c1d68750; target_shape=665f84f40378694dfb657878ca110b53eff30fd0751b34310b0f7458ea66b7f6"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/27e35978c2c2292eb7ee3e089542b789d564f64589fe8e48b8f24f199769acdb",
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=type:ephemeralMessage; wire=0xdd27bee9-\u003e0xd9c6dc1a; field=welcome_template-\u003e; type=true-\u003e; source_shape=ca8836f495a46cbc1d82582a1aed076064607accaddaae64fdc17962762e98e2; target_shape=c49a14b9ce1ed3e7e7b38e75f82624d6d942e108c572da524f6209bc5d4f56df"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/2dbcf9d76adb995e934a65d6aa044f3be3510e1473d2799a9057cde82c9ae8ab",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=function:bots.checkUsername; wire=0xe3ac4c61-\u003e0x87f2219b; field=additional-\u003e; type=true-\u003e; source_shape=219ca7e4dd1586723911b92f86876abfbed289809164c187f7a3af08c1d68750; target_shape=665f84f40378694dfb657878ca110b53eff30fd0751b34310b0f7458ea66b7f6"
       }
     },
     {
@@ -68,10 +96,31 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/2f53e6cb482ef7fac32b66bf7403880014c4e8e31d7e2399beb85a7a480f6d9f",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=229; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/32fc6d1f658ea548d91c55354d890e26aa9ae77de863cf0992e9603ca944e31c",
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=function:ephemeral.sendMessage; wire=0xba8d5f35-\u003e0x68cbd09f; field=invert_media-\u003e; type=true-\u003e; source_shape=48585103e3dd307920e976d9849b77df147e4f2e91be50a73bf7edb5cf1821d7; target_shape=8734385fadd9d3297422642cfbad8c68874084e248c7e1d497dcd75a3e9d707a"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/384c4f6fe47b764fb1cdcc2e85cc69728f73c9c7f78f3198a186380f50901308",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=229; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=expired-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/39f4c9f0d85b10b0ee9241021ab16ae390bc4cdbd3cee0dbb7fc4132c0420cb2",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=function:bots.checkUsername; wire=0xe3ac4c61-\u003e0x87f2219b; field=additional-\u003e; type=true-\u003e; source_shape=219ca7e4dd1586723911b92f86876abfbed289809164c187f7a3af08c1d68750; target_shape=665f84f40378694dfb657878ca110b53eff30fd0751b34310b0f7458ea66b7f6"
       }
     },
     {
@@ -107,6 +156,13 @@
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=type:messageActionStarGiftUnique; wire=0x7e1c1187-\u003e0xe6c31522; field=message-\u003e; type=TextWithEntities-\u003e; source_shape=f6ab6ac4da445e3648d5b399d6226e44f5ec37fb7a8286c93999d1c55bb21b37; target_shape=9ae5fc8a92837b406a0685cce13a012e632a1c213de332f2632811b747eb61ea"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/473b46486ad9a56d4277e63b9619f9388d4605e58a7ae03b5f8af126f9a2fe3e",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=expired-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
       }
     },
     {
@@ -152,6 +208,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/6c84edf18b53715a5f7b0143a5bf1fd3119a3a94bca3cfd9e26f4b624b2029ea",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=226; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/730fa610d190fd09c9ccac859f3b14816ee67972c8da657127c3509399157433",
       "resolution": {
         "action": "project",
@@ -182,6 +245,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/7c49dfccf660a985720dbbc061bc3b4e4d3a9d295baf5076b6d49cdceb34590a",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=229; direction=canonical-to-profile; semantic=function:auth.initFirebasePnvLogin; wire=0x644f15c0-\u003e0x777df37a; field=except_ids-\u003e; type=Vector\u003clong\u003e-\u003e; source_shape=fa480b4d6685a236300d7e43d5a167eef44193bc1055c1bda6e51847da71bb9c; target_shape=bfec70718647bdbc9a4ea54f83d1bbf7fd02931b2cb6642c7a5aba8cd42ae3f2"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/7f9f838ec0cfb1dbb7110fe15e0d76fe5062059d62e41ac37590026f7300d631",
       "resolution": {
         "action": "reject-if-present",
@@ -196,10 +266,24 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/83c88ce804939e5db08a3f256a12e4f900f3c954b8e5323a7b519aa5221626ba",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=expired-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/9704e743ebd7a75db3e369d04b3917547bb5023f1375b665c28c73c6e532094d",
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=type:inputInvoiceStarGiftResale; wire=0xe9b0c658-\u003e0xc39f5324; field=show_name-\u003e; type=true-\u003e; source_shape=7fb36f97ae0ad984fa5b106531693a610400f2e79cde59ddb7c15554f7ccd640; target_shape=0b0b5cbdcddd3eb9d13277b08f0240aac9edeef278912f593b04556d8e9f35fa"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/99150077c3e43f9e139336160fb9d77e8be53fc04fbac2dd29a4e7f8fd0c9d36",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=229; direction=canonical-to-profile; semantic=function:bots.checkUsername; wire=0xe3ac4c61-\u003e0x87f2219b; field=additional-\u003e; type=true-\u003e; source_shape=219ca7e4dd1586723911b92f86876abfbed289809164c187f7a3af08c1d68750; target_shape=665f84f40378694dfb657878ca110b53eff30fd0751b34310b0f7458ea66b7f6"
       }
     },
     {
@@ -262,6 +346,20 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/c025c89f210400c87b7134c354c493ca670eeeee76a04461d19a763e9bd08b54",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/c4accac2894b801a713c44e33b640cb687c7455cabc9252ebb2d9552df7c73a6",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=function:bots.checkUsername; wire=0xe3ac4c61-\u003e0x87f2219b; field=additional-\u003e; type=true-\u003e; source_shape=219ca7e4dd1586723911b92f86876abfbed289809164c187f7a3af08c1d68750; target_shape=665f84f40378694dfb657878ca110b53eff30fd0751b34310b0f7458ea66b7f6"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/c7026b7002eca9e4d342d5a5d7c5b1db7675ddc5c636bbb5abff09e02948fa30",
       "resolution": {
         "action": "reject-if-present",
@@ -297,6 +395,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/df527d0e42b57ccd2387c0d659ee500d859437c0dc942baddfd734893e7a39ed",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/dff5b74c3a165e3f4a60b5e276b12ede6c04300304a97fc915f1007a0aabe14e",
       "resolution": {
         "action": "reject-if-present",
@@ -308,6 +413,13 @@
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=type:replyKeyboardMarkup; wire=0x85dd99d1-\u003e0x85dd99d1; field=force_reply-\u003e; type=true-\u003e; source_shape=792c8535ea9eae8e052602ff9c0557edd0940d62116df60efa6b09f5fb62e903; target_shape=191c6cf4d11e56d0968b29a27e6bceb24b187869631b16a73bf6f1f5ed08d47c"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/e79216f94e34c61e9c6ad74a110c2952bbbfa2cc031fd668a76ad36782e2796a",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=expired-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
       }
     },
     {
@@ -339,6 +451,30 @@
       }
     },
     {
+      "key": "layer-obligation/v1/incompatible/07e8735b40779acd5565359e58b526c8e7b560076d48aa97946a7b11c5db01f9",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=226; direction=canonical-to-profile; semantic=type:botVerification; wire=0xf72e0ed9-\u003e0xf93cd45c; field=description-\u003edescription; type=TextWithEntities-\u003estring; source_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464; target_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/19d3b6de834ae237abc6f03464f73572a52e685bd044a8f5d227aec318dee43e",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=226; direction=canonical-to-profile; semantic=function:bots.setCustomVerification; wire=0xf4946757-\u003e0x8b89dfbd; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce; target_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/1bbadd2cdc5ca329229ec5a04715fcd0d297fb0f92afffc08a29a07746d9dcff",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=228; direction=profile-to-canonical; semantic=type:botVerification; wire=0xf93cd45c-\u003e0xf72e0ed9; field=description-\u003edescription; type=string-\u003eTextWithEntities; source_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305; target_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464"
+      }
+    },
+    {
       "key": "layer-obligation/v1/incompatible/1fb518e7daa2f8b3972fde83d91ade59bc3b565deb136d7f39e989b7e5be4653",
       "resolution": {
         "action": "adapter",
@@ -347,11 +483,99 @@
       }
     },
     {
+      "key": "layer-obligation/v1/incompatible/1fd2a9eb2795830ad1fbe1cf92861d2ace7e371221196e33961e730040046923",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=225; direction=canonical-to-profile; semantic=function:bots.setCustomVerification; wire=0xf4946757-\u003e0x8b89dfbd; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce; target_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/20624755f9e5743452f44e24c692e6ce1977cea0ba710cc547af5f0e8083d173",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=229; direction=canonical-to-profile; semantic=type:botVerification; wire=0xf72e0ed9-\u003e0xf93cd45c; field=description-\u003edescription; type=TextWithEntities-\u003estring; source_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464; target_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/23e6e1acbe194f02d9f56d49a3e2456b12cdae0629d1bbcf16dd03c71637adfa",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=225; direction=profile-to-canonical; semantic=function:bots.setCustomVerification; wire=0x8b89dfbd-\u003e0xf4946757; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b; target_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/26a89ded9c1a45d3137ad6af08f15c51e3bc924e78e4eadd7d625473f3824413",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=229; direction=canonical-to-profile; semantic=type:botVerifierSettings; wire=0xa12aefff-\u003e0xb0cd6617; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82; target_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/4335f9f82ce3715c74533788fbf72e9da8cd468aa46166238ae2da8863bee22c",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=227; direction=profile-to-canonical; semantic=type:botVerification; wire=0xf93cd45c-\u003e0xf72e0ed9; field=description-\u003edescription; type=string-\u003eTextWithEntities; source_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305; target_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/4b0e1fcb5d3759f8275cded4729bba713caf11a6729afc38b46923ccfb813e03",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=227; direction=canonical-to-profile; semantic=type:botVerifierSettings; wire=0xa12aefff-\u003e0xb0cd6617; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82; target_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/50c0ca938bc139a75f4cb7f683d5062a4b19c96fb6d262b6788cc29c1af5466c",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=228; direction=canonical-to-profile; semantic=type:botVerification; wire=0xf72e0ed9-\u003e0xf93cd45c; field=description-\u003edescription; type=TextWithEntities-\u003estring; source_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464; target_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/52fdee88b68a164f07bed1739ef466570a9ecbe2ffb5517fd359d3e215760933",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=226; direction=profile-to-canonical; semantic=type:botVerification; wire=0xf93cd45c-\u003e0xf72e0ed9; field=description-\u003edescription; type=string-\u003eTextWithEntities; source_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305; target_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/5ae3959e64368e88f1c511732053927958fb6161c7d7ae455e106319d3d7d79f",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=226; direction=profile-to-canonical; semantic=function:bots.setCustomVerification; wire=0x8b89dfbd-\u003e0xf4946757; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b; target_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce"
+      }
+    },
+    {
       "key": "layer-obligation/v1/incompatible/603725778243a792e6973c9ed5bd37b032f79e015615d0066d54c2ffb3b2ed1c",
       "resolution": {
         "action": "adapter",
         "hook": "layerAdaptLegacyInlineKeyboardRows",
         "note": "kind=incompatible; layer=225; direction=canonical-to-profile; semantic=type:replyInlineMarkup; wire=0xb2b15770-\u003e0x48a30254; field=rows-\u003erows; type=Vector\u003cKeyboardInlineButtonRow\u003e-\u003eVector\u003cKeyboardButtonRow\u003e; source_shape=b75286e447b59ba4eac3e1c81771c95bd32ae4e218bae9f7fb1d4933afcf7852; target_shape=cf9ebdc5ee66d31a3c908a44ca0c32f0ae7fbcf0996385035aac50f31b47a2f9"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/615db9888d86e90020e489eb8d0b881742a99e8053a49f75d0ef25dda0f18e2e",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=227; direction=canonical-to-profile; semantic=type:botVerification; wire=0xf72e0ed9-\u003e0xf93cd45c; field=description-\u003edescription; type=TextWithEntities-\u003estring; source_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464; target_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/6c7088b24b30898b432f6a587919bf51ffd2da408fbbfb0d630e5be54f4ee85b",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=227; direction=profile-to-canonical; semantic=function:bots.setCustomVerification; wire=0x8b89dfbd-\u003e0xf4946757; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b; target_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce"
       }
     },
     {
@@ -371,11 +595,107 @@
       }
     },
     {
+      "key": "layer-obligation/v1/incompatible/81fb097454bd6a7569672303711c62e554b2eaa56d2955909fda10a109a48e7e",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=226; direction=profile-to-canonical; semantic=type:botVerifierSettings; wire=0xb0cd6617-\u003e0xa12aefff; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da; target_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/825c1ea1684b6b8c9f2c26eea353be3ece46b0425bf5e44af18ac0f9d31f2a04",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=226; direction=canonical-to-profile; semantic=type:botVerifierSettings; wire=0xa12aefff-\u003e0xb0cd6617; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82; target_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/8f0bf6de4d86567dd937daf6685038098b7183899a5c7bc3dbe1b5cc4ea0506e",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=225; direction=profile-to-canonical; semantic=type:botVerification; wire=0xf93cd45c-\u003e0xf72e0ed9; field=description-\u003edescription; type=string-\u003eTextWithEntities; source_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305; target_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/98650953676ef1b5e2489d2e8bb6e37ec4392f026b7c1879754336d1a1834786",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=227; direction=profile-to-canonical; semantic=type:botVerifierSettings; wire=0xb0cd6617-\u003e0xa12aefff; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da; target_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/9adf947eb245a41e3eb079db5402bf52d0aad21f3cfa4783027f4470e78eb9a0",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=225; direction=canonical-to-profile; semantic=type:botVerification; wire=0xf72e0ed9-\u003e0xf93cd45c; field=description-\u003edescription; type=TextWithEntities-\u003estring; source_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464; target_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/b01aeee7981e3e2522cd7137433103d3afcfe2839a660c68c1fe9e51a51f1183",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerificationText",
+        "note": "kind=incompatible; layer=229; direction=profile-to-canonical; semantic=type:botVerification; wire=0xf93cd45c-\u003e0xf72e0ed9; field=description-\u003edescription; type=string-\u003eTextWithEntities; source_shape=47b492d1f53767b1e190990b2ceca47681fdf98063b004cc27f56d9de099f305; target_shape=e5a235032e76c8e20ea65242352c48f04fd9c7c6c190ad16a957fb9cedfb2464"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/b05b1b4e6d91b0c6ef7761ba9ac408a98a960fb25b5c1053dd0525577d76a161",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=229; direction=profile-to-canonical; semantic=function:bots.setCustomVerification; wire=0x8b89dfbd-\u003e0xf4946757; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b; target_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/b20bda9297e159c66a87ad1fc046251cbe5b3611d6161f636dce7df8427a6628",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=228; direction=profile-to-canonical; semantic=type:botVerifierSettings; wire=0xb0cd6617-\u003e0xa12aefff; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da; target_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/bc366fc4c45885d2fd152059a02daa9bfaffd43f6a7e1a91fe7fdd6fd73d54ed",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=229; direction=canonical-to-profile; semantic=function:bots.setCustomVerification; wire=0xf4946757-\u003e0x8b89dfbd; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce; target_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/c0eb8de502d68931bf83014a2f008897e657183b2b544c84a7c0b3c283fc208e",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=228; direction=canonical-to-profile; semantic=type:botVerifierSettings; wire=0xa12aefff-\u003e0xb0cd6617; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82; target_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/cf76cffe3107336bd05353e28e4bcfe2512a00d7208ab4940ae7159f97c8deaf",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=225; direction=profile-to-canonical; semantic=type:botVerifierSettings; wire=0xb0cd6617-\u003e0xa12aefff; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da; target_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82"
+      }
+    },
+    {
       "key": "layer-obligation/v1/incompatible/d37f2922a79d100481868053e06324e479b80603635be2534abcdc1643e40f89",
       "resolution": {
         "action": "adapter",
         "hook": "layerAdaptLegacyInlineKeyboardRows",
         "note": "kind=incompatible; layer=228; direction=profile-to-canonical; semantic=type:replyInlineMarkup; wire=0x48a30254-\u003e0xb2b15770; field=rows-\u003erows; type=Vector\u003cKeyboardButtonRow\u003e-\u003eVector\u003cKeyboardInlineButtonRow\u003e; source_shape=cf9ebdc5ee66d31a3c908a44ca0c32f0ae7fbcf0996385035aac50f31b47a2f9; target_shape=b75286e447b59ba4eac3e1c81771c95bd32ae4e218bae9f7fb1d4933afcf7852"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/d5a10bc40ecb7d0c726441c2ae4c83f522237248b06d5a0186cff55c5e1765f7",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=229; direction=profile-to-canonical; semantic=type:botVerifierSettings; wire=0xb0cd6617-\u003e0xa12aefff; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da; target_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82"
       }
     },
     {
@@ -395,11 +715,43 @@
       }
     },
     {
+      "key": "layer-obligation/v1/incompatible/eb5ab2d49e5582b605ac3924392c41ce10e3281b8d11cb06764a850985e12c01",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=227; direction=canonical-to-profile; semantic=function:bots.setCustomVerification; wire=0xf4946757-\u003e0x8b89dfbd; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce; target_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b"
+      }
+    },
+    {
       "key": "layer-obligation/v1/incompatible/ec8b62a3fab041287f5af53d7d915faa98364eb21d9d515767d0da1cf7668464",
       "resolution": {
         "action": "adapter",
         "hook": "layerAdaptLegacyInlineKeyboardRows",
         "note": "kind=incompatible; layer=226; direction=canonical-to-profile; semantic=type:replyInlineMarkup; wire=0xb2b15770-\u003e0x48a30254; field=rows-\u003erows; type=Vector\u003cKeyboardInlineButtonRow\u003e-\u003eVector\u003cKeyboardButtonRow\u003e; source_shape=b75286e447b59ba4eac3e1c81771c95bd32ae4e218bae9f7fb1d4933afcf7852; target_shape=cf9ebdc5ee66d31a3c908a44ca0c32f0ae7fbcf0996385035aac50f31b47a2f9"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/f28822c1eb64930f5c1797b2aec39dc7ae330b1c19450cda75b43c1e8df2cc24",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=228; direction=canonical-to-profile; semantic=function:bots.setCustomVerification; wire=0xf4946757-\u003e0x8b89dfbd; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce; target_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/f817a04d17c89d84953677a7c9e0313f624898b754f4569f330e357d1a7ffa22",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotVerifierSettingsText",
+        "note": "kind=incompatible; layer=225; direction=canonical-to-profile; semantic=type:botVerifierSettings; wire=0xa12aefff-\u003e0xb0cd6617; field=custom_description-\u003ecustom_description; type=TextWithEntities-\u003estring; source_shape=1ce73e43ec3daca569e1ce8f73e648cc18a3bf72235f14fb51858b86e9196f82; target_shape=b666d99da9b2ea195f6372092cb37674963e4434ae5a6c2aa53d6a55b85925da"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/incompatible/fc21f1f429d15ea0a0c8d8697f3b43b3bcd0e6cac1b2abb45b630eb1e027538d",
+      "resolution": {
+        "action": "adapter",
+        "hook": "layerBotsSetCustomVerificationText",
+        "note": "kind=incompatible; layer=228; direction=profile-to-canonical; semantic=function:bots.setCustomVerification; wire=0x8b89dfbd-\u003e0xf4946757; field=custom_description-\u003ecustom_description; type=string-\u003eTextWithEntities; source_shape=8dbe65bea4ee0abe7e83c53b83e58674057a353efa71ec3d06ccf28a79ccca3b; target_shape=f2fe0042bab21d6203bd57cd9c82038f1737278bc13e0e0609da5c7a08d293ce"
       }
     },
     {
@@ -556,6 +908,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/old-only/3277145b41acf3ee8c73f1ee5a1eb41f52c06644d0d790453a2656887382c8ef",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=old-only; layer=226; direction=profile-to-canonical; semantic=type:inputPasskeyCredentialFirebasePNV; wire=0x5b1ccb28-\u003e0x00000000; type=InputPasskeyCredential-\u003e; source_shape=0a305252b7b81cc5af2e756d777e8f900835ab1928bbd47a1149b6d2ce5273c9; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/old-only/3348480bf0c5389b3876adc5e88e43e3b63f0b947900043f820169908772ebf9",
       "resolution": {
         "action": "adapter",
@@ -625,6 +984,13 @@
         "hook": "layerAdaptLegacyKeyboardButtonRequestGeoLocation",
         "target": "type:keyboardButton",
         "note": "kind=old-only; layer=225; direction=profile-to-canonical; semantic=type:keyboardButtonRequestGeoLocation; wire=0xaa40f94d-\u003e0x00000000; type=KeyboardButton-\u003e; source_shape=d5de65f73914c8ec962960b97070a20b698fe29e5dccd18b0735273b38010d31; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/old-only/504c5285890e724b116bdaed964b8fb1a3fee8c663537fd246a2c14d4a7ddb53",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=old-only; layer=229; direction=profile-to-canonical; semantic=type:inputPasskeyCredentialFirebasePNV; wire=0x5b1ccb28-\u003e0x00000000; type=InputPasskeyCredential-\u003e; source_shape=0a305252b7b81cc5af2e756d777e8f900835ab1928bbd47a1149b6d2ce5273c9; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     },
     {
@@ -889,12 +1255,33 @@
       }
     },
     {
+      "key": "layer-obligation/v1/old-only/c2d41c8fcf3a80c9161e10bc8ebd0dc97716424cd43bf46f5388e8c8319abbfd",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=old-only; layer=227; direction=profile-to-canonical; semantic=type:inputPasskeyCredentialFirebasePNV; wire=0x5b1ccb28-\u003e0x00000000; type=InputPasskeyCredential-\u003e; source_shape=0a305252b7b81cc5af2e756d777e8f900835ab1928bbd47a1149b6d2ce5273c9; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/old-only/c5886ab9481da0eda320b63f15a74bf152e0930e3d79943171adc703bf588dea",
       "resolution": {
         "action": "adapter",
         "hook": "layerAdaptLegacyKeyboardButtonRequestPhone",
         "target": "type:keyboardButton",
         "note": "kind=old-only; layer=225; direction=profile-to-canonical; semantic=type:keyboardButtonRequestPhone; wire=0x417efd8f-\u003e0x00000000; type=KeyboardButton-\u003e; source_shape=d5de65f73914c8ec962960b97070a20b698fe29e5dccd18b0735273b38010d31; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/old-only/c5a139ffc50370e6c3ac8ccb51cc3cfb4a49a0f7e59cffb78f400ce624add2c2",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=old-only; layer=225; direction=profile-to-canonical; semantic=type:inputPasskeyCredentialFirebasePNV; wire=0x5b1ccb28-\u003e0x00000000; type=InputPasskeyCredential-\u003e; source_shape=0a305252b7b81cc5af2e756d777e8f900835ab1928bbd47a1149b6d2ce5273c9; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/old-only/c663488e88d123d8967c0c99a58cbed31d485484aec3eaa3069715973764cb72",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=old-only; layer=228; direction=profile-to-canonical; semantic=type:inputPasskeyCredentialFirebasePNV; wire=0x5b1ccb28-\u003e0x00000000; type=InputPasskeyCredential-\u003e; source_shape=0a305252b7b81cc5af2e756d777e8f900835ab1928bbd47a1149b6d2ce5273c9; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     },
     {
@@ -1204,6 +1591,20 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/016da11dd2d76c31ec54d0d2168438ebb914c232f8b7ad35cc58f2d962c08e0e",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateWalletGaslessInfo; wire=0xa8ae1cac-\u003e0x00000000; type=Update-\u003e; source_shape=2f0b753be6cdef26da88f6898ee8a7b6e520a8e5efd9eb093fcd09c9460a68e6; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/01da1ec7dd17c86428ee253e17f18e17490079eb470df7832335e96f90150eb1",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=229; direction=canonical-to-profile; semantic=type:updateSentWalletTransaction; wire=0xb1434d4a-\u003e0x00000000; type=Update-\u003e; source_shape=7598b5d9c6fa74ad798b0be1f030494abf6b51a16adcb62b5cdb1cb6bf370c32; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/03b9a983e0cf4139a8d67e016e2bedb811169279d51f6e6cc5980fbcb9b13686",
       "resolution": {
         "action": "drop",
@@ -1225,6 +1626,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/15f87d10162857b9374dba10585063e4eae3e363eeca04439a7713e185dce314",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=227; direction=canonical-to-profile; semantic=type:updateWalletState; wire=0x6ac3f2aa-\u003e0x00000000; type=Update-\u003e; source_shape=f85d4d1a35892e97133551f55923cc2d5f71ae9ee1c608019adbbbf33612a7a3; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/18d72d34e27cd0a7dbc99fd82ff128d578f1e8ff0d4d13357fe90584bf60851b",
       "resolution": {
         "action": "drop",
@@ -1239,10 +1647,101 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/22c186e685e0ca6342c73812d0ea647cc136b645cbbf8ea5bc5a409b2951f95f",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateWalletTonConnectSession; wire=0x50a38e0e-\u003e0x00000000; type=Update-\u003e; source_shape=f575985d7cff886dc65ff0542052323208159ca35551c576cc79e30a8d4db752; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/271000da001ffda681cb5818a9c1c40c7d0673756ec5aef6b3a5d2b0e68e7a2e",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=227; direction=canonical-to-profile; semantic=type:updateWalletTonConnectPendingDisconnect; wire=0xd1ee8199-\u003e0x00000000; type=Update-\u003e; source_shape=10a18b8cda0db6320259f0227d7eb9d20387887d736eca4706213f3bdd83e331; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/2b067897e88038f0586559918c7b5dc4034bfb8d0926d8a3d7c122129470e184",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=229; direction=canonical-to-profile; semantic=type:updateWalletGaslessInfo; wire=0xa8ae1cac-\u003e0x00000000; type=Update-\u003e; source_shape=2f0b753be6cdef26da88f6898ee8a7b6e520a8e5efd9eb093fcd09c9460a68e6; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/3851e40f74fb153c9d8274684d378096e5dbbd3e0f46a999c312bc1d8d24710c",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateSentWalletTransaction; wire=0xb1434d4a-\u003e0x00000000; type=Update-\u003e; source_shape=7598b5d9c6fa74ad798b0be1f030494abf6b51a16adcb62b5cdb1cb6bf370c32; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/3b2ccc1f893c595ed30ead44a100897d77ae37fad12f856cec8cb108f5dd64fd",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateWalletTonConnectSession; wire=0x50a38e0e-\u003e0x00000000; type=Update-\u003e; source_shape=f575985d7cff886dc65ff0542052323208159ca35551c576cc79e30a8d4db752; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/3c4413e2e484fdd666ad0aba49e42b36aa63a106bdb2d77f8aa352621099ac4e",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateWalletTonConnectPendingDisconnect; wire=0xd1ee8199-\u003e0x00000000; type=Update-\u003e; source_shape=10a18b8cda0db6320259f0227d7eb9d20387887d736eca4706213f3bdd83e331; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/45d8c2da5060e286c1e2c1894ce3a71ff78e22e6a046034f42dbec285014785c",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateWalletState; wire=0x6ac3f2aa-\u003e0x00000000; type=Update-\u003e; source_shape=f85d4d1a35892e97133551f55923cc2d5f71ae9ee1c608019adbbbf33612a7a3; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/45faa010d16e272e94c1dda9c47f8965ba1429d8d6a91786f782f7b3508d0d57",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=229; direction=canonical-to-profile; semantic=type:updateWalletState; wire=0x6ac3f2aa-\u003e0x00000000; type=Update-\u003e; source_shape=f85d4d1a35892e97133551f55923cc2d5f71ae9ee1c608019adbbbf33612a7a3; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/4ed0def22e23d45c9f47175fcaa7daa9bf8fb8a2ad7810dd96127bfc7bbd64c3",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateWalletState; wire=0x6ac3f2aa-\u003e0x00000000; type=Update-\u003e; source_shape=f85d4d1a35892e97133551f55923cc2d5f71ae9ee1c608019adbbbf33612a7a3; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/50070578bb3ae7a560805c37a4a74919725d3fea415f2765921bf5fc93281be5",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateWalletTonConnectPendingDisconnect; wire=0xd1ee8199-\u003e0x00000000; type=Update-\u003e; source_shape=10a18b8cda0db6320259f0227d7eb9d20387887d736eca4706213f3bdd83e331; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/50541929adadcfa44a25b0ad9ad348c5a2da9a2da317174a46f74bd3357bb556",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateWalletGaslessInfo; wire=0xa8ae1cac-\u003e0x00000000; type=Update-\u003e; source_shape=2f0b753be6cdef26da88f6898ee8a7b6e520a8e5efd9eb093fcd09c9460a68e6; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/507e16f05af3d44d106b7f5974670d33d95e257afb2a47eb49e777067b896018",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=229; direction=canonical-to-profile; semantic=type:updateWalletTonConnectSession; wire=0x50a38e0e-\u003e0x00000000; type=Update-\u003e; source_shape=f575985d7cff886dc65ff0542052323208159ca35551c576cc79e30a8d4db752; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/51b67248ab9901093d542da0d8d8e039ead9ea507b09a1449ba5c79f05105c5d",
       "resolution": {
         "action": "drop",
         "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateEphemeralBotCallbackQuery; wire=0x7c1079d6-\u003e0x00000000; type=Update-\u003e; source_shape=e6ef279060da9ffeeb97aee57ce2a6c8a031fb757703d6b0aa55f72f002ce3bb; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/5b32a76bf8d5c23ea1dbefbec8cca6d13e5e2c481f69241505a06d2b96dbbcbd",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateSentWalletTransaction; wire=0xb1434d4a-\u003e0x00000000; type=Update-\u003e; source_shape=7598b5d9c6fa74ad798b0be1f030494abf6b51a16adcb62b5cdb1cb6bf370c32; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     },
     {
@@ -1253,10 +1752,31 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/6b8add08321740db924b9c6a483fde0f64e4d70fdf3a0082237c350ac324d57e",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=227; direction=canonical-to-profile; semantic=type:updateSentWalletTransaction; wire=0xb1434d4a-\u003e0x00000000; type=Update-\u003e; source_shape=7598b5d9c6fa74ad798b0be1f030494abf6b51a16adcb62b5cdb1cb6bf370c32; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/738cd447d688d03c445293ee45b971905cc0436da2b89a47331681ba3e1cdcbd",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=227; direction=canonical-to-profile; semantic=type:updateWalletGaslessInfo; wire=0xa8ae1cac-\u003e0x00000000; type=Update-\u003e; source_shape=2f0b753be6cdef26da88f6898ee8a7b6e520a8e5efd9eb093fcd09c9460a68e6; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/86b854a43c9f4fe067f8f3ef96fdf8c9fd08777c5d73b5e97cbca69c66d0d001",
       "resolution": {
         "action": "drop",
         "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateWebBrowserSettings; wire=0xc39a2ade-\u003e0x00000000; type=Update-\u003e; source_shape=85caa3586e6836d530f7b2ceaa7415f4daa058e36aacd3d8eae9494b41864a9c; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/88f0ef7f63d3edef308ab1a2284a58ae5c91be3f39382d28215841fa6faf8f6e",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateWalletState; wire=0x6ac3f2aa-\u003e0x00000000; type=Update-\u003e; source_shape=f85d4d1a35892e97133551f55923cc2d5f71ae9ee1c608019adbbbf33612a7a3; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     },
     {
@@ -1288,6 +1808,27 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/a302e6aa91797d0e3108bc5d61f8ab123d968dda78d4fa7b30b12183eb9bf402",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=225; direction=canonical-to-profile; semantic=type:updateSentWalletTransaction; wire=0xb1434d4a-\u003e0x00000000; type=Update-\u003e; source_shape=7598b5d9c6fa74ad798b0be1f030494abf6b51a16adcb62b5cdb1cb6bf370c32; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/a546d5567cba2be694e5d5229807659b7766f2d25ae11d5c82509a7be14c2e4f",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateWalletTonConnectSession; wire=0x50a38e0e-\u003e0x00000000; type=Update-\u003e; source_shape=f575985d7cff886dc65ff0542052323208159ca35551c576cc79e30a8d4db752; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/b91fdc6cdf05b36579261d961888e07beb4b1377b038baf6785dd8e15179b9c4",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateWalletGaslessInfo; wire=0xa8ae1cac-\u003e0x00000000; type=Update-\u003e; source_shape=2f0b753be6cdef26da88f6898ee8a7b6e520a8e5efd9eb093fcd09c9460a68e6; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/bc2845ff69eadae4e86497cd74d79fa25d6fd8dd2e873e0082fbdf8e4801d89b",
       "resolution": {
         "action": "drop",
@@ -1299,6 +1840,13 @@
       "resolution": {
         "action": "drop",
         "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateNewEphemeralMessage; wire=0x20bcbba1-\u003e0x00000000; type=Update-\u003e; source_shape=4e57255a3465abc2665cf75c44ab703bef2e78ff555c288a18479afa9a57a990; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/c2e374ffcd90de0598cb38105cb684e67f2f39f04c1aa91de6112abd86b7d093",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=227; direction=canonical-to-profile; semantic=type:updateWalletTonConnectSession; wire=0x50a38e0e-\u003e0x00000000; type=Update-\u003e; source_shape=f575985d7cff886dc65ff0542052323208159ca35551c576cc79e30a8d4db752; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     },
     {
@@ -1323,6 +1871,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/update-projection/ddf0821e8994ac687d6f67343ef063f7706c45976e797acddeb9a64f8374f2f5",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=226; direction=canonical-to-profile; semantic=type:updateWalletTonConnectPendingDisconnect; wire=0xd1ee8199-\u003e0x00000000; type=Update-\u003e; source_shape=10a18b8cda0db6320259f0227d7eb9d20387887d736eca4706213f3bdd83e331; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
       "key": "layer-obligation/v1/update-projection/e59e5aca70980db274767a4b94032a0002458cd2b900cb5b38e885a2143c2f2f",
       "resolution": {
         "action": "drop",
@@ -1334,6 +1889,13 @@
       "resolution": {
         "action": "drop",
         "note": "kind=update-projection; layer=228; direction=canonical-to-profile; semantic=type:updateEphemeralBotCallbackQuery; wire=0x7c1079d6-\u003e0x00000000; type=Update-\u003e; source_shape=e6ef279060da9ffeeb97aee57ce2a6c8a031fb757703d6b0aa55f72f002ce3bb; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/update-projection/fc15dcaf0c10129c6619cab410f83b2f8a088284ab724908a24130ac841e3fa0",
+      "resolution": {
+        "action": "reject",
+        "note": "kind=update-projection; layer=229; direction=canonical-to-profile; semantic=type:updateWalletTonConnectPendingDisconnect; wire=0xd1ee8199-\u003e0x00000000; type=Update-\u003e; source_shape=10a18b8cda0db6320259f0227d7eb9d20387887d736eca4706213f3bdd83e331; target_shape=0000000000000000000000000000000000000000000000000000000000000000"
       }
     }
   ]

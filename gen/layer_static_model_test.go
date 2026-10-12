@@ -143,11 +143,11 @@ func TestLayerStaticModelDirtyReachability(t *testing.T) {
 		t.Fatalf("globally clean family leaked into emitter projection: %+v", exact)
 	}
 	if got, want := model.RewriteCount, 3; got != want {
-		t.Fatalf("rewrite variants = %d, want %d", got, want)
+		t.Errorf("rewrite variants = %d, want %d", got, want)
 	}
 }
 
-func TestLayerStaticModelTelegram225Through229(t *testing.T) {
+func TestLayerStaticModelTelegram225Through230(t *testing.T) {
 	universe, err := semantic.LoadUniverse("../_schema/layers/manifest.json")
 	if err != nil {
 		t.Fatal(err)
@@ -176,17 +176,17 @@ func TestLayerStaticModelTelegram225Through229(t *testing.T) {
 	if model.ResultObligationCount == 0 {
 		t.Fatal("real layer set produced no explicit result obligations")
 	}
-	if got, want := model.FamilyCount, 529; got != want {
+	if got, want := model.FamilyCount, 687; got != want {
 		t.Fatalf("projected families = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.RewriteCount, 1341; got != want {
-		t.Fatalf("rewrite variants = %d, want locked schema count %d", got, want)
+	if got, want := model.RewriteCount, 2101; got != want {
+		t.Errorf("rewrite variants = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.UnavailableCount, 358; got != want {
+	if got, want := model.UnavailableCount, 783; got != want {
 		t.Fatalf("unavailable variants = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.ObligationCount, 181; got != want {
-		t.Fatalf("body obligation variants = %d, want locked schema count %d", got, want)
+	if got, want := model.ObligationCount, 212; got != want {
+		t.Errorf("body obligation variants = %d, want locked schema count %d", got, want)
 	}
 	if got, want := model.ResultObligationCount, 4; got != want {
 		t.Fatalf("result obligation variants = %d, want locked schema count %d", got, want)
@@ -234,7 +234,7 @@ func TestLayerStaticModelTelegram225Through229(t *testing.T) {
 		}
 	}
 	t.Logf(
-		"layers 225-229 static projection: families=%d/%d rewrite=%d unavailable=%d obligation=%d result_obligation=%d direct=%d retag=%d",
+		"layers 225-230 static projection: families=%d/%d rewrite=%d unavailable=%d obligation=%d result_obligation=%d direct=%d retag=%d",
 		model.FamilyCount, len(universe.Families), model.RewriteCount, model.UnavailableCount, model.ObligationCount, model.ResultObligationCount, directCount, retagCount,
 	)
 }

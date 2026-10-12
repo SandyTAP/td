@@ -25,6 +25,7 @@ const (
 	LayerProfile227       = Profile227
 	LayerProfile228       = Profile228
 	LayerProfile229       = Profile229
+	LayerProfile230       = Profile230
 	LayerProfileCanonical = ProfileCanonical
 )
 
@@ -336,6 +337,7 @@ const (
 	LayerSemanticTypeContactsTopPeers                                                  = SemanticTypeContactsTopPeers
 	LayerSemanticTypeContactsTopPeersDisabled                                          = SemanticTypeContactsTopPeersDisabled
 	LayerSemanticTypeContactsTopPeersNotModified                                       = SemanticTypeContactsTopPeersNotModified
+	LayerSemanticTypeCurrencyRate                                                      = SemanticTypeCurrencyRate
 	LayerSemanticTypeDataJSON                                                          = SemanticTypeDataJSON
 	LayerSemanticTypeDCOption                                                          = SemanticTypeDCOption
 	LayerSemanticTypeDefaultHistoryTTL                                                 = SemanticTypeDefaultHistoryTTL
@@ -736,6 +738,8 @@ const (
 	LayerSemanticTypeInputWallPaper                                                    = SemanticTypeInputWallPaper
 	LayerSemanticTypeInputWallPaperNoFile                                              = SemanticTypeInputWallPaperNoFile
 	LayerSemanticTypeInputWallPaperSlug                                                = SemanticTypeInputWallPaperSlug
+	LayerSemanticTypeInputWalletImported                                               = SemanticTypeInputWalletImported
+	LayerSemanticTypeInputWalletNew                                                    = SemanticTypeInputWalletNew
 	LayerSemanticTypeInputWebDocument                                                  = SemanticTypeInputWebDocument
 	LayerSemanticTypeInputWebFileAudioAlbumThumbLocation                               = SemanticTypeInputWebFileAudioAlbumThumbLocation
 	LayerSemanticTypeInputWebFileGeoPointLocation                                      = SemanticTypeInputWebFileGeoPointLocation
@@ -805,6 +809,7 @@ const (
 	LayerSemanticTypeMessageActionChatEditTitle                                        = SemanticTypeMessageActionChatEditTitle
 	LayerSemanticTypeMessageActionChatJoinedByLink                                     = SemanticTypeMessageActionChatJoinedByLink
 	LayerSemanticTypeMessageActionChatJoinedByRequest                                  = SemanticTypeMessageActionChatJoinedByRequest
+	LayerSemanticTypeMessageActionChatJoinedViaCommunity                               = SemanticTypeMessageActionChatJoinedViaCommunity
 	LayerSemanticTypeMessageActionChatMigrateTo                                        = SemanticTypeMessageActionChatMigrateTo
 	LayerSemanticTypeMessageActionConferenceCall                                       = SemanticTypeMessageActionConferenceCall
 	LayerSemanticTypeMessageActionContactSignUp                                        = SemanticTypeMessageActionContactSignUp
@@ -818,6 +823,7 @@ const (
 	LayerSemanticTypeMessageActionGiftTon                                              = SemanticTypeMessageActionGiftTon
 	LayerSemanticTypeMessageActionGiveawayLaunch                                       = SemanticTypeMessageActionGiveawayLaunch
 	LayerSemanticTypeMessageActionGiveawayResults                                      = SemanticTypeMessageActionGiveawayResults
+	LayerSemanticTypeMessageActionGramTransfer                                         = SemanticTypeMessageActionGramTransfer
 	LayerSemanticTypeMessageActionGroupCall                                            = SemanticTypeMessageActionGroupCall
 	LayerSemanticTypeMessageActionGroupCallScheduled                                   = SemanticTypeMessageActionGroupCallScheduled
 	LayerSemanticTypeMessageActionHistoryClear                                         = SemanticTypeMessageActionHistoryClear
@@ -857,6 +863,7 @@ const (
 	LayerSemanticTypeMessageActionTodoCompletions                                      = SemanticTypeMessageActionTodoCompletions
 	LayerSemanticTypeMessageActionTopicCreate                                          = SemanticTypeMessageActionTopicCreate
 	LayerSemanticTypeMessageActionTopicEdit                                            = SemanticTypeMessageActionTopicEdit
+	LayerSemanticTypeMessageActionWalletTonConnectRequest                              = SemanticTypeMessageActionWalletTonConnectRequest
 	LayerSemanticTypeMessageActionWebViewDataSent                                      = SemanticTypeMessageActionWebViewDataSent
 	LayerSemanticTypeMessageActionWebViewDataSentMe                                    = SemanticTypeMessageActionWebViewDataSentMe
 	LayerSemanticTypeMessageEmpty                                                      = SemanticTypeMessageEmpty
@@ -881,6 +888,7 @@ const (
 	LayerSemanticTypeMessageEntitySpoiler                                              = SemanticTypeMessageEntitySpoiler
 	LayerSemanticTypeMessageEntityStrike                                               = SemanticTypeMessageEntityStrike
 	LayerSemanticTypeMessageEntityTextURL                                              = SemanticTypeMessageEntityTextURL
+	LayerSemanticTypeMessageEntityTonAddress                                           = SemanticTypeMessageEntityTonAddress
 	LayerSemanticTypeMessageEntityUnderline                                            = SemanticTypeMessageEntityUnderline
 	LayerSemanticTypeMessageEntityUnknown                                              = SemanticTypeMessageEntityUnknown
 	LayerSemanticTypeMessageEntityURL                                                  = SemanticTypeMessageEntityURL
@@ -1030,6 +1038,12 @@ const (
 	LayerSemanticTypeNotifyPeer                                                        = SemanticTypeNotifyPeer
 	LayerSemanticTypeNotifyUsers                                                       = SemanticTypeNotifyUsers
 	LayerSemanticTypeNull                                                              = SemanticTypeNull
+	LayerSemanticTypeOnrampAvailability                                                = SemanticTypeOnrampAvailability
+	LayerSemanticTypeOnrampLimits                                                      = SemanticTypeOnrampLimits
+	LayerSemanticTypeOnrampMethodAvailability                                          = SemanticTypeOnrampMethodAvailability
+	LayerSemanticTypeOnrampProviderInfo                                                = SemanticTypeOnrampProviderInfo
+	LayerSemanticTypeOnrampQuote                                                       = SemanticTypeOnrampQuote
+	LayerSemanticTypeOnrampSession                                                     = SemanticTypeOnrampSession
 	LayerSemanticTypeOutboxReadDate                                                    = SemanticTypeOutboxReadDate
 	LayerSemanticTypePage                                                              = SemanticTypePage
 	LayerSemanticTypePageBlockAnchor                                                   = SemanticTypePageBlockAnchor
@@ -1096,6 +1110,7 @@ const (
 	LayerSemanticTypePaymentsCheckCanSendGiftResultOk                                  = SemanticTypePaymentsCheckCanSendGiftResultOk
 	LayerSemanticTypePaymentsCheckedGiftCode                                           = SemanticTypePaymentsCheckedGiftCode
 	LayerSemanticTypePaymentsConnectedStarRefBots                                      = SemanticTypePaymentsConnectedStarRefBots
+	LayerSemanticTypePaymentsCurrencyRates                                             = SemanticTypePaymentsCurrencyRates
 	LayerSemanticTypePaymentsExportedInvoice                                           = SemanticTypePaymentsExportedInvoice
 	LayerSemanticTypePaymentsGiveawayInfo                                              = SemanticTypePaymentsGiveawayInfo
 	LayerSemanticTypePaymentsGiveawayInfoResults                                       = SemanticTypePaymentsGiveawayInfoResults
@@ -1468,6 +1483,7 @@ const (
 	LayerSemanticTypeTextStrike                                                        = SemanticTypeTextStrike
 	LayerSemanticTypeTextSubscript                                                     = SemanticTypeTextSubscript
 	LayerSemanticTypeTextSuperscript                                                   = SemanticTypeTextSuperscript
+	LayerSemanticTypeTextTonAddress                                                    = SemanticTypeTextTonAddress
 	LayerSemanticTypeTextUnderline                                                     = SemanticTypeTextUnderline
 	LayerSemanticTypeTextURL                                                           = SemanticTypeTextURL
 	LayerSemanticTypeTextWithEntities                                                  = SemanticTypeTextWithEntities
@@ -1477,6 +1493,12 @@ const (
 	LayerSemanticTypeTodoCompletion                                                    = SemanticTypeTodoCompletion
 	LayerSemanticTypeTodoItem                                                          = SemanticTypeTodoItem
 	LayerSemanticTypeTodoList                                                          = SemanticTypeTodoList
+	LayerSemanticTypeTonConnectManifest                                                = SemanticTypeTonConnectManifest
+	LayerSemanticTypeTonConnectNextEventID                                             = SemanticTypeTonConnectNextEventID
+	LayerSemanticTypeTonConnectRequest                                                 = SemanticTypeTonConnectRequest
+	LayerSemanticTypeTonConnectSession                                                 = SemanticTypeTonConnectSession
+	LayerSemanticTypeToncenterAPIResponse                                              = SemanticTypeToncenterAPIResponse
+	LayerSemanticTypeToncenterStreamingURL                                             = SemanticTypeToncenterStreamingURL
 	LayerSemanticTypeTopPeer                                                           = SemanticTypeTopPeer
 	LayerSemanticTypeTopPeerCategoryBotsApp                                            = SemanticTypeTopPeerCategoryBotsApp
 	LayerSemanticTypeTopPeerCategoryBotsGuestChat                                      = SemanticTypeTopPeerCategoryBotsGuestChat
@@ -1631,6 +1653,7 @@ const (
 	LayerSemanticTypeUpdateSavedRingtones                                              = SemanticTypeUpdateSavedRingtones
 	LayerSemanticTypeUpdateSentPhoneCode                                               = SemanticTypeUpdateSentPhoneCode
 	LayerSemanticTypeUpdateSentStoryReaction                                           = SemanticTypeUpdateSentStoryReaction
+	LayerSemanticTypeUpdateSentWalletTransaction                                       = SemanticTypeUpdateSentWalletTransaction
 	LayerSemanticTypeUpdateServiceNotification                                         = SemanticTypeUpdateServiceNotification
 	LayerSemanticTypeUpdateShort                                                       = SemanticTypeUpdateShort
 	LayerSemanticTypeUpdateShortChatMessage                                            = SemanticTypeUpdateShortChatMessage
@@ -1655,6 +1678,10 @@ const (
 	LayerSemanticTypeUpdateUserPhone                                                   = SemanticTypeUpdateUserPhone
 	LayerSemanticTypeUpdateUserStatus                                                  = SemanticTypeUpdateUserStatus
 	LayerSemanticTypeUpdateUserTyping                                                  = SemanticTypeUpdateUserTyping
+	LayerSemanticTypeUpdateWalletGaslessInfo                                           = SemanticTypeUpdateWalletGaslessInfo
+	LayerSemanticTypeUpdateWalletState                                                 = SemanticTypeUpdateWalletState
+	LayerSemanticTypeUpdateWalletTonConnectPendingDisconnect                           = SemanticTypeUpdateWalletTonConnectPendingDisconnect
+	LayerSemanticTypeUpdateWalletTonConnectSession                                     = SemanticTypeUpdateWalletTonConnectSession
 	LayerSemanticTypeUpdateWebBrowserException                                         = SemanticTypeUpdateWebBrowserException
 	LayerSemanticTypeUpdateWebBrowserSettings                                          = SemanticTypeUpdateWebBrowserSettings
 	LayerSemanticTypeUpdateWebPage                                                     = SemanticTypeUpdateWebPage
@@ -1701,6 +1728,28 @@ const (
 	LayerSemanticTypeWallPaper                                                         = SemanticTypeWallPaper
 	LayerSemanticTypeWallPaperNoFile                                                   = SemanticTypeWallPaperNoFile
 	LayerSemanticTypeWallPaperSettings                                                 = SemanticTypeWallPaperSettings
+	LayerSemanticTypeWalletEncryptedSecretPhrasePart                                   = SemanticTypeWalletEncryptedSecretPhrasePart
+	LayerSemanticTypeWalletExistingBalance                                             = SemanticTypeWalletExistingBalance
+	LayerSemanticTypeWalletHolderDC                                                    = SemanticTypeWalletHolderDC
+	LayerSemanticTypeWalletNftAttribute                                                = SemanticTypeWalletNftAttribute
+	LayerSemanticTypeWalletNftItem                                                     = SemanticTypeWalletNftItem
+	LayerSemanticTypeWalletNftItems                                                    = SemanticTypeWalletNftItems
+	LayerSemanticTypeWalletProofChallenge                                              = SemanticTypeWalletProofChallenge
+	LayerSemanticTypeWalletSecretPhraseParts                                           = SemanticTypeWalletSecretPhraseParts
+	LayerSemanticTypeWalletTonConnectChallenge                                         = SemanticTypeWalletTonConnectChallenge
+	LayerSemanticTypeWalletTonConnectPending                                           = SemanticTypeWalletTonConnectPending
+	LayerSemanticTypeWalletTonConnectSessions                                          = SemanticTypeWalletTonConnectSessions
+	LayerSemanticTypeWalletTransactions                                                = SemanticTypeWalletTransactions
+	LayerSemanticTypeWalletUserAddresses                                               = SemanticTypeWalletUserAddresses
+	LayerSemanticTypeWalletOwnershipProof                                              = SemanticTypeWalletOwnershipProof
+	LayerSemanticTypeWalletState                                                       = SemanticTypeWalletState
+	LayerSemanticTypeWalletStateEmpty                                                  = SemanticTypeWalletStateEmpty
+	LayerSemanticTypeWalletTransaction                                                 = SemanticTypeWalletTransaction
+	LayerSemanticTypeWalletTransactionPeerAddress                                      = SemanticTypeWalletTransactionPeerAddress
+	LayerSemanticTypeWalletTransactionPeerOnramp                                       = SemanticTypeWalletTransactionPeerOnramp
+	LayerSemanticTypeWalletTransactionPeerUnsupported                                  = SemanticTypeWalletTransactionPeerUnsupported
+	LayerSemanticTypeWalletTransactionPeerUser                                         = SemanticTypeWalletTransactionPeerUser
+	LayerSemanticTypeWalletUserAddress                                                 = SemanticTypeWalletUserAddress
 	LayerSemanticTypeWebAuthorization                                                  = SemanticTypeWebAuthorization
 	LayerSemanticTypeWebDocument                                                       = SemanticTypeWebDocument
 	LayerSemanticTypeWebDocumentNoProxy                                                = SemanticTypeWebDocumentNoProxy
@@ -1856,6 +1905,7 @@ const (
 	LayerSemanticMethodAuthAcceptLoginToken                                            = SemanticMethodAuthAcceptLoginToken
 	LayerSemanticMethodAuthBindTempAuthKey                                             = SemanticMethodAuthBindTempAuthKey
 	LayerSemanticMethodAuthCancelCode                                                  = SemanticMethodAuthCancelCode
+	LayerSemanticMethodAuthCancelWebTokenAuthorization                                 = SemanticMethodAuthCancelWebTokenAuthorization
 	LayerSemanticMethodAuthCheckPaidAuth                                               = SemanticMethodAuthCheckPaidAuth
 	LayerSemanticMethodAuthCheckPassword                                               = SemanticMethodAuthCheckPassword
 	LayerSemanticMethodAuthCheckRecoveryPassword                                       = SemanticMethodAuthCheckRecoveryPassword
@@ -1883,6 +1933,7 @@ const (
 	LayerSemanticMethodAuthSignIn                                                      = SemanticMethodAuthSignIn
 	LayerSemanticMethodAuthSignUp                                                      = SemanticMethodAuthSignUp
 	LayerSemanticMethodBotsAddPreviewMedia                                             = SemanticMethodBotsAddPreviewMedia
+	LayerSemanticMethodBotsAddUsername                                                 = SemanticMethodBotsAddUsername
 	LayerSemanticMethodBotsAllowSendMessage                                            = SemanticMethodBotsAllowSendMessage
 	LayerSemanticMethodBotsAnswerWebhookJSONQuery                                      = SemanticMethodBotsAnswerWebhookJSONQuery
 	LayerSemanticMethodBotsCanSendMessage                                              = SemanticMethodBotsCanSendMessage
@@ -1904,6 +1955,7 @@ const (
 	LayerSemanticMethodBotsGetPreviewMedias                                            = SemanticMethodBotsGetPreviewMedias
 	LayerSemanticMethodBotsGetRequestedWebViewButton                                   = SemanticMethodBotsGetRequestedWebViewButton
 	LayerSemanticMethodBotsInvokeWebViewCustomMethod                                   = SemanticMethodBotsInvokeWebViewCustomMethod
+	LayerSemanticMethodBotsRemoveUsername                                              = SemanticMethodBotsRemoveUsername
 	LayerSemanticMethodBotsReorderPreviewMedias                                        = SemanticMethodBotsReorderPreviewMedias
 	LayerSemanticMethodBotsReorderUsernames                                            = SemanticMethodBotsReorderUsernames
 	LayerSemanticMethodBotsRequestWebViewButton                                        = SemanticMethodBotsRequestWebViewButton
@@ -2348,6 +2400,7 @@ const (
 	LayerSemanticMethodPaymentsConnectStarRefBot                                       = SemanticMethodPaymentsConnectStarRefBot
 	LayerSemanticMethodPaymentsConvertStarGift                                         = SemanticMethodPaymentsConvertStarGift
 	LayerSemanticMethodPaymentsCraftStarGift                                           = SemanticMethodPaymentsCraftStarGift
+	LayerSemanticMethodPaymentsCreateOnrampSession                                     = SemanticMethodPaymentsCreateOnrampSession
 	LayerSemanticMethodPaymentsCreateStarGiftCollection                                = SemanticMethodPaymentsCreateStarGiftCollection
 	LayerSemanticMethodPaymentsDeleteStarGiftCollection                                = SemanticMethodPaymentsDeleteStarGiftCollection
 	LayerSemanticMethodPaymentsEditConnectedStarRefBot                                 = SemanticMethodPaymentsEditConnectedStarRefBot
@@ -2357,7 +2410,13 @@ const (
 	LayerSemanticMethodPaymentsGetConnectedStarRefBot                                  = SemanticMethodPaymentsGetConnectedStarRefBot
 	LayerSemanticMethodPaymentsGetConnectedStarRefBots                                 = SemanticMethodPaymentsGetConnectedStarRefBots
 	LayerSemanticMethodPaymentsGetCraftStarGifts                                       = SemanticMethodPaymentsGetCraftStarGifts
+	LayerSemanticMethodPaymentsGetCurrencyRates                                        = SemanticMethodPaymentsGetCurrencyRates
 	LayerSemanticMethodPaymentsGetGiveawayInfo                                         = SemanticMethodPaymentsGetGiveawayInfo
+	LayerSemanticMethodPaymentsGetOnrampAvailability                                   = SemanticMethodPaymentsGetOnrampAvailability
+	LayerSemanticMethodPaymentsGetOnrampBaseCurrencies                                 = SemanticMethodPaymentsGetOnrampBaseCurrencies
+	LayerSemanticMethodPaymentsGetOnrampLimits                                         = SemanticMethodPaymentsGetOnrampLimits
+	LayerSemanticMethodPaymentsGetOnrampProviders                                      = SemanticMethodPaymentsGetOnrampProviders
+	LayerSemanticMethodPaymentsGetOnrampQuote                                          = SemanticMethodPaymentsGetOnrampQuote
 	LayerSemanticMethodPaymentsGetPaymentForm                                          = SemanticMethodPaymentsGetPaymentForm
 	LayerSemanticMethodPaymentsGetPaymentReceipt                                       = SemanticMethodPaymentsGetPaymentReceipt
 	LayerSemanticMethodPaymentsGetPremiumGiftCodeOptions                               = SemanticMethodPaymentsGetPremiumGiftCodeOptions
@@ -2515,6 +2574,8 @@ const (
 	LayerSemanticMethodStoriesUpdateAlbum                                              = SemanticMethodStoriesUpdateAlbum
 	LayerSemanticMethodTestUseConfigSimple                                             = SemanticMethodTestUseConfigSimple
 	LayerSemanticMethodTestUseError                                                    = SemanticMethodTestUseError
+	LayerSemanticMethodToncenterGetStreamingURL                                        = SemanticMethodToncenterGetStreamingURL
+	LayerSemanticMethodToncenterPerformAPIRequest                                      = SemanticMethodToncenterPerformAPIRequest
 	LayerSemanticMethodUpdatesGetChannelDifference                                     = SemanticMethodUpdatesGetChannelDifference
 	LayerSemanticMethodUpdatesGetDifference                                            = SemanticMethodUpdatesGetDifference
 	LayerSemanticMethodUpdatesGetState                                                 = SemanticMethodUpdatesGetState
@@ -2533,6 +2594,31 @@ const (
 	LayerSemanticMethodUsersGetUsers                                                   = SemanticMethodUsersGetUsers
 	LayerSemanticMethodUsersSetSecureValueErrors                                       = SemanticMethodUsersSetSecureValueErrors
 	LayerSemanticMethodUsersSuggestBirthday                                            = SemanticMethodUsersSuggestBirthday
+	LayerSemanticMethodWalletDisableBackup                                             = SemanticMethodWalletDisableBackup
+	LayerSemanticMethodWalletEnableBackup                                              = SemanticMethodWalletEnableBackup
+	LayerSemanticMethodWalletExportSecretPhrase                                        = SemanticMethodWalletExportSecretPhrase
+	LayerSemanticMethodWalletFetchEncryptedSecretPhrasePart                            = SemanticMethodWalletFetchEncryptedSecretPhrasePart
+	LayerSemanticMethodWalletGetBackupHolderDCs                                        = SemanticMethodWalletGetBackupHolderDCs
+	LayerSemanticMethodWalletGetExistingWaltBalance                                    = SemanticMethodWalletGetExistingWaltBalance
+	LayerSemanticMethodWalletGetGaslessInfo                                            = SemanticMethodWalletGetGaslessInfo
+	LayerSemanticMethodWalletGetNfts                                                   = SemanticMethodWalletGetNfts
+	LayerSemanticMethodWalletGetProofChallenge                                         = SemanticMethodWalletGetProofChallenge
+	LayerSemanticMethodWalletGetState                                                  = SemanticMethodWalletGetState
+	LayerSemanticMethodWalletGetTransactions                                           = SemanticMethodWalletGetTransactions
+	LayerSemanticMethodWalletGetTransactionsByIDs                                      = SemanticMethodWalletGetTransactionsByIDs
+	LayerSemanticMethodWalletGetTransactionsByMsgHash                                  = SemanticMethodWalletGetTransactionsByMsgHash
+	LayerSemanticMethodWalletGetUserAddresses                                          = SemanticMethodWalletGetUserAddresses
+	LayerSemanticMethodWalletReplaceWallet                                             = SemanticMethodWalletReplaceWallet
+	LayerSemanticMethodWalletSendTransfer                                              = SemanticMethodWalletSendTransfer
+	LayerSemanticMethodWalletTonConnectClaimRequest                                    = SemanticMethodWalletTonConnectClaimRequest
+	LayerSemanticMethodWalletTonConnectCloseSession                                    = SemanticMethodWalletTonConnectCloseSession
+	LayerSemanticMethodWalletTonConnectCreateSession                                   = SemanticMethodWalletTonConnectCreateSession
+	LayerSemanticMethodWalletTonConnectGetPending                                      = SemanticMethodWalletTonConnectGetPending
+	LayerSemanticMethodWalletTonConnectGetSessions                                     = SemanticMethodWalletTonConnectGetSessions
+	LayerSemanticMethodWalletTonConnectNextEventID                                     = SemanticMethodWalletTonConnectNextEventID
+	LayerSemanticMethodWalletTonConnectRegisterKey                                     = SemanticMethodWalletTonConnectRegisterKey
+	LayerSemanticMethodWalletTonConnectSubmitConnectResult                             = SemanticMethodWalletTonConnectSubmitConnectResult
+	LayerSemanticMethodWalletTonConnectSubmitResponse                                  = SemanticMethodWalletTonConnectSubmitResponse
 )
 
 func LayerSemanticName(id LayerSemanticID) (string, string, bool) { return SemanticName(id) }
@@ -2985,6 +3071,36 @@ var _ func(LayerProfile, *tg.KeyboardInlineButton) (bool, tg.KeyboardButtonStyle
 // intentionally fail compilation. Production encoding invokes each hook once
 // inside one transactional pass; hooks must not mutate their input value.
 var _ func(LayerProfile, tg.UpdatesClass) (bool, error) = layerAdaptWebBrowserSettingsExceptionResult
+
+// Static policy contract for layerBotVerificationTextDecode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotVerification, bool, string) (tg.TextWithEntities, error) = layerBotVerificationTextDecode
+
+// Static policy contract for layerBotVerificationTextEncode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotVerification, tg.TextWithEntities) (string, error) = layerBotVerificationTextEncode
+
+// Static policy contract for layerBotVerifierSettingsTextDecode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotVerifierSettings, bool, string) (tg.TextWithEntities, bool, error) = layerBotVerifierSettingsTextDecode
+
+// Static policy contract for layerBotVerifierSettingsTextEncode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotVerifierSettings, bool, tg.TextWithEntities) (string, bool, error) = layerBotVerifierSettingsTextEncode
+
+// Static policy contract for layerBotsSetCustomVerificationTextDecode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotsSetCustomVerificationRequest, bool, string) (tg.TextWithEntities, bool, error) = layerBotsSetCustomVerificationTextDecode
+
+// Static policy contract for layerBotsSetCustomVerificationTextEncode. Missing hooks and signature drift
+// intentionally fail compilation. Production encoding invokes each hook once
+// inside one transactional pass; hooks must not mutate their input value.
+var _ func(LayerProfile, *tg.BotsSetCustomVerificationRequest, bool, tg.TextWithEntities) (string, bool, error) = layerBotsSetCustomVerificationTextEncode
 
 // Static policy contract for layerCaptureChatInviteJoinQueryIDFromWebViewDecode. Missing hooks and signature drift
 // intentionally fail compilation. Production encoding invokes each hook once

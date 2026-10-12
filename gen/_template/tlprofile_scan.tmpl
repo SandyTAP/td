@@ -245,7 +245,7 @@ func tlScanBody{{ .ID }}(profile Profile, b *bin.Buffer, state *tlScanState) err
     if err := state.enter(profile); err != nil { return err }
     defer state.leave()
     {{ .Source }}
-    return nil
+    {{ if not .Reject }}return nil{{ end }}
 }
 {{ end }}
 

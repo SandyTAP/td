@@ -25,6 +25,7 @@ func TestPageBlockVectorExactProfiles(t *testing.T) {
 	}{
 		{name: "layer228", profile: Profile228, constructor: 0x263d7c26, collapsed: false},
 		{name: "layer229", profile: Profile229, constructor: 0x66d1670b, collapsed: true},
+		{name: "layer230", profile: Profile230, constructor: 0x66d1670b, collapsed: true},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {

@@ -315,6 +315,9 @@ func (c *layerValueCompiler) compile(
 				// of the canonical form of this historical class.
 				continue
 			}
+			if layerRejectedHistoricalType(constructor.Conversion) {
+				continue
+			}
 			plan.Constructors = append(plan.Constructors, constructor)
 		}
 		// The value's Go shape is owned by the canonical schema, not by how

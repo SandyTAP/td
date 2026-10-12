@@ -243,7 +243,9 @@ func TestLayerExecutionPlanRealSchemaIsSparse(t *testing.T) {
 	if len(model.BodyPlans)*4 >= len(model.Routes) {
 		t.Fatalf("sparse body-plan ratio regressed: plans=%d routes=%d", len(model.BodyPlans), len(model.Routes))
 	}
-	if len(model.BodyPlans) > 1200 || len(model.PreflightPlans) > 1000 || len(model.ResultPlans) > 700 {
+	// Layer 230 adds a sixth profile and 85 new definitions, with 1626/1085/858
+	// deduplicated plans. Byte/line caps remain unchanged in the source gate.
+	if len(model.BodyPlans) > 1700 || len(model.PreflightPlans) > 1100 || len(model.ResultPlans) > 900 {
 		t.Fatalf("sparse plan budget regressed: body=%d preflight=%d result=%d", len(model.BodyPlans), len(model.PreflightPlans), len(model.ResultPlans))
 	}
 }
@@ -325,7 +327,7 @@ func TestLayerWrapperModelRealSchemaStaysCompact(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Logf("sparse wrappers bodies=%d unprofiled_invariants=%d known_rpc_ids=%d", len(model.Bodies), len(model.UnprofiledInvariants), len(model.KnownRPCWireIDs))
-	if len(model.Bodies) != 11 || len(model.UnprofiledInvariants) != 422 || len(model.KnownRPCWireIDs) < 800 {
+	if len(model.Bodies) != 11 || len(model.UnprofiledInvariants) != 400 || len(model.KnownRPCWireIDs) < 800 {
 		t.Fatalf("sparse wrapper/invariant surface drifted: bodies=%d invariants=%d known=%d", len(model.Bodies), len(model.UnprofiledInvariants), len(model.KnownRPCWireIDs))
 	}
 	vectorGuard := false

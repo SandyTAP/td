@@ -56,7 +56,7 @@ func TestRealLayerPolicy(t *testing.T) {
 	if unresolved := resolved.LayerConversionPlan().Report.Unresolved(); len(unresolved) != 0 {
 		t.Fatalf("real policy leaves %d unresolved obligations; first=%+v", len(unresolved), unresolved[0])
 	}
-	if got, want := len(document.Entries), 167; got != want {
+	if got, want := len(document.Entries), 243; got != want {
 		t.Fatalf("reviewed policy entry count = %d, want %d", got, want)
 	}
 	codec, err := resolved.buildLayerCodecModel("tg")
@@ -81,6 +81,12 @@ func TestRealLayerPolicy(t *testing.T) {
 func assertRealLayerHookContracts(t *testing.T, codec, sparse []layerCodecHookContract) {
 	t.Helper()
 	wantCodec := map[string]string{
+		"layerBotVerificationTextEncode":                             "func(LayerProfile, *BotVerification, TextWithEntities) (string, error)",
+		"layerBotVerificationTextDecode":                             "func(LayerProfile, *BotVerification, bool, string) (TextWithEntities, error)",
+		"layerBotVerifierSettingsTextEncode":                         "func(LayerProfile, *BotVerifierSettings, bool, TextWithEntities) (string, bool, error)",
+		"layerBotVerifierSettingsTextDecode":                         "func(LayerProfile, *BotVerifierSettings, bool, string) (TextWithEntities, bool, error)",
+		"layerBotsSetCustomVerificationTextEncode":                   "func(LayerProfile, *BotsSetCustomVerificationRequest, bool, TextWithEntities) (string, bool, error)",
+		"layerBotsSetCustomVerificationTextDecode":                   "func(LayerProfile, *BotsSetCustomVerificationRequest, bool, string) (TextWithEntities, bool, error)",
 		"layerAdaptLegacyInputKeyboardButtonRequestPeerDecode":       "func(LayerProfile, bool, bool, bool, bool, KeyboardButtonStyle, string, int, RequestPeerTypeClass, int) (*KeyboardButton, error)",
 		"layerAdaptLegacyInputKeyboardButtonRequestPeerEncode":       "func(LayerProfile, *KeyboardButton) (bool, bool, bool, bool, KeyboardButtonStyle, string, int, RequestPeerTypeClass, int, error)",
 		"layerAdaptLegacyInputKeyboardInlineButtonURLAuthDecode":     "func(LayerProfile, bool, bool, KeyboardButtonStyle, string, bool, string, string, InputUserClass) (*KeyboardInlineButton, error)",
@@ -187,6 +193,12 @@ func realLayerResolution(obligation LayerObligation) (LayerObligationResolution,
 	// as an ordinary group command, so older profiles must project the entire
 	// vector element out.
 	if obligation.Kind == LayerObligationFieldProjection {
+		if obligation.Layer >= 225 && obligation.Layer < 230 {
+			switch obligation.Semantic.QName + ":" + obligation.Field {
+			case "username:deletable", "username:expired", "bots.checkUsername:additional", "auth.initFirebasePnvLogin:except_ids":
+				return LayerObligationResolution{Action: LayerResolveRejectIfPresent}, true, nil
+			}
+		}
 		if obligation.Semantic.QName == "botCommand" &&
 			obligation.Field == "ephemeral" &&
 			obligation.Layer >= 225 && obligation.Layer < 228 {
@@ -233,8 +245,19 @@ func realLayerResolution(obligation LayerObligation) (LayerObligationResolution,
 	}
 	switch obligation.Kind {
 	case LayerObligationOldOnly:
+		if obligation.Semantic.QName == "inputPasskeyCredentialFirebasePNV" {
+			return LayerObligationResolution{Action: LayerResolveReject}, true, nil
+		}
 		return realHistoricalKeyboardResolution(obligation)
 	case LayerObligationIncompatible:
+		switch obligation.Semantic.QName + ":" + obligation.Field {
+		case "botVerification:description":
+			return adapter("layerBotVerificationText")
+		case "botVerifierSettings:custom_description":
+			return adapter("layerBotVerifierSettingsText")
+		case "bots.setCustomVerification:custom_description":
+			return adapter("layerBotsSetCustomVerificationText")
+		}
 		if obligation.Semantic.QName == "replyInlineMarkup" && obligation.Field == "rows" {
 			return adapter("layerAdaptLegacyInlineKeyboardRows")
 		}
@@ -268,6 +291,10 @@ func realLayerResolution(obligation LayerObligation) (LayerObligationResolution,
 			return adapter("layerAdaptBotGuestChatResult")
 		}
 	case LayerObligationUpdateProjection:
+		switch obligation.Semantic.QName {
+		case "updateWalletState", "updateSentWalletTransaction", "updateWalletGaslessInfo", "updateWalletTonConnectSession", "updateWalletTonConnectPendingDisconnect":
+			return LayerObligationResolution{Action: LayerResolveReject}, true, nil
+		}
 		return LayerObligationResolution{Action: LayerResolveDrop}, true, nil
 	}
 	return LayerObligationResolution{}, false, fmt.Errorf("unreviewed real layer obligation: %+v", obligation)

@@ -34,6 +34,7 @@ type layerScanModel struct {
 type layerScanBody struct {
 	ID     int
 	Source string
+	Reject bool
 }
 
 type layerScanProfileBody struct {
@@ -114,6 +115,7 @@ func (g *Generator) buildLayerScanModel() (*layerScanModel, error) {
 		return nil, fmt.Errorf("gen: layer scanner requires a schema set")
 	}
 	layers := g.schemaSet.Layers()
+	conversions := g.LayerConversionPlan()
 	emitter := &layerScanEmitter{bodyBySource: make(map[string]int)}
 	bodyByDefinition := make(map[layerScanDefinitionKey]int)
 	wireRoutes := make(map[uint32]map[int]int)
@@ -134,7 +136,12 @@ func (g *Generator) buildLayerScanModel() (*layerScanModel, error) {
 			if err != nil {
 				return nil, fmt.Errorf("gen: layer %d scanner %s: %w", layer, definition.Key, err)
 			}
+			rejected := layerRejectedHistoricalType(conversions.Profile(layer).Family(definition.Key))
+			if rejected {
+				source = "return fmt.Errorf(\"historical constructor rejected by exact-profile policy\")\n"
+			}
 			body := emitter.addBody(source)
+			emitter.bodies[body].Reject = rejected
 			key := layerScanDefinitionKey{Layer: layer, Key: definition.Key}
 			bodyByDefinition[key] = body
 			routes := wireRoutes[definition.WireID]

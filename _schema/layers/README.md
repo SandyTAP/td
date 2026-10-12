@@ -105,6 +105,15 @@ Adding a schema-identical next profile therefore only extends generated profile
 metadata and switch cases. A genuinely changed schema stops at generation time
 until its semantic policy and typed hook are supplied.
 
+### Layer 230 review record
+
+Canonical Layer 230 is frozen from Telegram Desktop 7.3.1. Profiles 225–229
+remain generated. The [Layer 230 review](LAYER230_REVIEW.md) records source
+provenance, the 243 reviewed policy decisions, verification text adapters,
+explicit rejection of the removed Firebase credential, and validation gates.
+Historical-only constructors may now be explicitly rejected before typed
+materialization; this never creates a fake canonical adapter.
+
 ### Layer 229 review record
 
 Layer 229 was imported from Telegram Desktop commit

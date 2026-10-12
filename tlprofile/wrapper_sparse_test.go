@@ -100,11 +100,14 @@ func TestSparseStrictAdmissionRejectsConflictingInvokeWithLayerTransactionally(t
 }
 
 func TestSparseWrapperVectorMetadataIsImmutable(t *testing.T) {
-	request := &tg.InvokeAfterMsgsRequest{MsgIDs: []int64{11, 22}, Query: &tg.HelpGetConfigRequest{}}
+	// Literal exact wrapper oracle keeps this metadata test independent of
+	// canonical generation and historical generic-envelope encoding support.
 	var body bin.Buffer
-	if err := EncodeObject(Profile229, request, &body); err != nil {
-		t.Fatal(err)
-	}
+	body.PutID(0x3dc4b4f0)
+	body.PutVectorHeader(2)
+	body.PutLong(11)
+	body.PutLong(22)
+	body.PutID(0xc4f9186b)
 	admitted, err := NewDispatcher().Admit(Profile229, &body, Limits{})
 	if err != nil {
 		t.Fatal(err)

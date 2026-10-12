@@ -355,6 +355,9 @@ func (e *layerCodecEmitter) buildWires() error {
 				if action.Kind == layerWireReject {
 					continue
 				}
+				if layerRejectedHistoricalType(action.Conversion) {
+					continue
+				}
 				historical := e.wire.historicalWire(action.Layer, plan.WireID)
 				if historical == nil {
 					return fmt.Errorf("gen: E_PROFILE_ONLY_TYPE_PLAN_MISSING: layer %d wire %#08x semantic %s has no static historical mapping", action.Layer, plan.WireID, plan.Key)
@@ -370,8 +373,8 @@ func (e *layerCodecEmitter) buildWires() error {
 				}
 				out.Profiles = append(out.Profiles, body)
 			}
-			if len(out.Profiles) == 0 || out.CanonicalType == "" {
-				return fmt.Errorf("gen: E_PROFILE_ONLY_TYPE_NO_ACCEPTED_PROFILE: historical type wire %#08x has no statically encodable profile", plan.WireID)
+			if len(out.Profiles) == 0 {
+				continue // Every defined profile explicitly rejects this historical type.
 			}
 			out.ProfileGroups = groupLayerCodecProfileBodies(out.Profiles)
 			e.model.Wires = append(e.model.Wires, out)
@@ -2449,6 +2452,9 @@ func (e *layerCodecEmitter) classProfileGroups(class *layerClassPlan) ([]layerCo
 				return nil, fmt.Errorf("gen: class %s layer %d wire %#08x has invalid family index", class.QName, profile.Layer, constructor.WireID)
 			}
 			family := &e.wire.Families[constructor.FamilyIndex]
+			if layerRejectedHistoricalType(family.profile(profile.Layer).Conversion) {
+				continue
+			}
 			goType := ""
 			if family.Canonical != nil {
 				goType = family.Canonical.Structure.Name
@@ -2612,7 +2618,7 @@ func (e *layerCodecEmitter) buildObjectDispatcher() error {
 			if historicalType {
 				fmt.Fprintf(&decode, "\tcase 0x%08x:\n\t\treturn layerDecodeWire%08x(profile, b, state)\n", wire.WireID, wire.WireID)
 			} else {
-				fmt.Fprintf(&decode, "\tcase 0x%08x:\n\t\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: id, Reason: \"profile-only method has no canonical object\"}\n", wire.WireID)
+				fmt.Fprintf(&decode, "\tcase 0x%08x:\n\t\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: id, Reason: \"profile-only definition has no canonical object\"}\n", wire.WireID)
 			}
 			continue
 		}

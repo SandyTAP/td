@@ -41,7 +41,8 @@ const (
 	Profile227       Profile = 227
 	Profile228       Profile = 228
 	Profile229       Profile = 229
-	ProfileCanonical Profile = 229
+	Profile230       Profile = 230
+	ProfileCanonical Profile = 230
 )
 
 // ResolveProfile accepts only exact generated profiles.
@@ -57,6 +58,8 @@ func ResolveProfile(layer int) (Profile, bool) {
 		return Profile228, true
 	case Profile229:
 		return Profile229, true
+	case Profile230:
+		return Profile230, true
 	default:
 		return 0, false
 	}
@@ -370,6 +373,7 @@ const (
 	SemanticTypeContactsTopPeers                                                  SemanticID = 0x912e259f879e8acf
 	SemanticTypeContactsTopPeersDisabled                                          SemanticID = 0xec63d2b15cff9589
 	SemanticTypeContactsTopPeersNotModified                                       SemanticID = 0xc2a40aee60078be9
+	SemanticTypeCurrencyRate                                                      SemanticID = 0xc344117f8b2a2b6b
 	SemanticTypeDataJSON                                                          SemanticID = 0x4fe5988e5317901a
 	SemanticTypeDCOption                                                          SemanticID = 0x25d5ce0e4c4922a7
 	SemanticTypeDefaultHistoryTTL                                                 SemanticID = 0xc53f97038482161f
@@ -770,6 +774,8 @@ const (
 	SemanticTypeInputWallPaper                                                    SemanticID = 0x3b6bfd2e30b91cd7
 	SemanticTypeInputWallPaperNoFile                                              SemanticID = 0x9f789a816a913e0f
 	SemanticTypeInputWallPaperSlug                                                SemanticID = 0x765b22d802c60740
+	SemanticTypeInputWalletImported                                               SemanticID = 0x57c28e50e1e75be7
+	SemanticTypeInputWalletNew                                                    SemanticID = 0xf9f8a27fec04d4af
 	SemanticTypeInputWebDocument                                                  SemanticID = 0x48ee587e4d2f2e7a
 	SemanticTypeInputWebFileAudioAlbumThumbLocation                               SemanticID = 0xfc55b228d8b7ec98
 	SemanticTypeInputWebFileGeoPointLocation                                      SemanticID = 0x5b99817151822313
@@ -839,6 +845,7 @@ const (
 	SemanticTypeMessageActionChatEditTitle                                        SemanticID = 0xd3db5cb0f85d9b45
 	SemanticTypeMessageActionChatJoinedByLink                                     SemanticID = 0x85bcfdb3eac68cd5
 	SemanticTypeMessageActionChatJoinedByRequest                                  SemanticID = 0xb51ef1e5a8ff9da1
+	SemanticTypeMessageActionChatJoinedViaCommunity                               SemanticID = 0x9ed0d441586a42d6
 	SemanticTypeMessageActionChatMigrateTo                                        SemanticID = 0x79651bf2e69acf2e
 	SemanticTypeMessageActionConferenceCall                                       SemanticID = 0x1ed198dc75af618b
 	SemanticTypeMessageActionContactSignUp                                        SemanticID = 0x4293ec32eebcd87c
@@ -852,6 +859,7 @@ const (
 	SemanticTypeMessageActionGiftTon                                              SemanticID = 0x247e01b1484a194d
 	SemanticTypeMessageActionGiveawayLaunch                                       SemanticID = 0x70dc354f437557b1
 	SemanticTypeMessageActionGiveawayResults                                      SemanticID = 0x6bfa144a8da0ee5b
+	SemanticTypeMessageActionGramTransfer                                         SemanticID = 0x462aefd21f5767e5
 	SemanticTypeMessageActionGroupCall                                            SemanticID = 0xc208a8b7552fe2a7
 	SemanticTypeMessageActionGroupCallScheduled                                   SemanticID = 0xc6f323adaf692165
 	SemanticTypeMessageActionHistoryClear                                         SemanticID = 0x6e72a1b61714dee0
@@ -891,6 +899,7 @@ const (
 	SemanticTypeMessageActionTodoCompletions                                      SemanticID = 0x83507215400dafbf
 	SemanticTypeMessageActionTopicCreate                                          SemanticID = 0x5d12e36b9ed9a28f
 	SemanticTypeMessageActionTopicEdit                                            SemanticID = 0xec3824f035a19e0f
+	SemanticTypeMessageActionWalletTonConnectRequest                              SemanticID = 0x3c6c3a5dc3d61f3d
 	SemanticTypeMessageActionWebViewDataSent                                      SemanticID = 0x8416d2fd715e72b7
 	SemanticTypeMessageActionWebViewDataSentMe                                    SemanticID = 0x728576db03a9e9d8
 	SemanticTypeMessageEmpty                                                      SemanticID = 0xbc8e88f989cc7876
@@ -915,6 +924,7 @@ const (
 	SemanticTypeMessageEntitySpoiler                                              SemanticID = 0xb10fc8eeebf95794
 	SemanticTypeMessageEntityStrike                                               SemanticID = 0x7b7ced8ac045b1ae
 	SemanticTypeMessageEntityTextURL                                              SemanticID = 0x3fd11fac3bd0397a
+	SemanticTypeMessageEntityTonAddress                                           SemanticID = 0x9e4f1e47f5305ada
 	SemanticTypeMessageEntityUnderline                                            SemanticID = 0x699af4fb595706d9
 	SemanticTypeMessageEntityUnknown                                              SemanticID = 0xee7000d1eec7da0f
 	SemanticTypeMessageEntityURL                                                  SemanticID = 0x21eab70acd6c6879
@@ -1064,6 +1074,12 @@ const (
 	SemanticTypeNotifyPeer                                                        SemanticID = 0xe4420731d164096b
 	SemanticTypeNotifyUsers                                                       SemanticID = 0x40532615100d1e65
 	SemanticTypeNull                                                              SemanticID = 0x8f29662592a2ab7d
+	SemanticTypeOnrampAvailability                                                SemanticID = 0x77d98bde803729d1
+	SemanticTypeOnrampLimits                                                      SemanticID = 0xdc6e80e3ec19d8b5
+	SemanticTypeOnrampMethodAvailability                                          SemanticID = 0x87a3b21394bde403
+	SemanticTypeOnrampProviderInfo                                                SemanticID = 0x8f96f3ded3c363ba
+	SemanticTypeOnrampQuote                                                       SemanticID = 0x431fde2294de21cd
+	SemanticTypeOnrampSession                                                     SemanticID = 0x970c8555a2d3a86c
 	SemanticTypeOutboxReadDate                                                    SemanticID = 0xceaec32b2777b054
 	SemanticTypePage                                                              SemanticID = 0x0e6725292c765992
 	SemanticTypePageBlockAnchor                                                   SemanticID = 0x2df8710d137f58f3
@@ -1130,6 +1146,7 @@ const (
 	SemanticTypePaymentsCheckCanSendGiftResultOk                                  SemanticID = 0x5a3ce97e76e1aa9b
 	SemanticTypePaymentsCheckedGiftCode                                           SemanticID = 0x5f4796251349a83d
 	SemanticTypePaymentsConnectedStarRefBots                                      SemanticID = 0x501038362cf10ed8
+	SemanticTypePaymentsCurrencyRates                                             SemanticID = 0x357ca369ca8b1ea8
 	SemanticTypePaymentsExportedInvoice                                           SemanticID = 0x0a0450a9da0745b5
 	SemanticTypePaymentsGiveawayInfo                                              SemanticID = 0x6c56f311387fbc1d
 	SemanticTypePaymentsGiveawayInfoResults                                       SemanticID = 0x679bc7fd2384ce6b
@@ -1502,6 +1519,7 @@ const (
 	SemanticTypeTextStrike                                                        SemanticID = 0x5c15476d97f80302
 	SemanticTypeTextSubscript                                                     SemanticID = 0xbfdaa4e23fd5ca47
 	SemanticTypeTextSuperscript                                                   SemanticID = 0xffb84337d03c0aab
+	SemanticTypeTextTonAddress                                                    SemanticID = 0x575c74cd78e51e38
 	SemanticTypeTextUnderline                                                     SemanticID = 0xcf8212f7dd9fcf09
 	SemanticTypeTextURL                                                           SemanticID = 0xaac8cb41fc8f11f8
 	SemanticTypeTextWithEntities                                                  SemanticID = 0x60f47c673ad9fd32
@@ -1511,6 +1529,12 @@ const (
 	SemanticTypeTodoCompletion                                                    SemanticID = 0x818d9c7c30da25e9
 	SemanticTypeTodoItem                                                          SemanticID = 0xc225ef5d9dd186c3
 	SemanticTypeTodoList                                                          SemanticID = 0x812449768285d248
+	SemanticTypeTonConnectManifest                                                SemanticID = 0x2cdca27f78d1d310
+	SemanticTypeTonConnectNextEventID                                             SemanticID = 0xc007663d5c7c7dcc
+	SemanticTypeTonConnectRequest                                                 SemanticID = 0xbe8f887784e96a58
+	SemanticTypeTonConnectSession                                                 SemanticID = 0x560a233427585df4
+	SemanticTypeToncenterAPIResponse                                              SemanticID = 0x34d0b55fbd91ab32
+	SemanticTypeToncenterStreamingURL                                             SemanticID = 0xeeda9667164c350d
 	SemanticTypeTopPeer                                                           SemanticID = 0x64f4b8019f27ca44
 	SemanticTypeTopPeerCategoryBotsApp                                            SemanticID = 0x871fac321a26dbc7
 	SemanticTypeTopPeerCategoryBotsGuestChat                                      SemanticID = 0x685792ec0f6a18cc
@@ -1665,6 +1689,7 @@ const (
 	SemanticTypeUpdateSavedRingtones                                              SemanticID = 0xe40a016c7aeb5ea5
 	SemanticTypeUpdateSentPhoneCode                                               SemanticID = 0x9f55262cb9aedb31
 	SemanticTypeUpdateSentStoryReaction                                           SemanticID = 0x68c83020a086231e
+	SemanticTypeUpdateSentWalletTransaction                                       SemanticID = 0x77f54a3f56c05dea
 	SemanticTypeUpdateServiceNotification                                         SemanticID = 0x3245f67049e51aa2
 	SemanticTypeUpdateShort                                                       SemanticID = 0x8bd76fdc279808c1
 	SemanticTypeUpdateShortChatMessage                                            SemanticID = 0x51ec3352b263d4a0
@@ -1689,6 +1714,10 @@ const (
 	SemanticTypeUpdateUserPhone                                                   SemanticID = 0xb58c75241ddcdc66
 	SemanticTypeUpdateUserStatus                                                  SemanticID = 0xde9f3624aa5a833d
 	SemanticTypeUpdateUserTyping                                                  SemanticID = 0x82edeb00c5960a06
+	SemanticTypeUpdateWalletGaslessInfo                                           SemanticID = 0x0e8ae96d4fa5647e
+	SemanticTypeUpdateWalletState                                                 SemanticID = 0x527ad04a7549184d
+	SemanticTypeUpdateWalletTonConnectPendingDisconnect                           SemanticID = 0xdd8f7c59f5f541b2
+	SemanticTypeUpdateWalletTonConnectSession                                     SemanticID = 0xb17372fac3e22c55
 	SemanticTypeUpdateWebBrowserException                                         SemanticID = 0xcb14dfd1750651f3
 	SemanticTypeUpdateWebBrowserSettings                                          SemanticID = 0x30adb8943f879a5e
 	SemanticTypeUpdateWebPage                                                     SemanticID = 0x4005bf73ad59c7b3
@@ -1735,6 +1764,28 @@ const (
 	SemanticTypeWallPaper                                                         SemanticID = 0x9efc2b7ca591becf
 	SemanticTypeWallPaperNoFile                                                   SemanticID = 0x574cb487a404271e
 	SemanticTypeWallPaperSettings                                                 SemanticID = 0x095b2b4ad1d8cfd6
+	SemanticTypeWalletEncryptedSecretPhrasePart                                   SemanticID = 0x09a70ad9a71d2168
+	SemanticTypeWalletExistingBalance                                             SemanticID = 0x308240a208b2b073
+	SemanticTypeWalletHolderDC                                                    SemanticID = 0xea901184d80fb1aa
+	SemanticTypeWalletNftAttribute                                                SemanticID = 0xb53f8c6cad76afa5
+	SemanticTypeWalletNftItem                                                     SemanticID = 0x9621630075bf2d8b
+	SemanticTypeWalletNftItems                                                    SemanticID = 0xf0201715ec8e7af2
+	SemanticTypeWalletProofChallenge                                              SemanticID = 0x247d2d5341542aaa
+	SemanticTypeWalletSecretPhraseParts                                           SemanticID = 0x509822d1c659b53a
+	SemanticTypeWalletTonConnectChallenge                                         SemanticID = 0xa8feb917ff828ea8
+	SemanticTypeWalletTonConnectPending                                           SemanticID = 0xbd4493afd89f9ed1
+	SemanticTypeWalletTonConnectSessions                                          SemanticID = 0x9857da8e3031b1d0
+	SemanticTypeWalletTransactions                                                SemanticID = 0xe7bd998794cd95d5
+	SemanticTypeWalletUserAddresses                                               SemanticID = 0x404efc092759f767
+	SemanticTypeWalletOwnershipProof                                              SemanticID = 0xe0265347802638f8
+	SemanticTypeWalletState                                                       SemanticID = 0x371fad5758f0ff2d
+	SemanticTypeWalletStateEmpty                                                  SemanticID = 0xecda484b64e6b9bb
+	SemanticTypeWalletTransaction                                                 SemanticID = 0xad740c8c51d6a41e
+	SemanticTypeWalletTransactionPeerAddress                                      SemanticID = 0xae0a8b05b4999860
+	SemanticTypeWalletTransactionPeerOnramp                                       SemanticID = 0xcba8f4ae6e7074f3
+	SemanticTypeWalletTransactionPeerUnsupported                                  SemanticID = 0x0a64d40aef721e20
+	SemanticTypeWalletTransactionPeerUser                                         SemanticID = 0x3b6a879158178ba4
+	SemanticTypeWalletUserAddress                                                 SemanticID = 0xd9fd91133a947edc
 	SemanticTypeWebAuthorization                                                  SemanticID = 0x14c081a852cf0a91
 	SemanticTypeWebDocument                                                       SemanticID = 0xa7af14dac391d7be
 	SemanticTypeWebDocumentNoProxy                                                SemanticID = 0x9a1f99f417211d55
@@ -1890,6 +1941,7 @@ const (
 	SemanticMethodAuthAcceptLoginToken                                            SemanticID = 0x16a94ed781af946e
 	SemanticMethodAuthBindTempAuthKey                                             SemanticID = 0xc668321aba0e230f
 	SemanticMethodAuthCancelCode                                                  SemanticID = 0xffd0f2b81211633b
+	SemanticMethodAuthCancelWebTokenAuthorization                                 SemanticID = 0xf35f3b01ca2ba51c
 	SemanticMethodAuthCheckPaidAuth                                               SemanticID = 0x4f95e268d9c0a076
 	SemanticMethodAuthCheckPassword                                               SemanticID = 0x2805db2d5866afc3
 	SemanticMethodAuthCheckRecoveryPassword                                       SemanticID = 0x966e71e53cbe8166
@@ -1917,6 +1969,7 @@ const (
 	SemanticMethodAuthSignIn                                                      SemanticID = 0x34f332c6f6a4aa5c
 	SemanticMethodAuthSignUp                                                      SemanticID = 0x60d4415ff2de9f10
 	SemanticMethodBotsAddPreviewMedia                                             SemanticID = 0x37339d4a5c472ab5
+	SemanticMethodBotsAddUsername                                                 SemanticID = 0x8c1dbcdae5a5dc67
 	SemanticMethodBotsAllowSendMessage                                            SemanticID = 0x02fa562f7a4f824d
 	SemanticMethodBotsAnswerWebhookJSONQuery                                      SemanticID = 0x07c3efd906254f65
 	SemanticMethodBotsCanSendMessage                                              SemanticID = 0x9f994b827e5c39cb
@@ -1938,6 +1991,7 @@ const (
 	SemanticMethodBotsGetPreviewMedias                                            SemanticID = 0xee8fe146a5734bc7
 	SemanticMethodBotsGetRequestedWebViewButton                                   SemanticID = 0x3dec38d9aaf6af3f
 	SemanticMethodBotsInvokeWebViewCustomMethod                                   SemanticID = 0xe360fe53bc3b31f7
+	SemanticMethodBotsRemoveUsername                                              SemanticID = 0x3d79d49d604d5b85
 	SemanticMethodBotsReorderPreviewMedias                                        SemanticID = 0x88d1d384520a747d
 	SemanticMethodBotsReorderUsernames                                            SemanticID = 0x6002f7c8896448d7
 	SemanticMethodBotsRequestWebViewButton                                        SemanticID = 0x7703398c75be89a0
@@ -2382,6 +2436,7 @@ const (
 	SemanticMethodPaymentsConnectStarRefBot                                       SemanticID = 0x85eef3e0df585ca8
 	SemanticMethodPaymentsConvertStarGift                                         SemanticID = 0x34f134d774cdfc6d
 	SemanticMethodPaymentsCraftStarGift                                           SemanticID = 0xc0436f117a3edd5b
+	SemanticMethodPaymentsCreateOnrampSession                                     SemanticID = 0xbcad5ad7c0860a5e
 	SemanticMethodPaymentsCreateStarGiftCollection                                SemanticID = 0xc4e057d298dd8462
 	SemanticMethodPaymentsDeleteStarGiftCollection                                SemanticID = 0x373fb2f8a486839c
 	SemanticMethodPaymentsEditConnectedStarRefBot                                 SemanticID = 0xd576d49e4e338f83
@@ -2391,7 +2446,13 @@ const (
 	SemanticMethodPaymentsGetConnectedStarRefBot                                  SemanticID = 0x85c905900dafb044
 	SemanticMethodPaymentsGetConnectedStarRefBots                                 SemanticID = 0xa8cc9da0a3d8eba7
 	SemanticMethodPaymentsGetCraftStarGifts                                       SemanticID = 0x9c84f09c9a47af2a
+	SemanticMethodPaymentsGetCurrencyRates                                        SemanticID = 0x97732d873240d6e6
 	SemanticMethodPaymentsGetGiveawayInfo                                         SemanticID = 0xe4c85137f8b93bcc
+	SemanticMethodPaymentsGetOnrampAvailability                                   SemanticID = 0x27d7b0a2fa98a579
+	SemanticMethodPaymentsGetOnrampBaseCurrencies                                 SemanticID = 0x2a56bf3e05a0ca92
+	SemanticMethodPaymentsGetOnrampLimits                                         SemanticID = 0xcd5541d99e9a9cf2
+	SemanticMethodPaymentsGetOnrampProviders                                      SemanticID = 0x1a13898362e0dbe5
+	SemanticMethodPaymentsGetOnrampQuote                                          SemanticID = 0x4b8bee171e698d5b
 	SemanticMethodPaymentsGetPaymentForm                                          SemanticID = 0x00354792583440ed
 	SemanticMethodPaymentsGetPaymentReceipt                                       SemanticID = 0x3590a99aa9cf22a1
 	SemanticMethodPaymentsGetPremiumGiftCodeOptions                               SemanticID = 0xf0b51da66f1eb587
@@ -2549,6 +2610,8 @@ const (
 	SemanticMethodStoriesUpdateAlbum                                              SemanticID = 0xb9d9f647d989956c
 	SemanticMethodTestUseConfigSimple                                             SemanticID = 0xf451688934242dd9
 	SemanticMethodTestUseError                                                    SemanticID = 0x5328ae556d3568a2
+	SemanticMethodToncenterGetStreamingURL                                        SemanticID = 0x6d2c3161c0e0a658
+	SemanticMethodToncenterPerformAPIRequest                                      SemanticID = 0x0123dd1b1c70d79a
 	SemanticMethodUpdatesGetChannelDifference                                     SemanticID = 0x0066057864d21dd4
 	SemanticMethodUpdatesGetDifference                                            SemanticID = 0x5d82b0f1bafbe4ee
 	SemanticMethodUpdatesGetState                                                 SemanticID = 0x6dc661d173a92940
@@ -2567,6 +2630,31 @@ const (
 	SemanticMethodUsersGetUsers                                                   SemanticID = 0xe69ac8e56adb97d8
 	SemanticMethodUsersSetSecureValueErrors                                       SemanticID = 0xf45366d17a5f40f3
 	SemanticMethodUsersSuggestBirthday                                            SemanticID = 0x60c2164bb4707032
+	SemanticMethodWalletDisableBackup                                             SemanticID = 0xaf3516c9b9e4da85
+	SemanticMethodWalletEnableBackup                                              SemanticID = 0x734483d82984fbbf
+	SemanticMethodWalletExportSecretPhrase                                        SemanticID = 0xb12a2f4f24d28bee
+	SemanticMethodWalletFetchEncryptedSecretPhrasePart                            SemanticID = 0x4c8a306f1f8f3f53
+	SemanticMethodWalletGetBackupHolderDCs                                        SemanticID = 0x809d3ef43de08318
+	SemanticMethodWalletGetExistingWaltBalance                                    SemanticID = 0x5270bab50b4dc417
+	SemanticMethodWalletGetGaslessInfo                                            SemanticID = 0x078e8e20b54e52ab
+	SemanticMethodWalletGetNfts                                                   SemanticID = 0xd87c4b95f926753d
+	SemanticMethodWalletGetProofChallenge                                         SemanticID = 0xb55656a55fa5db69
+	SemanticMethodWalletGetState                                                  SemanticID = 0x96b5b95155956423
+	SemanticMethodWalletGetTransactions                                           SemanticID = 0xbc3c3a729e100e27
+	SemanticMethodWalletGetTransactionsByIDs                                      SemanticID = 0xbd0162998fbbc39c
+	SemanticMethodWalletGetTransactionsByMsgHash                                  SemanticID = 0xe35b16123fb9d83f
+	SemanticMethodWalletGetUserAddresses                                          SemanticID = 0xa065e27433d0dcb1
+	SemanticMethodWalletReplaceWallet                                             SemanticID = 0x3fcbde89ca4cbf3a
+	SemanticMethodWalletSendTransfer                                              SemanticID = 0x215b329008825e43
+	SemanticMethodWalletTonConnectClaimRequest                                    SemanticID = 0x780f15512699a663
+	SemanticMethodWalletTonConnectCloseSession                                    SemanticID = 0x0a2462262ae3518a
+	SemanticMethodWalletTonConnectCreateSession                                   SemanticID = 0x25d53eacdcdebfe8
+	SemanticMethodWalletTonConnectGetPending                                      SemanticID = 0xe51eba0e784d833f
+	SemanticMethodWalletTonConnectGetSessions                                     SemanticID = 0x4d20d3d8e5e8903a
+	SemanticMethodWalletTonConnectNextEventID                                     SemanticID = 0xeebaa079fb01c2e5
+	SemanticMethodWalletTonConnectRegisterKey                                     SemanticID = 0x520f0aa0b2f32771
+	SemanticMethodWalletTonConnectSubmitConnectResult                             SemanticID = 0xcab4434addea89dc
+	SemanticMethodWalletTonConnectSubmitResponse                                  SemanticID = 0x7ba6a687d57dc25c
 )
 
 // Generated stable identities for request fields that may be inspected by a
@@ -2649,6 +2737,7 @@ const (
 	FieldAuthBindTempAuthKeyExpiresAt                       FieldID = 0x6b27f4a3e1958d93
 	FieldAuthCancelCodePhoneCodeHash                        FieldID = 0x4f94ee211c671100
 	FieldAuthCancelCodePhoneNumber                          FieldID = 0x0957a0ac54484a5d
+	FieldAuthCancelWebTokenAuthorizationWebAuthToken        FieldID = 0x156105df79e05f67
 	FieldAuthCheckPaidAuthPhoneCodeHash                     FieldID = 0xb836256b9f022d00
 	FieldAuthCheckPaidAuthPhoneNumber                       FieldID = 0x9c35d92fdd6d86af
 	FieldAuthCheckRecoveryPasswordCode                      FieldID = 0x06f3c11bada7982e
@@ -2672,6 +2761,7 @@ const (
 	FieldAuthImportWebTokenAuthorizationWebAuthToken        FieldID = 0x2f27d917317cf5d3
 	FieldAuthInitFirebasePnvLoginAPIHash                    FieldID = 0xacd63eab310273f9
 	FieldAuthInitFirebasePnvLoginAPIID                      FieldID = 0xb4d39a2aade0cef0
+	FieldAuthInitFirebasePnvLoginExceptIDs                  FieldID = 0x278f665878a598a1
 	FieldAuthInitPasskeyLoginAPIHash                        FieldID = 0xb789b45d0cc57c04
 	FieldAuthInitPasskeyLoginAPIID                          FieldID = 0xba868bdd90158f60
 	FieldAuthRecoverPasswordCode                            FieldID = 0xd46f9b99bf0a94e4
@@ -2699,6 +2789,7 @@ const (
 	FieldAuthSignUpPhoneCodeHash                            FieldID = 0xb272e82cc80a551b
 	FieldAuthSignUpPhoneNumber                              FieldID = 0xa1d96a2e61222bcf
 	FieldBotsAddPreviewMediaLangCode                        FieldID = 0x4d0889acae0b48da
+	FieldBotsAddUsernameUsername                            FieldID = 0xf23749e6067c013f
 	FieldBotsCheckDownloadFileParamsFileName                FieldID = 0x1c9053710965fbd7
 	FieldBotsCheckDownloadFileParamsURL                     FieldID = 0x3ec88e2b4a75edac
 	FieldBotsCheckUsernameUsername                          FieldID = 0x487d7b1fd26c74b7
@@ -2715,6 +2806,7 @@ const (
 	FieldBotsGetPreviewInfoLangCode                         FieldID = 0x926c97ffa2162a08
 	FieldBotsGetRequestedWebViewButtonWebappReqID           FieldID = 0xefa48339cd722a7b
 	FieldBotsInvokeWebViewCustomMethodCustomMethod          FieldID = 0x589ad1c171d55b2d
+	FieldBotsRemoveUsernameUsername                         FieldID = 0x747fe710bc7411c5
 	FieldBotsReorderPreviewMediasLangCode                   FieldID = 0xf14d4e2bb017d597
 	FieldBotsReorderPreviewMediasOrder                      FieldID = 0xcbe723ff3c90f77b
 	FieldBotsReorderUsernamesOrder                          FieldID = 0x75368e2c0c37d28d
@@ -2726,7 +2818,6 @@ const (
 	FieldBotsSetBotInfoDescription                          FieldID = 0xdb6189dba8b15197
 	FieldBotsSetBotInfoLangCode                             FieldID = 0x0dc25515309835db
 	FieldBotsSetBotInfoName                                 FieldID = 0x04cbe8942051514c
-	FieldBotsSetCustomVerificationCustomDescription         FieldID = 0x447089afd95d0ec6
 	FieldBotsToggleUsernameUsername                         FieldID = 0x2a62c70769809513
 	FieldBotsUpdateStarRefProgramCommissionPermille         FieldID = 0xbf27890b85d0ac56
 	FieldBotsUpdateStarRefProgramDurationMonths             FieldID = 0xc04e7a47cc763cab
@@ -3207,6 +3298,17 @@ const (
 	FieldPaymentsChangeStarsSubscriptionSubscriptionID      FieldID = 0x83f745c8bfc263aa
 	FieldPaymentsCheckGiftCodeSlug                          FieldID = 0xd486b6217cf84711
 	FieldPaymentsCraftStarGiftStargift                      FieldID = 0x949c98e891afd53a
+	FieldPaymentsCreateOnrampSessionAddress                 FieldID = 0x920aa91a6ccd5405
+	FieldPaymentsCreateOnrampSessionBaseAmount              FieldID = 0xe57e83388b44890b
+	FieldPaymentsCreateOnrampSessionBaseCurrency            FieldID = 0xbbdfa7600113718f
+	FieldPaymentsCreateOnrampSessionCryptoAmount            FieldID = 0xe01e1fca519e3f89
+	FieldPaymentsCreateOnrampSessionCryptoCurrency          FieldID = 0x612105fa1233d80a
+	FieldPaymentsCreateOnrampSessionFailReturnURL           FieldID = 0x824d5708961304ac
+	FieldPaymentsCreateOnrampSessionMemo                    FieldID = 0x43f1820bbe414853
+	FieldPaymentsCreateOnrampSessionPaymentMethod           FieldID = 0x06302c798a3c4680
+	FieldPaymentsCreateOnrampSessionProvider                FieldID = 0x88e6db4c27277fae
+	FieldPaymentsCreateOnrampSessionSuccessReturnURL        FieldID = 0xd16d2c00ff341e4e
+	FieldPaymentsCreateOnrampSessionTheme                   FieldID = 0xf9df94e494934b51
 	FieldPaymentsCreateStarGiftCollectionStargift           FieldID = 0x0a08c394ac46804e
 	FieldPaymentsCreateStarGiftCollectionTitle              FieldID = 0x3adcf95ae1ab032d
 	FieldPaymentsDeleteStarGiftCollectionCollectionID       FieldID = 0xd2e712bd260f111a
@@ -3219,6 +3321,22 @@ const (
 	FieldPaymentsGetCraftStarGiftsLimit                     FieldID = 0x710e73a6d3bb4536
 	FieldPaymentsGetCraftStarGiftsOffset                    FieldID = 0x77f66b39cfb7504b
 	FieldPaymentsGetGiveawayInfoMsgID                       FieldID = 0x3102601ea4bcaa7f
+	FieldPaymentsGetOnrampAvailabilityBaseCurrency          FieldID = 0x5d098bec06f08f2f
+	FieldPaymentsGetOnrampAvailabilityCryptoCurrency        FieldID = 0x6d9cf5ff41f95a39
+	FieldPaymentsGetOnrampAvailabilityProvider              FieldID = 0x0ab4c4c8db21bfb7
+	FieldPaymentsGetOnrampBaseCurrenciesCryptoCurrency      FieldID = 0x902a3b05a9b6e2a0
+	FieldPaymentsGetOnrampBaseCurrenciesProvider            FieldID = 0x4f85d1f68f685942
+	FieldPaymentsGetOnrampLimitsBaseCurrency                FieldID = 0xdefbc81758d626eb
+	FieldPaymentsGetOnrampLimitsCryptoCurrency              FieldID = 0xd76cc9a0f77026c9
+	FieldPaymentsGetOnrampLimitsPaymentMethod               FieldID = 0xedaf8f915cf426ae
+	FieldPaymentsGetOnrampLimitsProvider                    FieldID = 0x4a427980b434a8e6
+	FieldPaymentsGetOnrampProvidersCryptoCurrency           FieldID = 0x78b19a79565e111e
+	FieldPaymentsGetOnrampQuoteBaseAmount                   FieldID = 0x397caf3dcd95fdf1
+	FieldPaymentsGetOnrampQuoteBaseCurrency                 FieldID = 0xe88395b415316446
+	FieldPaymentsGetOnrampQuoteCryptoAmount                 FieldID = 0x4bf16c6c83bd6b42
+	FieldPaymentsGetOnrampQuoteCryptoCurrency               FieldID = 0x66ed683ad7e9f3a6
+	FieldPaymentsGetOnrampQuotePaymentMethod                FieldID = 0x6ec70efb5f522f45
+	FieldPaymentsGetOnrampQuoteProvider                     FieldID = 0x22ff121d990048e4
 	FieldPaymentsGetPaymentReceiptMsgID                     FieldID = 0x34ca9a0d8b5a598e
 	FieldPaymentsGetResaleStarGiftsAttributes               FieldID = 0x8fd3fb7277464798
 	FieldPaymentsGetResaleStarGiftsLimit                    FieldID = 0xc0cdce115dd8772e
@@ -3370,6 +3488,9 @@ const (
 	FieldStoriesUpdateAlbumDeleteStories                    FieldID = 0xb87a9050a8de8e58
 	FieldStoriesUpdateAlbumOrder                            FieldID = 0x235bbd8eaa112891
 	FieldStoriesUpdateAlbumTitle                            FieldID = 0xa486ee5d9550fe3c
+	FieldToncenterPerformAPIRequestEndpoint                 FieldID = 0x24f9588f563dc846
+	FieldToncenterPerformAPIRequestPayload                  FieldID = 0x26d51d1e05a55cf2
+	FieldToncenterPerformAPIRequestQuery                    FieldID = 0x8b0d7d01ca9480df
 	FieldUpdatesGetChannelDifferenceLimit                   FieldID = 0x92c196cdd4f29059
 	FieldUpdatesGetChannelDifferencePts                     FieldID = 0x2b85678687f706be
 	FieldUpdatesGetDifferenceDate                           FieldID = 0xcfdac68980e006de
@@ -3397,6 +3518,35 @@ const (
 	FieldUsersGetSavedMusicByIDDocuments                    FieldID = 0x1e11004fd01de2c4
 	FieldUsersGetUsersID                                    FieldID = 0x6facbb22287aa39f
 	FieldUsersSetSecureValueErrorsErrors                    FieldID = 0xc5b315bcf311f1b5
+	FieldWalletDisableBackupNewPublicKey                    FieldID = 0x74b690877af526d5
+	FieldWalletEnableBackupNewPublicKey                     FieldID = 0x06d14d382694bdaf
+	FieldWalletEnableBackupParts                            FieldID = 0xf49de8e4cd2dd80c
+	FieldWalletFetchEncryptedSecretPhrasePartPublicKey      FieldID = 0x71b276c61e0ce6c3
+	FieldWalletFetchEncryptedSecretPhrasePartToken          FieldID = 0xdafc635db64a4248
+	FieldWalletGetNftsLimit                                 FieldID = 0x4f0b988873ee44ee
+	FieldWalletGetNftsOffset                                FieldID = 0x5561c01276eae32c
+	FieldWalletGetTransactionsLimit                         FieldID = 0xf29b686f591f95ee
+	FieldWalletGetTransactionsOffset                        FieldID = 0xb778c087a0d35fef
+	FieldWalletGetTransactionsByIDsID                       FieldID = 0x6733f0ea3beb3abc
+	FieldWalletGetTransactionsByMsgHashMsgHash              FieldID = 0xafdc4930c3a4e336
+	FieldWalletGetUserAddressesAddresses                    FieldID = 0x9db12f19bb51c48a
+	FieldWalletGetUserAddressesID                           FieldID = 0x95daf5c6a7c424b4
+	FieldWalletSendTransferDataGasless                      FieldID = 0xc4281e6d145db453
+	FieldWalletSendTransferDataNormal                       FieldID = 0xc1ad075438cdc1ee
+	FieldWalletTonConnectClaimRequestAppRequestID           FieldID = 0x07cb855d555eba8c
+	FieldWalletTonConnectClaimRequestChallengeAnswer        FieldID = 0xa94f7e3912501ef0
+	FieldWalletTonConnectClaimRequestMsgID                  FieldID = 0x35ab040420737772
+	FieldWalletTonConnectCloseSessionBody                   FieldID = 0x3c3f50f37cf8f950
+	FieldWalletTonConnectCreateSessionDappClientID          FieldID = 0xf42988ec4c6f8da7
+	FieldWalletTonConnectCreateSessionManifestURL           FieldID = 0xbc7da5f715cc276d
+	FieldWalletTonConnectGetPendingDappClientID             FieldID = 0x84fa502ad90f3d84
+	FieldWalletTonConnectRegisterKeyClientID                FieldID = 0x378baf07e3fdf08f
+	FieldWalletTonConnectSubmitConnectResultBody            FieldID = 0x083c23319ee42571
+	FieldWalletTonConnectSubmitConnectResultChallengeAnswer FieldID = 0xc911e99478010ef4
+	FieldWalletTonConnectSubmitConnectResultTraceID         FieldID = 0xbbed73a77ae34e5a
+	FieldWalletTonConnectSubmitResponseBody                 FieldID = 0x5774a2fd2dbb0742
+	FieldWalletTonConnectSubmitResponseMsgID                FieldID = 0xf6610346269814bb
+	FieldWalletTonConnectSubmitResponseTraceID              FieldID = 0xf245609f31b5525d
 )
 
 // SemanticName reports the TL category and qualified name.
@@ -4006,6 +4156,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "contacts.topPeersDisabled", true
 	case SemanticTypeContactsTopPeersNotModified:
 		return "type", "contacts.topPeersNotModified", true
+	case SemanticTypeCurrencyRate:
+		return "type", "currencyRate", true
 	case SemanticTypeDataJSON:
 		return "type", "dataJSON", true
 	case SemanticTypeDCOption:
@@ -4806,6 +4958,10 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "inputWallPaperNoFile", true
 	case SemanticTypeInputWallPaperSlug:
 		return "type", "inputWallPaperSlug", true
+	case SemanticTypeInputWalletImported:
+		return "type", "inputWalletImported", true
+	case SemanticTypeInputWalletNew:
+		return "type", "inputWalletNew", true
 	case SemanticTypeInputWebDocument:
 		return "type", "inputWebDocument", true
 	case SemanticTypeInputWebFileAudioAlbumThumbLocation:
@@ -4944,6 +5100,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "messageActionChatJoinedByLink", true
 	case SemanticTypeMessageActionChatJoinedByRequest:
 		return "type", "messageActionChatJoinedByRequest", true
+	case SemanticTypeMessageActionChatJoinedViaCommunity:
+		return "type", "messageActionChatJoinedViaCommunity", true
 	case SemanticTypeMessageActionChatMigrateTo:
 		return "type", "messageActionChatMigrateTo", true
 	case SemanticTypeMessageActionConferenceCall:
@@ -4970,6 +5128,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "messageActionGiveawayLaunch", true
 	case SemanticTypeMessageActionGiveawayResults:
 		return "type", "messageActionGiveawayResults", true
+	case SemanticTypeMessageActionGramTransfer:
+		return "type", "messageActionGramTransfer", true
 	case SemanticTypeMessageActionGroupCall:
 		return "type", "messageActionGroupCall", true
 	case SemanticTypeMessageActionGroupCallScheduled:
@@ -5048,6 +5208,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "messageActionTopicCreate", true
 	case SemanticTypeMessageActionTopicEdit:
 		return "type", "messageActionTopicEdit", true
+	case SemanticTypeMessageActionWalletTonConnectRequest:
+		return "type", "messageActionWalletTonConnectRequest", true
 	case SemanticTypeMessageActionWebViewDataSent:
 		return "type", "messageActionWebViewDataSent", true
 	case SemanticTypeMessageActionWebViewDataSentMe:
@@ -5096,6 +5258,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "messageEntityStrike", true
 	case SemanticTypeMessageEntityTextURL:
 		return "type", "messageEntityTextUrl", true
+	case SemanticTypeMessageEntityTonAddress:
+		return "type", "messageEntityTonAddress", true
 	case SemanticTypeMessageEntityUnderline:
 		return "type", "messageEntityUnderline", true
 	case SemanticTypeMessageEntityUnknown:
@@ -5394,6 +5558,18 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "notifyUsers", true
 	case SemanticTypeNull:
 		return "type", "null", true
+	case SemanticTypeOnrampAvailability:
+		return "type", "onrampAvailability", true
+	case SemanticTypeOnrampLimits:
+		return "type", "onrampLimits", true
+	case SemanticTypeOnrampMethodAvailability:
+		return "type", "onrampMethodAvailability", true
+	case SemanticTypeOnrampProviderInfo:
+		return "type", "onrampProviderInfo", true
+	case SemanticTypeOnrampQuote:
+		return "type", "onrampQuote", true
+	case SemanticTypeOnrampSession:
+		return "type", "onrampSession", true
 	case SemanticTypeOutboxReadDate:
 		return "type", "outboxReadDate", true
 	case SemanticTypePage:
@@ -5526,6 +5702,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "payments.checkedGiftCode", true
 	case SemanticTypePaymentsConnectedStarRefBots:
 		return "type", "payments.connectedStarRefBots", true
+	case SemanticTypePaymentsCurrencyRates:
+		return "type", "payments.currencyRates", true
 	case SemanticTypePaymentsExportedInvoice:
 		return "type", "payments.exportedInvoice", true
 	case SemanticTypePaymentsGiveawayInfo:
@@ -6270,6 +6448,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "textSubscript", true
 	case SemanticTypeTextSuperscript:
 		return "type", "textSuperscript", true
+	case SemanticTypeTextTonAddress:
+		return "type", "textTonAddress", true
 	case SemanticTypeTextUnderline:
 		return "type", "textUnderline", true
 	case SemanticTypeTextURL:
@@ -6288,6 +6468,18 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "todoItem", true
 	case SemanticTypeTodoList:
 		return "type", "todoList", true
+	case SemanticTypeTonConnectManifest:
+		return "type", "tonConnectManifest", true
+	case SemanticTypeTonConnectNextEventID:
+		return "type", "tonConnectNextEventId", true
+	case SemanticTypeTonConnectRequest:
+		return "type", "tonConnectRequest", true
+	case SemanticTypeTonConnectSession:
+		return "type", "tonConnectSession", true
+	case SemanticTypeToncenterAPIResponse:
+		return "type", "toncenter.apiResponse", true
+	case SemanticTypeToncenterStreamingURL:
+		return "type", "toncenter.streamingUrl", true
 	case SemanticTypeTopPeer:
 		return "type", "topPeer", true
 	case SemanticTypeTopPeerCategoryBotsApp:
@@ -6596,6 +6788,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "updateSentPhoneCode", true
 	case SemanticTypeUpdateSentStoryReaction:
 		return "type", "updateSentStoryReaction", true
+	case SemanticTypeUpdateSentWalletTransaction:
+		return "type", "updateSentWalletTransaction", true
 	case SemanticTypeUpdateServiceNotification:
 		return "type", "updateServiceNotification", true
 	case SemanticTypeUpdateShort:
@@ -6644,6 +6838,14 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "updateUserStatus", true
 	case SemanticTypeUpdateUserTyping:
 		return "type", "updateUserTyping", true
+	case SemanticTypeUpdateWalletGaslessInfo:
+		return "type", "updateWalletGaslessInfo", true
+	case SemanticTypeUpdateWalletState:
+		return "type", "updateWalletState", true
+	case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+		return "type", "updateWalletTonConnectPendingDisconnect", true
+	case SemanticTypeUpdateWalletTonConnectSession:
+		return "type", "updateWalletTonConnectSession", true
 	case SemanticTypeUpdateWebBrowserException:
 		return "type", "updateWebBrowserException", true
 	case SemanticTypeUpdateWebBrowserSettings:
@@ -6736,6 +6938,50 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "wallPaperNoFile", true
 	case SemanticTypeWallPaperSettings:
 		return "type", "wallPaperSettings", true
+	case SemanticTypeWalletEncryptedSecretPhrasePart:
+		return "type", "wallet.encryptedSecretPhrasePart", true
+	case SemanticTypeWalletExistingBalance:
+		return "type", "wallet.existingBalance", true
+	case SemanticTypeWalletHolderDC:
+		return "type", "wallet.holderDc", true
+	case SemanticTypeWalletNftAttribute:
+		return "type", "wallet.nftAttribute", true
+	case SemanticTypeWalletNftItem:
+		return "type", "wallet.nftItem", true
+	case SemanticTypeWalletNftItems:
+		return "type", "wallet.nftItems", true
+	case SemanticTypeWalletProofChallenge:
+		return "type", "wallet.proofChallenge", true
+	case SemanticTypeWalletSecretPhraseParts:
+		return "type", "wallet.secretPhraseParts", true
+	case SemanticTypeWalletTonConnectChallenge:
+		return "type", "wallet.tonConnectChallenge", true
+	case SemanticTypeWalletTonConnectPending:
+		return "type", "wallet.tonConnectPending", true
+	case SemanticTypeWalletTonConnectSessions:
+		return "type", "wallet.tonConnectSessions", true
+	case SemanticTypeWalletTransactions:
+		return "type", "wallet.transactions", true
+	case SemanticTypeWalletUserAddresses:
+		return "type", "wallet.userAddresses", true
+	case SemanticTypeWalletOwnershipProof:
+		return "type", "walletOwnershipProof", true
+	case SemanticTypeWalletState:
+		return "type", "walletState", true
+	case SemanticTypeWalletStateEmpty:
+		return "type", "walletStateEmpty", true
+	case SemanticTypeWalletTransaction:
+		return "type", "walletTransaction", true
+	case SemanticTypeWalletTransactionPeerAddress:
+		return "type", "walletTransactionPeerAddress", true
+	case SemanticTypeWalletTransactionPeerOnramp:
+		return "type", "walletTransactionPeerOnramp", true
+	case SemanticTypeWalletTransactionPeerUnsupported:
+		return "type", "walletTransactionPeerUnsupported", true
+	case SemanticTypeWalletTransactionPeerUser:
+		return "type", "walletTransactionPeerUser", true
+	case SemanticTypeWalletUserAddress:
+		return "type", "walletUserAddress", true
 	case SemanticTypeWebAuthorization:
 		return "type", "webAuthorization", true
 	case SemanticTypeWebDocument:
@@ -7046,6 +7292,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "auth.bindTempAuthKey", true
 	case SemanticMethodAuthCancelCode:
 		return "function", "auth.cancelCode", true
+	case SemanticMethodAuthCancelWebTokenAuthorization:
+		return "function", "auth.cancelWebTokenAuthorization", true
 	case SemanticMethodAuthCheckPaidAuth:
 		return "function", "auth.checkPaidAuth", true
 	case SemanticMethodAuthCheckPassword:
@@ -7100,6 +7348,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "auth.signUp", true
 	case SemanticMethodBotsAddPreviewMedia:
 		return "function", "bots.addPreviewMedia", true
+	case SemanticMethodBotsAddUsername:
+		return "function", "bots.addUsername", true
 	case SemanticMethodBotsAllowSendMessage:
 		return "function", "bots.allowSendMessage", true
 	case SemanticMethodBotsAnswerWebhookJSONQuery:
@@ -7142,6 +7392,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "bots.getRequestedWebViewButton", true
 	case SemanticMethodBotsInvokeWebViewCustomMethod:
 		return "function", "bots.invokeWebViewCustomMethod", true
+	case SemanticMethodBotsRemoveUsername:
+		return "function", "bots.removeUsername", true
 	case SemanticMethodBotsReorderPreviewMedias:
 		return "function", "bots.reorderPreviewMedias", true
 	case SemanticMethodBotsReorderUsernames:
@@ -8030,6 +8282,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "payments.convertStarGift", true
 	case SemanticMethodPaymentsCraftStarGift:
 		return "function", "payments.craftStarGift", true
+	case SemanticMethodPaymentsCreateOnrampSession:
+		return "function", "payments.createOnrampSession", true
 	case SemanticMethodPaymentsCreateStarGiftCollection:
 		return "function", "payments.createStarGiftCollection", true
 	case SemanticMethodPaymentsDeleteStarGiftCollection:
@@ -8048,8 +8302,20 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "payments.getConnectedStarRefBots", true
 	case SemanticMethodPaymentsGetCraftStarGifts:
 		return "function", "payments.getCraftStarGifts", true
+	case SemanticMethodPaymentsGetCurrencyRates:
+		return "function", "payments.getCurrencyRates", true
 	case SemanticMethodPaymentsGetGiveawayInfo:
 		return "function", "payments.getGiveawayInfo", true
+	case SemanticMethodPaymentsGetOnrampAvailability:
+		return "function", "payments.getOnrampAvailability", true
+	case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+		return "function", "payments.getOnrampBaseCurrencies", true
+	case SemanticMethodPaymentsGetOnrampLimits:
+		return "function", "payments.getOnrampLimits", true
+	case SemanticMethodPaymentsGetOnrampProviders:
+		return "function", "payments.getOnrampProviders", true
+	case SemanticMethodPaymentsGetOnrampQuote:
+		return "function", "payments.getOnrampQuote", true
 	case SemanticMethodPaymentsGetPaymentForm:
 		return "function", "payments.getPaymentForm", true
 	case SemanticMethodPaymentsGetPaymentReceipt:
@@ -8364,6 +8630,10 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "test.useConfigSimple", true
 	case SemanticMethodTestUseError:
 		return "function", "test.useError", true
+	case SemanticMethodToncenterGetStreamingURL:
+		return "function", "toncenter.getStreamingUrl", true
+	case SemanticMethodToncenterPerformAPIRequest:
+		return "function", "toncenter.performApiRequest", true
 	case SemanticMethodUpdatesGetChannelDifference:
 		return "function", "updates.getChannelDifference", true
 	case SemanticMethodUpdatesGetDifference:
@@ -8400,6 +8670,56 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "function", "users.setSecureValueErrors", true
 	case SemanticMethodUsersSuggestBirthday:
 		return "function", "users.suggestBirthday", true
+	case SemanticMethodWalletDisableBackup:
+		return "function", "wallet.disableBackup", true
+	case SemanticMethodWalletEnableBackup:
+		return "function", "wallet.enableBackup", true
+	case SemanticMethodWalletExportSecretPhrase:
+		return "function", "wallet.exportSecretPhrase", true
+	case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+		return "function", "wallet.fetchEncryptedSecretPhrasePart", true
+	case SemanticMethodWalletGetBackupHolderDCs:
+		return "function", "wallet.getBackupHolderDcs", true
+	case SemanticMethodWalletGetExistingWaltBalance:
+		return "function", "wallet.getExistingWaltBalance", true
+	case SemanticMethodWalletGetGaslessInfo:
+		return "function", "wallet.getGaslessInfo", true
+	case SemanticMethodWalletGetNfts:
+		return "function", "wallet.getNfts", true
+	case SemanticMethodWalletGetProofChallenge:
+		return "function", "wallet.getProofChallenge", true
+	case SemanticMethodWalletGetState:
+		return "function", "wallet.getState", true
+	case SemanticMethodWalletGetTransactions:
+		return "function", "wallet.getTransactions", true
+	case SemanticMethodWalletGetTransactionsByIDs:
+		return "function", "wallet.getTransactionsByIDs", true
+	case SemanticMethodWalletGetTransactionsByMsgHash:
+		return "function", "wallet.getTransactionsByMsgHash", true
+	case SemanticMethodWalletGetUserAddresses:
+		return "function", "wallet.getUserAddresses", true
+	case SemanticMethodWalletReplaceWallet:
+		return "function", "wallet.replaceWallet", true
+	case SemanticMethodWalletSendTransfer:
+		return "function", "wallet.sendTransfer", true
+	case SemanticMethodWalletTonConnectClaimRequest:
+		return "function", "wallet.tonConnectClaimRequest", true
+	case SemanticMethodWalletTonConnectCloseSession:
+		return "function", "wallet.tonConnectCloseSession", true
+	case SemanticMethodWalletTonConnectCreateSession:
+		return "function", "wallet.tonConnectCreateSession", true
+	case SemanticMethodWalletTonConnectGetPending:
+		return "function", "wallet.tonConnectGetPending", true
+	case SemanticMethodWalletTonConnectGetSessions:
+		return "function", "wallet.tonConnectGetSessions", true
+	case SemanticMethodWalletTonConnectNextEventID:
+		return "function", "wallet.tonConnectNextEventId", true
+	case SemanticMethodWalletTonConnectRegisterKey:
+		return "function", "wallet.tonConnectRegisterKey", true
+	case SemanticMethodWalletTonConnectSubmitConnectResult:
+		return "function", "wallet.tonConnectSubmitConnectResult", true
+	case SemanticMethodWalletTonConnectSubmitResponse:
+		return "function", "wallet.tonConnectSubmitResponse", true
 	default:
 		return "", "", false
 	}
@@ -8670,9 +8990,9 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticTypeBotPreviewMedia:
 		return 0x23e91ba3, true
 	case SemanticTypeBotVerification:
-		return 0xf93cd45c, true
+		return 0xf72e0ed9, true
 	case SemanticTypeBotVerifierSettings:
-		return 0xb0cd6617, true
+		return 0xa12aefff, true
 	case SemanticTypeBotsAccessSettings:
 		return 0xdd1fbf93, true
 	case SemanticTypeBotsBotInfo:
@@ -9011,6 +9331,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xb52c939d, true
 	case SemanticTypeContactsTopPeersNotModified:
 		return 0xde266ef5, true
+	case SemanticTypeCurrencyRate:
+		return 0x30d9743c, true
 	case SemanticTypeDataJSON:
 		return 0x7d748d04, true
 	case SemanticTypeDCOption:
@@ -9563,8 +9885,6 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x193b4417, true
 	case SemanticTypeInputPageBlockMap:
 		return 0x574b617f, true
-	case SemanticTypeInputPasskeyCredentialFirebasePNV:
-		return 0x5b1ccb28, true
 	case SemanticTypeInputPasskeyCredentialPublicKey:
 		return 0x3c27b78f, true
 	case SemanticTypeInputPasskeyResponseLogin:
@@ -9805,6 +10125,10 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x967a462e, true
 	case SemanticTypeInputWallPaperSlug:
 		return 0x72091c80, true
+	case SemanticTypeInputWalletImported:
+		return 0x66a66a3b, true
+	case SemanticTypeInputWalletNew:
+		return 0x63a440dc, true
 	case SemanticTypeInputWebDocument:
 		return 0x9bed434d, true
 	case SemanticTypeInputWebFileAudioAlbumThumbLocation:
@@ -9915,6 +10239,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x031224c3, true
 	case SemanticTypeMessageActionChatJoinedByRequest:
 		return 0xebbca3cb, true
+	case SemanticTypeMessageActionChatJoinedViaCommunity:
+		return 0x4a8bfe80, true
 	case SemanticTypeMessageActionChatMigrateTo:
 		return 0xe1037f92, true
 	case SemanticTypeMessageActionConferenceCall:
@@ -9941,6 +10267,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xa80f51e4, true
 	case SemanticTypeMessageActionGiveawayResults:
 		return 0x87e2f155, true
+	case SemanticTypeMessageActionGramTransfer:
+		return 0x9329ea33, true
 	case SemanticTypeMessageActionGroupCall:
 		return 0x7a0d7f42, true
 	case SemanticTypeMessageActionGroupCallScheduled:
@@ -10019,6 +10347,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x0d999256, true
 	case SemanticTypeMessageActionTopicEdit:
 		return 0xc0944820, true
+	case SemanticTypeMessageActionWalletTonConnectRequest:
+		return 0x69b8c4bf, true
 	case SemanticTypeMessageActionWebViewDataSent:
 		return 0xb4c38cb5, true
 	case SemanticTypeMessageActionWebViewDataSentMe:
@@ -10067,6 +10397,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xbf0693d4, true
 	case SemanticTypeMessageEntityTextURL:
 		return 0x76a6d327, true
+	case SemanticTypeMessageEntityTonAddress:
+		return 0xfdabbfcd, true
 	case SemanticTypeMessageEntityUnderline:
 		return 0x9c4e7e8b, true
 	case SemanticTypeMessageEntityUnknown:
@@ -10365,6 +10697,18 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xb4c83b4c, true
 	case SemanticTypeNull:
 		return 0x56730bcc, true
+	case SemanticTypeOnrampAvailability:
+		return 0xf9c84973, true
+	case SemanticTypeOnrampLimits:
+		return 0x7be2677e, true
+	case SemanticTypeOnrampMethodAvailability:
+		return 0x9ec8c6a8, true
+	case SemanticTypeOnrampProviderInfo:
+		return 0x0dc27582, true
+	case SemanticTypeOnrampQuote:
+		return 0x7a8011e9, true
+	case SemanticTypeOnrampSession:
+		return 0xd1e42e24, true
 	case SemanticTypeOutboxReadDate:
 		return 0x3bb842ac, true
 	case SemanticTypePage:
@@ -10497,6 +10841,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xeb983f8f, true
 	case SemanticTypePaymentsConnectedStarRefBots:
 		return 0x98d5ea1d, true
+	case SemanticTypePaymentsCurrencyRates:
+		return 0xbbcce4c2, true
 	case SemanticTypePaymentsExportedInvoice:
 		return 0xaed0cbd9, true
 	case SemanticTypePaymentsGiveawayInfo:
@@ -11241,6 +11587,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xed6a8504, true
 	case SemanticTypeTextSuperscript:
 		return 0xc7fb5e01, true
+	case SemanticTypeTextTonAddress:
+		return 0x3cd2a36a, true
 	case SemanticTypeTextUnderline:
 		return 0xc12622c4, true
 	case SemanticTypeTextURL:
@@ -11259,6 +11607,18 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xcba9a52f, true
 	case SemanticTypeTodoList:
 		return 0x49b92a26, true
+	case SemanticTypeTonConnectManifest:
+		return 0x12229264, true
+	case SemanticTypeTonConnectNextEventID:
+		return 0x582464e3, true
+	case SemanticTypeTonConnectRequest:
+		return 0xa15f8513, true
+	case SemanticTypeTonConnectSession:
+		return 0x126556c6, true
+	case SemanticTypeToncenterAPIResponse:
+		return 0xac8dfe19, true
+	case SemanticTypeToncenterStreamingURL:
+		return 0x19887601, true
 	case SemanticTypeTopPeer:
 		return 0xedcdc05b, true
 	case SemanticTypeTopPeerCategoryBotsApp:
@@ -11567,6 +11927,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x504aa18f, true
 	case SemanticTypeUpdateSentStoryReaction:
 		return 0x7d627683, true
+	case SemanticTypeUpdateSentWalletTransaction:
+		return 0xb1434d4a, true
 	case SemanticTypeUpdateServiceNotification:
 		return 0xebe46819, true
 	case SemanticTypeUpdateShort:
@@ -11615,6 +11977,14 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xe5bdf8de, true
 	case SemanticTypeUpdateUserTyping:
 		return 0x2a17bf5c, true
+	case SemanticTypeUpdateWalletGaslessInfo:
+		return 0xa8ae1cac, true
+	case SemanticTypeUpdateWalletState:
+		return 0x6ac3f2aa, true
+	case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+		return 0xd1ee8199, true
+	case SemanticTypeUpdateWalletTonConnectSession:
+		return 0x50a38e0e, true
 	case SemanticTypeUpdateWebBrowserException:
 		return 0x140502d1, true
 	case SemanticTypeUpdateWebBrowserSettings:
@@ -11707,6 +12077,50 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xe0804116, true
 	case SemanticTypeWallPaperSettings:
 		return 0x372efcd0, true
+	case SemanticTypeWalletEncryptedSecretPhrasePart:
+		return 0x18e82537, true
+	case SemanticTypeWalletExistingBalance:
+		return 0xbde90a8d, true
+	case SemanticTypeWalletHolderDC:
+		return 0xf9d612ef, true
+	case SemanticTypeWalletNftAttribute:
+		return 0x4c1ef10e, true
+	case SemanticTypeWalletNftItem:
+		return 0x3441fd1c, true
+	case SemanticTypeWalletNftItems:
+		return 0x794d486f, true
+	case SemanticTypeWalletProofChallenge:
+		return 0x99e41707, true
+	case SemanticTypeWalletSecretPhraseParts:
+		return 0xe6d0ef01, true
+	case SemanticTypeWalletTonConnectChallenge:
+		return 0x4bc89693, true
+	case SemanticTypeWalletTonConnectPending:
+		return 0x85c0f124, true
+	case SemanticTypeWalletTonConnectSessions:
+		return 0x0e1f6896, true
+	case SemanticTypeWalletTransactions:
+		return 0x4322d5a5, true
+	case SemanticTypeWalletUserAddresses:
+		return 0x928e7b55, true
+	case SemanticTypeWalletOwnershipProof:
+		return 0x60bccb0d, true
+	case SemanticTypeWalletState:
+		return 0x95c5346b, true
+	case SemanticTypeWalletStateEmpty:
+		return 0x9cb9b2ec, true
+	case SemanticTypeWalletTransaction:
+		return 0x952dc143, true
+	case SemanticTypeWalletTransactionPeerAddress:
+		return 0x062cc1bc, true
+	case SemanticTypeWalletTransactionPeerOnramp:
+		return 0xe595186e, true
+	case SemanticTypeWalletTransactionPeerUnsupported:
+		return 0x728bed5a, true
+	case SemanticTypeWalletTransactionPeerUser:
+		return 0xd4ea706d, true
+	case SemanticTypeWalletUserAddress:
+		return 0xfe78eecc, true
 	case SemanticTypeWebAuthorization:
 		return 0xa6f8f452, true
 	case SemanticTypeWebDocument:
@@ -12017,6 +12431,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xcdd42a05, true
 	case SemanticMethodAuthCancelCode:
 		return 0x1f040578, true
+	case SemanticMethodAuthCancelWebTokenAuthorization:
+		return 0x490dada1, true
 	case SemanticMethodAuthCheckPaidAuth:
 		return 0x56e59f9c, true
 	case SemanticMethodAuthCheckPassword:
@@ -12044,7 +12460,7 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticMethodAuthImportWebTokenAuthorization:
 		return 0x2db873a9, true
 	case SemanticMethodAuthInitFirebasePnvLogin:
-		return 0x777df37a, true
+		return 0x644f15c0, true
 	case SemanticMethodAuthInitPasskeyLogin:
 		return 0x518ad0b7, true
 	case SemanticMethodAuthLogOut:
@@ -12071,6 +12487,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xaac7b717, true
 	case SemanticMethodBotsAddPreviewMedia:
 		return 0x17aeb75a, true
+	case SemanticMethodBotsAddUsername:
+		return 0x3501c08a, true
 	case SemanticMethodBotsAllowSendMessage:
 		return 0xf132e3ef, true
 	case SemanticMethodBotsAnswerWebhookJSONQuery:
@@ -12080,7 +12498,7 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticMethodBotsCheckDownloadFileParams:
 		return 0x50077589, true
 	case SemanticMethodBotsCheckUsername:
-		return 0x87f2219b, true
+		return 0xe3ac4c61, true
 	case SemanticMethodBotsCreateBot:
 		return 0xe5b17f2b, true
 	case SemanticMethodBotsDeletePreviewMedia:
@@ -12113,6 +12531,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xbf25b7f3, true
 	case SemanticMethodBotsInvokeWebViewCustomMethod:
 		return 0x087fc5e7, true
+	case SemanticMethodBotsRemoveUsername:
+		return 0xc704147d, true
 	case SemanticMethodBotsReorderPreviewMedias:
 		return 0xb627f3aa, true
 	case SemanticMethodBotsReorderUsernames:
@@ -12134,7 +12554,7 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticMethodBotsSetBotMenuButton:
 		return 0x4504d54f, true
 	case SemanticMethodBotsSetCustomVerification:
-		return 0x8b89dfbd, true
+		return 0xf4946757, true
 	case SemanticMethodBotsSetJoinChatResults:
 		return 0xe71a4810, true
 	case SemanticMethodBotsToggleUserEmojiStatusPermission:
@@ -13001,6 +13421,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x74bf076b, true
 	case SemanticMethodPaymentsCraftStarGift:
 		return 0xb0f9684f, true
+	case SemanticMethodPaymentsCreateOnrampSession:
+		return 0xa2197cf6, true
 	case SemanticMethodPaymentsCreateStarGiftCollection:
 		return 0x1f4a0e87, true
 	case SemanticMethodPaymentsDeleteStarGiftCollection:
@@ -13019,8 +13441,20 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x5869a553, true
 	case SemanticMethodPaymentsGetCraftStarGifts:
 		return 0xfd05dd00, true
+	case SemanticMethodPaymentsGetCurrencyRates:
+		return 0xd35983e8, true
 	case SemanticMethodPaymentsGetGiveawayInfo:
 		return 0xf4239425, true
+	case SemanticMethodPaymentsGetOnrampAvailability:
+		return 0x2ec29951, true
+	case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+		return 0x1c8bedf3, true
+	case SemanticMethodPaymentsGetOnrampLimits:
+		return 0x80e851fd, true
+	case SemanticMethodPaymentsGetOnrampProviders:
+		return 0x3f3e00dc, true
+	case SemanticMethodPaymentsGetOnrampQuote:
+		return 0xe06645fa, true
 	case SemanticMethodPaymentsGetPaymentForm:
 		return 0x37148dbb, true
 	case SemanticMethodPaymentsGetPaymentReceipt:
@@ -13335,6 +13769,10 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0xf9b7b23d, true
 	case SemanticMethodTestUseError:
 		return 0xee75af01, true
+	case SemanticMethodToncenterGetStreamingURL:
+		return 0xcdaf63c7, true
+	case SemanticMethodToncenterPerformAPIRequest:
+		return 0x8d7bdd61, true
 	case SemanticMethodUpdatesGetChannelDifference:
 		return 0x03173d78, true
 	case SemanticMethodUpdatesGetDifference:
@@ -13371,6 +13809,56 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x90c894b5, true
 	case SemanticMethodUsersSuggestBirthday:
 		return 0xfc533372, true
+	case SemanticMethodWalletDisableBackup:
+		return 0x0b0bf0da, true
+	case SemanticMethodWalletEnableBackup:
+		return 0x4500c525, true
+	case SemanticMethodWalletExportSecretPhrase:
+		return 0x9077c9ac, true
+	case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+		return 0xf53925cf, true
+	case SemanticMethodWalletGetBackupHolderDCs:
+		return 0xd179d494, true
+	case SemanticMethodWalletGetExistingWaltBalance:
+		return 0x691f4360, true
+	case SemanticMethodWalletGetGaslessInfo:
+		return 0x742df0a1, true
+	case SemanticMethodWalletGetNfts:
+		return 0x8c12f3a4, true
+	case SemanticMethodWalletGetProofChallenge:
+		return 0x2025e697, true
+	case SemanticMethodWalletGetState:
+		return 0xab83b33a, true
+	case SemanticMethodWalletGetTransactions:
+		return 0xa8830a83, true
+	case SemanticMethodWalletGetTransactionsByIDs:
+		return 0x811ceab6, true
+	case SemanticMethodWalletGetTransactionsByMsgHash:
+		return 0xa6bb795d, true
+	case SemanticMethodWalletGetUserAddresses:
+		return 0x5275dfdd, true
+	case SemanticMethodWalletReplaceWallet:
+		return 0xd8c72eec, true
+	case SemanticMethodWalletSendTransfer:
+		return 0xd9e5d9e2, true
+	case SemanticMethodWalletTonConnectClaimRequest:
+		return 0x66b57b41, true
+	case SemanticMethodWalletTonConnectCloseSession:
+		return 0xd63f61ce, true
+	case SemanticMethodWalletTonConnectCreateSession:
+		return 0xcc931046, true
+	case SemanticMethodWalletTonConnectGetPending:
+		return 0x11aee065, true
+	case SemanticMethodWalletTonConnectGetSessions:
+		return 0xa7ffb56e, true
+	case SemanticMethodWalletTonConnectNextEventID:
+		return 0x775d7244, true
+	case SemanticMethodWalletTonConnectRegisterKey:
+		return 0x338bcf1c, true
+	case SemanticMethodWalletTonConnectSubmitConnectResult:
+		return 0xc2c00779, true
+	case SemanticMethodWalletTonConnectSubmitResponse:
+		return 0xfac67d3c, true
 	default:
 		return 0, false
 	}
@@ -13393,6 +13881,10 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0xc27ac8c7, true
 		case SemanticTypeBotInlineMessageRichMessage:
 			return 0, false
+		case SemanticTypeBotVerification:
+			return 0xf93cd45c, true
+		case SemanticTypeBotVerifierSettings:
+			return 0xb0cd6617, true
 		case SemanticTypeButtonTypeDefault:
 			return 0, false
 		case SemanticTypeButtonTypeRequestGeoLocation:
@@ -13425,6 +13917,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeConnectedBot:
 			return 0xcd64636c, true
+		case SemanticTypeCurrencyRate:
+			return 0, false
 		case SemanticTypeDialogCommunity:
 			return 0, false
 		case SemanticTypeDialogPeerCommunity:
@@ -13481,6 +13975,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputPageBlockMap:
 			return 0, false
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0x5b1ccb28, true
 		case SemanticTypeInputReplyToEphemeralMessage:
 			return 0, false
 		case SemanticTypeInputRichFileDocument:
@@ -13497,6 +13993,10 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputStorePaymentAuthCode:
 			return 0x9bb2636d, true
+		case SemanticTypeInputWalletImported:
+			return 0, false
+		case SemanticTypeInputWalletNew:
+			return 0, false
 		case SemanticTypeJoinChatBotResultApproved:
 			return 0, false
 		case SemanticTypeJoinChatBotResultDeclined:
@@ -13543,8 +14043,16 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x95ef6f2b, true
 		case SemanticTypeMessageActionChangeCommunity:
 			return 0, false
+		case SemanticTypeMessageActionChatJoinedViaCommunity:
+			return 0, false
+		case SemanticTypeMessageActionGramTransfer:
+			return 0, false
 		case SemanticTypeMessageActionStarGiftUnique:
 			return 0xe6c31522, true
+		case SemanticTypeMessageActionWalletTonConnectRequest:
+			return 0, false
+		case SemanticTypeMessageEntityTonAddress:
+			return 0, false
 		case SemanticTypeMessagesChatInviteJoinResultOk:
 			return 0, false
 		case SemanticTypeMessagesChatInviteJoinResultWebView:
@@ -13554,6 +14062,18 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeMessagesTranslatedRichMessage:
 			return 0, false
 		case SemanticTypeNotifyCommunity:
+			return 0, false
+		case SemanticTypeOnrampAvailability:
+			return 0, false
+		case SemanticTypeOnrampLimits:
+			return 0, false
+		case SemanticTypeOnrampMethodAvailability:
+			return 0, false
+		case SemanticTypeOnrampProviderInfo:
+			return 0, false
+		case SemanticTypeOnrampQuote:
+			return 0, false
+		case SemanticTypeOnrampSession:
 			return 0, false
 		case SemanticTypePageBlockBlockquote:
 			return 0x263d7c26, true
@@ -13591,6 +14111,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x98dd8936, true
 		case SemanticTypePageListOrderedItemText:
 			return 0x5e068047, true
+		case SemanticTypePaymentsCurrencyRates:
+			return 0, false
 		case SemanticTypeReplyInlineMarkup:
 			return 0x48a30254, true
 		case SemanticTypeRichButtonStyle:
@@ -13633,6 +14155,20 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeTextSpoiler:
 			return 0, false
+		case SemanticTypeTextTonAddress:
+			return 0, false
+		case SemanticTypeTonConnectManifest:
+			return 0, false
+		case SemanticTypeTonConnectNextEventID:
+			return 0, false
+		case SemanticTypeTonConnectRequest:
+			return 0, false
+		case SemanticTypeTonConnectSession:
+			return 0, false
+		case SemanticTypeToncenterAPIResponse:
+			return 0, false
+		case SemanticTypeToncenterStreamingURL:
+			return 0, false
 		case SemanticTypeTopPeerCategoryBotsGuestChat:
 			return 0, false
 		case SemanticTypeUpdateBotChatInviteRequester:
@@ -13651,12 +14187,66 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateNewEphemeralMessage:
 			return 0, false
+		case SemanticTypeUpdateSentWalletTransaction:
+			return 0, false
+		case SemanticTypeUpdateWalletGaslessInfo:
+			return 0, false
+		case SemanticTypeUpdateWalletState:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectSession:
+			return 0, false
 		case SemanticTypeUpdateWebBrowserException:
 			return 0, false
 		case SemanticTypeUpdateWebBrowserSettings:
 			return 0, false
 		case SemanticTypeUser:
 			return 0x31774388, true
+		case SemanticTypeWalletEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticTypeWalletExistingBalance:
+			return 0, false
+		case SemanticTypeWalletHolderDC:
+			return 0, false
+		case SemanticTypeWalletNftAttribute:
+			return 0, false
+		case SemanticTypeWalletNftItem:
+			return 0, false
+		case SemanticTypeWalletNftItems:
+			return 0, false
+		case SemanticTypeWalletProofChallenge:
+			return 0, false
+		case SemanticTypeWalletSecretPhraseParts:
+			return 0, false
+		case SemanticTypeWalletTonConnectChallenge:
+			return 0, false
+		case SemanticTypeWalletTonConnectPending:
+			return 0, false
+		case SemanticTypeWalletTonConnectSessions:
+			return 0, false
+		case SemanticTypeWalletTransactions:
+			return 0, false
+		case SemanticTypeWalletUserAddresses:
+			return 0, false
+		case SemanticTypeWalletOwnershipProof:
+			return 0, false
+		case SemanticTypeWalletState:
+			return 0, false
+		case SemanticTypeWalletStateEmpty:
+			return 0, false
+		case SemanticTypeWalletTransaction:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerAddress:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerOnramp:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUnsupported:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUser:
+			return 0, false
+		case SemanticTypeWalletUserAddress:
+			return 0, false
 		case SemanticTypeWebDomainException:
 			return 0, false
 		case SemanticMethodAccountConfirmBotConnection:
@@ -13669,12 +14259,22 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodAccountUpdateWebBrowserSettings:
 			return 0, false
+		case SemanticMethodAuthCancelWebTokenAuthorization:
+			return 0, false
 		case SemanticMethodAuthFinishFirebasePnvLogin:
 			return 0, false
 		case SemanticMethodAuthFirebasePnvSignUp:
 			return 0, false
 		case SemanticMethodAuthInitFirebasePnvLogin:
 			return 0, false
+		case SemanticMethodBotsAddUsername:
+			return 0, false
+		case SemanticMethodBotsCheckUsername:
+			return 0x87f2219b, true
+		case SemanticMethodBotsRemoveUsername:
+			return 0, false
+		case SemanticMethodBotsSetCustomVerification:
+			return 0x8b89dfbd, true
 		case SemanticMethodBotsSetJoinChatResults:
 			return 0, false
 		case SemanticMethodChannelsJoinChannel:
@@ -13741,6 +14341,74 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x052b08db, true
 		case SemanticMethodMessagesTranslateRichMessage:
 			return 0, false
+		case SemanticMethodPaymentsCreateOnrampSession:
+			return 0, false
+		case SemanticMethodPaymentsGetCurrencyRates:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampAvailability:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampLimits:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampProviders:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampQuote:
+			return 0, false
+		case SemanticMethodToncenterGetStreamingURL:
+			return 0, false
+		case SemanticMethodToncenterPerformAPIRequest:
+			return 0, false
+		case SemanticMethodWalletDisableBackup:
+			return 0, false
+		case SemanticMethodWalletEnableBackup:
+			return 0, false
+		case SemanticMethodWalletExportSecretPhrase:
+			return 0, false
+		case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticMethodWalletGetBackupHolderDCs:
+			return 0, false
+		case SemanticMethodWalletGetExistingWaltBalance:
+			return 0, false
+		case SemanticMethodWalletGetGaslessInfo:
+			return 0, false
+		case SemanticMethodWalletGetNfts:
+			return 0, false
+		case SemanticMethodWalletGetProofChallenge:
+			return 0, false
+		case SemanticMethodWalletGetState:
+			return 0, false
+		case SemanticMethodWalletGetTransactions:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByIDs:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByMsgHash:
+			return 0, false
+		case SemanticMethodWalletGetUserAddresses:
+			return 0, false
+		case SemanticMethodWalletReplaceWallet:
+			return 0, false
+		case SemanticMethodWalletSendTransfer:
+			return 0, false
+		case SemanticMethodWalletTonConnectClaimRequest:
+			return 0, false
+		case SemanticMethodWalletTonConnectCloseSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectCreateSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetPending:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetSessions:
+			return 0, false
+		case SemanticMethodWalletTonConnectNextEventID:
+			return 0, false
+		case SemanticMethodWalletTonConnectRegisterKey:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitConnectResult:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitResponse:
+			return 0, false
 		}
 	case Profile226:
 		switch semantic {
@@ -13750,6 +14418,10 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0xc27ac8c7, true
 		case SemanticTypeBotInlineMessageRichMessage:
 			return 0, false
+		case SemanticTypeBotVerification:
+			return 0xf93cd45c, true
+		case SemanticTypeBotVerifierSettings:
+			return 0xb0cd6617, true
 		case SemanticTypeButtonTypeDefault:
 			return 0, false
 		case SemanticTypeButtonTypeRequestGeoLocation:
@@ -13777,6 +14449,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeCommunityPeer:
 			return 0, false
 		case SemanticTypeCommunityPeerRequest:
+			return 0, false
+		case SemanticTypeCurrencyRate:
 			return 0, false
 		case SemanticTypeDialogCommunity:
 			return 0, false
@@ -13834,6 +14508,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputPageBlockMap:
 			return 0, false
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0x5b1ccb28, true
 		case SemanticTypeInputReplyToEphemeralMessage:
 			return 0, false
 		case SemanticTypeInputRichFileDocument:
@@ -13847,6 +14523,10 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeInputRichMessageMarkdown:
 			return 0, false
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
+			return 0, false
+		case SemanticTypeInputWalletImported:
+			return 0, false
+		case SemanticTypeInputWalletNew:
 			return 0, false
 		case SemanticTypeKeyboardButton:
 			return 0x7d170cff, true
@@ -13886,8 +14566,16 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x95ef6f2b, true
 		case SemanticTypeMessageActionChangeCommunity:
 			return 0, false
+		case SemanticTypeMessageActionChatJoinedViaCommunity:
+			return 0, false
+		case SemanticTypeMessageActionGramTransfer:
+			return 0, false
 		case SemanticTypeMessageActionStarGiftUnique:
 			return 0xe6c31522, true
+		case SemanticTypeMessageActionWalletTonConnectRequest:
+			return 0, false
+		case SemanticTypeMessageEntityTonAddress:
+			return 0, false
 		case SemanticTypeMessagesChatInviteJoinResultWebView:
 			return 0x774bbdf4, true
 		case SemanticTypeMessagesComposedRichMessageWithAI:
@@ -13895,6 +14583,18 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeMessagesTranslatedRichMessage:
 			return 0, false
 		case SemanticTypeNotifyCommunity:
+			return 0, false
+		case SemanticTypeOnrampAvailability:
+			return 0, false
+		case SemanticTypeOnrampLimits:
+			return 0, false
+		case SemanticTypeOnrampMethodAvailability:
+			return 0, false
+		case SemanticTypeOnrampProviderInfo:
+			return 0, false
+		case SemanticTypeOnrampQuote:
+			return 0, false
+		case SemanticTypeOnrampSession:
 			return 0, false
 		case SemanticTypePageBlockBlockquote:
 			return 0x263d7c26, true
@@ -13932,6 +14632,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x98dd8936, true
 		case SemanticTypePageListOrderedItemText:
 			return 0x5e068047, true
+		case SemanticTypePaymentsCurrencyRates:
+			return 0, false
 		case SemanticTypeReplyInlineMarkup:
 			return 0x48a30254, true
 		case SemanticTypeRichButtonStyle:
@@ -13974,6 +14676,20 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeTextSpoiler:
 			return 0, false
+		case SemanticTypeTextTonAddress:
+			return 0, false
+		case SemanticTypeTonConnectManifest:
+			return 0, false
+		case SemanticTypeTonConnectNextEventID:
+			return 0, false
+		case SemanticTypeTonConnectRequest:
+			return 0, false
+		case SemanticTypeTonConnectSession:
+			return 0, false
+		case SemanticTypeToncenterAPIResponse:
+			return 0, false
+		case SemanticTypeToncenterStreamingURL:
+			return 0, false
 		case SemanticTypeUpdateBotStarsSubscription:
 			return 0, false
 		case SemanticTypeUpdateDeleteEphemeralMessages:
@@ -13984,16 +14700,80 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateNewEphemeralMessage:
 			return 0, false
+		case SemanticTypeUpdateSentWalletTransaction:
+			return 0, false
+		case SemanticTypeUpdateWalletGaslessInfo:
+			return 0, false
+		case SemanticTypeUpdateWalletState:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectSession:
+			return 0, false
 		case SemanticTypeUser:
 			return 0x31774388, true
+		case SemanticTypeWalletEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticTypeWalletExistingBalance:
+			return 0, false
+		case SemanticTypeWalletHolderDC:
+			return 0, false
+		case SemanticTypeWalletNftAttribute:
+			return 0, false
+		case SemanticTypeWalletNftItem:
+			return 0, false
+		case SemanticTypeWalletNftItems:
+			return 0, false
+		case SemanticTypeWalletProofChallenge:
+			return 0, false
+		case SemanticTypeWalletSecretPhraseParts:
+			return 0, false
+		case SemanticTypeWalletTonConnectChallenge:
+			return 0, false
+		case SemanticTypeWalletTonConnectPending:
+			return 0, false
+		case SemanticTypeWalletTonConnectSessions:
+			return 0, false
+		case SemanticTypeWalletTransactions:
+			return 0, false
+		case SemanticTypeWalletUserAddresses:
+			return 0, false
+		case SemanticTypeWalletOwnershipProof:
+			return 0, false
+		case SemanticTypeWalletState:
+			return 0, false
+		case SemanticTypeWalletStateEmpty:
+			return 0, false
+		case SemanticTypeWalletTransaction:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerAddress:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerOnramp:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUnsupported:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUser:
+			return 0, false
+		case SemanticTypeWalletUserAddress:
+			return 0, false
 		case SemanticMethodAccountToggleWebBrowserSettingsException:
 			return 0x2d0a0571, true
+		case SemanticMethodAuthCancelWebTokenAuthorization:
+			return 0, false
 		case SemanticMethodAuthFinishFirebasePnvLogin:
 			return 0, false
 		case SemanticMethodAuthFirebasePnvSignUp:
 			return 0, false
 		case SemanticMethodAuthInitFirebasePnvLogin:
 			return 0, false
+		case SemanticMethodBotsAddUsername:
+			return 0, false
+		case SemanticMethodBotsCheckUsername:
+			return 0x87f2219b, true
+		case SemanticMethodBotsRemoveUsername:
+			return 0, false
+		case SemanticMethodBotsSetCustomVerification:
+			return 0x8b89dfbd, true
 		case SemanticMethodCommunitiesCreate:
 			return 0, false
 		case SemanticMethodCommunitiesGetJoinedCommunities:
@@ -14048,6 +14828,74 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x545cd15a, true
 		case SemanticMethodMessagesTranslateRichMessage:
 			return 0, false
+		case SemanticMethodPaymentsCreateOnrampSession:
+			return 0, false
+		case SemanticMethodPaymentsGetCurrencyRates:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampAvailability:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampLimits:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampProviders:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampQuote:
+			return 0, false
+		case SemanticMethodToncenterGetStreamingURL:
+			return 0, false
+		case SemanticMethodToncenterPerformAPIRequest:
+			return 0, false
+		case SemanticMethodWalletDisableBackup:
+			return 0, false
+		case SemanticMethodWalletEnableBackup:
+			return 0, false
+		case SemanticMethodWalletExportSecretPhrase:
+			return 0, false
+		case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticMethodWalletGetBackupHolderDCs:
+			return 0, false
+		case SemanticMethodWalletGetExistingWaltBalance:
+			return 0, false
+		case SemanticMethodWalletGetGaslessInfo:
+			return 0, false
+		case SemanticMethodWalletGetNfts:
+			return 0, false
+		case SemanticMethodWalletGetProofChallenge:
+			return 0, false
+		case SemanticMethodWalletGetState:
+			return 0, false
+		case SemanticMethodWalletGetTransactions:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByIDs:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByMsgHash:
+			return 0, false
+		case SemanticMethodWalletGetUserAddresses:
+			return 0, false
+		case SemanticMethodWalletReplaceWallet:
+			return 0, false
+		case SemanticMethodWalletSendTransfer:
+			return 0, false
+		case SemanticMethodWalletTonConnectClaimRequest:
+			return 0, false
+		case SemanticMethodWalletTonConnectCloseSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectCreateSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetPending:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetSessions:
+			return 0, false
+		case SemanticMethodWalletTonConnectNextEventID:
+			return 0, false
+		case SemanticMethodWalletTonConnectRegisterKey:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitConnectResult:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitResponse:
+			return 0, false
 		}
 	case Profile227:
 		switch semantic {
@@ -14055,6 +14903,10 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeBotCommand:
 			return 0xc27ac8c7, true
+		case SemanticTypeBotVerification:
+			return 0xf93cd45c, true
+		case SemanticTypeBotVerifierSettings:
+			return 0xb0cd6617, true
 		case SemanticTypeButtonTypeDefault:
 			return 0, false
 		case SemanticTypeButtonTypeRequestGeoLocation:
@@ -14082,6 +14934,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeCommunityPeer:
 			return 0, false
 		case SemanticTypeCommunityPeerRequest:
+			return 0, false
+		case SemanticTypeCurrencyRate:
 			return 0, false
 		case SemanticTypeDialogCommunity:
 			return 0, false
@@ -14133,10 +14987,16 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x7d5e07c7, true
 		case SemanticTypeInputNotifyCommunity:
 			return 0, false
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0x5b1ccb28, true
 		case SemanticTypeInputReplyToEphemeralMessage:
 			return 0, false
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
 			return 0xe2b23b51, true
+		case SemanticTypeInputWalletImported:
+			return 0, false
+		case SemanticTypeInputWalletNew:
+			return 0, false
 		case SemanticTypeKeyboardButton:
 			return 0x7d170cff, true
 		case SemanticTypeKeyboardButtonBuy:
@@ -14173,8 +15033,16 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeMessageActionChangeCommunity:
 			return 0, false
+		case SemanticTypeMessageActionChatJoinedViaCommunity:
+			return 0, false
+		case SemanticTypeMessageActionGramTransfer:
+			return 0, false
 		case SemanticTypeMessageActionStarGiftUnique:
 			return 0xe6c31522, true
+		case SemanticTypeMessageActionWalletTonConnectRequest:
+			return 0, false
+		case SemanticTypeMessageEntityTonAddress:
+			return 0, false
 		case SemanticTypeMessagesChatInviteJoinResultWebView:
 			return 0x2f51c337, true
 		case SemanticTypeMessagesComposedRichMessageWithAI:
@@ -14183,6 +15051,18 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeNotifyCommunity:
 			return 0, false
+		case SemanticTypeOnrampAvailability:
+			return 0, false
+		case SemanticTypeOnrampLimits:
+			return 0, false
+		case SemanticTypeOnrampMethodAvailability:
+			return 0, false
+		case SemanticTypeOnrampProviderInfo:
+			return 0, false
+		case SemanticTypeOnrampQuote:
+			return 0, false
+		case SemanticTypeOnrampSession:
+			return 0, false
 		case SemanticTypePageBlockBlockquote:
 			return 0x263d7c26, true
 		case SemanticTypePageBlockButtonRow:
@@ -14190,6 +15070,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypePageBlockDocument:
 			return 0, false
 		case SemanticTypePageButton:
+			return 0, false
+		case SemanticTypePaymentsCurrencyRates:
 			return 0, false
 		case SemanticTypeReplyInlineMarkup:
 			return 0x48a30254, true
@@ -14205,6 +15087,20 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeTextDiff:
 			return 0, false
+		case SemanticTypeTextTonAddress:
+			return 0, false
+		case SemanticTypeTonConnectManifest:
+			return 0, false
+		case SemanticTypeTonConnectNextEventID:
+			return 0, false
+		case SemanticTypeTonConnectRequest:
+			return 0, false
+		case SemanticTypeTonConnectSession:
+			return 0, false
+		case SemanticTypeToncenterAPIResponse:
+			return 0, false
+		case SemanticTypeToncenterStreamingURL:
+			return 0, false
 		case SemanticTypeUpdateBotStarsSubscription:
 			return 0, false
 		case SemanticTypeUpdateDeleteEphemeralMessages:
@@ -14215,14 +15111,78 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateNewEphemeralMessage:
 			return 0, false
+		case SemanticTypeUpdateSentWalletTransaction:
+			return 0, false
+		case SemanticTypeUpdateWalletGaslessInfo:
+			return 0, false
+		case SemanticTypeUpdateWalletState:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectSession:
+			return 0, false
 		case SemanticTypeUser:
 			return 0x31774388, true
+		case SemanticTypeWalletEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticTypeWalletExistingBalance:
+			return 0, false
+		case SemanticTypeWalletHolderDC:
+			return 0, false
+		case SemanticTypeWalletNftAttribute:
+			return 0, false
+		case SemanticTypeWalletNftItem:
+			return 0, false
+		case SemanticTypeWalletNftItems:
+			return 0, false
+		case SemanticTypeWalletProofChallenge:
+			return 0, false
+		case SemanticTypeWalletSecretPhraseParts:
+			return 0, false
+		case SemanticTypeWalletTonConnectChallenge:
+			return 0, false
+		case SemanticTypeWalletTonConnectPending:
+			return 0, false
+		case SemanticTypeWalletTonConnectSessions:
+			return 0, false
+		case SemanticTypeWalletTransactions:
+			return 0, false
+		case SemanticTypeWalletUserAddresses:
+			return 0, false
+		case SemanticTypeWalletOwnershipProof:
+			return 0, false
+		case SemanticTypeWalletState:
+			return 0, false
+		case SemanticTypeWalletStateEmpty:
+			return 0, false
+		case SemanticTypeWalletTransaction:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerAddress:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerOnramp:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUnsupported:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUser:
+			return 0, false
+		case SemanticTypeWalletUserAddress:
+			return 0, false
+		case SemanticMethodAuthCancelWebTokenAuthorization:
+			return 0, false
 		case SemanticMethodAuthFinishFirebasePnvLogin:
 			return 0, false
 		case SemanticMethodAuthFirebasePnvSignUp:
 			return 0, false
 		case SemanticMethodAuthInitFirebasePnvLogin:
 			return 0, false
+		case SemanticMethodBotsAddUsername:
+			return 0, false
+		case SemanticMethodBotsCheckUsername:
+			return 0x87f2219b, true
+		case SemanticMethodBotsRemoveUsername:
+			return 0, false
+		case SemanticMethodBotsSetCustomVerification:
+			return 0x8b89dfbd, true
 		case SemanticMethodCommunitiesCreate:
 			return 0, false
 		case SemanticMethodCommunitiesGetJoinedCommunities:
@@ -14265,11 +15225,83 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x4bc6589a, true
 		case SemanticMethodMessagesTranslateRichMessage:
 			return 0, false
+		case SemanticMethodPaymentsCreateOnrampSession:
+			return 0, false
+		case SemanticMethodPaymentsGetCurrencyRates:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampAvailability:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampLimits:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampProviders:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampQuote:
+			return 0, false
+		case SemanticMethodToncenterGetStreamingURL:
+			return 0, false
+		case SemanticMethodToncenterPerformAPIRequest:
+			return 0, false
+		case SemanticMethodWalletDisableBackup:
+			return 0, false
+		case SemanticMethodWalletEnableBackup:
+			return 0, false
+		case SemanticMethodWalletExportSecretPhrase:
+			return 0, false
+		case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticMethodWalletGetBackupHolderDCs:
+			return 0, false
+		case SemanticMethodWalletGetExistingWaltBalance:
+			return 0, false
+		case SemanticMethodWalletGetGaslessInfo:
+			return 0, false
+		case SemanticMethodWalletGetNfts:
+			return 0, false
+		case SemanticMethodWalletGetProofChallenge:
+			return 0, false
+		case SemanticMethodWalletGetState:
+			return 0, false
+		case SemanticMethodWalletGetTransactions:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByIDs:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByMsgHash:
+			return 0, false
+		case SemanticMethodWalletGetUserAddresses:
+			return 0, false
+		case SemanticMethodWalletReplaceWallet:
+			return 0, false
+		case SemanticMethodWalletSendTransfer:
+			return 0, false
+		case SemanticMethodWalletTonConnectClaimRequest:
+			return 0, false
+		case SemanticMethodWalletTonConnectCloseSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectCreateSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetPending:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetSessions:
+			return 0, false
+		case SemanticMethodWalletTonConnectNextEventID:
+			return 0, false
+		case SemanticMethodWalletTonConnectRegisterKey:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitConnectResult:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitResponse:
+			return 0, false
 		}
 	case Profile228:
 		switch semantic {
 		case SemanticTypeAuthFirebasePnvIntent:
 			return 0, false
+		case SemanticTypeBotVerification:
+			return 0xf93cd45c, true
+		case SemanticTypeBotVerifierSettings:
+			return 0xb0cd6617, true
 		case SemanticTypeButtonTypeDefault:
 			return 0, false
 		case SemanticTypeButtonTypeRequestGeoLocation:
@@ -14281,6 +15313,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypeButtonTypeRequestPoll:
 			return 0, false
 		case SemanticTypeButtonTypeSimpleWebView:
+			return 0, false
+		case SemanticTypeCurrencyRate:
 			return 0, false
 		case SemanticTypeEphemeralWelcomeMessages:
 			return 0, false
@@ -14322,8 +15356,14 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x68013e72, true
 		case SemanticTypeInputKeyboardButtonUserProfile:
 			return 0x7d5e07c7, true
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0x5b1ccb28, true
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
 			return 0xe2b23b51, true
+		case SemanticTypeInputWalletImported:
+			return 0, false
+		case SemanticTypeInputWalletNew:
+			return 0, false
 		case SemanticTypeKeyboardButton:
 			return 0x7d170cff, true
 		case SemanticTypeKeyboardButtonBuy:
@@ -14358,8 +15398,28 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeKeyboardInlineButtonRow:
 			return 0, false
+		case SemanticTypeMessageActionChatJoinedViaCommunity:
+			return 0, false
+		case SemanticTypeMessageActionGramTransfer:
+			return 0, false
 		case SemanticTypeMessageActionStarGiftUnique:
 			return 0xe6c31522, true
+		case SemanticTypeMessageActionWalletTonConnectRequest:
+			return 0, false
+		case SemanticTypeMessageEntityTonAddress:
+			return 0, false
+		case SemanticTypeOnrampAvailability:
+			return 0, false
+		case SemanticTypeOnrampLimits:
+			return 0, false
+		case SemanticTypeOnrampMethodAvailability:
+			return 0, false
+		case SemanticTypeOnrampProviderInfo:
+			return 0, false
+		case SemanticTypeOnrampQuote:
+			return 0, false
+		case SemanticTypeOnrampSession:
+			return 0, false
 		case SemanticTypePageBlockBlockquote:
 			return 0x263d7c26, true
 		case SemanticTypePageBlockButtonRow:
@@ -14367,6 +15427,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 		case SemanticTypePageBlockDocument:
 			return 0, false
 		case SemanticTypePageButton:
+			return 0, false
+		case SemanticTypePaymentsCurrencyRates:
 			return 0, false
 		case SemanticTypeReplyInlineMarkup:
 			return 0x48a30254, true
@@ -14380,7 +15442,77 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x376d975c, true
 		case SemanticTypeTextButton:
 			return 0, false
+		case SemanticTypeTextTonAddress:
+			return 0, false
+		case SemanticTypeTonConnectManifest:
+			return 0, false
+		case SemanticTypeTonConnectNextEventID:
+			return 0, false
+		case SemanticTypeTonConnectRequest:
+			return 0, false
+		case SemanticTypeTonConnectSession:
+			return 0, false
+		case SemanticTypeToncenterAPIResponse:
+			return 0, false
+		case SemanticTypeToncenterStreamingURL:
+			return 0, false
 		case SemanticTypeUpdateEphemeralBotCallbackQuery:
+			return 0, false
+		case SemanticTypeUpdateSentWalletTransaction:
+			return 0, false
+		case SemanticTypeUpdateWalletGaslessInfo:
+			return 0, false
+		case SemanticTypeUpdateWalletState:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectSession:
+			return 0, false
+		case SemanticTypeWalletEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticTypeWalletExistingBalance:
+			return 0, false
+		case SemanticTypeWalletHolderDC:
+			return 0, false
+		case SemanticTypeWalletNftAttribute:
+			return 0, false
+		case SemanticTypeWalletNftItem:
+			return 0, false
+		case SemanticTypeWalletNftItems:
+			return 0, false
+		case SemanticTypeWalletProofChallenge:
+			return 0, false
+		case SemanticTypeWalletSecretPhraseParts:
+			return 0, false
+		case SemanticTypeWalletTonConnectChallenge:
+			return 0, false
+		case SemanticTypeWalletTonConnectPending:
+			return 0, false
+		case SemanticTypeWalletTonConnectSessions:
+			return 0, false
+		case SemanticTypeWalletTransactions:
+			return 0, false
+		case SemanticTypeWalletUserAddresses:
+			return 0, false
+		case SemanticTypeWalletOwnershipProof:
+			return 0, false
+		case SemanticTypeWalletState:
+			return 0, false
+		case SemanticTypeWalletStateEmpty:
+			return 0, false
+		case SemanticTypeWalletTransaction:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerAddress:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerOnramp:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUnsupported:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUser:
+			return 0, false
+		case SemanticTypeWalletUserAddress:
+			return 0, false
+		case SemanticMethodAuthCancelWebTokenAuthorization:
 			return 0, false
 		case SemanticMethodAuthFinishFirebasePnvLogin:
 			return 0, false
@@ -14388,6 +15520,14 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodAuthInitFirebasePnvLogin:
 			return 0, false
+		case SemanticMethodBotsAddUsername:
+			return 0, false
+		case SemanticMethodBotsCheckUsername:
+			return 0x87f2219b, true
+		case SemanticMethodBotsRemoveUsername:
+			return 0, false
+		case SemanticMethodBotsSetCustomVerification:
+			return 0x8b89dfbd, true
 		case SemanticMethodEphemeralDeleteAllWelcomeMessages:
 			return 0, false
 		case SemanticMethodEphemeralDeleteMessage:
@@ -14400,6 +15540,293 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodEphemeralSendMessage:
 			return 0x68cbd09f, true
+		case SemanticMethodPaymentsCreateOnrampSession:
+			return 0, false
+		case SemanticMethodPaymentsGetCurrencyRates:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampAvailability:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampLimits:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampProviders:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampQuote:
+			return 0, false
+		case SemanticMethodToncenterGetStreamingURL:
+			return 0, false
+		case SemanticMethodToncenterPerformAPIRequest:
+			return 0, false
+		case SemanticMethodWalletDisableBackup:
+			return 0, false
+		case SemanticMethodWalletEnableBackup:
+			return 0, false
+		case SemanticMethodWalletExportSecretPhrase:
+			return 0, false
+		case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticMethodWalletGetBackupHolderDCs:
+			return 0, false
+		case SemanticMethodWalletGetExistingWaltBalance:
+			return 0, false
+		case SemanticMethodWalletGetGaslessInfo:
+			return 0, false
+		case SemanticMethodWalletGetNfts:
+			return 0, false
+		case SemanticMethodWalletGetProofChallenge:
+			return 0, false
+		case SemanticMethodWalletGetState:
+			return 0, false
+		case SemanticMethodWalletGetTransactions:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByIDs:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByMsgHash:
+			return 0, false
+		case SemanticMethodWalletGetUserAddresses:
+			return 0, false
+		case SemanticMethodWalletReplaceWallet:
+			return 0, false
+		case SemanticMethodWalletSendTransfer:
+			return 0, false
+		case SemanticMethodWalletTonConnectClaimRequest:
+			return 0, false
+		case SemanticMethodWalletTonConnectCloseSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectCreateSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetPending:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetSessions:
+			return 0, false
+		case SemanticMethodWalletTonConnectNextEventID:
+			return 0, false
+		case SemanticMethodWalletTonConnectRegisterKey:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitConnectResult:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitResponse:
+			return 0, false
+		}
+	case Profile229:
+		switch semantic {
+		case SemanticTypeBotVerification:
+			return 0xf93cd45c, true
+		case SemanticTypeBotVerifierSettings:
+			return 0xb0cd6617, true
+		case SemanticTypeCurrencyRate:
+			return 0, false
+		case SemanticTypeInputKeyboardButtonRequestPeer:
+			return 0, false
+		case SemanticTypeInputKeyboardButtonURLAuth:
+			return 0, false
+		case SemanticTypeInputKeyboardButtonUserProfile:
+			return 0, false
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0x5b1ccb28, true
+		case SemanticTypeInputWalletImported:
+			return 0, false
+		case SemanticTypeInputWalletNew:
+			return 0, false
+		case SemanticTypeKeyboardButtonBuy:
+			return 0, false
+		case SemanticTypeKeyboardButtonCallback:
+			return 0, false
+		case SemanticTypeKeyboardButtonCopy:
+			return 0, false
+		case SemanticTypeKeyboardButtonGame:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestGeoLocation:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPeer:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPhone:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPoll:
+			return 0, false
+		case SemanticTypeKeyboardButtonSimpleWebView:
+			return 0, false
+		case SemanticTypeKeyboardButtonSwitchInline:
+			return 0, false
+		case SemanticTypeKeyboardButtonURL:
+			return 0, false
+		case SemanticTypeKeyboardButtonURLAuth:
+			return 0, false
+		case SemanticTypeKeyboardButtonUserProfile:
+			return 0, false
+		case SemanticTypeKeyboardButtonWebView:
+			return 0, false
+		case SemanticTypeMessageActionChatJoinedViaCommunity:
+			return 0, false
+		case SemanticTypeMessageActionGramTransfer:
+			return 0, false
+		case SemanticTypeMessageActionWalletTonConnectRequest:
+			return 0, false
+		case SemanticTypeMessageEntityTonAddress:
+			return 0, false
+		case SemanticTypeOnrampAvailability:
+			return 0, false
+		case SemanticTypeOnrampLimits:
+			return 0, false
+		case SemanticTypeOnrampMethodAvailability:
+			return 0, false
+		case SemanticTypeOnrampProviderInfo:
+			return 0, false
+		case SemanticTypeOnrampQuote:
+			return 0, false
+		case SemanticTypeOnrampSession:
+			return 0, false
+		case SemanticTypePaymentsCurrencyRates:
+			return 0, false
+		case SemanticTypeTextTonAddress:
+			return 0, false
+		case SemanticTypeTonConnectManifest:
+			return 0, false
+		case SemanticTypeTonConnectNextEventID:
+			return 0, false
+		case SemanticTypeTonConnectRequest:
+			return 0, false
+		case SemanticTypeTonConnectSession:
+			return 0, false
+		case SemanticTypeToncenterAPIResponse:
+			return 0, false
+		case SemanticTypeToncenterStreamingURL:
+			return 0, false
+		case SemanticTypeUpdateSentWalletTransaction:
+			return 0, false
+		case SemanticTypeUpdateWalletGaslessInfo:
+			return 0, false
+		case SemanticTypeUpdateWalletState:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectPendingDisconnect:
+			return 0, false
+		case SemanticTypeUpdateWalletTonConnectSession:
+			return 0, false
+		case SemanticTypeWalletEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticTypeWalletExistingBalance:
+			return 0, false
+		case SemanticTypeWalletHolderDC:
+			return 0, false
+		case SemanticTypeWalletNftAttribute:
+			return 0, false
+		case SemanticTypeWalletNftItem:
+			return 0, false
+		case SemanticTypeWalletNftItems:
+			return 0, false
+		case SemanticTypeWalletProofChallenge:
+			return 0, false
+		case SemanticTypeWalletSecretPhraseParts:
+			return 0, false
+		case SemanticTypeWalletTonConnectChallenge:
+			return 0, false
+		case SemanticTypeWalletTonConnectPending:
+			return 0, false
+		case SemanticTypeWalletTonConnectSessions:
+			return 0, false
+		case SemanticTypeWalletTransactions:
+			return 0, false
+		case SemanticTypeWalletUserAddresses:
+			return 0, false
+		case SemanticTypeWalletOwnershipProof:
+			return 0, false
+		case SemanticTypeWalletState:
+			return 0, false
+		case SemanticTypeWalletStateEmpty:
+			return 0, false
+		case SemanticTypeWalletTransaction:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerAddress:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerOnramp:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUnsupported:
+			return 0, false
+		case SemanticTypeWalletTransactionPeerUser:
+			return 0, false
+		case SemanticTypeWalletUserAddress:
+			return 0, false
+		case SemanticMethodAuthCancelWebTokenAuthorization:
+			return 0, false
+		case SemanticMethodAuthInitFirebasePnvLogin:
+			return 0x777df37a, true
+		case SemanticMethodBotsAddUsername:
+			return 0, false
+		case SemanticMethodBotsCheckUsername:
+			return 0x87f2219b, true
+		case SemanticMethodBotsRemoveUsername:
+			return 0, false
+		case SemanticMethodBotsSetCustomVerification:
+			return 0x8b89dfbd, true
+		case SemanticMethodPaymentsCreateOnrampSession:
+			return 0, false
+		case SemanticMethodPaymentsGetCurrencyRates:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampAvailability:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampBaseCurrencies:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampLimits:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampProviders:
+			return 0, false
+		case SemanticMethodPaymentsGetOnrampQuote:
+			return 0, false
+		case SemanticMethodToncenterGetStreamingURL:
+			return 0, false
+		case SemanticMethodToncenterPerformAPIRequest:
+			return 0, false
+		case SemanticMethodWalletDisableBackup:
+			return 0, false
+		case SemanticMethodWalletEnableBackup:
+			return 0, false
+		case SemanticMethodWalletExportSecretPhrase:
+			return 0, false
+		case SemanticMethodWalletFetchEncryptedSecretPhrasePart:
+			return 0, false
+		case SemanticMethodWalletGetBackupHolderDCs:
+			return 0, false
+		case SemanticMethodWalletGetExistingWaltBalance:
+			return 0, false
+		case SemanticMethodWalletGetGaslessInfo:
+			return 0, false
+		case SemanticMethodWalletGetNfts:
+			return 0, false
+		case SemanticMethodWalletGetProofChallenge:
+			return 0, false
+		case SemanticMethodWalletGetState:
+			return 0, false
+		case SemanticMethodWalletGetTransactions:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByIDs:
+			return 0, false
+		case SemanticMethodWalletGetTransactionsByMsgHash:
+			return 0, false
+		case SemanticMethodWalletGetUserAddresses:
+			return 0, false
+		case SemanticMethodWalletReplaceWallet:
+			return 0, false
+		case SemanticMethodWalletSendTransfer:
+			return 0, false
+		case SemanticMethodWalletTonConnectClaimRequest:
+			return 0, false
+		case SemanticMethodWalletTonConnectCloseSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectCreateSession:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetPending:
+			return 0, false
+		case SemanticMethodWalletTonConnectGetSessions:
+			return 0, false
+		case SemanticMethodWalletTonConnectNextEventID:
+			return 0, false
+		case SemanticMethodWalletTonConnectRegisterKey:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitConnectResult:
+			return 0, false
+		case SemanticMethodWalletTonConnectSubmitResponse:
+			return 0, false
 		}
 	case ProfileCanonical:
 	default:
@@ -14524,6 +15951,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesReceivedMessages, true
 	case 0x05f58d0f:
 		return SemanticMethodContactsSearch, true
+	case 0x062cc1bc:
+		return SemanticTypeWalletTransactionPeerAddress, true
 	case 0x062dd747:
 		return SemanticMethodMessagesUnpinAllMessages, true
 	case 0x0637b7ed:
@@ -14620,6 +16049,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeContactsBlocked, true
 	case 0x0ae30253:
 		return SemanticTypeMessageRange, true
+	case 0x0b0bf0da:
+		return SemanticMethodWalletDisableBackup, true
 	case 0x0b17f890:
 		return SemanticTypeMessagesRecentStickersNotModified, true
 	case 0x0b290c69:
@@ -14662,12 +16093,16 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodInvokeWithApnsSecret, true
 	case 0x0dbaeae9:
 		return SemanticTypeInputStickerSetThumbLegacy, true
+	case 0x0dc27582:
+		return SemanticTypeOnrampProviderInfo, true
 	case 0x0e0310d7:
 		return SemanticTypeHelpRecentMeURLs, true
 	case 0x0e0c35af:
 		return SemanticTypeInputAiComposeToneSingleUse, true
 	case 0x0e17e23c:
 		return SemanticTypePhotoSizeEmpty, true
+	case 0x0e1f6896:
+		return SemanticTypeWalletTonConnectSessions, true
 	case 0x0e306d3a:
 		return SemanticMethodMessagesReadHistory, true
 	case 0x0e3b2d0c:
@@ -14730,6 +16165,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputBusinessChatLink, true
 	case 0x11965f3a:
 		return SemanticTypeBotInlineResult, true
+	case 0x11aee065:
+		return SemanticMethodWalletTonConnectGetPending, true
 	case 0x11b58939:
 		return SemanticTypeDocumentAttributeAnimated, true
 	case 0x11c1a322:
@@ -14742,8 +16179,12 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodContactsSearch, true
 	case 0x120b1ab9:
 		return SemanticTypeBusinessWeeklyOpen, true
+	case 0x12229264:
+		return SemanticTypeTonConnectManifest, true
 	case 0x124b1c00:
 		return SemanticMethodStickersRenameStickerSet, true
+	case 0x126556c6:
+		return SemanticTypeTonConnectSession, true
 	case 0x12b299d4:
 		return SemanticTypeStickerPack, true
 	case 0x12b3ad31:
@@ -14882,12 +16323,16 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeBotInlineMessageMediaContact, true
 	case 0x18dea0ac:
 		return SemanticMethodMessagesGetAvailableReactions, true
+	case 0x18e82537:
+		return SemanticTypeWalletEncryptedSecretPhrasePart, true
 	case 0x19360dc0:
 		return SemanticTypeUpdateFolderPeers, true
 	case 0x193b4417:
 		return SemanticTypeInputNotifyUsers, true
 	case 0x19420af6:
 		return SemanticTypeKeyboardInlineButtonRow, true
+	case 0x19887601:
+		return SemanticTypeToncenterStreamingURL, true
 	case 0x1991b13b:
 		return SemanticTypeBotsPopularAppBots, true
 	case 0x199fed96:
@@ -14954,6 +16399,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeWebDocument, true
 	case 0x1c6e1c11:
 		return SemanticTypeChatPhoto, true
+	case 0x1c8bedf3:
+		return SemanticMethodPaymentsGetOnrampBaseCurrencies, true
 	case 0x1ca48f57:
 		return SemanticTypeInputChatPhotoEmpty, true
 	case 0x1ca6ac0a:
@@ -15040,6 +16487,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypePrivacyKeyBirthday, true
 	case 0x20212ca8:
 		return SemanticTypePhotosPhoto, true
+	case 0x2025e697:
+		return SemanticMethodWalletGetProofChallenge, true
 	case 0x204bd158:
 		return SemanticTypePhoneExportedGroupCallInvite, true
 	case 0x20529438:
@@ -15292,6 +16741,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeStarGiftAttributeCounter, true
 	case 0x2ec0533f:
 		return SemanticTypeMessageMediaVenue, true
+	case 0x2ec29951:
+		return SemanticMethodPaymentsGetOnrampAvailability, true
 	case 0x2ecd56cd:
 		return SemanticMethodMessagesGetEmojiStatusGroups, true
 	case 0x2ed82995:
@@ -15328,6 +16779,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInlineQueryPeerTypeSameBotPM, true
 	case 0x30a6ec7e:
 		return SemanticTypeMessagesStickers, true
+	case 0x30d9743c:
+		return SemanticTypeCurrencyRate, true
 	case 0x30eb63f0:
 		return SemanticMethodStoriesCanSendStory, true
 	case 0x30f443db:
@@ -15380,6 +16833,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessagesPeerDialogs, true
 	case 0x3380c786:
 		return SemanticTypeInputBotInlineMessageMediaAuto, true
+	case 0x338bcf1c:
+		return SemanticMethodWalletTonConnectRegisterKey, true
 	case 0x339bef6c:
 		return SemanticTypeRequestPeerTypeBroadcast, true
 	case 0x33db32f8:
@@ -15394,6 +16849,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesInitHistoryImport, true
 	case 0x3417d728:
 		return SemanticTypeInputPaymentCredentials, true
+	case 0x3441fd1c:
+		return SemanticTypeWalletNftItem, true
 	case 0x34566b6a:
 		return SemanticTypePageTableCell, true
 	case 0x3458f9c8:
@@ -15408,6 +16865,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputInvoiceChatInviteSubscription, true
 	case 0x34fdc5c3:
 		return SemanticMethodMessagesGetBotApp, true
+	case 0x3501c08a:
+		return SemanticMethodBotsAddUsername, true
 	case 0x3504914f:
 		return SemanticTypeUpdateDialogFilters, true
 	case 0x3514b3de:
@@ -15570,6 +17029,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeChatParticipants, true
 	case 0x3cc04740:
 		return SemanticMethodMessagesDeleteQuickReplyShortcut, true
+	case 0x3cd2a36a:
+		return SemanticTypeTextTonAddress, true
 	case 0x3cd623ec:
 		return SemanticTypeURLAuthResultRequest, true
 	case 0x3cd930b7:
@@ -15630,6 +17091,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeChannelAdminLogEventActionChangeEmojiStatus, true
 	case 0x3eadb1bb:
 		return SemanticMethodMessagesCheckChatInvite, true
+	case 0x3f3e00dc:
+		return SemanticMethodPaymentsGetOnrampProviders, true
 	case 0x3f64c076:
 		return SemanticMethodMessagesReportReaction, true
 	case 0x3f6d7b68:
@@ -15722,6 +17185,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypePrivacyKeyAddedByPhone, true
 	case 0x430d3150:
 		return SemanticTypeSponsoredMessageReportOption, true
+	case 0x4322d5a5:
+		return SemanticTypeWalletTransactions, true
 	case 0x43286cf2:
 		return SemanticMethodMessagesGetUnreadPollVotes, true
 	case 0x4345be73:
@@ -15758,6 +17223,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessagesEmojiGameDiceInfo, true
 	case 0x44fa7a15:
 		return SemanticMethodMessagesSendEncrypted, true
+	case 0x4500c525:
+		return SemanticMethodWalletEnableBackup, true
 	case 0x4504d54f:
 		return SemanticMethodBotsSetBotMenuButton, true
 	case 0x455b853d:
@@ -15816,6 +17283,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageActionGiftPremium, true
 	case 0x48f1d94c:
 		return SemanticTypeEncryptedChatRequested, true
+	case 0x490dada1:
+		return SemanticMethodAuthCancelWebTokenAuthorization, true
 	case 0x4959427a:
 		return SemanticTypePremiumBoostsStatus, true
 	case 0x496f379c:
@@ -15838,6 +17307,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeReadParticipantDate, true
 	case 0x4a5f5bd9:
 		return SemanticTypeInputInvoiceStarGiftTransfer, true
+	case 0x4a8bfe80:
+		return SemanticTypeMessageActionChatJoinedViaCommunity, true
 	case 0x4a95e84e:
 		return SemanticTypeInputNotifyChats, true
 	case 0x4a992157:
@@ -15868,8 +17339,12 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdateEditEphemeralMessage, true
 	case 0x4bc6589a:
 		return SemanticMethodMessagesSearchGlobal, true
+	case 0x4bc89693:
+		return SemanticTypeWalletTonConnectChallenge, true
 	case 0x4bff8ea0:
 		return SemanticTypeAccountAuthorizations, true
+	case 0x4c1ef10e:
+		return SemanticTypeWalletNftAttribute, true
 	case 0x4c2985b6:
 		return SemanticMethodChannelsToggleJoinRequest, true
 	case 0x4c2a5d62:
@@ -15966,6 +17441,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageActionSetChatWallPaper, true
 	case 0x50a04e45:
 		return SemanticTypeAccountPrivacyRules, true
+	case 0x50a38e0e:
+		return SemanticTypeUpdateWalletTonConnectSession, true
 	case 0x50ca4de1:
 		return SemanticTypePhoneCallDiscarded, true
 	case 0x50cc03d3:
@@ -15998,6 +17475,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeReactionPaid, true
 	case 0x52564893:
 		return SemanticTypeSendMessageRichMessageDraftAction, true
+	case 0x5275dfdd:
+		return SemanticMethodWalletGetUserAddresses, true
 	case 0x527d22eb:
 		return SemanticTypeEmailVerifyPurposeLoginChange, true
 	case 0x528a0677:
@@ -16128,6 +17607,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeChannelAdminLogEventActionParticipantEditRank, true
 	case 0x5821a5dc:
 		return SemanticMethodStoriesGetPinnedStories, true
+	case 0x582464e3:
+		return SemanticTypeTonConnectNextEventID, true
 	case 0x5869a553:
 		return SemanticMethodPaymentsGetConnectedStarRefBots, true
 	case 0x58707d28:
@@ -16268,6 +17749,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeStoryReaction, true
 	case 0x60a79c79:
 		return SemanticTypeChannelAdminLogEventActionToggleSignatureProfiles, true
+	case 0x60bccb0d:
+		return SemanticTypeWalletOwnershipProof, true
 	case 0x60eaefa1:
 		return SemanticMethodPaymentsToggleChatStarGiftNotifications, true
 	case 0x60ed4229:
@@ -16312,6 +17795,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdateChannel, true
 	case 0x635fe375:
 		return SemanticTypePhoneConnectionWebrtc, true
+	case 0x63a440dc:
+		return SemanticTypeInputWalletNew, true
 	case 0x63c3dd0a:
 		return SemanticTypeStoriesStories, true
 	case 0x63c66506:
@@ -16328,6 +17813,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeSecureFileEmpty, true
 	case 0x64407ea7:
 		return SemanticTypeMonoForumDialog, true
+	case 0x644f15c0:
+		return SemanticMethodAuthInitFirebasePnvLogin, true
 	case 0x64600527:
 		return SemanticTypeInputDialogPeerFolder, true
 	case 0x64642db3:
@@ -16372,10 +17859,14 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeSecureValueErrorFiles, true
 	case 0x66a08c7e:
 		return SemanticMethodAccountUpdateConnectedBot, true
+	case 0x66a66a3b:
+		return SemanticTypeInputWalletImported, true
 	case 0x66afa166:
 		return SemanticTypeHelpDeepLinkInfoEmpty, true
 	case 0x66b25953:
 		return SemanticTypeEncryptedChatWaiting, true
+	case 0x66b57b41:
+		return SemanticMethodWalletTonConnectClaimRequest, true
 	case 0x66b91b70:
 		return SemanticMethodHelpEditUserInfo, true
 	case 0x66cdafc4:
@@ -16422,12 +17913,16 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodChannelsToggleAntiSpam, true
 	case 0x691e9052:
 		return SemanticTypeUpdateInlineBotCallbackQuery, true
+	case 0x691f4360:
+		return SemanticMethodWalletGetExistingWaltBalance, true
 	case 0x69279795:
 		return SemanticTypeInputSavedStarGiftUser, true
 	case 0x692a5488:
 		return SemanticTypePageButton, true
 	case 0x695c9e7c:
 		return SemanticTypeUpdateReadChannelDiscussionOutbox, true
+	case 0x69b8c4bf:
+		return SemanticTypeMessageActionWalletTonConnectRequest, true
 	case 0x69d66c45:
 		return SemanticTypeInputReplyToMonoForum, true
 	case 0x69da4557:
@@ -16458,6 +17953,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdatePeerSettings, true
 	case 0x6aa3f6bd:
 		return SemanticMethodMessagesGetSearchResultsCalendar, true
+	case 0x6ac3f2aa:
+		return SemanticTypeUpdateWalletState, true
 	case 0x6b134e8e:
 		return SemanticTypePrivacyValueAllowChatParticipants, true
 	case 0x6b39f4ec:
@@ -16584,6 +18081,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodContactsResolveUsername, true
 	case 0x725b04c3:
 		return SemanticTypeUpdatesCombined, true
+	case 0x728bed5a:
+		return SemanticTypeWalletTransactionPeerUnsupported, true
 	case 0x72a3158c:
 		return SemanticTypeAuthCodeTypeSMS, true
 	case 0x72c64955:
@@ -16614,6 +18113,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageActionStarGiftPurchaseOfferDeclined, true
 	case 0x741cd3e3:
 		return SemanticTypeAuthCodeTypeCall, true
+	case 0x742df0a1:
+		return SemanticMethodWalletGetGaslessInfo, true
 	case 0x744694e0:
 		return SemanticTypeTextPlain, true
 	case 0x74535f21:
@@ -16682,6 +18183,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageActionStarGiftPurchaseOffer, true
 	case 0x774bbdf4:
 		return SemanticTypeMessagesChatInviteJoinResultWebView, true
+	case 0x775d7244:
+		return SemanticMethodWalletTonConnectNextEventID, true
 	case 0x77608b83:
 		return SemanticTypeKeyboardButtonRow, true
 	case 0x77744d4a:
@@ -16730,6 +18233,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageReportOption, true
 	case 0x791451ed:
 		return SemanticMethodMessagesSetEncryptedTyping, true
+	case 0x794d486f:
+		return SemanticTypeWalletNftItems, true
 	case 0x7998c914:
 		return SemanticMethodPaymentsSendStarsForm, true
 	case 0x79eb8cb3:
@@ -16754,6 +18259,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAccountResendPasswordEmail, true
 	case 0x7a800e0a:
 		return SemanticTypeMessageService, true
+	case 0x7a8011e9:
+		return SemanticTypeOnrampQuote, true
 	case 0x7a9abda9:
 		return SemanticTypeEmojiGroup, true
 	case 0x7ab58308:
@@ -16772,6 +18279,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodStoriesExportStoryLink, true
 	case 0x7b9e1801:
 		return SemanticTypeTextCashtag, true
+	case 0x7be2677e:
+		return SemanticTypeOnrampLimits, true
 	case 0x7beafa85:
 		return SemanticTypeCommunityPeerRequest, true
 	case 0x7bf6b15c:
@@ -16864,12 +18373,16 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeEmojiGroupGreeting, true
 	case 0x80e11a7f:
 		return SemanticTypeMessageActionPhoneCall, true
+	case 0x80e851fd:
+		return SemanticMethodPaymentsGetOnrampLimits, true
 	case 0x80eb48af:
 		return SemanticTypeGroupCallStreamChannel, true
 	case 0x80ed747d:
 		return SemanticMethodPaymentsAssignAppStoreTransaction, true
 	case 0x8107455c:
 		return SemanticMethodMessagesToggleSuggestedPostApproval, true
+	case 0x811ceab6:
+		return SemanticMethodWalletGetTransactionsByIDs, true
 	case 0x811f854f:
 		return SemanticTypeAccountSentEmailCode, true
 	case 0x81602d47:
@@ -16944,6 +18457,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodStoriesReorderAlbums, true
 	case 0x857ebdb8:
 		return SemanticMethodMessagesGetPreparedInlineMessage, true
+	case 0x85c0f124:
+		return SemanticTypeWalletTonConnectPending, true
 	case 0x85dd99d1:
 		return SemanticTypeReplyKeyboardMarkup, true
 	case 0x85e42301:
@@ -17072,6 +18587,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdateAiComposeTones, true
 	case 0x8c10603f:
 		return SemanticTypeInputGroupCallInviteMessage, true
+	case 0x8c12f3a4:
+		return SemanticMethodWalletGetNfts, true
 	case 0x8c3410af:
 		return SemanticMethodAccountEditBusinessChatLink, true
 	case 0x8c4bfe5d:
@@ -17106,6 +18623,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeCommunitiesParticipantJoinedChats, true
 	case 0x8d7ae6af:
 		return SemanticMethodMessagesComposeRichMessageWithAI, true
+	case 0x8d7bdd61:
+		return SemanticMethodToncenterPerformAPIRequest, true
 	case 0x8d9692a3:
 		return SemanticMethodMessagesGetWebPage, true
 	case 0x8db33c4b:
@@ -17166,6 +18685,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageEntityFormattedDate, true
 	case 0x904dd49c:
 		return SemanticTypeUpdateBotChatBoost, true
+	case 0x9077c9ac:
+		return SemanticMethodWalletExportSecretPhrase, true
 	case 0x9083670b:
 		return SemanticTypeStoryViewPublicForward, true
 	case 0x908c0407:
@@ -17196,6 +18717,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdateReadChannelInbox, true
 	case 0x925ec9ea:
 		return SemanticMethodBotsSetBotGroupDefaultAdminRights, true
+	case 0x928e7b55:
+		return SemanticTypeWalletUserAddresses, true
 	case 0x92a72876:
 		return SemanticTypeMessageActionGameScore, true
 	case 0x92b4494c:
@@ -17210,6 +18733,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAccountResetPassword, true
 	case 0x9325705a:
 		return SemanticTypeStoryAlbum, true
+	case 0x9329ea33:
+		return SemanticTypeMessageActionGramTransfer, true
 	case 0x933ca597:
 		return SemanticTypeWebDomainException, true
 	case 0x9342ca07:
@@ -17244,10 +18769,14 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeStarsGiveawayOption, true
 	case 0x94d42ee7:
 		return SemanticTypeChannelMessagesFilterEmpty, true
+	case 0x952dc143:
+		return SemanticTypeWalletTransaction, true
 	case 0x957b50fb:
 		return SemanticTypeAccountPassword, true
 	case 0x95ac5ce4:
 		return SemanticMethodAuthImportLoginToken, true
+	case 0x95c5346b:
+		return SemanticTypeWalletState, true
 	case 0x95d2ac92:
 		return SemanticTypeMessageActionChannelCreate, true
 	case 0x95ddcf69:
@@ -17354,6 +18883,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeJSONObject, true
 	case 0x99e3806a:
 		return SemanticTypeSecureValueTypePassportRegistration, true
+	case 0x99e41707:
+		return SemanticTypeWalletProofChallenge, true
 	case 0x99ea331d:
 		return SemanticTypeStarGiftUpgradePrice, true
 	case 0x9a0b48b8:
@@ -17420,6 +18951,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesGetSearchResultsPositions, true
 	case 0x9c9abcb1:
 		return SemanticMethodPaymentsGetStarGiftUpgradePreview, true
+	case 0x9cb9b2ec:
+		return SemanticTypeWalletStateEmpty, true
 	case 0x9cc123c7:
 		return SemanticTypePhoneConnection, true
 	case 0x9cd4eaf9:
@@ -17466,6 +18999,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesReadReactions, true
 	case 0x9ec7863d:
 		return SemanticTypeInputReportReasonPersonalDetails, true
+	case 0x9ec8c6a8:
+		return SemanticTypeOnrampMethodAvailability, true
 	case 0x9eddf188:
 		return SemanticTypeInputMessagesFilterDocument, true
 	case 0x9f071957:
@@ -17524,8 +19059,12 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesGetDialogs, true
 	case 0xa1144770:
 		return SemanticTypeSecureValueErrorTranslationFile, true
+	case 0xa12aefff:
+		return SemanticTypeBotVerifierSettings, true
 	case 0xa1405817:
 		return SemanticMethodMessagesSendScreenshotNotification, true
+	case 0xa15f8513:
+		return SemanticTypeTonConnectRequest, true
 	case 0xa187d66f:
 		return SemanticTypeSendMessageRecordVideoAction, true
 	case 0xa1974d72:
@@ -17536,6 +19075,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeUpdateDeleteMessages, true
 	case 0xa2185cab:
 		return SemanticMethodMessagesDeleteChatUser, true
+	case 0xa2197cf6:
+		return SemanticMethodPaymentsCreateOnrampSession, true
 	case 0xa229dd06:
 		return SemanticTypeUpdateConfig, true
 	case 0xa22cbd96:
@@ -17652,6 +19193,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAuthSendCode, true
 	case 0xa6b1e39a:
 		return SemanticMethodChatlistsJoinChatlistInvite, true
+	case 0xa6bb795d:
+		return SemanticMethodWalletGetTransactionsByMsgHash, true
 	case 0xa6edbffd:
 		return SemanticTypeInputBotInlineMessageMediaContact, true
 	case 0xa6f8f452:
@@ -17664,6 +19207,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodStickersSetStickerSetThumb, true
 	case 0xa7848924:
 		return SemanticTypeUpdateUserName, true
+	case 0xa7ffb56e:
+		return SemanticMethodWalletTonConnectGetSessions, true
 	case 0xa8008cd8:
 		return SemanticTypeEncryptedFile, true
 	case 0xa80f51e4:
@@ -17682,10 +19227,14 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputMediaDocument, true
 	case 0xa87b0a1c:
 		return SemanticTypeInputPeerUserFromMessage, true
+	case 0xa8830a83:
+		return SemanticMethodWalletGetTransactions, true
 	case 0xa8852491:
 		return SemanticTypeMessageMediaPaidMedia, true
 	case 0xa8a3c699:
 		return SemanticTypeMessageActionGiftTon, true
+	case 0xa8ae1cac:
+		return SemanticTypeUpdateWalletGaslessInfo, true
 	case 0xa8d864a7:
 		return SemanticTypeInputBotInlineResultPhoto, true
 	case 0xa8fb1981:
@@ -17734,6 +19283,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeTopPeerCategoryBotsPM, true
 	case 0xab7ec0a0:
 		return SemanticTypeEncryptedChatEmpty, true
+	case 0xab83b33a:
+		return SemanticMethodWalletGetState, true
 	case 0xabbbd346:
 		return SemanticMethodMessagesSummarizeText, true
 	case 0xabcfa9fd:
@@ -17756,6 +19307,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesToggleSavedDialogPin, true
 	case 0xac8505a5:
 		return SemanticMethodMessagesDeletePollAnswer, true
+	case 0xac8dfe19:
+		return SemanticTypeToncenterAPIResponse, true
 	case 0xaca9fd2e:
 		return SemanticMethodInvokeWithTakeout, true
 	case 0xacfa1a7e:
@@ -17846,6 +19399,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodPaymentsCraftStarGift, true
 	case 0xb106e66c:
 		return SemanticMethodMessagesEditMessage, true
+	case 0xb1434d4a:
+		return SemanticTypeUpdateSentWalletTransaction, true
 	case 0xb1b8cc83:
 		return SemanticTypeUser, true
 	case 0xb1c3caa7:
@@ -18100,6 +19655,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeStoryReactionPublicForward, true
 	case 0xbbb6b4a3:
 		return SemanticTypeStarsAmount, true
+	case 0xbbcce4c2:
+		return SemanticTypePaymentsCurrencyRates, true
 	case 0xbbf2dda0:
 		return SemanticTypeSecurePasswordKdfAlgoPBKDF2HMACSHA512iter100000, true
 	case 0xbbf51685:
@@ -18154,6 +19711,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessagesAvailableEffects, true
 	case 0xbddcc510:
 		return SemanticTypeInputBotInlineMessageMediaWebPage, true
+	case 0xbde90a8d:
+		return SemanticTypeWalletExistingBalance, true
 	case 0xbdf93428:
 		return SemanticMethodMessagesGetDefaultTagReactions, true
 	case 0xbdf9653b:
@@ -18264,6 +19823,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeBotCommand, true
 	case 0xc27dfa68:
 		return SemanticMethodStatsGetPollStats, true
+	case 0xc2c00779:
+		return SemanticMethodWalletTonConnectSubmitConnectResult, true
 	case 0xc31c8f4e:
 		return SemanticTypeAccountWebBrowserSettingsNotModified, true
 	case 0xc31fc14a:
@@ -18346,6 +19907,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessageEntityDiffReplace, true
 	case 0xc6dc0c66:
 		return SemanticTypeMessagesFeaturedStickersNotModified, true
+	case 0xc704147d:
+		return SemanticMethodBotsRemoveUsername, true
 	case 0xc727bb3b:
 		return SemanticMethodAccountInstallTheme, true
 	case 0xc7345e6a:
@@ -18454,6 +20017,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAccountUpdateBirthday, true
 	case 0xcc7c5c89:
 		return SemanticTypeMessageActionTodoCompletions, true
+	case 0xcc931046:
+		return SemanticMethodWalletTonConnectCreateSession, true
 	case 0xccbbce30:
 		return SemanticTypeHelpAppUpdate, true
 	case 0xccfddf96:
@@ -18466,6 +20031,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeChannelMessagesFilter, true
 	case 0xcd984aa5:
 		return SemanticMethodLangpackGetDifference, true
+	case 0xcdaf63c7:
+		return SemanticMethodToncenterGetStreamingURL, true
 	case 0xcdbbcebb:
 		return SemanticTypeMessagesAllStickers, true
 	case 0xcdc27a1f:
@@ -18520,6 +20087,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputPrivacyKeyAddedByPhone, true
 	case 0xd1451883:
 		return SemanticTypePaymentsValidatedRequestedInfo, true
+	case 0xd179d494:
+		return SemanticMethodWalletGetBackupHolderDCs, true
 	case 0xd1810907:
 		return SemanticMethodStoriesSearchPosts, true
 	case 0xd18b4d16:
@@ -18534,8 +20103,12 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodPaymentsGetStarsRevenueAdsAccountURL, true
 	case 0xd1da940c:
 		return SemanticMethodMessagesDeleteFactCheck, true
+	case 0xd1e42e24:
+		return SemanticTypeOnrampSession, true
 	case 0xd1ed9a5b:
 		return SemanticTypeMessagesAvailableEffectsNotModified, true
+	case 0xd1ee8199:
+		return SemanticTypeUpdateWalletTonConnectPendingDisconnect, true
 	case 0xd27ff082:
 		return SemanticTypeInputCheckPasswordSRP, true
 	case 0xd2816f10:
@@ -18552,6 +20125,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputMediaGame, true
 	case 0xd348bc44:
 		return SemanticMethodContactsGetLocated, true
+	case 0xd35983e8:
+		return SemanticMethodPaymentsGetCurrencyRates, true
 	case 0xd360e72c:
 		return SemanticMethodHelpGetSupportName, true
 	case 0xd3656499:
@@ -18574,6 +20149,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodMessagesGetQuickReplies, true
 	case 0xd49f34c6:
 		return SemanticTypeChannel, true
+	case 0xd4ea706d:
+		return SemanticTypeWalletTransactionPeerUser, true
 	case 0xd52f73f7:
 		return SemanticTypeSendMessageRecordAudioAction, true
 	case 0xd5676710:
@@ -18602,6 +20179,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAccountGetChatThemes, true
 	case 0xd63d94e0:
 		return SemanticMethodMessagesGetPinnedSavedDialogs, true
+	case 0xd63f61ce:
+		return SemanticMethodWalletTonConnectCloseSession, true
 	case 0xd64c522b:
 		return SemanticTypeUpdateMessagePoll, true
 	case 0xd65a11cc:
@@ -18650,6 +20229,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodChannelsUpdateColor, true
 	case 0xd8aa840f:
 		return SemanticTypeInputGroupCall, true
+	case 0xd8c72eec:
+		return SemanticMethodWalletReplaceWallet, true
 	case 0xd90d8dfe:
 		return SemanticTypeAttachMenuBot, true
 	case 0xd912a59c:
@@ -18670,6 +20251,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodContactsAddContact, true
 	case 0xd9c6dc1a:
 		return SemanticTypeEphemeralMessage, true
+	case 0xd9e5d9e2:
+		return SemanticMethodWalletSendTransfer, true
 	case 0xda2ad647:
 		return SemanticTypeMessagesEmojiGameOutcome, true
 	case 0xda80f42f:
@@ -18798,6 +20381,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeChannelParticipantsMentions, true
 	case 0xe062db83:
 		return SemanticTypeInputMessagesFilterContacts, true
+	case 0xe06645fa:
+		return SemanticMethodPaymentsGetOnrampQuote, true
 	case 0xe0804116:
 		return SemanticTypeWallPaperNoFile, true
 	case 0xe085f4ea:
@@ -18870,6 +20455,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputCollectibleUsername, true
 	case 0xe39a8f03:
 		return SemanticMethodAccountUploadWallPaper, true
+	case 0xe3ac4c61:
+		return SemanticMethodBotsCheckUsername, true
 	case 0xe3af4434:
 		return SemanticTypeInputMediaPhoto, true
 	case 0xe3b7f82c:
@@ -18912,6 +20499,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeRequirementToContactPremium, true
 	case 0xe58e95d2:
 		return SemanticMethodMessagesDeleteMessages, true
+	case 0xe595186e:
+		return SemanticTypeWalletTransactionPeerOnramp, true
 	case 0xe5afa56d:
 		return SemanticMethodPhoneSendGroupCallEncryptedMessage, true
 	case 0xe5b17f2b:
@@ -18946,6 +20535,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodPhoneExportGroupCallInvite, true
 	case 0xe6c31522:
 		return SemanticTypeMessageActionStarGiftUnique, true
+	case 0xe6d0ef01:
+		return SemanticTypeWalletSecretPhraseParts, true
 	case 0xe6d83d7e:
 		return SemanticTypeChannelAdminLogEventActionParticipantToggleBan, true
 	case 0xe6df7378:
@@ -19248,6 +20839,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypePeerSettings, true
 	case 0xf47751b6:
 		return SemanticTypePhoneGroupParticipants, true
+	case 0xf4946757:
+		return SemanticMethodBotsSetCustomVerification, true
 	case 0xf496b0c6:
 		return SemanticTypeChannelsSendAsPeers, true
 	case 0xf4997e42:
@@ -19262,6 +20855,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeInputEncryptedFileLocation, true
 	case 0xf52ff27f:
 		return SemanticTypeInputFile, true
+	case 0xf53925cf:
+		return SemanticMethodWalletFetchEncryptedSecretPhrasePart, true
 	case 0xf53da717:
 		return SemanticTypeUpdateNewQuickReply, true
 	case 0xf5537ebc:
@@ -19286,6 +20881,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypePrivacyValueDisallowBots, true
 	case 0xf6e26854:
 		return SemanticMethodPaymentsApplyGiftCode, true
+	case 0xf72e0ed9:
+		return SemanticTypeBotVerification, true
 	case 0xf731a9f4:
 		return SemanticMethodMessagesReadDiscussion, true
 	case 0xf743b857:
@@ -19348,10 +20945,14 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodTestUseConfigSimple, true
 	case 0xf9c44144:
 		return SemanticTypeInputMediaGeoPoint, true
+	case 0xf9c84973:
+		return SemanticTypeOnrampAvailability, true
 	case 0xf9c8bcc6:
 		return SemanticTypeWebDocumentNoProxy, true
 	case 0xf9cbe409:
 		return SemanticMethodMessagesDeletePhoneCallHistory, true
+	case 0xf9d612ef:
+		return SemanticTypeWalletHolderDC, true
 	case 0xfa04579d:
 		return SemanticTypeMessageEntityMention, true
 	case 0xfa0f3ca2:
@@ -19370,6 +20971,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticMethodAccountReportProfilePhoto, true
 	case 0xfabadc5f:
 		return SemanticTypeInputPrivacyKeyPhoneCall, true
+	case 0xfac67d3c:
+		return SemanticMethodWalletTonConnectSubmitResponse, true
 	case 0xfae69f56:
 		return SemanticTypeMessageActionCustomAction, true
 	case 0xfaf7e8c9:
@@ -19438,6 +21041,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeTopPeerCategoryBotsApp, true
 	case 0xfda68d36:
 		return SemanticMethodMessagesGetMessageEditData, true
+	case 0xfdabbfcd:
+		return SemanticTypeMessageEntityTonAddress, true
 	case 0xfdb19008:
 		return SemanticTypeMessageMediaGame, true
 	case 0xfdbcd714:
@@ -19450,6 +21055,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeStarGiftAuctionStateNotModified, true
 	case 0xfe41b34f:
 		return SemanticTypeGlobalPrivacySettings, true
+	case 0xfe78eecc:
+		return SemanticTypeWalletUserAddress, true
 	case 0xfe9fc158:
 		return SemanticTypeChannelAdminLogEventActionParticipantJoinByInvite, true
 	case 0xfebe5491:

@@ -356,6 +356,9 @@ func buildLayerHistoricalConstructorPlans(model *layerWireModel) error {
 			if err != nil {
 				return fmt.Errorf("gen: E_PROFILE_ONLY_TYPE_POLICY: layer %d wire %#08x semantic %s: %w", action.Layer, wire.WireID, wire.Key, err)
 			}
+			if resolution.Action == LayerResolveReject {
+				continue // No canonical value exists for an explicitly rejected constructor.
+			}
 			targetKey, err := parseLayerPolicySemanticTarget(resolution.Target)
 			if err != nil {
 				return fmt.Errorf("gen: E_PROFILE_ONLY_TYPE_TARGET_INVALID: layer %d wire %#08x: %w", action.Layer, wire.WireID, err)
@@ -424,11 +427,26 @@ func layerHistoricalConstructorResolution(conversion *LayerFamilyConversion) (La
 		resolution := obligation.Resolution
 		found = &resolution
 	}
+	if found != nil && found.Action == LayerResolveReject {
+		return *found, nil
+	}
 	if found == nil || (found.Action != LayerResolveAlias && found.Action != LayerResolveAdapter) ||
 		strings.TrimSpace(found.Hook) == "" || strings.TrimSpace(found.Target) == "" {
-		return LayerObligationResolution{}, fmt.Errorf("historical type requires one alias/adapter with hook and canonical target; reject/unavailable is not a bidirectional codec")
+		return LayerObligationResolution{}, fmt.Errorf("historical type requires an explicit reject or one alias/adapter with hook and canonical target")
 	}
 	return *found, nil
+}
+
+// layerRejectedHistoricalType is an explicit admission decision, not an absent
+// schema variant. Keep its wire identity for diagnostics and exact scanning,
+// but never invent a canonical Go value or a reverse conversion for it.
+func layerRejectedHistoricalType(conversion *LayerFamilyConversion) bool {
+	if conversion == nil || conversion.Canonical != nil || conversion.Key.Category != semantic.CategoryType ||
+		conversion.Availability != LayerAvailabilityProfileOnly {
+		return false
+	}
+	resolution, err := layerHistoricalConstructorResolution(conversion)
+	return err == nil && resolution.Action == LayerResolveReject
 }
 
 func layerWireDirectionMatches(actual, wanted LayerObligationDirection) bool {
