@@ -223,7 +223,7 @@ func (d *MessagesDialogs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Dialogs = make([]DialogClass, 0, headerLen%bin.PreallocateLimit)
+			d.Dialogs = make([]DialogClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDialog(b)
@@ -240,7 +240,7 @@ func (d *MessagesDialogs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Messages = make([]MessageClass, 0, headerLen%bin.PreallocateLimit)
+			d.Messages = make([]MessageClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessage(b)
@@ -257,7 +257,7 @@ func (d *MessagesDialogs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			d.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -274,7 +274,7 @@ func (d *MessagesDialogs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			d.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)
@@ -550,7 +550,7 @@ func (d *MessagesDialogsSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Dialogs = make([]DialogClass, 0, headerLen%bin.PreallocateLimit)
+			d.Dialogs = make([]DialogClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDialog(b)
@@ -567,7 +567,7 @@ func (d *MessagesDialogsSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Messages = make([]MessageClass, 0, headerLen%bin.PreallocateLimit)
+			d.Messages = make([]MessageClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessage(b)
@@ -584,7 +584,7 @@ func (d *MessagesDialogsSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			d.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -601,7 +601,7 @@ func (d *MessagesDialogsSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			d.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

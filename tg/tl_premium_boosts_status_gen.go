@@ -421,7 +421,7 @@ func (b *PremiumBoostsStatus) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.PrepaidGiveaways = make([]PrepaidGiveawayClass, 0, headerLen%bin.PreallocateLimit)
+			b.PrepaidGiveaways = make([]PrepaidGiveawayClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePrepaidGiveaway(buf)
@@ -438,7 +438,7 @@ func (b *PremiumBoostsStatus) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.MyBoostSlots = make([]int, 0, headerLen%bin.PreallocateLimit)
+			b.MyBoostSlots = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := buf.Int()

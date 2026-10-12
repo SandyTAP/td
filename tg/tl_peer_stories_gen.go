@@ -236,7 +236,7 @@ func (p *PeerStories) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Stories = make([]StoryItemClass, 0, headerLen%bin.PreallocateLimit)
+			p.Stories = make([]StoryItemClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStoryItem(b)

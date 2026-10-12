@@ -161,7 +161,7 @@ func (r *MessagesReorderQuickRepliesRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Order = make([]int, 0, headerLen%bin.PreallocateLimit)
+			r.Order = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

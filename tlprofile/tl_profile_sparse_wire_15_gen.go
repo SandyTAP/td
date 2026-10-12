@@ -630,9 +630,10 @@ func layerEncodeWireb89bfccfBareBody(profile LayerProfile, value *tg.FactCheck, 
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(1) || value.Country != "") || (value.Flags.Has(1) || !value.Text.Zero())
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					layerEncoded2.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Text), layerEncoded2, state); err != nil {
@@ -850,9 +851,10 @@ func layerEncodeWireeb983f8fBareBody(profile LayerProfile, value *tg.PaymentsChe
 			if value.Flags.Has(4) && value.FromID == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypePaymentsCheckedGiftCode, Reason: "malformed canonical value: explicit flag has nil interface field from_id"}
 			}
-			layerEncoded6 := &bin.Buffer{}
+			var layerEncoded6 *bin.Buffer
 			layerPresent8 := (value.Flags.Has(4) || value.FromID != nil)
 			if layerPresent8 {
+				layerEncoded6 = &bin.Buffer{}
 				layerErr7 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.FromID, layerEncoded6, state); err != nil {
 						return fmt.Errorf("encode prepared field from_id: %w", err)

@@ -18,6 +18,65 @@ active updates and difference responses all use `Call.EncodeResult`,
 `EncodeObject` or `FrozenObject.Encode`; there is no push-specific codec and no
 fallback to canonical bytes when a projection fails.
 
+## Codec generation optimization invariants
+
+Profile branches are shared per emitted operation, including its rejection
+reason; a decode or preflight difference must not duplicate an identical
+encode body. Class encoding groups by canonical constructor dispatch, while
+decoding retains each exact wire ID. This is generation-time source sharing,
+not a runtime schema interpreter or a change to the reviewed execution plans.
+Optional nested-field buffers are allocated only when the original shared flag
+group is present. Canonical vector preallocation is capped with
+`min(length, bin.PreallocateLimit)` for both outer and inner vectors.
+
+| Scenario | Required invariant and verification |
+|---|---|
+| Profiles 225–230, same body or retagged child | Identical wire bytes and exact profile acceptance; per-operation grouping tests and existing wire goldens |
+| Optional field absent, present, or present-empty | Preserve flags and owned data; no temporary buffer allocation for absent fields |
+| Shared flag group, projected subtree, malformed explicit flag | Preserve one-shot hooks, drop/reject policy, atomic groups and output rollback |
+| Vector lengths 0, 1, 1023, 1024, 1025 and 4096 | Same decoded values, bounded preallocation, including nested vectors |
+| Truncated, negative, oversized or over-budget vector | Preserve rejection and exact decoder input rollback before materialization |
+| Regeneration and downstream use | Deterministic generated output, unchanged schema/policy/plan audit, source budgets and local `telesrv` protocol tests through a temporary `go.work` |
+
+### 2026-10-12 optimization verification
+
+Against the published `v1.4.0` baseline, the 74 generated `tlprofile` files
+shrank from 12,980,108 bytes / 341,928 lines to 12,551,318 bytes / 328,077 lines.
+The generated-source test rejects duplicate bodies within each exact-profile
+switch. A second `go generate . ./gen ./tdp/internal` reproduced all 3,275
+generated Go files byte for byte; schema, policy, execution-plan audit and
+module dependencies remained unchanged.
+
+Same-fixture benchmarks on Go 1.27.0, darwin/arm64, Apple M5 Max, one CPU,
+median of three 300 ms runs (dialogs use a preallocated output buffer):
+
+| Profile 230 operation | Time before → after (µs/op) | Bytes before → after (B/op) | Allocations before → after |
+|---|---:|---:|---:|
+| 100-entry dialogs, absent optional fields | 23.463 → 10.899 | 21,600 → 0 | 900 → 0 |
+| 100-entry dialogs, FromID / ReplyTo / entities present | 39.200 → 30.557 | 39,200 → 15,200 | 1,900 → 900 |
+| Exact decode of 1,024 integers | 10.582 → 9.490 | 25,264 → 8,248 | 14 → 3 |
+| Exact decode of 4,096 integers | 43.641 → 41.594 | 128,304 → 96,312 | 18 → 7 |
+
+Validation passed:
+
+- `go test -count=1 ./gen ./cmd/gotdgen ./tlprofile ./gen/example ./bin ./mtproto`
+  and generated consumers `./tg ./tg/e2e ./mt ./tdp/... ./tgtrace`.
+- `go test -race -count=1 ./tlprofile ./mtproto ./gen/example` and `go vet`
+  for the generator, command, profile, example, buffer and MTProto packages.
+- Local `telesrv` `./internal/rpc` and `./internal/mtprotoedge` tests through a
+  temporary `go.work`; the server's published dependency was not changed.
+- 15,420 differential observations across profiles 225–230 matched `v1.4.0`
+  byte output, errors, remaining input and output rollback. These include
+  9,537 successful round trips, 5,872 rejected fixtures and 11 pre-existing
+  panics from invalid zero-value fixtures; they are a behavior comparison,
+  not a claim that every zero-value constructor is valid.
+- Literal optional-field wire oracles, shared flags, projection/drop/reject,
+  one-shot hooks, historical keyboards, PageBlock storage profiles, malformed
+  vectors, decode limits and source/plan budgets remain covered by the suites.
+
+These are local codec and server test results; no desktop UI session or
+deployment was part of this optimization validation.
+
 ## Synchronizing `gotd/td` upstream
 
 Upstream is an evidence and patch source, not a branch that is merged wholesale

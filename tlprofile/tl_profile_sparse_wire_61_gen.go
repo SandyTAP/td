@@ -47,9 +47,10 @@ func layerEncodeWire051846fdBareBody(profile LayerProfile, value *tg.BotInlineMe
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeBotInlineMessageMediaGeo, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -294,9 +295,10 @@ func layerEncodeWire26ffde7dBareBody(profile LayerProfile, value *tg.UpdateDialo
 			if value.Flags.Has(0) && value.Filter == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateDialogFilter, Reason: "malformed canonical value: explicit flag has nil interface field filter"}
 			}
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(0) || value.Filter != nil)
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					if err := layerEncodeClassDialogFilterBody(profile, value.Filter, layerEncoded2, state); err != nil {
 						return fmt.Errorf("encode prepared field filter: %w", err)
@@ -609,9 +611,10 @@ func layerEncodeWire8b89dfbdBareBody(profile LayerProfile, value *tg.BotsSetCust
 			if err != nil {
 				return fmt.Errorf("adapt field custom_description: %w", err)
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(0) || value.Bot != nil)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassInputUserBody(profile, value.Bot, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field bot: %w", err)
@@ -751,9 +754,10 @@ func layerEncodeWirea6edbffdBareBody(profile LayerProfile, value *tg.InputBotInl
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputBotInlineMessageMediaContact, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded2, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -915,9 +919,10 @@ func layerEncodeWirecdd4093dBareBody(profile LayerProfile, value *tg.UpdateBotGu
 			if value.Flags.Has(0) && value.ReferenceMessages == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateBotGuestChatQuery, Reason: "malformed canonical value: explicit flag has nil interface field reference_messages"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.ReferenceMessages != nil)
 			if layerPresent12 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if len(value.ReferenceMessages) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

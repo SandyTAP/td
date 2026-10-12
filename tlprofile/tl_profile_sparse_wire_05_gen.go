@@ -65,9 +65,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 			if value.Flags2.Has(21) && value.SavedMusic == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUserFull, Reason: "malformed canonical value: explicit flag has nil interface field saved_music"}
 			}
-			layerEncoded26 := &bin.Buffer{}
+			var layerEncoded26 *bin.Buffer
 			layerPresent28 := (value.Flags.Has(21) || value.PersonalPhoto != nil)
 			if layerPresent28 {
+				layerEncoded26 = &bin.Buffer{}
 				layerErr27 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.PersonalPhoto, layerEncoded26, state); err != nil {
 						return fmt.Errorf("encode prepared field personal_photo: %w", err)
@@ -83,9 +84,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded29 := &bin.Buffer{}
+			var layerEncoded29 *bin.Buffer
 			layerPresent31 := (value.Flags.Has(2) || value.ProfilePhoto != nil)
 			if layerPresent31 {
+				layerEncoded29 = &bin.Buffer{}
 				layerErr30 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.ProfilePhoto, layerEncoded29, state); err != nil {
 						return fmt.Errorf("encode prepared field profile_photo: %w", err)
@@ -101,9 +103,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded32 := &bin.Buffer{}
+			var layerEncoded32 *bin.Buffer
 			layerPresent34 := (value.Flags.Has(22) || value.FallbackPhoto != nil)
 			if layerPresent34 {
+				layerEncoded32 = &bin.Buffer{}
 				layerErr33 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.FallbackPhoto, layerEncoded32, state); err != nil {
 						return fmt.Errorf("encode prepared field fallback_photo: %w", err)
@@ -119,9 +122,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded35 := &bin.Buffer{}
+			var layerEncoded35 *bin.Buffer
 			layerPresent37 := (value.Flags.Has(3) || !value.BotInfo.Zero())
 			if layerPresent37 {
+				layerEncoded35 = &bin.Buffer{}
 				layerErr36 := func() error {
 					layerEncoded35.PutID(0x4d8a0299)
 					if err := layerEncodeWire4d8a0299BareBody(profile, &(value.BotInfo), layerEncoded35, state); err != nil {
@@ -138,9 +142,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded38 := &bin.Buffer{}
+			var layerEncoded38 *bin.Buffer
 			layerPresent40 := (value.Flags.Has(15) || value.Theme != nil)
 			if layerPresent40 {
+				layerEncoded38 = &bin.Buffer{}
 				layerErr39 := func() error {
 					if err := layerEncodeClassChatThemeBody(profile, value.Theme, layerEncoded38, state); err != nil {
 						return fmt.Errorf("encode prepared field theme: %w", err)
@@ -156,9 +161,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded41 := &bin.Buffer{}
+			var layerEncoded41 *bin.Buffer
 			layerPresent43 := (value.Flags.Has(17) || !value.BotGroupAdminRights.Zero())
 			if layerPresent43 {
+				layerEncoded41 = &bin.Buffer{}
 				layerErr42 := func() error {
 					layerEncoded41.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.BotGroupAdminRights), layerEncoded41, state); err != nil {
@@ -175,9 +181,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded44 := &bin.Buffer{}
+			var layerEncoded44 *bin.Buffer
 			layerPresent46 := (value.Flags.Has(18) || !value.BotBroadcastAdminRights.Zero())
 			if layerPresent46 {
+				layerEncoded44 = &bin.Buffer{}
 				layerErr45 := func() error {
 					layerEncoded44.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.BotBroadcastAdminRights), layerEncoded44, state); err != nil {
@@ -194,9 +201,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded47 := &bin.Buffer{}
+			var layerEncoded47 *bin.Buffer
 			layerPresent49 := (value.Flags.Has(24) || value.Wallpaper != nil)
 			if layerPresent49 {
+				layerEncoded47 = &bin.Buffer{}
 				layerErr48 := func() error {
 					if err := layerEncodeClassWallPaperBody(profile, value.Wallpaper, layerEncoded47, state); err != nil {
 						return fmt.Errorf("encode prepared field wallpaper: %w", err)
@@ -212,9 +220,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded50 := &bin.Buffer{}
+			var layerEncoded50 *bin.Buffer
 			layerPresent52 := (value.Flags.Has(25) || !value.Stories.Zero())
 			if layerPresent52 {
+				layerEncoded50 = &bin.Buffer{}
 				layerErr51 := func() error {
 					layerEncoded50.PutID(0x9a35e999)
 					if err := layerEncodeWire9a35e999BareBody(profile, &(value.Stories), layerEncoded50, state); err != nil {
@@ -231,9 +240,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded53 := &bin.Buffer{}
+			var layerEncoded53 *bin.Buffer
 			layerPresent55 := (value.Flags2.Has(0) || !value.BusinessWorkHours.Zero())
 			if layerPresent55 {
+				layerEncoded53 = &bin.Buffer{}
 				layerErr54 := func() error {
 					layerEncoded53.PutID(0x8c92b098)
 					if err := layerEncodeWire8c92b098BareBody(profile, &(value.BusinessWorkHours), layerEncoded53, state); err != nil {
@@ -250,9 +260,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded56 := &bin.Buffer{}
+			var layerEncoded56 *bin.Buffer
 			layerPresent58 := (value.Flags2.Has(1) || !value.BusinessLocation.Zero())
 			if layerPresent58 {
+				layerEncoded56 = &bin.Buffer{}
 				layerErr57 := func() error {
 					layerEncoded56.PutID(0xac5c1af7)
 					if err := layerEncodeWireac5c1af7BareBody(profile, &(value.BusinessLocation), layerEncoded56, state); err != nil {
@@ -269,9 +280,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded59 := &bin.Buffer{}
+			var layerEncoded59 *bin.Buffer
 			layerPresent61 := (value.Flags2.Has(2) || !value.BusinessGreetingMessage.Zero())
 			if layerPresent61 {
+				layerEncoded59 = &bin.Buffer{}
 				layerErr60 := func() error {
 					layerEncoded59.PutID(0xe519abab)
 					if err := layerEncodeWiree519ababBareBody(profile, &(value.BusinessGreetingMessage), layerEncoded59, state); err != nil {
@@ -288,9 +300,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded62 := &bin.Buffer{}
+			var layerEncoded62 *bin.Buffer
 			layerPresent64 := (value.Flags2.Has(3) || !value.BusinessAwayMessage.Zero())
 			if layerPresent64 {
+				layerEncoded62 = &bin.Buffer{}
 				layerErr63 := func() error {
 					layerEncoded62.PutID(0xef156a5c)
 					if err := layerEncodeWireef156a5cBareBody(profile, &(value.BusinessAwayMessage), layerEncoded62, state); err != nil {
@@ -307,9 +320,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded65 := &bin.Buffer{}
+			var layerEncoded65 *bin.Buffer
 			layerPresent67 := (value.Flags2.Has(4) || !value.BusinessIntro.Zero())
 			if layerPresent67 {
+				layerEncoded65 = &bin.Buffer{}
 				layerErr66 := func() error {
 					layerEncoded65.PutID(0x5a0a066d)
 					if err := layerEncodeWire5a0a066dBareBody(profile, &(value.BusinessIntro), layerEncoded65, state); err != nil {
@@ -326,9 +340,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded68 := &bin.Buffer{}
+			var layerEncoded68 *bin.Buffer
 			layerPresent70 := (value.Flags2.Has(5) || !value.Birthday.Zero())
 			if layerPresent70 {
+				layerEncoded68 = &bin.Buffer{}
 				layerErr69 := func() error {
 					layerEncoded68.PutID(0x6c8e1e06)
 					if err := layerEncodeWire6c8e1e06BareBody(profile, &(value.Birthday), layerEncoded68, state); err != nil {
@@ -345,9 +360,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded71 := &bin.Buffer{}
+			var layerEncoded71 *bin.Buffer
 			layerPresent73 := (value.Flags2.Has(11) || !value.StarrefProgram.Zero())
 			if layerPresent73 {
+				layerEncoded71 = &bin.Buffer{}
 				layerErr72 := func() error {
 					layerEncoded71.PutID(0xdd0c66f2)
 					if err := layerEncodeWiredd0c66f2BareBody(profile, &(value.StarrefProgram), layerEncoded71, state); err != nil {
@@ -364,9 +380,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded74 := &bin.Buffer{}
+			var layerEncoded74 *bin.Buffer
 			layerPresent76 := (value.Flags2.Has(12) || !value.BotVerification.Zero())
 			if layerPresent76 {
+				layerEncoded74 = &bin.Buffer{}
 				layerErr75 := func() error {
 					layerEncoded74.PutID(0xf93cd45c)
 					if err := layerEncodeWiref93cd45cBareBody(profile, &(value.BotVerification), layerEncoded74, state); err != nil {
@@ -383,9 +400,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded77 := &bin.Buffer{}
+			var layerEncoded77 *bin.Buffer
 			layerPresent79 := (value.Flags2.Has(15) || !value.DisallowedGifts.Zero())
 			if layerPresent79 {
+				layerEncoded77 = &bin.Buffer{}
 				layerErr78 := func() error {
 					layerEncoded77.PutID(0x71f276c4)
 					if err := layerEncodeWire71f276c4BareBody(profile, &(value.DisallowedGifts), layerEncoded77, state); err != nil {
@@ -402,9 +420,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded80 := &bin.Buffer{}
+			var layerEncoded80 *bin.Buffer
 			layerPresent82 := (value.Flags2.Has(17) || !value.StarsRating.Zero())
 			if layerPresent82 {
+				layerEncoded80 = &bin.Buffer{}
 				layerErr81 := func() error {
 					layerEncoded80.PutID(0x1b0e4f07)
 					if err := layerEncodeWire1b0e4f07BareBody(profile, &(value.StarsRating), layerEncoded80, state); err != nil {
@@ -421,9 +440,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded83 := &bin.Buffer{}
+			var layerEncoded83 *bin.Buffer
 			layerPresent85 := (value.Flags2.Has(18) || !value.StarsMyPendingRating.Zero()) || (value.Flags2.Has(18) || value.StarsMyPendingRatingDate != 0)
 			if layerPresent85 {
+				layerEncoded83 = &bin.Buffer{}
 				layerErr84 := func() error {
 					layerEncoded83.PutID(0x1b0e4f07)
 					if err := layerEncodeWire1b0e4f07BareBody(profile, &(value.StarsMyPendingRating), layerEncoded83, state); err != nil {
@@ -440,9 +460,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded86 := &bin.Buffer{}
+			var layerEncoded86 *bin.Buffer
 			layerPresent88 := (value.Flags2.Has(20) || value.MainTab != nil)
 			if layerPresent88 {
+				layerEncoded86 = &bin.Buffer{}
 				layerErr87 := func() error {
 					if err := layerEncodeClassProfileTabBody(profile, value.MainTab, layerEncoded86, state); err != nil {
 						return fmt.Errorf("encode prepared field main_tab: %w", err)
@@ -458,9 +479,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded89 := &bin.Buffer{}
+			var layerEncoded89 *bin.Buffer
 			layerPresent91 := (value.Flags2.Has(21) || value.SavedMusic != nil)
 			if layerPresent91 {
+				layerEncoded89 = &bin.Buffer{}
 				layerErr90 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.SavedMusic, layerEncoded89, state); err != nil {
 						return fmt.Errorf("encode prepared field saved_music: %w", err)
@@ -476,9 +498,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded92 := &bin.Buffer{}
+			var layerEncoded92 *bin.Buffer
 			layerPresent94 := (value.Flags2.Has(22) || !value.Note.Zero())
 			if layerPresent94 {
+				layerEncoded92 = &bin.Buffer{}
 				layerErr93 := func() error {
 					layerEncoded92.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Note), layerEncoded92, state); err != nil {
@@ -804,9 +827,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 			if value.Flags2.Has(21) && value.SavedMusic == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUserFull, Reason: "malformed canonical value: explicit flag has nil interface field saved_music"}
 			}
-			layerEncoded26 := &bin.Buffer{}
+			var layerEncoded26 *bin.Buffer
 			layerPresent28 := (value.Flags.Has(21) || value.PersonalPhoto != nil)
 			if layerPresent28 {
+				layerEncoded26 = &bin.Buffer{}
 				layerErr27 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.PersonalPhoto, layerEncoded26, state); err != nil {
 						return fmt.Errorf("encode prepared field personal_photo: %w", err)
@@ -822,9 +846,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded29 := &bin.Buffer{}
+			var layerEncoded29 *bin.Buffer
 			layerPresent31 := (value.Flags.Has(2) || value.ProfilePhoto != nil)
 			if layerPresent31 {
+				layerEncoded29 = &bin.Buffer{}
 				layerErr30 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.ProfilePhoto, layerEncoded29, state); err != nil {
 						return fmt.Errorf("encode prepared field profile_photo: %w", err)
@@ -840,9 +865,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded32 := &bin.Buffer{}
+			var layerEncoded32 *bin.Buffer
 			layerPresent34 := (value.Flags.Has(22) || value.FallbackPhoto != nil)
 			if layerPresent34 {
+				layerEncoded32 = &bin.Buffer{}
 				layerErr33 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.FallbackPhoto, layerEncoded32, state); err != nil {
 						return fmt.Errorf("encode prepared field fallback_photo: %w", err)
@@ -858,9 +884,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded35 := &bin.Buffer{}
+			var layerEncoded35 *bin.Buffer
 			layerPresent37 := (value.Flags.Has(3) || !value.BotInfo.Zero())
 			if layerPresent37 {
+				layerEncoded35 = &bin.Buffer{}
 				layerErr36 := func() error {
 					layerEncoded35.PutID(0x4d8a0299)
 					if err := layerEncodeWire4d8a0299BareBody(profile, &(value.BotInfo), layerEncoded35, state); err != nil {
@@ -877,9 +904,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded38 := &bin.Buffer{}
+			var layerEncoded38 *bin.Buffer
 			layerPresent40 := (value.Flags.Has(15) || value.Theme != nil)
 			if layerPresent40 {
+				layerEncoded38 = &bin.Buffer{}
 				layerErr39 := func() error {
 					if err := layerEncodeClassChatThemeBody(profile, value.Theme, layerEncoded38, state); err != nil {
 						return fmt.Errorf("encode prepared field theme: %w", err)
@@ -895,9 +923,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded41 := &bin.Buffer{}
+			var layerEncoded41 *bin.Buffer
 			layerPresent43 := (value.Flags.Has(17) || !value.BotGroupAdminRights.Zero())
 			if layerPresent43 {
+				layerEncoded41 = &bin.Buffer{}
 				layerErr42 := func() error {
 					layerEncoded41.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.BotGroupAdminRights), layerEncoded41, state); err != nil {
@@ -914,9 +943,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded44 := &bin.Buffer{}
+			var layerEncoded44 *bin.Buffer
 			layerPresent46 := (value.Flags.Has(18) || !value.BotBroadcastAdminRights.Zero())
 			if layerPresent46 {
+				layerEncoded44 = &bin.Buffer{}
 				layerErr45 := func() error {
 					layerEncoded44.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.BotBroadcastAdminRights), layerEncoded44, state); err != nil {
@@ -933,9 +963,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded47 := &bin.Buffer{}
+			var layerEncoded47 *bin.Buffer
 			layerPresent49 := (value.Flags.Has(24) || value.Wallpaper != nil)
 			if layerPresent49 {
+				layerEncoded47 = &bin.Buffer{}
 				layerErr48 := func() error {
 					if err := layerEncodeClassWallPaperBody(profile, value.Wallpaper, layerEncoded47, state); err != nil {
 						return fmt.Errorf("encode prepared field wallpaper: %w", err)
@@ -951,9 +982,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded50 := &bin.Buffer{}
+			var layerEncoded50 *bin.Buffer
 			layerPresent52 := (value.Flags.Has(25) || !value.Stories.Zero())
 			if layerPresent52 {
+				layerEncoded50 = &bin.Buffer{}
 				layerErr51 := func() error {
 					layerEncoded50.PutID(0x9a35e999)
 					if err := layerEncodeWire9a35e999BareBody(profile, &(value.Stories), layerEncoded50, state); err != nil {
@@ -970,9 +1002,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded53 := &bin.Buffer{}
+			var layerEncoded53 *bin.Buffer
 			layerPresent55 := (value.Flags2.Has(0) || !value.BusinessWorkHours.Zero())
 			if layerPresent55 {
+				layerEncoded53 = &bin.Buffer{}
 				layerErr54 := func() error {
 					layerEncoded53.PutID(0x8c92b098)
 					if err := layerEncodeWire8c92b098BareBody(profile, &(value.BusinessWorkHours), layerEncoded53, state); err != nil {
@@ -989,9 +1022,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded56 := &bin.Buffer{}
+			var layerEncoded56 *bin.Buffer
 			layerPresent58 := (value.Flags2.Has(1) || !value.BusinessLocation.Zero())
 			if layerPresent58 {
+				layerEncoded56 = &bin.Buffer{}
 				layerErr57 := func() error {
 					layerEncoded56.PutID(0xac5c1af7)
 					if err := layerEncodeWireac5c1af7BareBody(profile, &(value.BusinessLocation), layerEncoded56, state); err != nil {
@@ -1008,9 +1042,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded59 := &bin.Buffer{}
+			var layerEncoded59 *bin.Buffer
 			layerPresent61 := (value.Flags2.Has(2) || !value.BusinessGreetingMessage.Zero())
 			if layerPresent61 {
+				layerEncoded59 = &bin.Buffer{}
 				layerErr60 := func() error {
 					layerEncoded59.PutID(0xe519abab)
 					if err := layerEncodeWiree519ababBareBody(profile, &(value.BusinessGreetingMessage), layerEncoded59, state); err != nil {
@@ -1027,9 +1062,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded62 := &bin.Buffer{}
+			var layerEncoded62 *bin.Buffer
 			layerPresent64 := (value.Flags2.Has(3) || !value.BusinessAwayMessage.Zero())
 			if layerPresent64 {
+				layerEncoded62 = &bin.Buffer{}
 				layerErr63 := func() error {
 					layerEncoded62.PutID(0xef156a5c)
 					if err := layerEncodeWireef156a5cBareBody(profile, &(value.BusinessAwayMessage), layerEncoded62, state); err != nil {
@@ -1046,9 +1082,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded65 := &bin.Buffer{}
+			var layerEncoded65 *bin.Buffer
 			layerPresent67 := (value.Flags2.Has(4) || !value.BusinessIntro.Zero())
 			if layerPresent67 {
+				layerEncoded65 = &bin.Buffer{}
 				layerErr66 := func() error {
 					layerEncoded65.PutID(0x5a0a066d)
 					if err := layerEncodeWire5a0a066dBareBody(profile, &(value.BusinessIntro), layerEncoded65, state); err != nil {
@@ -1065,9 +1102,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded68 := &bin.Buffer{}
+			var layerEncoded68 *bin.Buffer
 			layerPresent70 := (value.Flags2.Has(5) || !value.Birthday.Zero())
 			if layerPresent70 {
+				layerEncoded68 = &bin.Buffer{}
 				layerErr69 := func() error {
 					layerEncoded68.PutID(0x6c8e1e06)
 					if err := layerEncodeWire6c8e1e06BareBody(profile, &(value.Birthday), layerEncoded68, state); err != nil {
@@ -1084,9 +1122,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded71 := &bin.Buffer{}
+			var layerEncoded71 *bin.Buffer
 			layerPresent73 := (value.Flags2.Has(11) || !value.StarrefProgram.Zero())
 			if layerPresent73 {
+				layerEncoded71 = &bin.Buffer{}
 				layerErr72 := func() error {
 					layerEncoded71.PutID(0xdd0c66f2)
 					if err := layerEncodeWiredd0c66f2BareBody(profile, &(value.StarrefProgram), layerEncoded71, state); err != nil {
@@ -1103,9 +1142,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded74 := &bin.Buffer{}
+			var layerEncoded74 *bin.Buffer
 			layerPresent76 := (value.Flags2.Has(12) || !value.BotVerification.Zero())
 			if layerPresent76 {
+				layerEncoded74 = &bin.Buffer{}
 				layerErr75 := func() error {
 					layerEncoded74.PutID(0xf72e0ed9)
 					if err := layerEncodeWiref72e0ed9BareBody(profile, &(value.BotVerification), layerEncoded74, state); err != nil {
@@ -1122,9 +1162,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded77 := &bin.Buffer{}
+			var layerEncoded77 *bin.Buffer
 			layerPresent79 := (value.Flags2.Has(15) || !value.DisallowedGifts.Zero())
 			if layerPresent79 {
+				layerEncoded77 = &bin.Buffer{}
 				layerErr78 := func() error {
 					layerEncoded77.PutID(0x71f276c4)
 					if err := layerEncodeWire71f276c4BareBody(profile, &(value.DisallowedGifts), layerEncoded77, state); err != nil {
@@ -1141,9 +1182,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded80 := &bin.Buffer{}
+			var layerEncoded80 *bin.Buffer
 			layerPresent82 := (value.Flags2.Has(17) || !value.StarsRating.Zero())
 			if layerPresent82 {
+				layerEncoded80 = &bin.Buffer{}
 				layerErr81 := func() error {
 					layerEncoded80.PutID(0x1b0e4f07)
 					if err := layerEncodeWire1b0e4f07BareBody(profile, &(value.StarsRating), layerEncoded80, state); err != nil {
@@ -1160,9 +1202,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded83 := &bin.Buffer{}
+			var layerEncoded83 *bin.Buffer
 			layerPresent85 := (value.Flags2.Has(18) || !value.StarsMyPendingRating.Zero()) || (value.Flags2.Has(18) || value.StarsMyPendingRatingDate != 0)
 			if layerPresent85 {
+				layerEncoded83 = &bin.Buffer{}
 				layerErr84 := func() error {
 					layerEncoded83.PutID(0x1b0e4f07)
 					if err := layerEncodeWire1b0e4f07BareBody(profile, &(value.StarsMyPendingRating), layerEncoded83, state); err != nil {
@@ -1179,9 +1222,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded86 := &bin.Buffer{}
+			var layerEncoded86 *bin.Buffer
 			layerPresent88 := (value.Flags2.Has(20) || value.MainTab != nil)
 			if layerPresent88 {
+				layerEncoded86 = &bin.Buffer{}
 				layerErr87 := func() error {
 					if err := layerEncodeClassProfileTabBody(profile, value.MainTab, layerEncoded86, state); err != nil {
 						return fmt.Errorf("encode prepared field main_tab: %w", err)
@@ -1197,9 +1241,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded89 := &bin.Buffer{}
+			var layerEncoded89 *bin.Buffer
 			layerPresent91 := (value.Flags2.Has(21) || value.SavedMusic != nil)
 			if layerPresent91 {
+				layerEncoded89 = &bin.Buffer{}
 				layerErr90 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.SavedMusic, layerEncoded89, state); err != nil {
 						return fmt.Errorf("encode prepared field saved_music: %w", err)
@@ -1215,9 +1260,10 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 					}
 				}
 			}
-			layerEncoded92 := &bin.Buffer{}
+			var layerEncoded92 *bin.Buffer
 			layerPresent94 := (value.Flags2.Has(22) || !value.Note.Zero())
 			if layerPresent94 {
+				layerEncoded92 = &bin.Buffer{}
 				layerErr93 := func() error {
 					layerEncoded92.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Note), layerEncoded92, state); err != nil {
@@ -1527,9 +1573,7 @@ func layerEncodeWire06cbe645BareBody(profile LayerProfile, value *tg.UserFull, b
 
 func layerDecodeWire06cbe645(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.UserFull, error) {
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229:
-
-	case LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypeUserFull, WireID: 0x06cbe645, Reason: "wire ID is unavailable in exact profile"}
@@ -3527,9 +3571,10 @@ func layerEncodeWire96929a85BareBody(profile LayerProfile, value *tg.InputBotInl
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputBotInlineMessageMediaGeo, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -3727,9 +3772,10 @@ func layerEncodeWirea5eec345BareBody(profile LayerProfile, value *tg.MessagesTra
 			if value.Flags.Has(0) && value.Peer == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesTranslateText, Reason: "malformed canonical value: explicit flag has nil interface field peer"}
 			}
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(0) || value.Peer != nil) || (value.Flags.Has(0) || value.ID != nil)
 			if layerPresent7 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					if err := layerEncodeClassInputPeerBody(profile, value.Peer, layerEncoded5, state); err != nil {
 						return fmt.Errorf("encode prepared field peer: %w", err)
@@ -3745,9 +3791,10 @@ func layerEncodeWirea5eec345BareBody(profile LayerProfile, value *tg.MessagesTra
 					}
 				}
 			}
-			layerEncoded8 := &bin.Buffer{}
+			var layerEncoded8 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.Peer != nil) || (value.Flags.Has(0) || value.ID != nil)
 			if layerPresent12 {
+				layerEncoded8 = &bin.Buffer{}
 				layerErr9 := func() error {
 					if len(value.ID) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -3767,9 +3814,10 @@ func layerEncodeWirea5eec345BareBody(profile LayerProfile, value *tg.MessagesTra
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent21 := (value.Flags.Has(1) || value.Text != nil)
 			if layerPresent21 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if len(value.Text) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

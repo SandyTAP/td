@@ -174,7 +174,7 @@ func (a *AccountAuthorizations) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Authorizations = make([]Authorization, 0, headerLen%bin.PreallocateLimit)
+			a.Authorizations = make([]Authorization, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value Authorization

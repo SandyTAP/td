@@ -298,7 +298,7 @@ func (b *BusinessBotRecipients) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Users = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			b.Users = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := buf.Long()
@@ -315,7 +315,7 @@ func (b *BusinessBotRecipients) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.ExcludeUsers = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			b.ExcludeUsers = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := buf.Long()

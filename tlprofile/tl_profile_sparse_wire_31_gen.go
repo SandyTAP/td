@@ -83,9 +83,10 @@ func layerEncodeWire1cc6e91fBareBody(profile LayerProfile, value *tg.InputSingle
 			if value.Flags.Has(0) && value.Entities == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputSingleMedia, Reason: "malformed canonical value: explicit flag has nil interface field entities"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.Entities != nil)
 			if layerPresent12 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -404,9 +405,10 @@ func layerEncodeWire68cbd09fBareBody(profile LayerProfile, value *tg.EphemeralSe
 			if err != nil {
 				return fmt.Errorf("adapt field peer: %w", err)
 			}
-			layerEncoded11 := &bin.Buffer{}
+			var layerEncoded11 *bin.Buffer
 			layerPresent19 := (value.Flags.Has(1) || value.Entities != nil)
 			if layerPresent19 {
+				layerEncoded11 = &bin.Buffer{}
 				layerErr12 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -448,9 +450,10 @@ func layerEncodeWire68cbd09fBareBody(profile LayerProfile, value *tg.EphemeralSe
 					}
 				}
 			}
-			layerEncoded20 := &bin.Buffer{}
+			var layerEncoded20 *bin.Buffer
 			layerPresent22 := (value.Flags.Has(2) || value.Media != nil)
 			if layerPresent22 {
+				layerEncoded20 = &bin.Buffer{}
 				layerErr21 := func() error {
 					if err := layerEncodeClassInputMediaBody(profile, value.Media, layerEncoded20, state); err != nil {
 						return fmt.Errorf("encode prepared field media: %w", err)
@@ -466,9 +469,10 @@ func layerEncodeWire68cbd09fBareBody(profile LayerProfile, value *tg.EphemeralSe
 					}
 				}
 			}
-			layerEncoded23 := &bin.Buffer{}
+			var layerEncoded23 *bin.Buffer
 			layerPresent25 := (value.Flags.Has(3) || value.ReplyMarkup != nil)
 			if layerPresent25 {
+				layerEncoded23 = &bin.Buffer{}
 				layerErr24 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded23, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -484,9 +488,10 @@ func layerEncodeWire68cbd09fBareBody(profile LayerProfile, value *tg.EphemeralSe
 					}
 				}
 			}
-			layerEncoded26 := &bin.Buffer{}
+			var layerEncoded26 *bin.Buffer
 			layerPresent28 := (value.Flags.Has(4) || value.RichMessage != nil)
 			if layerPresent28 {
+				layerEncoded26 = &bin.Buffer{}
 				layerErr27 := func() error {
 					if err := layerEncodeClassInputRichMessageBody(profile, value.RichMessage, layerEncoded26, state); err != nil {
 						return fmt.Errorf("encode prepared field rich_message: %w", err)
@@ -502,9 +507,10 @@ func layerEncodeWire68cbd09fBareBody(profile LayerProfile, value *tg.EphemeralSe
 					}
 				}
 			}
-			layerEncoded29 := &bin.Buffer{}
+			var layerEncoded29 *bin.Buffer
 			layerPresent31 := (value.Flags.Has(5) || value.ReplyTo != nil)
 			if layerPresent31 {
+				layerEncoded29 = &bin.Buffer{}
 				layerErr30 := func() error {
 					if err := layerEncodeClassInputReplyToBody(profile, value.ReplyTo, layerEncoded29, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_to: %w", err)
@@ -832,9 +838,10 @@ func layerEncodeWire947a12dfBareBody(profile LayerProfile, value *tg.PaymentsRes
 			if value.Flags.Has(1) && value.Attributes == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypePaymentsResaleStarGifts, Reason: "malformed canonical value: explicit flag has nil interface field attributes"}
 			}
-			layerEncoded11 := &bin.Buffer{}
+			var layerEncoded11 *bin.Buffer
 			layerPresent19 := (value.Flags.Has(1) || value.Attributes != nil) || (value.Flags.Has(1) || value.AttributesHash != 0)
 			if layerPresent19 {
+				layerEncoded11 = &bin.Buffer{}
 				layerErr12 := func() error {
 					if len(value.Attributes) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -876,9 +883,10 @@ func layerEncodeWire947a12dfBareBody(profile LayerProfile, value *tg.PaymentsRes
 					}
 				}
 			}
-			layerEncoded20 := &bin.Buffer{}
+			var layerEncoded20 *bin.Buffer
 			layerPresent28 := (value.Flags.Has(2) || value.Counters != nil)
 			if layerPresent28 {
+				layerEncoded20 = &bin.Buffer{}
 				layerErr21 := func() error {
 					if len(value.Counters) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

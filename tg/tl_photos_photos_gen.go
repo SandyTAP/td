@@ -183,7 +183,7 @@ func (p *PhotosPhotos) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Photos = make([]PhotoClass, 0, headerLen%bin.PreallocateLimit)
+			p.Photos = make([]PhotoClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhoto(b)
@@ -200,7 +200,7 @@ func (p *PhotosPhotos) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			p.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)
@@ -410,7 +410,7 @@ func (p *PhotosPhotosSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Photos = make([]PhotoClass, 0, headerLen%bin.PreallocateLimit)
+			p.Photos = make([]PhotoClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhoto(b)
@@ -427,7 +427,7 @@ func (p *PhotosPhotosSlice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			p.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

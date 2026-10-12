@@ -172,9 +172,10 @@ func layerEncodeWire1a542004BareBody(profile LayerProfile, value *tg.MessagesTra
 			if value.Flags.Has(1) && value.Text == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesTranslateRichMessage, Reason: "malformed canonical value: explicit flag has nil interface field text"}
 			}
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(0) || value.Peer != nil) || (value.Flags.Has(0) || value.ID != nil)
 			if layerPresent7 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					if err := layerEncodeClassInputPeerBody(profile, value.Peer, layerEncoded5, state); err != nil {
 						return fmt.Errorf("encode prepared field peer: %w", err)
@@ -190,9 +191,10 @@ func layerEncodeWire1a542004BareBody(profile LayerProfile, value *tg.MessagesTra
 					}
 				}
 			}
-			layerEncoded8 := &bin.Buffer{}
+			var layerEncoded8 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.Peer != nil) || (value.Flags.Has(0) || value.ID != nil)
 			if layerPresent12 {
+				layerEncoded8 = &bin.Buffer{}
 				layerErr9 := func() error {
 					if len(value.ID) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -212,9 +214,10 @@ func layerEncodeWire1a542004BareBody(profile LayerProfile, value *tg.MessagesTra
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent21 := (value.Flags.Has(1) || value.Text != nil)
 			if layerPresent21 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if len(value.Text) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

@@ -688,7 +688,7 @@ func (c *ChatFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.BotInfo = make([]BotInfo, 0, headerLen%bin.PreallocateLimit)
+			c.BotInfo = make([]BotInfo, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BotInfo
@@ -754,7 +754,7 @@ func (c *ChatFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.RecentRequesters = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			c.RecentRequesters = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -2886,7 +2886,7 @@ func (c *ChannelFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.BotInfo = make([]BotInfo, 0, headerLen%bin.PreallocateLimit)
+			c.BotInfo = make([]BotInfo, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BotInfo
@@ -2999,7 +2999,7 @@ func (c *ChannelFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.PendingSuggestions = make([]string, 0, headerLen%bin.PreallocateLimit)
+			c.PendingSuggestions = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()
@@ -3037,7 +3037,7 @@ func (c *ChannelFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.RecentRequesters = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			c.RecentRequesters = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -4568,7 +4568,7 @@ func (c *CommunityFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.LinkedPeers = make([]CommunityPeer, 0, headerLen%bin.PreallocateLimit)
+			c.LinkedPeers = make([]CommunityPeer, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value CommunityPeer

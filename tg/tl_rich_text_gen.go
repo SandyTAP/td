@@ -1461,7 +1461,7 @@ func (t *TextConcat) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Texts = make([]RichTextClass, 0, headerLen%bin.PreallocateLimit)
+			t.Texts = make([]RichTextClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeRichText(b)

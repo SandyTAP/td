@@ -198,7 +198,7 @@ func (s *PaymentsStarGiftAuctionAcquiredGifts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Gifts = make([]StarGiftAuctionAcquiredGift, 0, headerLen%bin.PreallocateLimit)
+			s.Gifts = make([]StarGiftAuctionAcquiredGift, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarGiftAuctionAcquiredGift
@@ -215,7 +215,7 @@ func (s *PaymentsStarGiftAuctionAcquiredGifts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			s.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)
@@ -232,7 +232,7 @@ func (s *PaymentsStarGiftAuctionAcquiredGifts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			s.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)

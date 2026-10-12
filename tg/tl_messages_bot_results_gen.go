@@ -341,7 +341,7 @@ func (b *MessagesBotResults) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Results = make([]BotInlineResultClass, 0, headerLen%bin.PreallocateLimit)
+			b.Results = make([]BotInlineResultClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeBotInlineResult(buf)
@@ -365,7 +365,7 @@ func (b *MessagesBotResults) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			b.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(buf)

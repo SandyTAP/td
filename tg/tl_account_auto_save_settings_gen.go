@@ -258,7 +258,7 @@ func (a *AccountAutoSaveSettings) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Exceptions = make([]AutoSaveException, 0, headerLen%bin.PreallocateLimit)
+			a.Exceptions = make([]AutoSaveException, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AutoSaveException
@@ -275,7 +275,7 @@ func (a *AccountAutoSaveSettings) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			a.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -292,7 +292,7 @@ func (a *AccountAutoSaveSettings) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			a.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

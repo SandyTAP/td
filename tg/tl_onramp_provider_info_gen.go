@@ -256,7 +256,7 @@ func (o *OnrampProviderInfo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			o.CryptoCurrencies = make([]string, 0, headerLen%bin.PreallocateLimit)
+			o.CryptoCurrencies = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

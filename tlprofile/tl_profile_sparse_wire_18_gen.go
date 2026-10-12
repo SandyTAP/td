@@ -491,9 +491,10 @@ func layerEncodeWiree8625e92BareBody(profile LayerProfile, value *tg.InputInvoic
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(1) || !value.Message.Zero())
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					layerEncoded3.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Message), layerEncoded3, state); err != nil {

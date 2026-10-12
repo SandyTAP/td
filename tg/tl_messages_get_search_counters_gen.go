@@ -278,7 +278,7 @@ func (g *MessagesGetSearchCountersRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Filters = make([]MessagesFilterClass, 0, headerLen%bin.PreallocateLimit)
+			g.Filters = make([]MessagesFilterClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessagesFilter(b)

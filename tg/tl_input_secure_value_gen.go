@@ -435,7 +435,7 @@ func (i *InputSecureValue) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Translation = make([]InputSecureFileClass, 0, headerLen%bin.PreallocateLimit)
+			i.Translation = make([]InputSecureFileClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputSecureFile(b)
@@ -452,7 +452,7 @@ func (i *InputSecureValue) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Files = make([]InputSecureFileClass, 0, headerLen%bin.PreallocateLimit)
+			i.Files = make([]InputSecureFileClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputSecureFile(b)

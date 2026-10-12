@@ -262,7 +262,7 @@ func (m *MessagesMessageReactionsList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Reactions = make([]MessagePeerReaction, 0, headerLen%bin.PreallocateLimit)
+			m.Reactions = make([]MessagePeerReaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MessagePeerReaction
@@ -279,7 +279,7 @@ func (m *MessagesMessageReactionsList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			m.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -296,7 +296,7 @@ func (m *MessagesMessageReactionsList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			m.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

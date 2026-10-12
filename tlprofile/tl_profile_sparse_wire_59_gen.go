@@ -29,9 +29,10 @@ func layerEncodeWire0a617e7bBareBody(profile LayerProfile, value *tg.BotInlineMe
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeBotInlineMessageRichMessage, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -375,9 +376,7 @@ func layerEncodeWire17d7f87bBareBody(profile LayerProfile, value *tg.AccountConn
 
 func layerDecodeWire17d7f87b(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.AccountConnectedBots, error) {
 	switch profile {
-	case LayerProfile225:
-
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypeAccountConnectedBots, WireID: 0x17d7f87b, Reason: "wire ID is unavailable in exact profile"}
@@ -681,9 +680,10 @@ func layerEncodeWire37148dbbBareBody(profile LayerProfile, value *tg.PaymentsGet
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(0) || !value.ThemeParams.Zero())
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					layerEncoded3.PutID(0x7d748d04)
 					if err := layerEncodeWire7d748d04BareBody(profile, &(value.ThemeParams), layerEncoded3, state); err != nil {
@@ -979,9 +979,10 @@ func layerEncodeWire5d8d353bBareBody(profile LayerProfile, value *tg.ChannelAdmi
 			if value.Flags.Has(1) && value.NewTopic == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeChannelAdminLogEventActionPinTopic, Reason: "malformed canonical value: explicit flag has nil interface field new_topic"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(0) || value.PrevTopic != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassForumTopicBody(profile, value.PrevTopic, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field prev_topic: %w", err)
@@ -997,9 +998,10 @@ func layerEncodeWire5d8d353bBareBody(profile LayerProfile, value *tg.ChannelAdmi
 					}
 				}
 			}
-			layerEncoded6 := &bin.Buffer{}
+			var layerEncoded6 *bin.Buffer
 			layerPresent8 := (value.Flags.Has(1) || value.NewTopic != nil)
 			if layerPresent8 {
+				layerEncoded6 = &bin.Buffer{}
 				layerErr7 := func() error {
 					if err := layerEncodeClassForumTopicBody(profile, value.NewTopic, layerEncoded6, state); err != nil {
 						return fmt.Errorf("encode prepared field new_topic: %w", err)
@@ -1433,9 +1435,10 @@ func layerEncodeWire985d3abbBareBody(profile LayerProfile, value *tg.UpdateChann
 			if value.Flags.Has(2) && value.Invite == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateChannelParticipant, Reason: "malformed canonical value: explicit flag has nil interface field invite"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent6 := (value.Flags.Has(0) || value.PrevParticipant != nil)
 			if layerPresent6 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if err := layerEncodeClassChannelParticipantBody(profile, value.PrevParticipant, layerEncoded4, state); err != nil {
 						return fmt.Errorf("encode prepared field prev_participant: %w", err)
@@ -1451,9 +1454,10 @@ func layerEncodeWire985d3abbBareBody(profile LayerProfile, value *tg.UpdateChann
 					}
 				}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(1) || value.NewParticipant != nil)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassChannelParticipantBody(profile, value.NewParticipant, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field new_participant: %w", err)
@@ -1469,9 +1473,10 @@ func layerEncodeWire985d3abbBareBody(profile LayerProfile, value *tg.UpdateChann
 					}
 				}
 			}
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(2) || value.Invite != nil)
 			if layerPresent12 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if err := layerEncodeClassExportedChatInviteBody(profile, value.Invite, layerEncoded10, state); err != nil {
 						return fmt.Errorf("encode prepared field invite: %w", err)

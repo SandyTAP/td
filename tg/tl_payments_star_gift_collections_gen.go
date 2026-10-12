@@ -270,7 +270,7 @@ func (s *PaymentsStarGiftCollections) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Collections = make([]StarGiftCollection, 0, headerLen%bin.PreallocateLimit)
+			s.Collections = make([]StarGiftCollection, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarGiftCollection

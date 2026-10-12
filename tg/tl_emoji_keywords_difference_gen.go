@@ -215,7 +215,7 @@ func (e *EmojiKeywordsDifference) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Keywords = make([]EmojiKeywordClass, 0, headerLen%bin.PreallocateLimit)
+			e.Keywords = make([]EmojiKeywordClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeEmojiKeyword(b)

@@ -177,7 +177,7 @@ func (s *StickerPack) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Documents = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			s.Documents = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

@@ -718,7 +718,7 @@ func (r *ReplyKeyboardMarkup) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Rows = make([]KeyboardButtonRow, 0, headerLen%bin.PreallocateLimit)
+			r.Rows = make([]KeyboardButtonRow, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value KeyboardButtonRow
@@ -1022,7 +1022,7 @@ func (r *ReplyInlineMarkup) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Rows = make([]KeyboardInlineButtonRow, 0, headerLen%bin.PreallocateLimit)
+			r.Rows = make([]KeyboardInlineButtonRow, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value KeyboardInlineButtonRow

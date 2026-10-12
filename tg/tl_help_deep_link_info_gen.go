@@ -338,7 +338,7 @@ func (d *HelpDeepLinkInfo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			d.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)

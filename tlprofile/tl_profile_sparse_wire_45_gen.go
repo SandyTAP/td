@@ -1061,9 +1061,10 @@ func layerEncodeWire6c9ce8edBareBody(profile LayerProfile, value *tg.PaymentsSta
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent18 := (value.Flags.Has(1) || value.Subscriptions != nil)
 			if layerPresent18 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if len(value.Subscriptions) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1106,9 +1107,10 @@ func layerEncodeWire6c9ce8edBareBody(profile LayerProfile, value *tg.PaymentsSta
 					}
 				}
 			}
-			layerEncoded19 := &bin.Buffer{}
+			var layerEncoded19 *bin.Buffer
 			layerPresent27 := (value.Flags.Has(3) || value.History != nil)
 			if layerPresent27 {
+				layerEncoded19 = &bin.Buffer{}
 				layerErr20 := func() error {
 					if len(value.History) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

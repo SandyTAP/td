@@ -372,7 +372,7 @@ func (s *StoriesStartLiveRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			s.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -389,7 +389,7 @@ func (s *StoriesStartLiveRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.PrivacyRules = make([]InputPrivacyRuleClass, 0, headerLen%bin.PreallocateLimit)
+			s.PrivacyRules = make([]InputPrivacyRuleClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPrivacyRule(b)

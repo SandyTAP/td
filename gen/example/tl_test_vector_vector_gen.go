@@ -148,7 +148,7 @@ func (t *TestVectorVector) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Value = make([][]string, 0, headerLen%bin.PreallocateLimit)
+			t.Value = make([][]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			innerLen, err := b.VectorHeader()
@@ -158,7 +158,7 @@ func (t *TestVectorVector) DecodeBare(b *bin.Buffer) error {
 
 			var row []string
 			if innerLen > 0 {
-				row = make([]string, 0, innerLen%bin.PreallocateLimit)
+				row = make([]string, 0, min(innerLen, bin.PreallocateLimit))
 			}
 			for innerIndex := 0; innerIndex < innerLen; innerIndex++ {
 				value, err := b.String()

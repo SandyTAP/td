@@ -249,7 +249,7 @@ func (d *PhoneDeleteConferenceCallParticipantsRequest) DecodeBare(b *bin.Buffer)
 		}
 
 		if headerLen > 0 {
-			d.IDs = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			d.IDs = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

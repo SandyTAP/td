@@ -473,7 +473,7 @@ func (s *MessagesSearchRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.SavedReaction = make([]ReactionClass, 0, headerLen%bin.PreallocateLimit)
+			s.SavedReaction = make([]ReactionClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeReaction(b)

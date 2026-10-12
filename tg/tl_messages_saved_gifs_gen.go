@@ -287,7 +287,7 @@ func (s *MessagesSavedGifs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Gifs = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			s.Gifs = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

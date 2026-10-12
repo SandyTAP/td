@@ -287,7 +287,7 @@ func (s *AccountSavedRingtones) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Ringtones = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			s.Ringtones = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

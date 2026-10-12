@@ -245,7 +245,7 @@ func (s *PaymentsSuggestedStarRefBots) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.SuggestedBots = make([]StarRefProgram, 0, headerLen%bin.PreallocateLimit)
+			s.SuggestedBots = make([]StarRefProgram, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarRefProgram
@@ -262,7 +262,7 @@ func (s *PaymentsSuggestedStarRefBots) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			s.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

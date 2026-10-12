@@ -331,7 +331,7 @@ func (s *StarsGiveawayOption) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Winners = make([]StarsGiveawayWinnersOption, 0, headerLen%bin.PreallocateLimit)
+			s.Winners = make([]StarsGiveawayWinnersOption, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarsGiveawayWinnersOption

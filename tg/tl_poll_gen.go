@@ -473,7 +473,7 @@ func (p *Poll) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Answers = make([]PollAnswerClass, 0, headerLen%bin.PreallocateLimit)
+			p.Answers = make([]PollAnswerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePollAnswer(b)
@@ -504,7 +504,7 @@ func (p *Poll) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.CountriesISO2 = make([]string, 0, headerLen%bin.PreallocateLimit)
+			p.CountriesISO2 = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

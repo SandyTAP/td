@@ -639,7 +639,7 @@ func (b *StatsBroadcastStats) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.RecentPostsInteractions = make([]PostInteractionCountersClass, 0, headerLen%bin.PreallocateLimit)
+			b.RecentPostsInteractions = make([]PostInteractionCountersClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePostInteractionCounters(buf)

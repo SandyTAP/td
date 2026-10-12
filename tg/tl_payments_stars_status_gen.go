@@ -367,7 +367,7 @@ func (s *PaymentsStarsStatus) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Subscriptions = make([]StarsSubscription, 0, headerLen%bin.PreallocateLimit)
+			s.Subscriptions = make([]StarsSubscription, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarsSubscription
@@ -398,7 +398,7 @@ func (s *PaymentsStarsStatus) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.History = make([]StarsTransaction, 0, headerLen%bin.PreallocateLimit)
+			s.History = make([]StarsTransaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarsTransaction
@@ -422,7 +422,7 @@ func (s *PaymentsStarsStatus) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			s.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -439,7 +439,7 @@ func (s *PaymentsStarsStatus) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			s.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

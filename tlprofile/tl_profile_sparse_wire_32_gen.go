@@ -401,38 +401,10 @@ func layerEncodeWire1759c560BareBody(profile LayerProfile, value *tg.PageBlockPh
 	}
 	state = &child
 	switch profile {
-	case LayerProfile225:
+	case LayerProfile225, LayerProfile226:
 		{
 			if value.Flags.Has(1) || value.Spoiler {
 				// layer-obligation/v1/field-projection/015932d3bead825950a0abcf25aa483f33fce6c096473ebdda93b81614cd7f82 explicitly permits dropping this field in the exact profile.
-			}
-			var wireFlags0 bin.Fields
-			if (value.Flags.Has(0) || value.URL != "") || (value.Flags.Has(0) || value.WebpageID != 0) {
-				wireFlags0.Set(0)
-			}
-			if err := wireFlags0.Encode(b); err != nil {
-				return fmt.Errorf("encode flags flags: %w", err)
-			}
-			b.PutLong(value.PhotoID)
-			b.PutID(0x6f747657)
-			if err := layerEncodeWire6f747657BareBody(profile, &(value.Caption), b, state); err != nil {
-				return fmt.Errorf("encode field caption: %w", err)
-			}
-			if wireFlags0.Has(0) {
-				if err := b.PutStringChecked(value.URL); err != nil {
-					return fmt.Errorf("encode field url: %w", err)
-				}
-			}
-			if wireFlags0.Has(0) {
-				b.PutLong(value.WebpageID)
-			}
-			return nil
-
-		}
-	case LayerProfile226:
-		{
-			if value.Flags.Has(1) || value.Spoiler {
-				// layer-obligation/v1/field-projection/4324d5f91effeb89065f15c23e92d31f47439f6c3ee130a7adf2c3fd209d4471 explicitly permits dropping this field in the exact profile.
 			}
 			var wireFlags0 bin.Fields
 			if (value.Flags.Has(0) || value.URL != "") || (value.Flags.Has(0) || value.WebpageID != 0) {
@@ -492,11 +464,7 @@ func layerEncodeWire1759c560BareBody(profile LayerProfile, value *tg.PageBlockPh
 
 func layerDecodeWire1759c560(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.PageBlockPhoto, error) {
 	switch profile {
-	case LayerProfile225:
-
-	case LayerProfile226:
-
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypePageBlockPhoto, WireID: 0x1759c560, Reason: "wire ID is unavailable in exact profile"}
@@ -518,58 +486,7 @@ func layerDecodeWire1759c560Bare(profile LayerProfile, b *bin.Buffer, state *lay
 	value := new(tg.PageBlockPhoto)
 	_ = value
 	switch profile {
-	case LayerProfile225:
-		{
-			var wireFlags0 bin.Fields
-			if err := wireFlags0.Decode(b); err != nil {
-				return nil, fmt.Errorf("decode flags flags: %w", err)
-			}
-			var layerDecoded2 int64
-			layerPrimitive3, err := b.Long()
-			if err != nil {
-				return nil, fmt.Errorf("decode field photo_id: %w", err)
-			}
-			layerDecoded2 = layerPrimitive3
-			var layerDecoded4 tg.PageCaption
-			layerConcrete5, err := layerDecodeWire6f747657(profile, b, state)
-			if err != nil {
-				return nil, fmt.Errorf("decode field caption: %w", err)
-			}
-			layerDecoded4 = *layerConcrete5
-			var layerDecoded6 string
-			if wireFlags0.Has(0) {
-				layerPrimitive7, err := b.String()
-				if err != nil {
-					return nil, fmt.Errorf("decode field url: %w", err)
-				}
-				layerDecoded6 = layerPrimitive7
-			}
-			var layerDecoded8 int64
-			if wireFlags0.Has(0) {
-				layerPrimitive9, err := b.Long()
-				if err != nil {
-					return nil, fmt.Errorf("decode field webpage_id: %w", err)
-				}
-				layerDecoded8 = layerPrimitive9
-			}
-			if true {
-				value.PhotoID = layerDecoded2
-			}
-			if true {
-				value.Caption = layerDecoded4
-			}
-			if wireFlags0.Has(0) {
-				value.Flags.Set(0)
-				value.URL = layerDecoded6
-			}
-			if wireFlags0.Has(0) {
-				value.Flags.Set(0)
-				value.WebpageID = layerDecoded8
-			}
-			return value, nil
-
-		}
-	case LayerProfile226:
+	case LayerProfile225, LayerProfile226:
 		{
 			var wireFlags0 bin.Fields
 			if err := wireFlags0.Decode(b); err != nil {

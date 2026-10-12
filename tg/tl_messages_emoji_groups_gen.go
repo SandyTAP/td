@@ -296,7 +296,7 @@ func (e *MessagesEmojiGroups) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Groups = make([]EmojiGroupClass, 0, headerLen%bin.PreallocateLimit)
+			e.Groups = make([]EmojiGroupClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeEmojiGroup(b)

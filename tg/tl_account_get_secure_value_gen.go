@@ -162,7 +162,7 @@ func (g *AccountGetSecureValueRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Types = make([]SecureValueTypeClass, 0, headerLen%bin.PreallocateLimit)
+			g.Types = make([]SecureValueTypeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeSecureValueType(b)

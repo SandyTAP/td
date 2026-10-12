@@ -202,7 +202,7 @@ func (s *PaymentsStarGiftUpgradePreview) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.SampleAttributes = make([]StarGiftAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			s.SampleAttributes = make([]StarGiftAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStarGiftAttribute(b)
@@ -219,7 +219,7 @@ func (s *PaymentsStarGiftUpgradePreview) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Prices = make([]StarGiftUpgradePrice, 0, headerLen%bin.PreallocateLimit)
+			s.Prices = make([]StarGiftUpgradePrice, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarGiftUpgradePrice
@@ -236,7 +236,7 @@ func (s *PaymentsStarGiftUpgradePreview) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.NextPrices = make([]StarGiftUpgradePrice, 0, headerLen%bin.PreallocateLimit)
+			s.NextPrices = make([]StarGiftUpgradePrice, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StarGiftUpgradePrice

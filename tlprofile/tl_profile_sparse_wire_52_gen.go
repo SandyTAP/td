@@ -53,9 +53,10 @@ func layerEncodeWire1bf89d74BareBody(profile LayerProfile, value *tg.MessagesSen
 			if value.Flags.Has(17) && value.QuickReplyShortcut == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesSendMultiMedia, Reason: "malformed canonical value: explicit flag has nil interface field quick_reply_shortcut"}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(0) || value.ReplyTo != nil)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassInputReplyToBody(profile, value.ReplyTo, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_to: %w", err)
@@ -71,9 +72,10 @@ func layerEncodeWire1bf89d74BareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(13) || value.SendAs != nil)
 			if layerPresent12 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if err := layerEncodeClassInputPeerBody(profile, value.SendAs, layerEncoded10, state); err != nil {
 						return fmt.Errorf("encode prepared field send_as: %w", err)
@@ -89,9 +91,10 @@ func layerEncodeWire1bf89d74BareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent15 := (value.Flags.Has(17) || value.QuickReplyShortcut != nil)
 			if layerPresent15 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if err := layerEncodeClassInputQuickReplyShortcutBody(profile, value.QuickReplyShortcut, layerEncoded13, state); err != nil {
 						return fmt.Errorf("encode prepared field quick_reply_shortcut: %w", err)

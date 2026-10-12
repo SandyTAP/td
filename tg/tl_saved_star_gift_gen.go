@@ -781,7 +781,7 @@ func (s *SavedStarGift) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.CollectionID = make([]int, 0, headerLen%bin.PreallocateLimit)
+			s.CollectionID = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

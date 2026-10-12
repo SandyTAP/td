@@ -200,7 +200,7 @@ func (p *StoriesPeerStories) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			p.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -217,7 +217,7 @@ func (p *StoriesPeerStories) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			p.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

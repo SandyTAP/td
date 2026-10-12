@@ -199,7 +199,7 @@ func (m *PremiumMyBoosts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.MyBoosts = make([]MyBoost, 0, headerLen%bin.PreallocateLimit)
+			m.MyBoosts = make([]MyBoost, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MyBoost
@@ -216,7 +216,7 @@ func (m *PremiumMyBoosts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			m.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -233,7 +233,7 @@ func (m *PremiumMyBoosts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			m.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

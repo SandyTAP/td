@@ -174,7 +174,7 @@ func (u *WalletUserAddresses) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Addresses = make([]WalletUserAddress, 0, headerLen%bin.PreallocateLimit)
+			u.Addresses = make([]WalletUserAddress, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value WalletUserAddress
@@ -191,7 +191,7 @@ func (u *WalletUserAddresses) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			u.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

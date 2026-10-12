@@ -200,7 +200,7 @@ func (b *ContactsBlocked) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Blocked = make([]PeerBlocked, 0, headerLen%bin.PreallocateLimit)
+			b.Blocked = make([]PeerBlocked, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value PeerBlocked
@@ -217,7 +217,7 @@ func (b *ContactsBlocked) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			b.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(buf)
@@ -234,7 +234,7 @@ func (b *ContactsBlocked) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			b.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(buf)
@@ -469,7 +469,7 @@ func (b *ContactsBlockedSlice) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Blocked = make([]PeerBlocked, 0, headerLen%bin.PreallocateLimit)
+			b.Blocked = make([]PeerBlocked, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value PeerBlocked
@@ -486,7 +486,7 @@ func (b *ContactsBlockedSlice) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			b.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(buf)
@@ -503,7 +503,7 @@ func (b *ContactsBlockedSlice) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			b.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(buf)

@@ -360,7 +360,7 @@ func (a *AttachMenuBot) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.PeerTypes = make([]AttachMenuPeerTypeClass, 0, headerLen%bin.PreallocateLimit)
+			a.PeerTypes = make([]AttachMenuPeerTypeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeAttachMenuPeerType(b)
@@ -377,7 +377,7 @@ func (a *AttachMenuBot) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Icons = make([]AttachMenuBotIcon, 0, headerLen%bin.PreallocateLimit)
+			a.Icons = make([]AttachMenuBotIcon, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AttachMenuBotIcon

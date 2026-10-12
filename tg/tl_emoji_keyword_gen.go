@@ -177,7 +177,7 @@ func (e *EmojiKeyword) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Emoticons = make([]string, 0, headerLen%bin.PreallocateLimit)
+			e.Emoticons = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()
@@ -352,7 +352,7 @@ func (e *EmojiKeywordDeleted) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Emoticons = make([]string, 0, headerLen%bin.PreallocateLimit)
+			e.Emoticons = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

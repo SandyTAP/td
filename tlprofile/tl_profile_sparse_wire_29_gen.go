@@ -1394,9 +1394,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 			if value.Flags2.Has(24) || value.HasWelcomeMessages {
 				// layer-obligation/v1/field-projection/f82302373c052fb07ba40a5adfb6944d1aed844f7999bb889e372c7bd154b7a8 explicitly permits dropping this field in the exact profile.
 			}
-			layerEncoded19 := &bin.Buffer{}
+			var layerEncoded19 *bin.Buffer
 			layerPresent21 := (value.Flags.Has(23) || value.ExportedInvite != nil)
 			if layerPresent21 {
+				layerEncoded19 = &bin.Buffer{}
 				layerErr20 := func() error {
 					if err := layerEncodeClassExportedChatInviteBody(profile, value.ExportedInvite, layerEncoded19, state); err != nil {
 						return fmt.Errorf("encode prepared field exported_invite: %w", err)
@@ -1412,9 +1413,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded22 := &bin.Buffer{}
+			var layerEncoded22 *bin.Buffer
 			layerPresent24 := (value.Flags.Has(8) || !value.Stickerset.Zero())
 			if layerPresent24 {
+				layerEncoded22 = &bin.Buffer{}
 				layerErr23 := func() error {
 					layerEncoded22.PutID(0x2dd14edc)
 					if err := layerEncodeWire2dd14edcBareBody(profile, &(value.Stickerset), layerEncoded22, state); err != nil {
@@ -1431,9 +1433,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded25 := &bin.Buffer{}
+			var layerEncoded25 *bin.Buffer
 			layerPresent27 := (value.Flags.Has(15) || value.Location != nil)
 			if layerPresent27 {
+				layerEncoded25 = &bin.Buffer{}
 				layerErr26 := func() error {
 					if err := layerEncodeClassChannelLocationBody(profile, value.Location, layerEncoded25, state); err != nil {
 						return fmt.Errorf("encode prepared field location: %w", err)
@@ -1449,9 +1452,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded28 := &bin.Buffer{}
+			var layerEncoded28 *bin.Buffer
 			layerPresent30 := (value.Flags.Has(21) || value.Call != nil)
 			if layerPresent30 {
+				layerEncoded28 = &bin.Buffer{}
 				layerErr29 := func() error {
 					if err := layerEncodeClassInputGroupCallBody(profile, value.Call, layerEncoded28, state); err != nil {
 						return fmt.Errorf("encode prepared field call: %w", err)
@@ -1467,9 +1471,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded31 := &bin.Buffer{}
+			var layerEncoded31 *bin.Buffer
 			layerPresent35 := (value.Flags.Has(25) || value.PendingSuggestions != nil)
 			if layerPresent35 {
+				layerEncoded31 = &bin.Buffer{}
 				layerErr32 := func() error {
 					if len(value.PendingSuggestions) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1491,9 +1496,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded36 := &bin.Buffer{}
+			var layerEncoded36 *bin.Buffer
 			layerPresent38 := (value.Flags.Has(26) || value.GroupcallDefaultJoinAs != nil)
 			if layerPresent38 {
+				layerEncoded36 = &bin.Buffer{}
 				layerErr37 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.GroupcallDefaultJoinAs, layerEncoded36, state); err != nil {
 						return fmt.Errorf("encode prepared field groupcall_default_join_as: %w", err)
@@ -1509,9 +1515,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded39 := &bin.Buffer{}
+			var layerEncoded39 *bin.Buffer
 			layerPresent43 := (value.Flags.Has(28) || value.RequestsPending != 0) || (value.Flags.Has(28) || value.RecentRequesters != nil)
 			if layerPresent43 {
+				layerEncoded39 = &bin.Buffer{}
 				layerErr40 := func() error {
 					if len(value.RecentRequesters) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1531,9 +1538,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded44 := &bin.Buffer{}
+			var layerEncoded44 *bin.Buffer
 			layerPresent46 := (value.Flags.Has(29) || value.DefaultSendAs != nil)
 			if layerPresent46 {
+				layerEncoded44 = &bin.Buffer{}
 				layerErr45 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.DefaultSendAs, layerEncoded44, state); err != nil {
 						return fmt.Errorf("encode prepared field default_send_as: %w", err)
@@ -1549,9 +1557,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded47 := &bin.Buffer{}
+			var layerEncoded47 *bin.Buffer
 			layerPresent49 := (value.Flags.Has(30) || value.AvailableReactions != nil)
 			if layerPresent49 {
+				layerEncoded47 = &bin.Buffer{}
 				layerErr48 := func() error {
 					if err := layerEncodeClassChatReactionsBody(profile, value.AvailableReactions, layerEncoded47, state); err != nil {
 						return fmt.Errorf("encode prepared field available_reactions: %w", err)
@@ -1567,9 +1576,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded50 := &bin.Buffer{}
+			var layerEncoded50 *bin.Buffer
 			layerPresent52 := (value.Flags2.Has(4) || !value.Stories.Zero())
 			if layerPresent52 {
+				layerEncoded50 = &bin.Buffer{}
 				layerErr51 := func() error {
 					layerEncoded50.PutID(0x9a35e999)
 					if err := layerEncodeWire9a35e999BareBody(profile, &(value.Stories), layerEncoded50, state); err != nil {
@@ -1586,9 +1596,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded53 := &bin.Buffer{}
+			var layerEncoded53 *bin.Buffer
 			layerPresent55 := (value.Flags2.Has(7) || value.Wallpaper != nil)
 			if layerPresent55 {
+				layerEncoded53 = &bin.Buffer{}
 				layerErr54 := func() error {
 					if err := layerEncodeClassWallPaperBody(profile, value.Wallpaper, layerEncoded53, state); err != nil {
 						return fmt.Errorf("encode prepared field wallpaper: %w", err)
@@ -1604,9 +1615,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded56 := &bin.Buffer{}
+			var layerEncoded56 *bin.Buffer
 			layerPresent58 := (value.Flags2.Has(10) || !value.Emojiset.Zero())
 			if layerPresent58 {
+				layerEncoded56 = &bin.Buffer{}
 				layerErr57 := func() error {
 					layerEncoded56.PutID(0x2dd14edc)
 					if err := layerEncodeWire2dd14edcBareBody(profile, &(value.Emojiset), layerEncoded56, state); err != nil {
@@ -1623,9 +1635,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded59 := &bin.Buffer{}
+			var layerEncoded59 *bin.Buffer
 			layerPresent61 := (value.Flags2.Has(17) || !value.BotVerification.Zero())
 			if layerPresent61 {
+				layerEncoded59 = &bin.Buffer{}
 				layerErr60 := func() error {
 					layerEncoded59.PutID(0xf93cd45c)
 					if err := layerEncodeWiref93cd45cBareBody(profile, &(value.BotVerification), layerEncoded59, state); err != nil {
@@ -1642,9 +1655,10 @@ func layerEncodeWiree4e0b29dBareBody(profile LayerProfile, value *tg.ChannelFull
 					}
 				}
 			}
-			layerEncoded62 := &bin.Buffer{}
+			var layerEncoded62 *bin.Buffer
 			layerPresent64 := (value.Flags2.Has(22) || value.MainTab != nil)
 			if layerPresent64 {
+				layerEncoded62 = &bin.Buffer{}
 				layerErr63 := func() error {
 					if err := layerEncodeClassProfileTabBody(profile, value.MainTab, layerEncoded62, state); err != nil {
 						return fmt.Errorf("encode prepared field main_tab: %w", err)

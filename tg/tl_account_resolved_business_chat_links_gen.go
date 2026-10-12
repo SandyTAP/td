@@ -279,7 +279,7 @@ func (r *AccountResolvedBusinessChatLinks) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			r.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -296,7 +296,7 @@ func (r *AccountResolvedBusinessChatLinks) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			r.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -313,7 +313,7 @@ func (r *AccountResolvedBusinessChatLinks) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			r.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

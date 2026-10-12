@@ -159,7 +159,7 @@ func (g *MessagesGetEmojiKeywordsLanguagesRequest) DecodeBare(b *bin.Buffer) err
 		}
 
 		if headerLen > 0 {
-			g.LangCodes = make([]string, 0, headerLen%bin.PreallocateLimit)
+			g.LangCodes = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

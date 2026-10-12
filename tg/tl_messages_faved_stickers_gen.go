@@ -304,7 +304,7 @@ func (f *MessagesFavedStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Packs = make([]StickerPack, 0, headerLen%bin.PreallocateLimit)
+			f.Packs = make([]StickerPack, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StickerPack
@@ -321,7 +321,7 @@ func (f *MessagesFavedStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Stickers = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			f.Stickers = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

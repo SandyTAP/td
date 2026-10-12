@@ -198,7 +198,7 @@ func (t *TopPeerCategoryPeers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Peers = make([]TopPeer, 0, headerLen%bin.PreallocateLimit)
+			t.Peers = make([]TopPeer, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value TopPeer

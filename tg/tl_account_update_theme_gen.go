@@ -325,7 +325,7 @@ func (u *AccountUpdateThemeRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Settings = make([]InputThemeSettings, 0, headerLen%bin.PreallocateLimit)
+			u.Settings = make([]InputThemeSettings, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputThemeSettings

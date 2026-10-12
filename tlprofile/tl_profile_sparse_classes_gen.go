@@ -6286,19 +6286,7 @@ func layerEncodeClassAuthSentCodeBody(profile LayerProfile, value tg.AuthSentCod
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225:
-		switch value := projected.(type) {
-		case *tg.AuthSentCode:
-			return layerEncodeFamilyAuthSentCodeBody(profile, value, b, state)
-		case *tg.AuthSentCodePaymentRequired:
-			return layerEncodeFamilyAuthSentCodePaymentRequiredBody(profile, value, b, state)
-		case *tg.AuthSentCodeSuccess:
-			return layerEncodeFamilyAuthSentCodeSuccessBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.AuthSentCode:
 			return layerEncodeFamilyAuthSentCodeBody(profile, value, b, state)
@@ -6744,17 +6732,7 @@ func layerEncodeClassChatFullBody(profile LayerProfile, value tg.ChatFullClass, 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225:
-		switch value := projected.(type) {
-		case *tg.ChannelFull:
-			return layerEncodeFamilyChannelFullBody(profile, value, b, state)
-		case *tg.ChatFull:
-			return layerEncodeFamilyChatFullBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile226, LayerProfile227:
+	case LayerProfile225, LayerProfile226, LayerProfile227:
 		switch value := projected.(type) {
 		case *tg.ChannelFull:
 			return layerEncodeFamilyChannelFullBody(profile, value, b, state)
@@ -7158,17 +7136,7 @@ func layerEncodeClassDraftMessageBody(profile LayerProfile, value tg.DraftMessag
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		switch value := projected.(type) {
-		case *tg.DraftMessage:
-			return layerEncodeFamilyDraftMessageBody(profile, value, b, state)
-		case *tg.DraftMessageEmpty:
-			return layerEncodeFamilyDraftMessageEmptyBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.DraftMessage:
 			return layerEncodeFamilyDraftMessageBody(profile, value, b, state)
@@ -8058,43 +8026,7 @@ func layerEncodeClassInputInvoiceBody(profile LayerProfile, value tg.InputInvoic
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		switch value := projected.(type) {
-		case *tg.InputInvoiceBusinessBotTransferStars:
-			return layerEncodeFamilyInputInvoiceBusinessBotTransferStarsBody(profile, value, b, state)
-		case *tg.InputInvoiceChatInviteSubscription:
-			return layerEncodeFamilyInputInvoiceChatInviteSubscriptionBody(profile, value, b, state)
-		case *tg.InputInvoiceMessage:
-			return layerEncodeFamilyInputInvoiceMessageBody(profile, value, b, state)
-		case *tg.InputInvoicePremiumAuthCode:
-			return layerEncodeFamilyInputInvoicePremiumAuthCodeBody(profile, value, b, state)
-		case *tg.InputInvoicePremiumGiftCode:
-			return layerEncodeFamilyInputInvoicePremiumGiftCodeBody(profile, value, b, state)
-		case *tg.InputInvoicePremiumGiftStars:
-			return layerEncodeFamilyInputInvoicePremiumGiftStarsBody(profile, value, b, state)
-		case *tg.InputInvoiceSlug:
-			return layerEncodeFamilyInputInvoiceSlugBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGift:
-			return layerEncodeFamilyInputInvoiceStarGiftBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftAuctionBid:
-			return layerEncodeFamilyInputInvoiceStarGiftAuctionBidBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftDropOriginalDetails:
-			return layerEncodeFamilyInputInvoiceStarGiftDropOriginalDetailsBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftPrepaidUpgrade:
-			return layerEncodeFamilyInputInvoiceStarGiftPrepaidUpgradeBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftResale:
-			return layerEncodeFamilyInputInvoiceStarGiftResaleBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftTransfer:
-			return layerEncodeFamilyInputInvoiceStarGiftTransferBody(profile, value, b, state)
-		case *tg.InputInvoiceStarGiftUpgrade:
-			return layerEncodeFamilyInputInvoiceStarGiftUpgradeBody(profile, value, b, state)
-		case *tg.InputInvoiceStars:
-			return layerEncodeFamilyInputInvoiceStarsBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.InputInvoiceBusinessBotTransferStars:
 			return layerEncodeFamilyInputInvoiceBusinessBotTransferStarsBody(profile, value, b, state)
@@ -8478,29 +8410,7 @@ func layerEncodeClassInputStorePaymentPurposeBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225:
-		switch value := projected.(type) {
-		case *tg.InputStorePaymentAuthCode:
-			return layerEncodeFamilyInputStorePaymentAuthCodeBody(profile, value, b, state)
-		case *tg.InputStorePaymentGiftPremium:
-			return layerEncodeFamilyInputStorePaymentGiftPremiumBody(profile, value, b, state)
-		case *tg.InputStorePaymentPremiumGiftCode:
-			return layerEncodeFamilyInputStorePaymentPremiumGiftCodeBody(profile, value, b, state)
-		case *tg.InputStorePaymentPremiumGiveaway:
-			return layerEncodeFamilyInputStorePaymentPremiumGiveawayBody(profile, value, b, state)
-		case *tg.InputStorePaymentPremiumSubscription:
-			return layerEncodeFamilyInputStorePaymentPremiumSubscriptionBody(profile, value, b, state)
-		case *tg.InputStorePaymentStarsGift:
-			return layerEncodeFamilyInputStorePaymentStarsGiftBody(profile, value, b, state)
-		case *tg.InputStorePaymentStarsGiveaway:
-			return layerEncodeFamilyInputStorePaymentStarsGiveawayBody(profile, value, b, state)
-		case *tg.InputStorePaymentStarsTopup:
-			return layerEncodeFamilyInputStorePaymentStarsTopupBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.InputStorePaymentAuthCode:
 			return layerEncodeFamilyInputStorePaymentAuthCodeBody(profile, value, b, state)
@@ -8768,149 +8678,7 @@ func layerEncodeClassMessageActionBody(profile LayerProfile, value tg.MessageAct
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228:
-		switch value := projected.(type) {
-		case *tg.MessageActionBoostApply:
-			return layerEncodeFamilyMessageActionBoostApplyBody(profile, value, b, state)
-		case *tg.MessageActionBotAllowed:
-			return layerEncodeFamilyMessageActionBotAllowedBody(profile, value, b, state)
-		case *tg.MessageActionChangeCommunity:
-			return layerEncodeFamilyMessageActionChangeCommunityBody(profile, value, b, state)
-		case *tg.MessageActionChangeCreator:
-			return layerEncodeFamilyMessageActionChangeCreatorBody(profile, value, b, state)
-		case *tg.MessageActionChannelCreate:
-			return layerEncodeFamilyMessageActionChannelCreateBody(profile, value, b, state)
-		case *tg.MessageActionChannelMigrateFrom:
-			return layerEncodeFamilyMessageActionChannelMigrateFromBody(profile, value, b, state)
-		case *tg.MessageActionChatAddUser:
-			return layerEncodeFamilyMessageActionChatAddUserBody(profile, value, b, state)
-		case *tg.MessageActionChatCreate:
-			return layerEncodeFamilyMessageActionChatCreateBody(profile, value, b, state)
-		case *tg.MessageActionChatDeletePhoto:
-			return layerEncodeFamilyMessageActionChatDeletePhotoBody(profile, value, b, state)
-		case *tg.MessageActionChatDeleteUser:
-			return layerEncodeFamilyMessageActionChatDeleteUserBody(profile, value, b, state)
-		case *tg.MessageActionChatEditPhoto:
-			return layerEncodeFamilyMessageActionChatEditPhotoBody(profile, value, b, state)
-		case *tg.MessageActionChatEditTitle:
-			return layerEncodeFamilyMessageActionChatEditTitleBody(profile, value, b, state)
-		case *tg.MessageActionChatJoinedByLink:
-			return layerEncodeFamilyMessageActionChatJoinedByLinkBody(profile, value, b, state)
-		case *tg.MessageActionChatJoinedByRequest:
-			return layerEncodeFamilyMessageActionChatJoinedByRequestBody(profile, value, b, state)
-		case *tg.MessageActionChatMigrateTo:
-			return layerEncodeFamilyMessageActionChatMigrateToBody(profile, value, b, state)
-		case *tg.MessageActionConferenceCall:
-			return layerEncodeFamilyMessageActionConferenceCallBody(profile, value, b, state)
-		case *tg.MessageActionContactSignUp:
-			return layerEncodeFamilyMessageActionContactSignUpBody(profile, value, b, state)
-		case *tg.MessageActionCustomAction:
-			return layerEncodeFamilyMessageActionCustomActionBody(profile, value, b, state)
-		case *tg.MessageActionEmpty:
-			return layerEncodeFamilyMessageActionEmptyBody(profile, value, b, state)
-		case *tg.MessageActionGameScore:
-			return layerEncodeFamilyMessageActionGameScoreBody(profile, value, b, state)
-		case *tg.MessageActionGeoProximityReached:
-			return layerEncodeFamilyMessageActionGeoProximityReachedBody(profile, value, b, state)
-		case *tg.MessageActionGiftCode:
-			return layerEncodeFamilyMessageActionGiftCodeBody(profile, value, b, state)
-		case *tg.MessageActionGiftPremium:
-			return layerEncodeFamilyMessageActionGiftPremiumBody(profile, value, b, state)
-		case *tg.MessageActionGiftStars:
-			return layerEncodeFamilyMessageActionGiftStarsBody(profile, value, b, state)
-		case *tg.MessageActionGiftTon:
-			return layerEncodeFamilyMessageActionGiftTonBody(profile, value, b, state)
-		case *tg.MessageActionGiveawayLaunch:
-			return layerEncodeFamilyMessageActionGiveawayLaunchBody(profile, value, b, state)
-		case *tg.MessageActionGiveawayResults:
-			return layerEncodeFamilyMessageActionGiveawayResultsBody(profile, value, b, state)
-		case *tg.MessageActionGroupCall:
-			return layerEncodeFamilyMessageActionGroupCallBody(profile, value, b, state)
-		case *tg.MessageActionGroupCallScheduled:
-			return layerEncodeFamilyMessageActionGroupCallScheduledBody(profile, value, b, state)
-		case *tg.MessageActionHistoryClear:
-			return layerEncodeFamilyMessageActionHistoryClearBody(profile, value, b, state)
-		case *tg.MessageActionInviteToGroupCall:
-			return layerEncodeFamilyMessageActionInviteToGroupCallBody(profile, value, b, state)
-		case *tg.MessageActionManagedBotCreated:
-			return layerEncodeFamilyMessageActionManagedBotCreatedBody(profile, value, b, state)
-		case *tg.MessageActionNewCreatorPending:
-			return layerEncodeFamilyMessageActionNewCreatorPendingBody(profile, value, b, state)
-		case *tg.MessageActionNoForwardsRequest:
-			return layerEncodeFamilyMessageActionNoForwardsRequestBody(profile, value, b, state)
-		case *tg.MessageActionNoForwardsToggle:
-			return layerEncodeFamilyMessageActionNoForwardsToggleBody(profile, value, b, state)
-		case *tg.MessageActionPaidMessagesPrice:
-			return layerEncodeFamilyMessageActionPaidMessagesPriceBody(profile, value, b, state)
-		case *tg.MessageActionPaidMessagesRefunded:
-			return layerEncodeFamilyMessageActionPaidMessagesRefundedBody(profile, value, b, state)
-		case *tg.MessageActionPaymentRefunded:
-			return layerEncodeFamilyMessageActionPaymentRefundedBody(profile, value, b, state)
-		case *tg.MessageActionPaymentSent:
-			return layerEncodeFamilyMessageActionPaymentSentBody(profile, value, b, state)
-		case *tg.MessageActionPaymentSentMe:
-			return layerEncodeFamilyMessageActionPaymentSentMeBody(profile, value, b, state)
-		case *tg.MessageActionPhoneCall:
-			return layerEncodeFamilyMessageActionPhoneCallBody(profile, value, b, state)
-		case *tg.MessageActionPinMessage:
-			return layerEncodeFamilyMessageActionPinMessageBody(profile, value, b, state)
-		case *tg.MessageActionPollAppendAnswer:
-			return layerEncodeFamilyMessageActionPollAppendAnswerBody(profile, value, b, state)
-		case *tg.MessageActionPollDeleteAnswer:
-			return layerEncodeFamilyMessageActionPollDeleteAnswerBody(profile, value, b, state)
-		case *tg.MessageActionPrizeStars:
-			return layerEncodeFamilyMessageActionPrizeStarsBody(profile, value, b, state)
-		case *tg.MessageActionRequestedPeer:
-			return layerEncodeFamilyMessageActionRequestedPeerBody(profile, value, b, state)
-		case *tg.MessageActionRequestedPeerSentMe:
-			return layerEncodeFamilyMessageActionRequestedPeerSentMeBody(profile, value, b, state)
-		case *tg.MessageActionScreenshotTaken:
-			return layerEncodeFamilyMessageActionScreenshotTakenBody(profile, value, b, state)
-		case *tg.MessageActionSecureValuesSent:
-			return layerEncodeFamilyMessageActionSecureValuesSentBody(profile, value, b, state)
-		case *tg.MessageActionSecureValuesSentMe:
-			return layerEncodeFamilyMessageActionSecureValuesSentMeBody(profile, value, b, state)
-		case *tg.MessageActionSetChatTheme:
-			return layerEncodeFamilyMessageActionSetChatThemeBody(profile, value, b, state)
-		case *tg.MessageActionSetChatWallPaper:
-			return layerEncodeFamilyMessageActionSetChatWallPaperBody(profile, value, b, state)
-		case *tg.MessageActionSetMessagesTTL:
-			return layerEncodeFamilyMessageActionSetMessagesTTLBody(profile, value, b, state)
-		case *tg.MessageActionStarGift:
-			return layerEncodeFamilyMessageActionStarGiftBody(profile, value, b, state)
-		case *tg.MessageActionStarGiftPurchaseOffer:
-			return layerEncodeFamilyMessageActionStarGiftPurchaseOfferBody(profile, value, b, state)
-		case *tg.MessageActionStarGiftPurchaseOfferDeclined:
-			return layerEncodeFamilyMessageActionStarGiftPurchaseOfferDeclinedBody(profile, value, b, state)
-		case *tg.MessageActionStarGiftUnique:
-			return layerEncodeFamilyMessageActionStarGiftUniqueBody(profile, value, b, state)
-		case *tg.MessageActionSuggestBirthday:
-			return layerEncodeFamilyMessageActionSuggestBirthdayBody(profile, value, b, state)
-		case *tg.MessageActionSuggestProfilePhoto:
-			return layerEncodeFamilyMessageActionSuggestProfilePhotoBody(profile, value, b, state)
-		case *tg.MessageActionSuggestedPostApproval:
-			return layerEncodeFamilyMessageActionSuggestedPostApprovalBody(profile, value, b, state)
-		case *tg.MessageActionSuggestedPostRefund:
-			return layerEncodeFamilyMessageActionSuggestedPostRefundBody(profile, value, b, state)
-		case *tg.MessageActionSuggestedPostSuccess:
-			return layerEncodeFamilyMessageActionSuggestedPostSuccessBody(profile, value, b, state)
-		case *tg.MessageActionTodoAppendTasks:
-			return layerEncodeFamilyMessageActionTodoAppendTasksBody(profile, value, b, state)
-		case *tg.MessageActionTodoCompletions:
-			return layerEncodeFamilyMessageActionTodoCompletionsBody(profile, value, b, state)
-		case *tg.MessageActionTopicCreate:
-			return layerEncodeFamilyMessageActionTopicCreateBody(profile, value, b, state)
-		case *tg.MessageActionTopicEdit:
-			return layerEncodeFamilyMessageActionTopicEditBody(profile, value, b, state)
-		case *tg.MessageActionWebViewDataSent:
-			return layerEncodeFamilyMessageActionWebViewDataSentBody(profile, value, b, state)
-		case *tg.MessageActionWebViewDataSentMe:
-			return layerEncodeFamilyMessageActionWebViewDataSentMeBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile229:
+	case LayerProfile228, LayerProfile229:
 		switch value := projected.(type) {
 		case *tg.MessageActionBoostApply:
 			return layerEncodeFamilyMessageActionBoostApplyBody(profile, value, b, state)
@@ -9214,19 +8982,7 @@ func layerEncodeClassMessageBody(profile LayerProfile, value tg.MessageClass, b 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		switch value := projected.(type) {
-		case *tg.Message:
-			return layerEncodeFamilyMessageBody(profile, value, b, state)
-		case *tg.MessageEmpty:
-			return layerEncodeFamilyMessageEmptyBody(profile, value, b, state)
-		case *tg.MessageService:
-			return layerEncodeFamilyMessageServiceBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.Message:
 			return layerEncodeFamilyMessageBody(profile, value, b, state)
@@ -9590,27 +9346,7 @@ func layerEncodeClassMessagesChatInviteJoinResultBody(profile LayerProfile, valu
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile226:
-		switch value := projected.(type) {
-		case *tg.MessagesChatInviteJoinResultOk:
-			return layerEncodeFamilyMessagesChatInviteJoinResultOkBody(profile, value, b, state)
-		case *tg.MessagesChatInviteJoinResultWebView:
-			return layerEncodeFamilyMessagesChatInviteJoinResultWebViewBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile227:
-		switch value := projected.(type) {
-		case *tg.MessagesChatInviteJoinResultOk:
-			return layerEncodeFamilyMessagesChatInviteJoinResultOkBody(profile, value, b, state)
-		case *tg.MessagesChatInviteJoinResultWebView:
-			return layerEncodeFamilyMessagesChatInviteJoinResultWebViewBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.MessagesChatInviteJoinResultOk:
 			return layerEncodeFamilyMessagesChatInviteJoinResultOkBody(profile, value, b, state)
@@ -10524,17 +10260,7 @@ func layerEncodeClassPageListItemBody(profile LayerProfile, value tg.PageListIte
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		switch value := projected.(type) {
-		case *tg.PageListItemBlocks:
-			return layerEncodeFamilyPageListItemBlocksBody(profile, value, b, state)
-		case *tg.PageListItemText:
-			return layerEncodeFamilyPageListItemTextBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.PageListItemBlocks:
 			return layerEncodeFamilyPageListItemBlocksBody(profile, value, b, state)
@@ -10558,17 +10284,7 @@ func layerEncodeClassPageListOrderedItemBody(profile LayerProfile, value tg.Page
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		switch value := projected.(type) {
-		case *tg.PageListOrderedItemBlocks:
-			return layerEncodeFamilyPageListOrderedItemBlocksBody(profile, value, b, state)
-		case *tg.PageListOrderedItemText:
-			return layerEncodeFamilyPageListOrderedItemTextBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.PageListOrderedItemBlocks:
 			return layerEncodeFamilyPageListOrderedItemBlocksBody(profile, value, b, state)
@@ -11104,21 +10820,7 @@ func layerEncodeClassReplyMarkupBody(profile LayerProfile, value tg.ReplyMarkupC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		switch value := projected.(type) {
-		case *tg.ReplyInlineMarkup:
-			return layerEncodeFamilyReplyInlineMarkupBody(profile, value, b, state)
-		case *tg.ReplyKeyboardForceReply:
-			return layerEncodeFamilyReplyKeyboardForceReplyBody(profile, value, b, state)
-		case *tg.ReplyKeyboardHide:
-			return layerEncodeFamilyReplyKeyboardHideBody(profile, value, b, state)
-		case *tg.ReplyKeyboardMarkup:
-			return layerEncodeFamilyReplyKeyboardMarkupBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.ReplyInlineMarkup:
 			return layerEncodeFamilyReplyInlineMarkupBody(profile, value, b, state)
@@ -14006,17 +13708,7 @@ func layerEncodeClassUserBody(profile LayerProfile, value tg.UserClass, b *bin.B
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227:
-		switch value := projected.(type) {
-		case *tg.User:
-			return layerEncodeFamilyUserBody(profile, value, b, state)
-		case *tg.UserEmpty:
-			return layerEncodeFamilyUserEmptyBody(profile, value, b, state)
-		default:
-			_ = value
-			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
-		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		switch value := projected.(type) {
 		case *tg.User:
 			return layerEncodeFamilyUserBody(profile, value, b, state)

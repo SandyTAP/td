@@ -284,7 +284,7 @@ func (a *MessagesAllStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Sets = make([]StickerSet, 0, headerLen%bin.PreallocateLimit)
+			a.Sets = make([]StickerSet, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StickerSet

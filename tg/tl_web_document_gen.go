@@ -239,7 +239,7 @@ func (w *WebDocument) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Attributes = make([]DocumentAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			w.Attributes = make([]DocumentAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocumentAttribute(b)
@@ -489,7 +489,7 @@ func (w *WebDocumentNoProxy) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Attributes = make([]DocumentAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			w.Attributes = make([]DocumentAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocumentAttribute(b)

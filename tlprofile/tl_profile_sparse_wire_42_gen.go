@@ -391,9 +391,10 @@ func layerEncodeWire34566b6aBareBody(profile LayerProfile, value *tg.PageTableCe
 			if value.Flags.Has(7) && value.Text == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypePageTableCell, Reason: "malformed canonical value: explicit flag has nil interface field text"}
 			}
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(7) || value.Text != nil)
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					if err := layerEncodeClassRichTextBody(profile, value.Text, layerEncoded2, state); err != nil {
 						return fmt.Errorf("encode prepared field text: %w", err)
@@ -604,9 +605,10 @@ func layerEncodeWire4b7d786aBareBody(profile LayerProfile, value *tg.PollAnswer,
 			if value.Flags.Has(1) && value.AddedBy == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypePollAnswer, Reason: "malformed canonical value: explicit flag has nil interface field added_by"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent6 := (value.Flags.Has(0) || value.Media != nil)
 			if layerPresent6 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if err := layerEncodeClassMessageMediaBody(profile, value.Media, layerEncoded4, state); err != nil {
 						return fmt.Errorf("encode prepared field media: %w", err)
@@ -622,9 +624,10 @@ func layerEncodeWire4b7d786aBareBody(profile LayerProfile, value *tg.PollAnswer,
 					}
 				}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(1) || value.AddedBy != nil) || (value.Flags.Has(1) || value.Date != 0)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.AddedBy, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field added_by: %w", err)

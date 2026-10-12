@@ -171,7 +171,7 @@ func (s *WalletSecretPhraseParts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.DCs = make([]int, 0, headerLen%bin.PreallocateLimit)
+			s.DCs = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

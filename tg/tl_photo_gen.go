@@ -460,7 +460,7 @@ func (p *Photo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Sizes = make([]PhotoSizeClass, 0, headerLen%bin.PreallocateLimit)
+			p.Sizes = make([]PhotoSizeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhotoSize(b)
@@ -477,7 +477,7 @@ func (p *Photo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.VideoSizes = make([]VideoSizeClass, 0, headerLen%bin.PreallocateLimit)
+			p.VideoSizes = make([]VideoSizeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeVideoSize(b)

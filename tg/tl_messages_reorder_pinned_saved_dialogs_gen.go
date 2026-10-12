@@ -198,7 +198,7 @@ func (r *MessagesReorderPinnedSavedDialogsRequest) DecodeBare(b *bin.Buffer) err
 		}
 
 		if headerLen > 0 {
-			r.Order = make([]InputDialogPeerClass, 0, headerLen%bin.PreallocateLimit)
+			r.Order = make([]InputDialogPeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputDialogPeer(b)

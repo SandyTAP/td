@@ -219,7 +219,7 @@ func (g *PaymentsGetStarsTransactionsByIDRequest) DecodeBare(b *bin.Buffer) erro
 		}
 
 		if headerLen > 0 {
-			g.ID = make([]InputStarsTransaction, 0, headerLen%bin.PreallocateLimit)
+			g.ID = make([]InputStarsTransaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputStarsTransaction

@@ -155,7 +155,7 @@ func (s *HelpSaveAppLogRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Events = make([]InputAppEvent, 0, headerLen%bin.PreallocateLimit)
+			s.Events = make([]InputAppEvent, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputAppEvent

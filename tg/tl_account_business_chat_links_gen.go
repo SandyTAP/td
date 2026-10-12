@@ -198,7 +198,7 @@ func (b *AccountBusinessChatLinks) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Links = make([]BusinessChatLink, 0, headerLen%bin.PreallocateLimit)
+			b.Links = make([]BusinessChatLink, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BusinessChatLink
@@ -215,7 +215,7 @@ func (b *AccountBusinessChatLinks) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			b.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(buf)
@@ -232,7 +232,7 @@ func (b *AccountBusinessChatLinks) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			b.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(buf)

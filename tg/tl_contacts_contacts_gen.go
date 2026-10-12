@@ -294,7 +294,7 @@ func (c *ContactsContacts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.Contacts = make([]Contact, 0, headerLen%bin.PreallocateLimit)
+			c.Contacts = make([]Contact, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value Contact
@@ -318,7 +318,7 @@ func (c *ContactsContacts) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			c.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

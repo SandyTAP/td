@@ -690,7 +690,7 @@ func (i *InputStorePaymentPremiumGiftCode) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Users = make([]InputUserClass, 0, headerLen%bin.PreallocateLimit)
+			i.Users = make([]InputUserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputUser(b)
@@ -1145,7 +1145,7 @@ func (i *InputStorePaymentPremiumGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.AdditionalPeers = make([]InputPeerClass, 0, headerLen%bin.PreallocateLimit)
+			i.AdditionalPeers = make([]InputPeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPeer(b)
@@ -1162,7 +1162,7 @@ func (i *InputStorePaymentPremiumGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.CountriesISO2 = make([]string, 0, headerLen%bin.PreallocateLimit)
+			i.CountriesISO2 = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()
@@ -2244,7 +2244,7 @@ func (i *InputStorePaymentStarsGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.AdditionalPeers = make([]InputPeerClass, 0, headerLen%bin.PreallocateLimit)
+			i.AdditionalPeers = make([]InputPeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPeer(b)
@@ -2261,7 +2261,7 @@ func (i *InputStorePaymentStarsGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.CountriesISO2 = make([]string, 0, headerLen%bin.PreallocateLimit)
+			i.CountriesISO2 = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

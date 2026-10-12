@@ -319,7 +319,7 @@ func (r *MessagesRecentStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Packs = make([]StickerPack, 0, headerLen%bin.PreallocateLimit)
+			r.Packs = make([]StickerPack, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value StickerPack
@@ -336,7 +336,7 @@ func (r *MessagesRecentStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Stickers = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			r.Stickers = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)
@@ -353,7 +353,7 @@ func (r *MessagesRecentStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Dates = make([]int, 0, headerLen%bin.PreallocateLimit)
+			r.Dates = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

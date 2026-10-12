@@ -218,7 +218,7 @@ func (i *InputWebDocument) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Attributes = make([]DocumentAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			i.Attributes = make([]DocumentAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocumentAttribute(b)

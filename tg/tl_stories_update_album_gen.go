@@ -313,7 +313,7 @@ func (u *StoriesUpdateAlbumRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.DeleteStories = make([]int, 0, headerLen%bin.PreallocateLimit)
+			u.DeleteStories = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()
@@ -330,7 +330,7 @@ func (u *StoriesUpdateAlbumRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.AddStories = make([]int, 0, headerLen%bin.PreallocateLimit)
+			u.AddStories = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()
@@ -347,7 +347,7 @@ func (u *StoriesUpdateAlbumRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Order = make([]int, 0, headerLen%bin.PreallocateLimit)
+			u.Order = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

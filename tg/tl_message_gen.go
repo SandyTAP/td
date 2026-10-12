@@ -1634,7 +1634,7 @@ func (m *Message) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			m.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -1696,7 +1696,7 @@ func (m *Message) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.RestrictionReason = make([]RestrictionReason, 0, headerLen%bin.PreallocateLimit)
+			m.RestrictionReason = make([]RestrictionReason, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value RestrictionReason

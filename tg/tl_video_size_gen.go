@@ -478,7 +478,7 @@ func (v *VideoSizeEmojiMarkup) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			v.BackgroundColors = make([]int, 0, headerLen%bin.PreallocateLimit)
+			v.BackgroundColors = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()
@@ -686,7 +686,7 @@ func (v *VideoSizeStickerMarkup) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			v.BackgroundColors = make([]int, 0, headerLen%bin.PreallocateLimit)
+			v.BackgroundColors = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

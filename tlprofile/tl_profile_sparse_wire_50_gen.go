@@ -467,9 +467,10 @@ func layerEncodeWire6a4ee832BareBody(profile LayerProfile, value *tg.HelpDeepLin
 			if value.Flags.Has(1) && value.Entities == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeHelpDeepLinkInfo, Reason: "malformed canonical value: explicit flag has nil interface field entities"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent11 := (value.Flags.Has(1) || value.Entities != nil)
 			if layerPresent11 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -761,9 +762,10 @@ func layerEncodeWiree89c45b2BareBody(profile LayerProfile, value *tg.WebPage, b 
 			if value.Flags.Has(12) && value.Attributes == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeWebPage, Reason: "malformed canonical value: explicit flag has nil interface field attributes"}
 			}
-			layerEncoded6 := &bin.Buffer{}
+			var layerEncoded6 *bin.Buffer
 			layerPresent8 := (value.Flags.Has(4) || value.Photo != nil)
 			if layerPresent8 {
+				layerEncoded6 = &bin.Buffer{}
 				layerErr7 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.Photo, layerEncoded6, state); err != nil {
 						return fmt.Errorf("encode prepared field photo: %w", err)
@@ -779,9 +781,10 @@ func layerEncodeWiree89c45b2BareBody(profile LayerProfile, value *tg.WebPage, b 
 					}
 				}
 			}
-			layerEncoded9 := &bin.Buffer{}
+			var layerEncoded9 *bin.Buffer
 			layerPresent11 := (value.Flags.Has(9) || value.Document != nil)
 			if layerPresent11 {
+				layerEncoded9 = &bin.Buffer{}
 				layerErr10 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.Document, layerEncoded9, state); err != nil {
 						return fmt.Errorf("encode prepared field document: %w", err)
@@ -797,9 +800,10 @@ func layerEncodeWiree89c45b2BareBody(profile LayerProfile, value *tg.WebPage, b 
 					}
 				}
 			}
-			layerEncoded12 := &bin.Buffer{}
+			var layerEncoded12 *bin.Buffer
 			layerPresent14 := (value.Flags.Has(10) || !value.CachedPage.Zero())
 			if layerPresent14 {
+				layerEncoded12 = &bin.Buffer{}
 				layerErr13 := func() error {
 					layerEncoded12.PutID(0x98657f0d)
 					if err := layerEncodeWire98657f0dBareBody(profile, &(value.CachedPage), layerEncoded12, state); err != nil {
@@ -816,9 +820,10 @@ func layerEncodeWiree89c45b2BareBody(profile LayerProfile, value *tg.WebPage, b 
 					}
 				}
 			}
-			layerEncoded15 := &bin.Buffer{}
+			var layerEncoded15 *bin.Buffer
 			layerPresent23 := (value.Flags.Has(12) || value.Attributes != nil)
 			if layerPresent23 {
+				layerEncoded15 = &bin.Buffer{}
 				layerErr16 := func() error {
 					if len(value.Attributes) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

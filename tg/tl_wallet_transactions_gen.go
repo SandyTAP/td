@@ -254,7 +254,7 @@ func (t *WalletTransactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Transactions = make([]WalletTransaction, 0, headerLen%bin.PreallocateLimit)
+			t.Transactions = make([]WalletTransaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value WalletTransaction
@@ -278,7 +278,7 @@ func (t *WalletTransactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			t.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -295,7 +295,7 @@ func (t *WalletTransactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			t.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

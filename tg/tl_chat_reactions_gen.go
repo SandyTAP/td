@@ -433,7 +433,7 @@ func (c *ChatReactionsSome) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.Reactions = make([]ReactionClass, 0, headerLen%bin.PreallocateLimit)
+			c.Reactions = make([]ReactionClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeReaction(b)

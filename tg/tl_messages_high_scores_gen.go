@@ -175,7 +175,7 @@ func (h *MessagesHighScores) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			h.Scores = make([]HighScore, 0, headerLen%bin.PreallocateLimit)
+			h.Scores = make([]HighScore, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value HighScore
@@ -192,7 +192,7 @@ func (h *MessagesHighScores) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			h.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			h.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

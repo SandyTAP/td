@@ -791,7 +791,7 @@ func (c *Config) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.DCOptions = make([]DCOption, 0, headerLen%bin.PreallocateLimit)
+			c.DCOptions = make([]DCOption, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value DCOption

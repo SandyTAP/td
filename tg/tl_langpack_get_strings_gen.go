@@ -195,7 +195,7 @@ func (g *LangpackGetStringsRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Keys = make([]string, 0, headerLen%bin.PreallocateLimit)
+			g.Keys = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

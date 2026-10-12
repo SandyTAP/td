@@ -215,7 +215,7 @@ func (l *LangPackDifference) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			l.Strings = make([]LangPackStringClass, 0, headerLen%bin.PreallocateLimit)
+			l.Strings = make([]LangPackStringClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeLangPackString(b)

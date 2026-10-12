@@ -363,7 +363,7 @@ func (g *PaymentsGetResaleStarGiftsRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Attributes = make([]StarGiftAttributeIDClass, 0, headerLen%bin.PreallocateLimit)
+			g.Attributes = make([]StarGiftAttributeIDClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStarGiftAttributeID(b)

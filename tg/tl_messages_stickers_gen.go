@@ -287,7 +287,7 @@ func (s *MessagesStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Stickers = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			s.Stickers = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

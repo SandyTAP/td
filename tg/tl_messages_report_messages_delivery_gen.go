@@ -225,7 +225,7 @@ func (r *MessagesReportMessagesDeliveryRequest) DecodeBare(b *bin.Buffer) error 
 		}
 
 		if headerLen > 0 {
-			r.ID = make([]int, 0, headerLen%bin.PreallocateLimit)
+			r.ID = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

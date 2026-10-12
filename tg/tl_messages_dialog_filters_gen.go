@@ -201,7 +201,7 @@ func (d *MessagesDialogFilters) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Filters = make([]DialogFilterClass, 0, headerLen%bin.PreallocateLimit)
+			d.Filters = make([]DialogFilterClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDialogFilter(b)

@@ -271,7 +271,7 @@ func (a *AccountAuthorizationForm) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.RequiredTypes = make([]SecureRequiredTypeClass, 0, headerLen%bin.PreallocateLimit)
+			a.RequiredTypes = make([]SecureRequiredTypeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeSecureRequiredType(b)
@@ -288,7 +288,7 @@ func (a *AccountAuthorizationForm) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Values = make([]SecureValue, 0, headerLen%bin.PreallocateLimit)
+			a.Values = make([]SecureValue, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value SecureValue
@@ -305,7 +305,7 @@ func (a *AccountAuthorizationForm) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Errors = make([]SecureValueErrorClass, 0, headerLen%bin.PreallocateLimit)
+			a.Errors = make([]SecureValueErrorClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeSecureValueError(b)
@@ -322,7 +322,7 @@ func (a *AccountAuthorizationForm) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			a.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

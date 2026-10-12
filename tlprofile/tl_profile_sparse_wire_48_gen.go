@@ -59,9 +59,10 @@ func layerEncodeWire13659eb0BareBody(profile LayerProfile, value *tg.StarsTransa
 			if value.Flags.Has(17) && value.StarrefAmount == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeStarsTransaction, Reason: "malformed canonical value: explicit flag has nil interface field starref_amount"}
 			}
-			layerEncoded9 := &bin.Buffer{}
+			var layerEncoded9 *bin.Buffer
 			layerPresent11 := (value.Flags.Has(2) || value.Photo != nil)
 			if layerPresent11 {
+				layerEncoded9 = &bin.Buffer{}
 				layerErr10 := func() error {
 					if err := layerEncodeClassWebDocumentBody(profile, value.Photo, layerEncoded9, state); err != nil {
 						return fmt.Errorf("encode prepared field photo: %w", err)
@@ -77,9 +78,10 @@ func layerEncodeWire13659eb0BareBody(profile LayerProfile, value *tg.StarsTransa
 					}
 				}
 			}
-			layerEncoded12 := &bin.Buffer{}
+			var layerEncoded12 *bin.Buffer
 			layerPresent20 := (value.Flags.Has(9) || value.ExtendedMedia != nil)
 			if layerPresent20 {
+				layerEncoded12 = &bin.Buffer{}
 				layerErr13 := func() error {
 					if len(value.ExtendedMedia) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -121,9 +123,10 @@ func layerEncodeWire13659eb0BareBody(profile LayerProfile, value *tg.StarsTransa
 					}
 				}
 			}
-			layerEncoded21 := &bin.Buffer{}
+			var layerEncoded21 *bin.Buffer
 			layerPresent23 := (value.Flags.Has(14) || value.Stargift != nil)
 			if layerPresent23 {
+				layerEncoded21 = &bin.Buffer{}
 				layerErr22 := func() error {
 					if err := layerEncodeClassStarGiftBody(profile, value.Stargift, layerEncoded21, state); err != nil {
 						return fmt.Errorf("encode prepared field stargift: %w", err)
@@ -139,9 +142,10 @@ func layerEncodeWire13659eb0BareBody(profile LayerProfile, value *tg.StarsTransa
 					}
 				}
 			}
-			layerEncoded24 := &bin.Buffer{}
+			var layerEncoded24 *bin.Buffer
 			layerPresent26 := (value.Flags.Has(17) || value.StarrefPeer != nil) || (value.Flags.Has(17) || value.StarrefAmount != nil)
 			if layerPresent26 {
+				layerEncoded24 = &bin.Buffer{}
 				layerErr25 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.StarrefPeer, layerEncoded24, state); err != nil {
 						return fmt.Errorf("encode prepared field starref_peer: %w", err)
@@ -157,9 +161,10 @@ func layerEncodeWire13659eb0BareBody(profile LayerProfile, value *tg.StarsTransa
 					}
 				}
 			}
-			layerEncoded27 := &bin.Buffer{}
+			var layerEncoded27 *bin.Buffer
 			layerPresent29 := (value.Flags.Has(17) || value.StarrefPeer != nil) || (value.Flags.Has(17) || value.StarrefAmount != nil)
 			if layerPresent29 {
+				layerEncoded27 = &bin.Buffer{}
 				layerErr28 := func() error {
 					if err := layerEncodeClassStarsAmountBody(profile, value.StarrefAmount, layerEncoded27, state); err != nil {
 						return fmt.Errorf("encode prepared field starref_amount: %w", err)
@@ -1598,9 +1603,10 @@ func layerEncodeWireccbbce30BareBody(profile LayerProfile, value *tg.HelpAppUpda
 			if value.Flags.Has(3) && value.Sticker == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeHelpAppUpdate, Reason: "malformed canonical value: explicit flag has nil interface field sticker"}
 			}
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(1) || value.Document != nil)
 			if layerPresent7 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.Document, layerEncoded5, state); err != nil {
 						return fmt.Errorf("encode prepared field document: %w", err)
@@ -1616,9 +1622,10 @@ func layerEncodeWireccbbce30BareBody(profile LayerProfile, value *tg.HelpAppUpda
 					}
 				}
 			}
-			layerEncoded8 := &bin.Buffer{}
+			var layerEncoded8 *bin.Buffer
 			layerPresent10 := (value.Flags.Has(3) || value.Sticker != nil)
 			if layerPresent10 {
+				layerEncoded8 = &bin.Buffer{}
 				layerErr9 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.Sticker, layerEncoded8, state); err != nil {
 						return fmt.Errorf("encode prepared field sticker: %w", err)

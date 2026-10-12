@@ -234,7 +234,7 @@ func (g *GroupCallParticipantVideo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.SourceGroups = make([]GroupCallParticipantVideoSourceGroup, 0, headerLen%bin.PreallocateLimit)
+			g.SourceGroups = make([]GroupCallParticipantVideoSourceGroup, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value GroupCallParticipantVideoSourceGroup

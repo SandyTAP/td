@@ -472,7 +472,7 @@ func (s *StarGiftAuctionState) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.BidLevels = make([]AuctionBidLevel, 0, headerLen%bin.PreallocateLimit)
+			s.BidLevels = make([]AuctionBidLevel, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AuctionBidLevel
@@ -489,7 +489,7 @@ func (s *StarGiftAuctionState) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.TopBidders = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			s.TopBidders = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -541,7 +541,7 @@ func (s *StarGiftAuctionState) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Rounds = make([]StarGiftAuctionRoundClass, 0, headerLen%bin.PreallocateLimit)
+			s.Rounds = make([]StarGiftAuctionRoundClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStarGiftAuctionRound(b)

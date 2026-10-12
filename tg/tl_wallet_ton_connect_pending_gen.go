@@ -173,7 +173,7 @@ func (t *WalletTonConnectPending) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Requests = make([]TonConnectRequest, 0, headerLen%bin.PreallocateLimit)
+			t.Requests = make([]TonConnectRequest, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value TonConnectRequest

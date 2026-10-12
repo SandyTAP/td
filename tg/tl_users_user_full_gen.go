@@ -197,7 +197,7 @@ func (u *UsersUserFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			u.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -214,7 +214,7 @@ func (u *UsersUserFull) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			u.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

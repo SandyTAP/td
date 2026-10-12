@@ -183,7 +183,7 @@ func (a *AttachMenuBotsBot) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			a.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

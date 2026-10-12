@@ -186,7 +186,7 @@ func (t *PaymentsToggleStarGiftsPinnedToTopRequest) DecodeBare(b *bin.Buffer) er
 		}
 
 		if headerLen > 0 {
-			t.Stargift = make([]InputSavedStarGiftClass, 0, headerLen%bin.PreallocateLimit)
+			t.Stargift = make([]InputSavedStarGiftClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputSavedStarGift(b)

@@ -240,7 +240,7 @@ func (p *MessagesPreparedInlineMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.PeerTypes = make([]InlineQueryPeerTypeClass, 0, headerLen%bin.PreallocateLimit)
+			p.PeerTypes = make([]InlineQueryPeerTypeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInlineQueryPeerType(b)
@@ -264,7 +264,7 @@ func (p *MessagesPreparedInlineMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			p.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

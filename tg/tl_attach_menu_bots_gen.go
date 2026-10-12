@@ -310,7 +310,7 @@ func (a *AttachMenuBots) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Bots = make([]AttachMenuBot, 0, headerLen%bin.PreallocateLimit)
+			a.Bots = make([]AttachMenuBot, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AttachMenuBot
@@ -327,7 +327,7 @@ func (a *AttachMenuBots) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			a.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

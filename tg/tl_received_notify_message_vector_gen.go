@@ -150,7 +150,7 @@ func (vec *ReceivedNotifyMessageVector) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			vec.Elems = make([]ReceivedNotifyMessage, 0, headerLen%bin.PreallocateLimit)
+			vec.Elems = make([]ReceivedNotifyMessage, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value ReceivedNotifyMessage

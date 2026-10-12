@@ -218,9 +218,10 @@ func layerEncodeWire339bef6cBareBody(profile LayerProfile, value *tg.RequestPeer
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(1) || !value.UserAdminRights.Zero())
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					layerEncoded3.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.UserAdminRights), layerEncoded3, state); err != nil {
@@ -237,9 +238,10 @@ func layerEncodeWire339bef6cBareBody(profile LayerProfile, value *tg.RequestPeer
 					}
 				}
 			}
-			layerEncoded6 := &bin.Buffer{}
+			var layerEncoded6 *bin.Buffer
 			layerPresent8 := (value.Flags.Has(2) || !value.BotAdminRights.Zero())
 			if layerPresent8 {
+				layerEncoded6 = &bin.Buffer{}
 				layerErr7 := func() error {
 					layerEncoded6.PutID(0x5fb224d5)
 					if err := layerEncodeWire5fb224d5BareBody(profile, &(value.BotAdminRights), layerEncoded6, state); err != nil {
@@ -388,9 +390,10 @@ func layerEncodeWire3cd623ecBareBody(profile LayerProfile, value *tg.URLAuthResu
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(3) || value.MatchCodes != nil)
 			if layerPresent7 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if len(value.MatchCodes) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1277,9 +1280,10 @@ func layerEncodeWireb106e66cBareBody(profile LayerProfile, value *tg.MessagesEdi
 			if value.Flags.Has(23) && value.RichMessage == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesEditMessage, Reason: "malformed canonical value: explicit flag has nil interface field rich_message"}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(14) || value.Media != nil)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassInputMediaBody(profile, value.Media, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field media: %w", err)
@@ -1295,9 +1299,10 @@ func layerEncodeWireb106e66cBareBody(profile LayerProfile, value *tg.MessagesEdi
 					}
 				}
 			}
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent12 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded10, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -1313,9 +1318,10 @@ func layerEncodeWireb106e66cBareBody(profile LayerProfile, value *tg.MessagesEdi
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent21 := (value.Flags.Has(3) || value.Entities != nil)
 			if layerPresent21 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1357,9 +1363,10 @@ func layerEncodeWireb106e66cBareBody(profile LayerProfile, value *tg.MessagesEdi
 					}
 				}
 			}
-			layerEncoded22 := &bin.Buffer{}
+			var layerEncoded22 *bin.Buffer
 			layerPresent24 := (value.Flags.Has(23) || value.RichMessage != nil)
 			if layerPresent24 {
+				layerEncoded22 = &bin.Buffer{}
 				layerErr23 := func() error {
 					if err := layerEncodeClassInputRichMessageBody(profile, value.RichMessage, layerEncoded22, state); err != nil {
 						return fmt.Errorf("encode prepared field rich_message: %w", err)
@@ -1642,9 +1649,10 @@ func layerEncodeWireb43df56cBareBody(profile LayerProfile, value *tg.InputBotInl
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputBotInlineMessageRichMessage, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -2062,9 +2070,10 @@ func layerEncodeWiree0bff26cBareBody(profile LayerProfile, value *tg.StarGiftAtt
 			if value.Flags.Has(0) && value.SenderID == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeStarGiftAttributeOriginalDetails, Reason: "malformed canonical value: explicit flag has nil interface field sender_id"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent6 := (value.Flags.Has(0) || value.SenderID != nil)
 			if layerPresent6 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.SenderID, layerEncoded4, state); err != nil {
 						return fmt.Errorf("encode prepared field sender_id: %w", err)
@@ -2080,9 +2089,10 @@ func layerEncodeWiree0bff26cBareBody(profile LayerProfile, value *tg.StarGiftAtt
 					}
 				}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(1) || !value.Message.Zero())
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					layerEncoded7.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Message), layerEncoded7, state); err != nil {

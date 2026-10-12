@@ -290,7 +290,7 @@ func (a *MessagesAvailableReactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Reactions = make([]AvailableReaction, 0, headerLen%bin.PreallocateLimit)
+			a.Reactions = make([]AvailableReaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AvailableReaction

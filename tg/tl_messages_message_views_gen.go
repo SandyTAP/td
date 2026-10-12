@@ -195,7 +195,7 @@ func (m *MessagesMessageViews) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Views = make([]MessageViews, 0, headerLen%bin.PreallocateLimit)
+			m.Views = make([]MessageViews, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MessageViews
@@ -212,7 +212,7 @@ func (m *MessagesMessageViews) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			m.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -229,7 +229,7 @@ func (m *MessagesMessageViews) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			m.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

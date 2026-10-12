@@ -161,7 +161,7 @@ func (i *ContactsImportContactsRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Contacts = make([]InputPhoneContact, 0, headerLen%bin.PreallocateLimit)
+			i.Contacts = make([]InputPhoneContact, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputPhoneContact

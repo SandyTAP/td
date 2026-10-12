@@ -246,7 +246,7 @@ func (s *MessagesSavePreparedInlineMessageRequest) DecodeBare(b *bin.Buffer) err
 		}
 
 		if headerLen > 0 {
-			s.PeerTypes = make([]InlineQueryPeerTypeClass, 0, headerLen%bin.PreallocateLimit)
+			s.PeerTypes = make([]InlineQueryPeerTypeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInlineQueryPeerType(b)

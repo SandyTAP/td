@@ -1244,7 +1244,7 @@ func (s *SecureValueErrorFiles) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.FileHash = make([][]byte, 0, headerLen%bin.PreallocateLimit)
+			s.FileHash = make([][]byte, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Bytes()
@@ -1873,7 +1873,7 @@ func (s *SecureValueErrorTranslationFiles) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.FileHash = make([][]byte, 0, headerLen%bin.PreallocateLimit)
+			s.FileHash = make([][]byte, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Bytes()

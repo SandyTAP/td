@@ -452,7 +452,7 @@ func (i *Invoice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Prices = make([]LabeledPrice, 0, headerLen%bin.PreallocateLimit)
+			i.Prices = make([]LabeledPrice, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value LabeledPrice
@@ -476,7 +476,7 @@ func (i *Invoice) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.SuggestedTipAmounts = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			i.SuggestedTipAmounts = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

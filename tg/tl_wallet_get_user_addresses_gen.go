@@ -206,7 +206,7 @@ func (g *WalletGetUserAddressesRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.ID = make([]InputUserClass, 0, headerLen%bin.PreallocateLimit)
+			g.ID = make([]InputUserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputUser(b)
@@ -223,7 +223,7 @@ func (g *WalletGetUserAddressesRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Addresses = make([]string, 0, headerLen%bin.PreallocateLimit)
+			g.Addresses = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

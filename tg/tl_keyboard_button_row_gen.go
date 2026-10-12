@@ -155,7 +155,7 @@ func (k *KeyboardButtonRow) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			k.Buttons = make([]KeyboardButton, 0, headerLen%bin.PreallocateLimit)
+			k.Buttons = make([]KeyboardButton, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value KeyboardButton

@@ -234,7 +234,7 @@ func (b *BusinessWorkHours) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.WeeklyOpen = make([]BusinessWeeklyOpen, 0, headerLen%bin.PreallocateLimit)
+			b.WeeklyOpen = make([]BusinessWeeklyOpen, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BusinessWeeklyOpen

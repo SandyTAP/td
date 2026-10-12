@@ -363,9 +363,7 @@ func layerEncodeWire4d712f2eBareBody(profile LayerProfile, value *tg.UpdateBotCo
 
 func layerDecodeWire4d712f2e(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.UpdateBotCommands, error) {
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227:
-
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypeUpdateBotCommands, WireID: 0x4d712f2e, Reason: "wire ID is unavailable in exact profile"}

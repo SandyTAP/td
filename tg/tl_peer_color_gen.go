@@ -559,7 +559,7 @@ func (p *PeerColorCollectible) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Colors = make([]int, 0, headerLen%bin.PreallocateLimit)
+			p.Colors = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()
@@ -583,7 +583,7 @@ func (p *PeerColorCollectible) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.DarkColors = make([]int, 0, headerLen%bin.PreallocateLimit)
+			p.DarkColors = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

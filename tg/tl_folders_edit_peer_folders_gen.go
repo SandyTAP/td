@@ -158,7 +158,7 @@ func (e *FoldersEditPeerFoldersRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.FolderPeers = make([]InputFolderPeer, 0, headerLen%bin.PreallocateLimit)
+			e.FolderPeers = make([]InputFolderPeer, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputFolderPeer

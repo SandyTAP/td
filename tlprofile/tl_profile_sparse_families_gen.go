@@ -7178,13 +7178,7 @@ func layerEncodeLegacyInlineKeyboardRowsCore(profile LayerProfile, rows []tg.Key
 	}
 	var rowWire uint32
 	switch profile {
-	case LayerProfile225:
-		rowWire = 0x77608b83
-	case LayerProfile226:
-		rowWire = 0x77608b83
-	case LayerProfile227:
-		rowWire = 0x77608b83
-	case LayerProfile228:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
 		rowWire = 0x77608b83
 	default:
 		return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "unsupported legacy inline keyboard profile"}
@@ -7224,19 +7218,7 @@ func layerDecodeLegacyInlineKeyboardRowsCore(profile LayerProfile, b *bin.Buffer
 			return nil, fmt.Errorf("decode legacy inline keyboard row constructor: %w", err)
 		}
 		switch profile {
-		case LayerProfile225:
-			if rowID != 0x77608b83 {
-				return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: rowID, Reason: "unexpected legacy inline keyboard row constructor"}
-			}
-		case LayerProfile226:
-			if rowID != 0x77608b83 {
-				return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: rowID, Reason: "unexpected legacy inline keyboard row constructor"}
-			}
-		case LayerProfile227:
-			if rowID != 0x77608b83 {
-				return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: rowID, Reason: "unexpected legacy inline keyboard row constructor"}
-			}
-		case LayerProfile228:
+		case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
 			if rowID != 0x77608b83 {
 				return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: rowID, Reason: "unexpected legacy inline keyboard row constructor"}
 			}
@@ -7259,88 +7241,7 @@ func layerDecodeLegacyInlineKeyboardRowsCore(profile LayerProfile, b *bin.Buffer
 			}
 			var button *tg.KeyboardInlineButton
 			switch profile {
-			case LayerProfile225:
-				switch buttonID {
-				case 0x3fa53905:
-					button, err = layerDecodeWire3fa53905(profile, b, &buttonState)
-				case 0x68013e72:
-					button, err = layerDecodeWire68013e72(profile, b, &buttonState)
-				case 0x7d5e07c7:
-					button, err = layerDecodeWire7d5e07c7(profile, b, &buttonState)
-				case 0x89c590f9:
-					button, err = layerDecodeWire89c590f9(profile, b, &buttonState)
-				case 0x991399fc:
-					button, err = layerDecodeWire991399fc(profile, b, &buttonState)
-				case 0xbcc4af10:
-					button, err = layerDecodeWirebcc4af10(profile, b, &buttonState)
-				case 0xc0fd5d09:
-					button, err = layerDecodeWirec0fd5d09(profile, b, &buttonState)
-				case 0xd80c25ec:
-					button, err = layerDecodeWired80c25ec(profile, b, &buttonState)
-				case 0xe62bc960:
-					button, err = layerDecodeWiree62bc960(profile, b, &buttonState)
-				case 0xe846b1a0:
-					button, err = layerDecodeWiree846b1a0(profile, b, &buttonState)
-				case 0xf51006f9:
-					button, err = layerDecodeWiref51006f9(profile, b, &buttonState)
-				default:
-					return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: buttonID, Reason: "wire ID is not a legacy inline button"}
-				}
-			case LayerProfile226:
-				switch buttonID {
-				case 0x3fa53905:
-					button, err = layerDecodeWire3fa53905(profile, b, &buttonState)
-				case 0x68013e72:
-					button, err = layerDecodeWire68013e72(profile, b, &buttonState)
-				case 0x7d5e07c7:
-					button, err = layerDecodeWire7d5e07c7(profile, b, &buttonState)
-				case 0x89c590f9:
-					button, err = layerDecodeWire89c590f9(profile, b, &buttonState)
-				case 0x991399fc:
-					button, err = layerDecodeWire991399fc(profile, b, &buttonState)
-				case 0xbcc4af10:
-					button, err = layerDecodeWirebcc4af10(profile, b, &buttonState)
-				case 0xc0fd5d09:
-					button, err = layerDecodeWirec0fd5d09(profile, b, &buttonState)
-				case 0xd80c25ec:
-					button, err = layerDecodeWired80c25ec(profile, b, &buttonState)
-				case 0xe62bc960:
-					button, err = layerDecodeWiree62bc960(profile, b, &buttonState)
-				case 0xe846b1a0:
-					button, err = layerDecodeWiree846b1a0(profile, b, &buttonState)
-				case 0xf51006f9:
-					button, err = layerDecodeWiref51006f9(profile, b, &buttonState)
-				default:
-					return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: buttonID, Reason: "wire ID is not a legacy inline button"}
-				}
-			case LayerProfile227:
-				switch buttonID {
-				case 0x3fa53905:
-					button, err = layerDecodeWire3fa53905(profile, b, &buttonState)
-				case 0x68013e72:
-					button, err = layerDecodeWire68013e72(profile, b, &buttonState)
-				case 0x7d5e07c7:
-					button, err = layerDecodeWire7d5e07c7(profile, b, &buttonState)
-				case 0x89c590f9:
-					button, err = layerDecodeWire89c590f9(profile, b, &buttonState)
-				case 0x991399fc:
-					button, err = layerDecodeWire991399fc(profile, b, &buttonState)
-				case 0xbcc4af10:
-					button, err = layerDecodeWirebcc4af10(profile, b, &buttonState)
-				case 0xc0fd5d09:
-					button, err = layerDecodeWirec0fd5d09(profile, b, &buttonState)
-				case 0xd80c25ec:
-					button, err = layerDecodeWired80c25ec(profile, b, &buttonState)
-				case 0xe62bc960:
-					button, err = layerDecodeWiree62bc960(profile, b, &buttonState)
-				case 0xe846b1a0:
-					button, err = layerDecodeWiree846b1a0(profile, b, &buttonState)
-				case 0xf51006f9:
-					button, err = layerDecodeWiref51006f9(profile, b, &buttonState)
-				default:
-					return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: buttonID, Reason: "wire ID is not a legacy inline button"}
-				}
-			case LayerProfile228:
+			case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
 				switch buttonID {
 				case 0x3fa53905:
 					button, err = layerDecodeWire3fa53905(profile, b, &buttonState)
@@ -19312,9 +19213,7 @@ func layerProjectFamilyAuthSentCodePaymentRequired(profile LayerProfile, value *
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeAuthSentCodePaymentRequired, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225:
-		return value, true, nil
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeAuthSentCodePaymentRequired, Reason: "unsupported exact profile"}
@@ -19580,9 +19479,7 @@ func layerProjectFamilyChannel(profile LayerProfile, value *tg.Channel) (bin.Obj
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeChannel, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227:
-		return value, true, nil
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeChannel, Reason: "unsupported exact profile"}
@@ -20230,9 +20127,7 @@ func layerProjectFamilyChannelFull(profile LayerProfile, value *tg.ChannelFull) 
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeChannelFull, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225:
-		return value, true, nil
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeChannelFull, Reason: "unsupported exact profile"}
@@ -20926,9 +20821,7 @@ func layerProjectFamilyDraftMessage(profile LayerProfile, value *tg.DraftMessage
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeDraftMessage, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeDraftMessage, Reason: "unsupported exact profile"}
@@ -22234,9 +22127,7 @@ func layerProjectFamilyInputInvoiceStarGiftResale(profile LayerProfile, value *t
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeInputInvoiceStarGiftResale, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeInputInvoiceStarGiftResale, Reason: "unsupported exact profile"}
@@ -23306,9 +23197,7 @@ func layerProjectFamilyInputSendMessageRichMessageDraftAction(profile LayerProfi
 	switch profile {
 	case LayerProfile225, LayerProfile226:
 		return nil, false, nil
-	case LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeInputSendMessageRichMessageDraftAction, Reason: "unsupported exact profile"}
@@ -23320,9 +23209,7 @@ func layerProjectFamilyInputStorePaymentAuthCode(profile LayerProfile, value *tg
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeInputStorePaymentAuthCode, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225:
-		return value, true, nil
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeInputStorePaymentAuthCode, Reason: "unsupported exact profile"}
@@ -23586,9 +23473,7 @@ func layerProjectFamilyMessage(profile LayerProfile, value *tg.Message) (bin.Obj
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeMessage, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeMessage, Reason: "unsupported exact profile"}
@@ -24302,9 +24187,7 @@ func layerProjectFamilyMessageActionStarGiftUnique(profile LayerProfile, value *
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeMessageActionStarGiftUnique, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeMessageActionStarGiftUnique, Reason: "unsupported exact profile"}
@@ -25200,11 +25083,7 @@ func layerProjectFamilyMessagesChatInviteJoinResultWebView(profile LayerProfile,
 	switch profile {
 	case LayerProfile225:
 		return nil, false, nil
-	case LayerProfile226:
-		return value, true, nil
-	case LayerProfile227:
-		return value, true, nil
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeMessagesChatInviteJoinResultWebView, Reason: "unsupported exact profile"}
@@ -25902,9 +25781,7 @@ func layerProjectFamilyPageBlockBlockquote(profile LayerProfile, value *tg.PageB
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageBlockBlockquote, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageBlockBlockquote, Reason: "unsupported exact profile"}
@@ -26200,9 +26077,7 @@ func layerProjectFamilyPageBlockOrderedList(profile LayerProfile, value *tg.Page
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageBlockOrderedList, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageBlockOrderedList, Reason: "unsupported exact profile"}
@@ -26372,9 +26247,7 @@ func layerProjectFamilyPageListItemBlocks(profile LayerProfile, value *tg.PageLi
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListItemBlocks, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListItemBlocks, Reason: "unsupported exact profile"}
@@ -26386,9 +26259,7 @@ func layerProjectFamilyPageListItemText(profile LayerProfile, value *tg.PageList
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListItemText, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListItemText, Reason: "unsupported exact profile"}
@@ -26400,9 +26271,7 @@ func layerProjectFamilyPageListOrderedItemBlocks(profile LayerProfile, value *tg
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListOrderedItemBlocks, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListOrderedItemBlocks, Reason: "unsupported exact profile"}
@@ -26414,9 +26283,7 @@ func layerProjectFamilyPageListOrderedItemText(profile LayerProfile, value *tg.P
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListOrderedItemText, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226:
-		return value, true, nil
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypePageListOrderedItemText, Reason: "unsupported exact profile"}
@@ -27196,9 +27063,7 @@ func layerProjectFamilyReplyInlineMarkup(profile LayerProfile, value *tg.ReplyIn
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeReplyInlineMarkup, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeReplyInlineMarkup, Reason: "unsupported exact profile"}
@@ -27644,9 +27509,7 @@ func layerProjectFamilySendMessageRichMessageDraftAction(profile LayerProfile, v
 	switch profile {
 	case LayerProfile225, LayerProfile226:
 		return nil, false, nil
-	case LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeSendMessageRichMessageDraftAction, Reason: "unsupported exact profile"}
@@ -27672,9 +27535,7 @@ func layerProjectFamilySendMessageTextDraftAction(profile LayerProfile, value *t
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeSendMessageTextDraftAction, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228:
-		return value, true, nil
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeSendMessageTextDraftAction, Reason: "unsupported exact profile"}
@@ -28884,9 +28745,7 @@ func layerProjectFamilyUpdateBotChatInviteRequester(profile LayerProfile, value 
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeUpdateBotChatInviteRequester, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225:
-		return value, true, nil
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeUpdateBotChatInviteRequester, Reason: "unsupported exact profile"}
@@ -31098,9 +30957,7 @@ func layerProjectFamilyUser(profile LayerProfile, value *tg.User) (bin.Object, b
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeUser, Reason: "nil canonical value"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227:
-		return value, true, nil
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		return value, true, nil
 	default:
 		return nil, false, &LayerCodecError{Operation: "project", Profile: profile, Semantic: LayerSemanticTypeUser, Reason: "unsupported exact profile"}

@@ -97,9 +97,10 @@ func layerEncodeWire17db940bBareBody(profile LayerProfile, value *tg.BotInlineMe
 			if value.Flags.Has(1) && value.Document == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeBotInlineMediaResult, Reason: "malformed canonical value: explicit flag has nil interface field document"}
 			}
-			layerEncoded4 := &bin.Buffer{}
+			var layerEncoded4 *bin.Buffer
 			layerPresent6 := (value.Flags.Has(0) || value.Photo != nil)
 			if layerPresent6 {
+				layerEncoded4 = &bin.Buffer{}
 				layerErr5 := func() error {
 					if err := layerEncodeClassPhotoBody(profile, value.Photo, layerEncoded4, state); err != nil {
 						return fmt.Errorf("encode prepared field photo: %w", err)
@@ -115,9 +116,10 @@ func layerEncodeWire17db940bBareBody(profile LayerProfile, value *tg.BotInlineMe
 					}
 				}
 			}
-			layerEncoded7 := &bin.Buffer{}
+			var layerEncoded7 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(1) || value.Document != nil)
 			if layerPresent9 {
+				layerEncoded7 = &bin.Buffer{}
 				layerErr8 := func() error {
 					if err := layerEncodeClassDocumentBody(profile, value.Document, layerEncoded7, state); err != nil {
 						return fmt.Errorf("encode prepared field document: %w", err)

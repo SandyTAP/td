@@ -360,7 +360,7 @@ func (c *StickersCreateStickerSetRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.Stickers = make([]InputStickerSetItem, 0, headerLen%bin.PreallocateLimit)
+			c.Stickers = make([]InputStickerSetItem, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value InputStickerSetItem

@@ -220,7 +220,7 @@ func (w *WebPageAttributeTheme) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Documents = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			w.Documents = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)
@@ -727,7 +727,7 @@ func (w *WebPageAttributeStickerSet) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Stickers = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			w.Stickers = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)
@@ -1080,7 +1080,7 @@ func (w *WebPageAttributeStarGiftCollection) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Icons = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			w.Icons = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

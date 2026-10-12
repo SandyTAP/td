@@ -2185,7 +2185,7 @@ func (s *StarGiftUnique) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Attributes = make([]StarGiftAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			s.Attributes = make([]StarGiftAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStarGiftAttribute(b)
@@ -2223,7 +2223,7 @@ func (s *StarGiftUnique) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.ResellAmount = make([]StarsAmountClass, 0, headerLen%bin.PreallocateLimit)
+			s.ResellAmount = make([]StarsAmountClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStarsAmount(b)

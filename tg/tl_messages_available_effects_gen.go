@@ -310,7 +310,7 @@ func (a *MessagesAvailableEffects) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Effects = make([]AvailableEffect, 0, headerLen%bin.PreallocateLimit)
+			a.Effects = make([]AvailableEffect, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value AvailableEffect
@@ -327,7 +327,7 @@ func (a *MessagesAvailableEffects) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			a.Documents = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			a.Documents = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

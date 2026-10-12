@@ -301,7 +301,7 @@ func (m *MessageReactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Results = make([]ReactionCount, 0, headerLen%bin.PreallocateLimit)
+			m.Results = make([]ReactionCount, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value ReactionCount
@@ -318,7 +318,7 @@ func (m *MessageReactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.RecentReactions = make([]MessagePeerReaction, 0, headerLen%bin.PreallocateLimit)
+			m.RecentReactions = make([]MessagePeerReaction, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MessagePeerReaction
@@ -335,7 +335,7 @@ func (m *MessageReactions) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.TopReactors = make([]MessageReactor, 0, headerLen%bin.PreallocateLimit)
+			m.TopReactors = make([]MessageReactor, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MessageReactor

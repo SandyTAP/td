@@ -5685,7 +5685,7 @@ func (c *ChannelAdminLogEventActionChangeUsernames) DecodeBare(b *bin.Buffer) er
 		}
 
 		if headerLen > 0 {
-			c.PrevValue = make([]string, 0, headerLen%bin.PreallocateLimit)
+			c.PrevValue = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()
@@ -5702,7 +5702,7 @@ func (c *ChannelAdminLogEventActionChangeUsernames) DecodeBare(b *bin.Buffer) er
 		}
 
 		if headerLen > 0 {
-			c.NewValue = make([]string, 0, headerLen%bin.PreallocateLimit)
+			c.NewValue = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()

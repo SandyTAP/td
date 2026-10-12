@@ -281,7 +281,7 @@ func (t *HelpTimezonesList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Timezones = make([]Timezone, 0, headerLen%bin.PreallocateLimit)
+			t.Timezones = make([]Timezone, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value Timezone

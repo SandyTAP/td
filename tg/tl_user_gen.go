@@ -1550,7 +1550,7 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.RestrictionReason = make([]RestrictionReason, 0, headerLen%bin.PreallocateLimit)
+			u.RestrictionReason = make([]RestrictionReason, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value RestrictionReason
@@ -1588,7 +1588,7 @@ func (u *User) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Usernames = make([]Username, 0, headerLen%bin.PreallocateLimit)
+			u.Usernames = make([]Username, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value Username

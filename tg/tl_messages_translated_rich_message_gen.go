@@ -154,7 +154,7 @@ func (t *MessagesTranslatedRichMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Result = make([]RichMessage, 0, headerLen%bin.PreallocateLimit)
+			t.Result = make([]RichMessage, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value RichMessage

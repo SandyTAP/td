@@ -186,7 +186,7 @@ func (s *ChannelsSponsoredMessageReportResultChooseOption) DecodeBare(b *bin.Buf
 		}
 
 		if headerLen > 0 {
-			s.Options = make([]SponsoredMessageReportOption, 0, headerLen%bin.PreallocateLimit)
+			s.Options = make([]SponsoredMessageReportOption, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value SponsoredMessageReportOption

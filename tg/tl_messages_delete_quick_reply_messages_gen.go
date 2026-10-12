@@ -180,7 +180,7 @@ func (d *MessagesDeleteQuickReplyMessagesRequest) DecodeBare(b *bin.Buffer) erro
 		}
 
 		if headerLen > 0 {
-			d.ID = make([]int, 0, headerLen%bin.PreallocateLimit)
+			d.ID = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

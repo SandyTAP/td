@@ -182,7 +182,7 @@ func (s *AccountSetPrivacyRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Rules = make([]InputPrivacyRuleClass, 0, headerLen%bin.PreallocateLimit)
+			s.Rules = make([]InputPrivacyRuleClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPrivacyRule(b)

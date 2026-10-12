@@ -161,7 +161,7 @@ func (c *CDNConfig) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			c.PublicKeys = make([]CDNPublicKey, 0, headerLen%bin.PreallocateLimit)
+			c.PublicKeys = make([]CDNPublicKey, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value CDNPublicKey

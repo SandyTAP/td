@@ -296,7 +296,7 @@ func (w *AccountWallPapers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Wallpapers = make([]WallPaperClass, 0, headerLen%bin.PreallocateLimit)
+			w.Wallpapers = make([]WallPaperClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeWallPaper(b)

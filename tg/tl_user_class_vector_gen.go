@@ -153,7 +153,7 @@ func (vec *UserClassVector) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			vec.Elems = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			vec.Elems = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

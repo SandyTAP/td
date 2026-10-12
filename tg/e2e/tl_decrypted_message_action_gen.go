@@ -277,7 +277,7 @@ func (d *DecryptedMessageActionReadMessages) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.RandomIDs = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			d.RandomIDs = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -417,7 +417,7 @@ func (d *DecryptedMessageActionDeleteMessages) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.RandomIDs = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			d.RandomIDs = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -557,7 +557,7 @@ func (d *DecryptedMessageActionScreenshotMessages) DecodeBare(b *bin.Buffer) err
 		}
 
 		if headerLen > 0 {
-			d.RandomIDs = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			d.RandomIDs = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

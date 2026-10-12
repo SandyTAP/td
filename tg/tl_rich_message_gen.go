@@ -247,7 +247,7 @@ func (r *RichMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Blocks = make([]PageBlockClass, 0, headerLen%bin.PreallocateLimit)
+			r.Blocks = make([]PageBlockClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePageBlock(b)
@@ -264,7 +264,7 @@ func (r *RichMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Photos = make([]PhotoClass, 0, headerLen%bin.PreallocateLimit)
+			r.Photos = make([]PhotoClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhoto(b)
@@ -281,7 +281,7 @@ func (r *RichMessage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Documents = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			r.Documents = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

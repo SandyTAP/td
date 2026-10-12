@@ -279,7 +279,7 @@ func (w *EphemeralWelcomeMessages) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.Messages = make([]EphemeralMessage, 0, headerLen%bin.PreallocateLimit)
+			w.Messages = make([]EphemeralMessage, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value EphemeralMessage

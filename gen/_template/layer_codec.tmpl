@@ -269,7 +269,7 @@ func {{ .EncodeName }}(profile LayerProfile, value *{{ .CanonicalType }}, b *bin
     }
     return layerCodecEncodeAtomic(profile, b, func() error {
         switch profile {
-        {{ range .ProfileGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}:
+        {{ range .EncodeChecks }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}:
             {{ if .EncodeReject }}return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: {{ $wire.Semantic }}, WireID: 0x{{ $wire.Hex }}, Reason: {{ printf "%q" .EncodeReject }}}{{ else }}{{/* accepted before any bytes */}}{{ end }}
         {{ end }}default:
             return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: {{ .Semantic }}, WireID: 0x{{ .Hex }}, Reason: "wire ID is unavailable in exact profile"}
@@ -299,7 +299,7 @@ func {{ .EncodeBareName }}(profile LayerProfile, value *{{ .CanonicalType }}, b 
     if err != nil { return 0, err }
     state = &child
     switch profile {
-    {{ range .ProfileGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
+    {{ range .PreflightGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
         {{ if .EncodeReject }}return 0, &LayerCodecError{Operation: "preflight", Profile: profile, Semantic: {{ $wire.Semantic }}, WireID: 0x{{ $wire.Hex }}, Reason: {{ printf "%q" .EncodeReject }}}{{ else }}{{ .Preflight }}{{ end }}
     }
     {{ end }}default:
@@ -312,7 +312,7 @@ func {{ .EncodeBareName }}Body(profile LayerProfile, value *{{ .CanonicalType }}
     if err != nil { return err }
     state = &child
     switch profile {
-    {{ range .ProfileGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
+    {{ range .EncodeGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
         {{ if .EncodeReject }}return &LayerCodecError{Operation: "encode-bare", Profile: profile, Semantic: {{ $wire.Semantic }}, WireID: 0x{{ $wire.Hex }}, Reason: {{ printf "%q" .EncodeReject }}}{{ else }}{{ .Encode }}{{ end }}
     }
     {{ end }}default:
@@ -322,7 +322,7 @@ func {{ .EncodeBareName }}Body(profile LayerProfile, value *{{ .CanonicalType }}
 
 func {{ .DecodeName }}(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*{{ .CanonicalType }}, error) {
     switch profile {
-    {{ range .ProfileGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}:
+    {{ range .DecodeChecks }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}:
         {{ if .DecodeReject }}return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: {{ $wire.Semantic }}, WireID: 0x{{ $wire.Hex }}, Reason: {{ printf "%q" .DecodeReject }}}{{ end }}
     {{ end }}default:
         return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: {{ .Semantic }}, WireID: 0x{{ .Hex }}, Reason: "wire ID is unavailable in exact profile"}
@@ -342,7 +342,7 @@ func {{ .DecodeBareName }}(profile LayerProfile, b *bin.Buffer, state *layerCode
     value := new({{ .CanonicalType }})
     _ = value
     switch profile {
-    {{ range .ProfileGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
+    {{ range .DecodeGroups }}case {{ range $index, $layer := .Layers }}{{ if $index }}, {{ end }}LayerProfile{{ $layer }}{{ end }}: {
         {{ if .DecodeReject }}return nil, &LayerCodecError{Operation: "decode-bare", Profile: profile, Semantic: {{ $wire.Semantic }}, WireID: 0x{{ $wire.Hex }}, Reason: {{ printf "%q" .DecodeReject }}}{{ else }}{{ .Decode }}{{ end }}
     }
     {{ end }}default:

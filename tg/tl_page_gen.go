@@ -319,7 +319,7 @@ func (p *Page) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Blocks = make([]PageBlockClass, 0, headerLen%bin.PreallocateLimit)
+			p.Blocks = make([]PageBlockClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePageBlock(b)
@@ -336,7 +336,7 @@ func (p *Page) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Photos = make([]PhotoClass, 0, headerLen%bin.PreallocateLimit)
+			p.Photos = make([]PhotoClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhoto(b)
@@ -353,7 +353,7 @@ func (p *Page) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Documents = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			p.Documents = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

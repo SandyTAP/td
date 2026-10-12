@@ -284,7 +284,7 @@ func (t *AccountThemes) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Themes = make([]Theme, 0, headerLen%bin.PreallocateLimit)
+			t.Themes = make([]Theme, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value Theme

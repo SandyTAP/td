@@ -1325,7 +1325,7 @@ func (m *MessageMediaDocument) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.AltDocuments = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			m.AltDocuments = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)
@@ -4146,7 +4146,7 @@ func (m *MessageMediaGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Channels = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			m.Channels = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -4163,7 +4163,7 @@ func (m *MessageMediaGiveaway) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.CountriesISO2 = make([]string, 0, headerLen%bin.PreallocateLimit)
+			m.CountriesISO2 = make([]string, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.String()
@@ -4728,7 +4728,7 @@ func (m *MessageMediaGiveawayResults) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Winners = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			m.Winners = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()
@@ -5088,7 +5088,7 @@ func (m *MessageMediaPaidMedia) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.ExtendedMedia = make([]MessageExtendedMediaClass, 0, headerLen%bin.PreallocateLimit)
+			m.ExtendedMedia = make([]MessageExtendedMediaClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageExtendedMedia(b)
@@ -5305,7 +5305,7 @@ func (m *MessageMediaToDo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Completions = make([]TodoCompletion, 0, headerLen%bin.PreallocateLimit)
+			m.Completions = make([]TodoCompletion, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value TodoCompletion

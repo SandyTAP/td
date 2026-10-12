@@ -158,7 +158,7 @@ func (d *PhotosDeletePhotosRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.ID = make([]InputPhotoClass, 0, headerLen%bin.PreallocateLimit)
+			d.ID = make([]InputPhotoClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPhoto(b)

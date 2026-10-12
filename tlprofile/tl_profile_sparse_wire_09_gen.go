@@ -312,9 +312,10 @@ func layerEncodeWire354a9b09BareBody(profile LayerProfile, value *tg.BotInlineMe
 			if value.Flags.Has(2) && value.ReplyMarkup == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeBotInlineMessageMediaInvoice, Reason: "malformed canonical value: explicit flag has nil interface field reply_markup"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(0) || value.Photo != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassWebDocumentBody(profile, value.Photo, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field photo: %w", err)
@@ -330,9 +331,10 @@ func layerEncodeWire354a9b09BareBody(profile LayerProfile, value *tg.BotInlineMe
 					}
 				}
 			}
-			layerEncoded6 := &bin.Buffer{}
+			var layerEncoded6 *bin.Buffer
 			layerPresent8 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent8 {
+				layerEncoded6 = &bin.Buffer{}
 				layerErr7 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded6, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -995,9 +997,10 @@ func layerEncodeWiredaecc589BareBody(profile LayerProfile, value *tg.MessagesCom
 			if value.Flags.Has(2) && value.Tone == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesComposeMessageWithAI, Reason: "malformed canonical value: explicit flag has nil interface field tone"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.Tone != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassInputAiComposeToneBody(profile, value.Tone, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field tone: %w", err)

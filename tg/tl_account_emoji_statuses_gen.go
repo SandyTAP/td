@@ -296,7 +296,7 @@ func (e *AccountEmojiStatuses) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Statuses = make([]EmojiStatusClass, 0, headerLen%bin.PreallocateLimit)
+			e.Statuses = make([]EmojiStatusClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeEmojiStatus(b)

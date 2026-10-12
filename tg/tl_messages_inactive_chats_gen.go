@@ -193,7 +193,7 @@ func (i *MessagesInactiveChats) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Dates = make([]int, 0, headerLen%bin.PreallocateLimit)
+			i.Dates = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()
@@ -210,7 +210,7 @@ func (i *MessagesInactiveChats) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			i.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -227,7 +227,7 @@ func (i *MessagesInactiveChats) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			i.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

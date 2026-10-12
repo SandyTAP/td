@@ -559,7 +559,7 @@ func (m *MessagePeerVoteMultiple) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			m.Options = make([][]byte, 0, headerLen%bin.PreallocateLimit)
+			m.Options = make([][]byte, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Bytes()

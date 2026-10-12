@@ -159,7 +159,7 @@ func (u *MessagesUpdateDialogFiltersOrderRequest) DecodeBare(b *bin.Buffer) erro
 		}
 
 		if headerLen > 0 {
-			u.Order = make([]int, 0, headerLen%bin.PreallocateLimit)
+			u.Order = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

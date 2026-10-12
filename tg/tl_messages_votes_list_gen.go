@@ -269,7 +269,7 @@ func (v *MessagesVotesList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			v.Votes = make([]MessagePeerVoteClass, 0, headerLen%bin.PreallocateLimit)
+			v.Votes = make([]MessagePeerVoteClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessagePeerVote(b)
@@ -286,7 +286,7 @@ func (v *MessagesVotesList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			v.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			v.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -303,7 +303,7 @@ func (v *MessagesVotesList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			v.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			v.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

@@ -359,7 +359,7 @@ func (e *MessagesEmojiGameDiceInfo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Params = make([]int, 0, headerLen%bin.PreallocateLimit)
+			e.Params = make([]int, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int()

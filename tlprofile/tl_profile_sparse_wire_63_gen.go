@@ -59,9 +59,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 			if value.Flags.Has(17) && value.QuickReplyShortcut == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesSendMedia, Reason: "malformed canonical value: explicit flag has nil interface field quick_reply_shortcut"}
 			}
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.ReplyTo != nil)
 			if layerPresent12 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if err := layerEncodeClassInputReplyToBody(profile, value.ReplyTo, layerEncoded10, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_to: %w", err)
@@ -77,9 +78,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent15 := (value.Flags.Has(2) || value.ReplyMarkup != nil)
 			if layerPresent15 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if err := layerEncodeClassReplyMarkupBody(profile, value.ReplyMarkup, layerEncoded13, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_markup: %w", err)
@@ -95,9 +97,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded16 := &bin.Buffer{}
+			var layerEncoded16 *bin.Buffer
 			layerPresent24 := (value.Flags.Has(3) || value.Entities != nil)
 			if layerPresent24 {
+				layerEncoded16 = &bin.Buffer{}
 				layerErr17 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -139,9 +142,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded25 := &bin.Buffer{}
+			var layerEncoded25 *bin.Buffer
 			layerPresent27 := (value.Flags.Has(13) || value.SendAs != nil)
 			if layerPresent27 {
+				layerEncoded25 = &bin.Buffer{}
 				layerErr26 := func() error {
 					if err := layerEncodeClassInputPeerBody(profile, value.SendAs, layerEncoded25, state); err != nil {
 						return fmt.Errorf("encode prepared field send_as: %w", err)
@@ -157,9 +161,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded28 := &bin.Buffer{}
+			var layerEncoded28 *bin.Buffer
 			layerPresent30 := (value.Flags.Has(17) || value.QuickReplyShortcut != nil)
 			if layerPresent30 {
+				layerEncoded28 = &bin.Buffer{}
 				layerErr29 := func() error {
 					if err := layerEncodeClassInputQuickReplyShortcutBody(profile, value.QuickReplyShortcut, layerEncoded28, state); err != nil {
 						return fmt.Errorf("encode prepared field quick_reply_shortcut: %w", err)
@@ -175,9 +180,10 @@ func layerEncodeWire0330e77fBareBody(profile LayerProfile, value *tg.MessagesSen
 					}
 				}
 			}
-			layerEncoded31 := &bin.Buffer{}
+			var layerEncoded31 *bin.Buffer
 			layerPresent33 := (value.Flags.Has(22) || !value.SuggestedPost.Zero())
 			if layerPresent33 {
+				layerEncoded31 = &bin.Buffer{}
 				layerErr32 := func() error {
 					layerEncoded31.PutID(0x0e8e37e5)
 					if err := layerEncodeWire0e8e37e5BareBody(profile, &(value.SuggestedPost), layerEncoded31, state); err != nil {
@@ -819,9 +825,10 @@ func layerEncodeWire7d170cffBareBody(profile LayerProfile, value *tg.KeyboardBut
 				}
 				value = projected
 			}
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(10) || !value.Style.Zero())
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					layerEncoded2.PutID(0x4fdd3430)
 					if err := layerEncodeWire4fdd3430BareBody(profile, &(value.Style), layerEncoded2, state); err != nil {
@@ -1120,9 +1127,10 @@ func layerEncodeWire966e2dbfBareBody(profile LayerProfile, value *tg.Poll, b *bi
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent9 := (value.Flags.Has(12) || value.CountriesISO2 != nil)
 			if layerPresent9 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					if len(value.CountriesISO2) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}

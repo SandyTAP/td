@@ -29,9 +29,10 @@ func layerEncodeWire11679fa7BareBody(profile LayerProfile, value *tg.InputBusine
 			if value.Flags.Has(0) && value.Entities == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputBusinessChatLink, Reason: "malformed canonical value: explicit flag has nil interface field entities"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent11 := (value.Flags.Has(0) || value.Entities != nil)
 			if layerPresent11 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -206,9 +207,10 @@ func layerEncodeWire1ea2fda7BareBody(profile LayerProfile, value *tg.UpdateBusin
 			if value.Flags.Has(2) && value.ReplyToMessage == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateBusinessBotCallbackQuery, Reason: "malformed canonical value: explicit flag has nil interface field reply_to_message"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(2) || value.ReplyToMessage != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassMessageBody(profile, value.ReplyToMessage, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_to_message: %w", err)
@@ -378,9 +380,10 @@ func layerEncodeWire2e94c3e7BareBody(profile LayerProfile, value *tg.WebPageAttr
 			if value.Flags.Has(0) && value.Story == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeWebPageAttributeStory, Reason: "malformed canonical value: explicit flag has nil interface field story"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(0) || value.Story != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassStoryItemBody(profile, value.Story, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field story: %w", err)
@@ -624,9 +627,10 @@ func layerEncodeWire64407ea7BareBody(profile LayerProfile, value *tg.MonoForumDi
 			if value.Flags.Has(1) && value.Draft == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeMonoForumDialog, Reason: "malformed canonical value: explicit flag has nil interface field draft"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(1) || value.Draft != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassDraftMessageBody(profile, value.Draft, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field draft: %w", err)

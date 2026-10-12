@@ -670,7 +670,7 @@ func (j *JSONArray) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			j.Value = make([]JSONValueClass, 0, headerLen%bin.PreallocateLimit)
+			j.Value = make([]JSONValueClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeJSONValue(b)
@@ -825,7 +825,7 @@ func (j *JSONObject) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			j.Value = make([]JSONObjectValue, 0, headerLen%bin.PreallocateLimit)
+			j.Value = make([]JSONObjectValue, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value JSONObjectValue

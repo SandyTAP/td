@@ -130,9 +130,10 @@ func layerEncodeWire53577479BareBody(profile LayerProfile, value *tg.AccountGetN
 			if value.Flags.Has(0) && value.Peer == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodAccountGetNotifyExceptions, Reason: "malformed canonical value: explicit flag has nil interface field peer"}
 			}
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(0) || value.Peer != nil)
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					if err := layerEncodeClassInputNotifyPeerBody(profile, value.Peer, layerEncoded2, state); err != nil {
 						return fmt.Errorf("encode prepared field peer: %w", err)
@@ -558,9 +559,7 @@ func layerEncodeWirea2cb24f9BareBody(profile LayerProfile, value *tg.SendMessage
 
 func layerDecodeWirea2cb24f9(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.SendMessageRichMessageDraftAction, error) {
 	switch profile {
-	case LayerProfile227:
-
-	case LayerProfile228:
+	case LayerProfile227, LayerProfile228:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypeSendMessageRichMessageDraftAction, WireID: 0xa2cb24f9, Reason: "wire ID is unavailable in exact profile"}
@@ -582,30 +581,7 @@ func layerDecodeWirea2cb24f9Bare(profile LayerProfile, b *bin.Buffer, state *lay
 	value := new(tg.SendMessageRichMessageDraftAction)
 	_ = value
 	switch profile {
-	case LayerProfile227:
-		{
-			var layerDecoded2 int64
-			layerPrimitive3, err := b.Long()
-			if err != nil {
-				return nil, fmt.Errorf("decode field random_id: %w", err)
-			}
-			layerDecoded2 = layerPrimitive3
-			var layerDecoded4 tg.RichMessage
-			layerConcrete5, err := layerDecodeWirebaf39d8b(profile, b, state)
-			if err != nil {
-				return nil, fmt.Errorf("decode field rich_message: %w", err)
-			}
-			layerDecoded4 = *layerConcrete5
-			if true {
-				value.RandomID = layerDecoded2
-			}
-			if true {
-				value.RichMessage = layerDecoded4
-			}
-			return value, nil
-
-		}
-	case LayerProfile228:
+	case LayerProfile227, LayerProfile228:
 		{
 			var layerDecoded2 int64
 			layerPrimitive3, err := b.Long()

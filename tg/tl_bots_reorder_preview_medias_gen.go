@@ -207,7 +207,7 @@ func (r *BotsReorderPreviewMediasRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			r.Order = make([]InputMediaClass, 0, headerLen%bin.PreallocateLimit)
+			r.Order = make([]InputMediaClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputMedia(b)

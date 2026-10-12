@@ -495,7 +495,7 @@ func (n *WalletNftItem) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			n.Attributes = make([]WalletNftAttribute, 0, headerLen%bin.PreallocateLimit)
+			n.Attributes = make([]WalletNftAttribute, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value WalletNftAttribute

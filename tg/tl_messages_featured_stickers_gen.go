@@ -391,7 +391,7 @@ func (f *MessagesFeaturedStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Sets = make([]StickerSetCoveredClass, 0, headerLen%bin.PreallocateLimit)
+			f.Sets = make([]StickerSetCoveredClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeStickerSetCovered(b)
@@ -408,7 +408,7 @@ func (f *MessagesFeaturedStickers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Unread = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			f.Unread = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

@@ -184,7 +184,7 @@ func (i *MessagesInvitedUsers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.MissingInvitees = make([]MissingInvitee, 0, headerLen%bin.PreallocateLimit)
+			i.MissingInvitees = make([]MissingInvitee, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value MissingInvitee

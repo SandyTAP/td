@@ -302,7 +302,7 @@ func (t *AicomposeTones) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Tones = make([]AiComposeToneClass, 0, headerLen%bin.PreallocateLimit)
+			t.Tones = make([]AiComposeToneClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeAiComposeTone(b)
@@ -319,7 +319,7 @@ func (t *AicomposeTones) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			t.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

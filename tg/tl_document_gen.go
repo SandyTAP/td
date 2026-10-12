@@ -510,7 +510,7 @@ func (d *Document) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Thumbs = make([]PhotoSizeClass, 0, headerLen%bin.PreallocateLimit)
+			d.Thumbs = make([]PhotoSizeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePhotoSize(b)
@@ -527,7 +527,7 @@ func (d *Document) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.VideoThumbs = make([]VideoSizeClass, 0, headerLen%bin.PreallocateLimit)
+			d.VideoThumbs = make([]VideoSizeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeVideoSize(b)
@@ -551,7 +551,7 @@ func (d *Document) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Attributes = make([]DocumentAttributeClass, 0, headerLen%bin.PreallocateLimit)
+			d.Attributes = make([]DocumentAttributeClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocumentAttribute(b)

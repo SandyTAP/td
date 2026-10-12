@@ -199,7 +199,7 @@ func (j *PhoneJoinAsPeers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			j.Peers = make([]PeerClass, 0, headerLen%bin.PreallocateLimit)
+			j.Peers = make([]PeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePeer(b)
@@ -216,7 +216,7 @@ func (j *PhoneJoinAsPeers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			j.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			j.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -233,7 +233,7 @@ func (j *PhoneJoinAsPeers) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			j.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			j.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

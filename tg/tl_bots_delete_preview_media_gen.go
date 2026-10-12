@@ -210,7 +210,7 @@ func (d *BotsDeletePreviewMediaRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			d.Media = make([]InputMediaClass, 0, headerLen%bin.PreallocateLimit)
+			d.Media = make([]InputMediaClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputMedia(b)

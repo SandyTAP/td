@@ -196,9 +196,10 @@ func layerEncodeWire6a1dc4beBareBody(profile LayerProfile, value *tg.InputPhoneC
 	switch profile {
 	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
 		{
-			layerEncoded2 := &bin.Buffer{}
+			var layerEncoded2 *bin.Buffer
 			layerPresent4 := (value.Flags.Has(0) || !value.Note.Zero())
 			if layerPresent4 {
+				layerEncoded2 = &bin.Buffer{}
 				layerErr3 := func() error {
 					layerEncoded2.PutID(0x751f3146)
 					if err := layerEncodeWire751f3146BareBody(profile, &(value.Note), layerEncoded2, state); err != nil {
@@ -956,9 +957,10 @@ func layerEncodeWireb658f23eBareBody(profile LayerProfile, value *tg.UpdateDialo
 			if value.Flags.Has(1) && value.SavedPeerID == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateDialogUnreadMark, Reason: "malformed canonical value: explicit flag has nil interface field saved_peer_id"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(1) || value.SavedPeerID != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.SavedPeerID, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field saved_peer_id: %w", err)

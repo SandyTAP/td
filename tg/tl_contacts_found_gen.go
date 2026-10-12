@@ -218,7 +218,7 @@ func (f *ContactsFound) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.MyResults = make([]PeerClass, 0, headerLen%bin.PreallocateLimit)
+			f.MyResults = make([]PeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePeer(b)
@@ -235,7 +235,7 @@ func (f *ContactsFound) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Results = make([]PeerClass, 0, headerLen%bin.PreallocateLimit)
+			f.Results = make([]PeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePeer(b)
@@ -252,7 +252,7 @@ func (f *ContactsFound) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			f.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -269,7 +269,7 @@ func (f *ContactsFound) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			f.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			f.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

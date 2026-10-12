@@ -404,7 +404,7 @@ func (e *StoriesEditStoryRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.MediaAreas = make([]MediaAreaClass, 0, headerLen%bin.PreallocateLimit)
+			e.MediaAreas = make([]MediaAreaClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMediaArea(b)
@@ -428,7 +428,7 @@ func (e *StoriesEditStoryRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			e.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -445,7 +445,7 @@ func (e *StoriesEditStoryRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.PrivacyRules = make([]InputPrivacyRuleClass, 0, headerLen%bin.PreallocateLimit)
+			e.PrivacyRules = make([]InputPrivacyRuleClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputPrivacyRule(b)

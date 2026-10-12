@@ -218,9 +218,10 @@ func layerEncodeWire313bc7f8BareBody(profile LayerProfile, value *tg.UpdateShort
 			if value.Flags.Has(7) && value.Entities == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeUpdateShortMessage, Reason: "malformed canonical value: explicit flag has nil interface field entities"}
 			}
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(2) || !value.FwdFrom.Zero())
 			if layerPresent7 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					layerEncoded5.PutID(0x4e4df4bb)
 					if err := layerEncodeWire4e4df4bbBareBody(profile, &(value.FwdFrom), layerEncoded5, state); err != nil {
@@ -237,9 +238,10 @@ func layerEncodeWire313bc7f8BareBody(profile LayerProfile, value *tg.UpdateShort
 					}
 				}
 			}
-			layerEncoded8 := &bin.Buffer{}
+			var layerEncoded8 *bin.Buffer
 			layerPresent10 := (value.Flags.Has(3) || value.ReplyTo != nil)
 			if layerPresent10 {
+				layerEncoded8 = &bin.Buffer{}
 				layerErr9 := func() error {
 					if err := layerEncodeClassMessageReplyHeaderBody(profile, value.ReplyTo, layerEncoded8, state); err != nil {
 						return fmt.Errorf("encode prepared field reply_to: %w", err)
@@ -255,9 +257,10 @@ func layerEncodeWire313bc7f8BareBody(profile LayerProfile, value *tg.UpdateShort
 					}
 				}
 			}
-			layerEncoded11 := &bin.Buffer{}
+			var layerEncoded11 *bin.Buffer
 			layerPresent19 := (value.Flags.Has(7) || value.Entities != nil)
 			if layerPresent19 {
+				layerEncoded11 = &bin.Buffer{}
 				layerErr12 := func() error {
 					if len(value.Entities) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -978,9 +981,10 @@ func layerEncodeWire8c5006f8BareBody(profile LayerProfile, value *tg.MessagesMar
 			if value.Flags.Has(1) && value.ParentPeer == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticMethodMessagesMarkDialogUnread, Reason: "malformed canonical value: explicit flag has nil interface field parent_peer"}
 			}
-			layerEncoded3 := &bin.Buffer{}
+			var layerEncoded3 *bin.Buffer
 			layerPresent5 := (value.Flags.Has(1) || value.ParentPeer != nil)
 			if layerPresent5 {
+				layerEncoded3 = &bin.Buffer{}
 				layerErr4 := func() error {
 					if err := layerEncodeClassInputPeerBody(profile, value.ParentPeer, layerEncoded3, state); err != nil {
 						return fmt.Errorf("encode prepared field parent_peer: %w", err)

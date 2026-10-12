@@ -325,7 +325,7 @@ func (s *UsersSavedMusic) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.Documents = make([]DocumentClass, 0, headerLen%bin.PreallocateLimit)
+			s.Documents = make([]DocumentClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeDocument(b)

@@ -158,7 +158,7 @@ func (g *MessagesGetPeerDialogsRequest) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Peers = make([]InputDialogPeerClass, 0, headerLen%bin.PreallocateLimit)
+			g.Peers = make([]InputDialogPeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeInputDialogPeer(b)

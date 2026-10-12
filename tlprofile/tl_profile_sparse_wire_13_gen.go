@@ -310,9 +310,10 @@ func layerEncodeWire405fef0dBareBody(profile LayerProfile, value *tg.InputMediaI
 			if value.Flags.Has(2) && value.ExtendedMedia == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeInputMediaInvoice, Reason: "malformed canonical value: explicit flag has nil interface field extended_media"}
 			}
-			layerEncoded5 := &bin.Buffer{}
+			var layerEncoded5 *bin.Buffer
 			layerPresent7 := (value.Flags.Has(0) || !value.Photo.Zero())
 			if layerPresent7 {
+				layerEncoded5 = &bin.Buffer{}
 				layerErr6 := func() error {
 					layerEncoded5.PutID(0x9bed434d)
 					if err := layerEncodeWire9bed434dBareBody(profile, &(value.Photo), layerEncoded5, state); err != nil {
@@ -329,9 +330,10 @@ func layerEncodeWire405fef0dBareBody(profile LayerProfile, value *tg.InputMediaI
 					}
 				}
 			}
-			layerEncoded8 := &bin.Buffer{}
+			var layerEncoded8 *bin.Buffer
 			layerPresent10 := (value.Flags.Has(2) || value.ExtendedMedia != nil)
 			if layerPresent10 {
+				layerEncoded8 = &bin.Buffer{}
 				layerErr9 := func() error {
 					if err := layerEncodeClassInputMediaBody(profile, value.ExtendedMedia, layerEncoded8, state); err != nil {
 						return fmt.Errorf("encode prepared field extended_media: %w", err)
@@ -995,9 +997,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 			if value.Flags.Has(12) && value.HostID == nil {
 				return &LayerCodecError{Operation: "encode", Profile: profile, Semantic: LayerSemanticTypeStarGiftUnique, Reason: "malformed canonical value: explicit flag has nil interface field host_id"}
 			}
-			layerEncoded10 := &bin.Buffer{}
+			var layerEncoded10 *bin.Buffer
 			layerPresent12 := (value.Flags.Has(0) || value.OwnerID != nil)
 			if layerPresent12 {
+				layerEncoded10 = &bin.Buffer{}
 				layerErr11 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.OwnerID, layerEncoded10, state); err != nil {
 						return fmt.Errorf("encode prepared field owner_id: %w", err)
@@ -1013,9 +1016,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 					}
 				}
 			}
-			layerEncoded13 := &bin.Buffer{}
+			var layerEncoded13 *bin.Buffer
 			layerPresent21 := (value.Flags.Has(4) || value.ResellAmount != nil)
 			if layerPresent21 {
+				layerEncoded13 = &bin.Buffer{}
 				layerErr14 := func() error {
 					if len(value.ResellAmount) > layerCodecMaxVectorElements {
 						return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "vector length exceeds generated limit"}
@@ -1057,9 +1061,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 					}
 				}
 			}
-			layerEncoded22 := &bin.Buffer{}
+			var layerEncoded22 *bin.Buffer
 			layerPresent24 := (value.Flags.Has(5) || value.ReleasedBy != nil)
 			if layerPresent24 {
+				layerEncoded22 = &bin.Buffer{}
 				layerErr23 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.ReleasedBy, layerEncoded22, state); err != nil {
 						return fmt.Errorf("encode prepared field released_by: %w", err)
@@ -1075,9 +1080,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 					}
 				}
 			}
-			layerEncoded25 := &bin.Buffer{}
+			var layerEncoded25 *bin.Buffer
 			layerPresent27 := (value.Flags.Has(10) || value.ThemePeer != nil)
 			if layerPresent27 {
+				layerEncoded25 = &bin.Buffer{}
 				layerErr26 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.ThemePeer, layerEncoded25, state); err != nil {
 						return fmt.Errorf("encode prepared field theme_peer: %w", err)
@@ -1093,9 +1099,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 					}
 				}
 			}
-			layerEncoded28 := &bin.Buffer{}
+			var layerEncoded28 *bin.Buffer
 			layerPresent30 := (value.Flags.Has(11) || value.PeerColor != nil)
 			if layerPresent30 {
+				layerEncoded28 = &bin.Buffer{}
 				layerErr29 := func() error {
 					if err := layerEncodeClassPeerColorBody(profile, value.PeerColor, layerEncoded28, state); err != nil {
 						return fmt.Errorf("encode prepared field peer_color: %w", err)
@@ -1111,9 +1118,10 @@ func layerEncodeWire85f0a9cdBareBody(profile LayerProfile, value *tg.StarGiftUni
 					}
 				}
 			}
-			layerEncoded31 := &bin.Buffer{}
+			var layerEncoded31 *bin.Buffer
 			layerPresent33 := (value.Flags.Has(12) || value.HostID != nil)
 			if layerPresent33 {
+				layerEncoded31 = &bin.Buffer{}
 				layerErr32 := func() error {
 					if err := layerEncodeClassPeerBody(profile, value.HostID, layerEncoded31, state); err != nil {
 						return fmt.Errorf("encode prepared field host_id: %w", err)
@@ -2433,9 +2441,7 @@ func layerEncodeWireb92fb6cdBareBody(profile LayerProfile, value *tg.PageListIte
 
 func layerDecodeWireb92fb6cd(profile LayerProfile, b *bin.Buffer, state *layerCodecState) (*tg.PageListItemText, error) {
 	switch profile {
-	case LayerProfile225:
-
-	case LayerProfile226:
+	case LayerProfile225, LayerProfile226:
 
 	default:
 		return nil, &LayerCodecError{Operation: "decode", Profile: profile, Semantic: LayerSemanticTypePageListItemText, WireID: 0xb92fb6cd, Reason: "wire ID is unavailable in exact profile"}
@@ -2457,21 +2463,7 @@ func layerDecodeWireb92fb6cdBare(profile LayerProfile, b *bin.Buffer, state *lay
 	value := new(tg.PageListItemText)
 	_ = value
 	switch profile {
-	case LayerProfile225:
-		{
-			var layerDecoded2 tg.RichTextClass
-			layerClass3, err := layerDecodeClassRichText(profile, b, state)
-			if err != nil {
-				return nil, fmt.Errorf("decode field text: %w", err)
-			}
-			layerDecoded2 = layerClass3
-			if true {
-				value.Text = layerDecoded2
-			}
-			return value, nil
-
-		}
-	case LayerProfile226:
+	case LayerProfile225, LayerProfile226:
 		{
 			var layerDecoded2 tg.RichTextClass
 			layerClass3, err := layerDecodeClassRichText(profile, b, state)

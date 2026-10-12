@@ -233,7 +233,7 @@ func (t *TodoList) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.List = make([]TodoItem, 0, headerLen%bin.PreallocateLimit)
+			t.List = make([]TodoItem, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value TodoItem

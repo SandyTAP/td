@@ -272,7 +272,7 @@ func (s *AccountSavedMusicIDs) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			s.IDs = make([]int64, 0, headerLen%bin.PreallocateLimit)
+			s.IDs = make([]int64, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Long()

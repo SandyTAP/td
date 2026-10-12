@@ -155,7 +155,7 @@ func (p *PageTableRow) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			p.Cells = make([]PageTableCell, 0, headerLen%bin.PreallocateLimit)
+			p.Cells = make([]PageTableCell, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value PageTableCell

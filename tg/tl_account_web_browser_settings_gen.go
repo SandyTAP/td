@@ -339,7 +339,7 @@ func (w *AccountWebBrowserSettings) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.ExternalExceptions = make([]WebDomainException, 0, headerLen%bin.PreallocateLimit)
+			w.ExternalExceptions = make([]WebDomainException, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value WebDomainException
@@ -356,7 +356,7 @@ func (w *AccountWebBrowserSettings) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			w.InappExceptions = make([]WebDomainException, 0, headerLen%bin.PreallocateLimit)
+			w.InappExceptions = make([]WebDomainException, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value WebDomainException

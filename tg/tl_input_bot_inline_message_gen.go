@@ -262,7 +262,7 @@ func (i *InputBotInlineMessageMediaAuto) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			i.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -600,7 +600,7 @@ func (i *InputBotInlineMessageText) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			i.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)
@@ -2590,7 +2590,7 @@ func (i *InputBotInlineMessageMediaWebPage) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			i.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			i.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)

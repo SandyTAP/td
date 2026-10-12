@@ -450,7 +450,7 @@ func (b *BotInfo) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Commands = make([]BotCommand, 0, headerLen%bin.PreallocateLimit)
+			b.Commands = make([]BotCommand, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BotCommand

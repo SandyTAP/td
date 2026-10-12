@@ -273,7 +273,7 @@ func (b *BusinessChatLink) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			b.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(buf)

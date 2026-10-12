@@ -174,7 +174,7 @@ func (b *PaymentsBankCardData) DecodeBare(buf *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			b.OpenURLs = make([]BankCardOpenURL, 0, headerLen%bin.PreallocateLimit)
+			b.OpenURLs = make([]BankCardOpenURL, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value BankCardOpenURL

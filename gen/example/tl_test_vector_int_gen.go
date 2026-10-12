@@ -145,7 +145,7 @@ func (t *TestVectorInt) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			t.Value = make([]int32, 0, headerLen%bin.PreallocateLimit)
+			t.Value = make([]int32, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := b.Int32()

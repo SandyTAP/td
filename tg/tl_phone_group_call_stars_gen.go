@@ -213,7 +213,7 @@ func (g *PhoneGroupCallStars) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.TopDonors = make([]GroupCallDonor, 0, headerLen%bin.PreallocateLimit)
+			g.TopDonors = make([]GroupCallDonor, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			var value GroupCallDonor
@@ -230,7 +230,7 @@ func (g *PhoneGroupCallStars) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Chats = make([]ChatClass, 0, headerLen%bin.PreallocateLimit)
+			g.Chats = make([]ChatClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeChat(b)
@@ -247,7 +247,7 @@ func (g *PhoneGroupCallStars) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			g.Users = make([]UserClass, 0, headerLen%bin.PreallocateLimit)
+			g.Users = make([]UserClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeUser(b)

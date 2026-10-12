@@ -311,7 +311,7 @@ func (u *HelpUserInfo) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			u.Entities = make([]MessageEntityClass, 0, headerLen%bin.PreallocateLimit)
+			u.Entities = make([]MessageEntityClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodeMessageEntity(b)

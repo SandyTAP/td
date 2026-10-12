@@ -223,7 +223,7 @@ func (e *ExportedChatlistInvite) DecodeBare(b *bin.Buffer) error {
 		}
 
 		if headerLen > 0 {
-			e.Peers = make([]PeerClass, 0, headerLen%bin.PreallocateLimit)
+			e.Peers = make([]PeerClass, 0, min(headerLen, bin.PreallocateLimit))
 		}
 		for idx := 0; idx < headerLen; idx++ {
 			value, err := DecodePeer(b)

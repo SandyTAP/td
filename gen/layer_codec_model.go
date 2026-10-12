@@ -246,24 +246,33 @@ func (e *layerCodecEmitter) buildLegacyInlineKeyboardRowsAdapter() error {
 
 	source.WriteString("func layerEncodeLegacyInlineKeyboardRowsCore(profile LayerProfile, rows []tg.KeyboardInlineButtonRow, b *bin.Buffer, state *layerCodecState) error {\n")
 	source.WriteString("\tif b == nil || state == nil { return &LayerCodecError{Operation: \"encode\", Profile: profile, Reason: \"nil legacy inline keyboard encoder state\"} }\n\tif len(rows) > layerCodecMaxVectorElements { return &LayerCodecError{Operation: \"encode\", Profile: profile, Reason: \"inline keyboard row vector exceeds generated limit\"} }\n\tvar rowWire uint32\n\tswitch profile {\n")
+	var rowEncodes []layerCodecSourceGroup
 	for _, shape := range shapes {
-		fmt.Fprintf(&source, "\tcase LayerProfile%d:\n\t\trowWire = 0x%08x\n", shape.layer, shape.rowWire)
+		rowEncodes = append(rowEncodes, layerCodecSourceGroup{[]int{shape.layer}, fmt.Sprintf("rowWire = 0x%08x\n", shape.rowWire)})
 	}
+	writeLayerCodecGroupedCases(&source, "\t", rowEncodes)
 	source.WriteString("\tdefault:\n\t\treturn &LayerCodecError{Operation: \"encode\", Profile: profile, Reason: \"unsupported legacy inline keyboard profile\"}\n\t}\n\tb.PutVectorHeader(len(rows))\n\tfor rowIndex := range rows {\n\t\tb.PutID(rowWire)\n\t\tbuttons := rows[rowIndex].Buttons\n\t\tif len(buttons) > layerCodecMaxVectorElements { return &LayerCodecError{Operation: \"encode\", Profile: profile, Reason: \"inline keyboard button vector exceeds generated limit\"} }\n\t\tb.PutVectorHeader(len(buttons))\n\t\tfor buttonIndex := range buttons {\n\t\t\tif err := layerEncodeFamilyKeyboardInlineButtonBody(profile, &buttons[buttonIndex], b, state); err != nil { return fmt.Errorf(\"encode legacy inline button: %w\", err) }\n\t\t}\n\t}\n\treturn nil\n}\n")
 
 	source.WriteString("func layerDecodeLegacyInlineKeyboardRowsCore(profile LayerProfile, b *bin.Buffer, state *layerCodecState) ([]tg.KeyboardInlineButtonRow, error) {\n")
 	source.WriteString("\tif b == nil || state == nil { return nil, &LayerCodecError{Operation: \"decode\", Profile: profile, Reason: \"nil legacy inline keyboard decoder state\"} }\n\trowState, err := layerCodecDescend(profile, \"decode\", state)\n\tif err != nil { return nil, err }\n\trowCount, err := layerDecodeVectorLength(profile, nil, b, true, &rowState)\n\tif err != nil { return nil, fmt.Errorf(\"decode legacy inline keyboard rows: %w\", err) }\n\trows := make([]tg.KeyboardInlineButtonRow, 0, rowCount)\n\tfor rowIndex := 0; rowIndex < rowCount; rowIndex++ {\n\t\trowID, err := b.ID()\n\t\tif err != nil { return nil, fmt.Errorf(\"decode legacy inline keyboard row constructor: %w\", err) }\n\t\tswitch profile {\n")
+	var rowDecodes []layerCodecSourceGroup
 	for _, shape := range shapes {
-		fmt.Fprintf(&source, "\t\tcase LayerProfile%d:\n\t\t\tif rowID != 0x%08x { return nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: rowID, Reason: \"unexpected legacy inline keyboard row constructor\"} }\n", shape.layer, shape.rowWire)
+		body := fmt.Sprintf("if rowID != 0x%08x { return nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: rowID, Reason: \"unexpected legacy inline keyboard row constructor\"} }\n", shape.rowWire)
+		rowDecodes = append(rowDecodes, layerCodecSourceGroup{[]int{shape.layer}, body})
 	}
+	writeLayerCodecGroupedCases(&source, "\t\t", rowDecodes)
 	source.WriteString("\t\tdefault:\n\t\t\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: rowID, Reason: \"unsupported legacy inline keyboard profile\"}\n\t\t}\n\t\tbuttonState, err := layerCodecDescend(profile, \"decode\", &rowState)\n\t\tif err != nil { return nil, err }\n\t\tbuttonCount, err := layerDecodeVectorLength(profile, nil, b, true, &buttonState)\n\t\tif err != nil { return nil, fmt.Errorf(\"decode legacy inline keyboard buttons: %w\", err) }\n\t\trow := tg.KeyboardInlineButtonRow{Buttons: make([]tg.KeyboardInlineButton, 0, buttonCount)}\n\t\tfor buttonIndex := 0; buttonIndex < buttonCount; buttonIndex++ {\n\t\t\tbuttonID, err := b.PeekID()\n\t\t\tif err != nil { return nil, fmt.Errorf(\"peek legacy inline button: %w\", err) }\n\t\t\tvar button *tg.KeyboardInlineButton\n\t\t\tswitch profile {\n")
+	var buttonDecodes []layerCodecSourceGroup
 	for _, shape := range shapes {
-		fmt.Fprintf(&source, "\t\t\tcase LayerProfile%d:\n\t\t\t\tswitch buttonID {\n", shape.layer)
+		var body strings.Builder
+		body.WriteString("switch buttonID {\n")
 		for _, wireID := range shape.buttons {
-			fmt.Fprintf(&source, "\t\t\t\tcase 0x%08x:\n\t\t\t\t\tbutton, err = layerDecodeWire%08x(profile, b, &buttonState)\n", wireID, wireID)
+			fmt.Fprintf(&body, "case 0x%08x:\n\tbutton, err = layerDecodeWire%08x(profile, b, &buttonState)\n", wireID, wireID)
 		}
-		source.WriteString("\t\t\t\tdefault:\n\t\t\t\t\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: buttonID, Reason: \"wire ID is not a legacy inline button\"}\n\t\t\t\t}\n")
+		body.WriteString("default:\n\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: buttonID, Reason: \"wire ID is not a legacy inline button\"}\n}\n")
+		buttonDecodes = append(buttonDecodes, layerCodecSourceGroup{[]int{shape.layer}, body.String()})
 	}
+	writeLayerCodecGroupedCases(&source, "\t\t\t", buttonDecodes)
 	source.WriteString("\t\t\tdefault:\n\t\t\t\treturn nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: buttonID, Reason: \"unsupported legacy inline keyboard profile\"}\n\t\t\t}\n\t\t\tif err != nil { return nil, fmt.Errorf(\"decode legacy inline button: %w\", err) }\n\t\t\tif button == nil { return nil, &LayerCodecError{Operation: \"decode\", Profile: profile, WireID: buttonID, Reason: \"legacy inline button adapter returned nil\"} }\n\t\t\trow.Buttons = append(row.Buttons, *button)\n\t\t}\n\t\trows = append(rows, row)\n\t}\n\treturn rows, nil\n}\n")
 	e.model.FamilyDeclarations = append(e.model.FamilyDeclarations, source.String())
 	e.model.Declarations = append(e.model.Declarations, source.String())
@@ -1535,7 +1544,8 @@ func (e *layerCodecEmitter) emitEncodeBody(layer int, conversion *LayerFamilyCon
 	// Required fields stream directly: an enclosing transactional entry (or a
 	// vector element checkpoint) rolls them back if a descendant projects out.
 	// This keeps the hot path single-pass without paying a buffer+copy for every
-	// required object field.
+	// required object field. Absent optional groups must not allocate the buffer
+	// header either; some nested encoders make that pointer escape to the heap.
 	for profileOrdinal := range profile.Fields {
 		field := &profile.Fields[profileOrdinal]
 		entry, ok := planned[profileOrdinal]
@@ -1548,18 +1558,14 @@ func (e *layerCodecEmitter) emitEncodeBody(layer int, conversion *LayerFamilyCon
 		if err != nil {
 			return "", err
 		}
-		entry.prepare += fmt.Sprintf("%s := &bin.Buffer{}\n", encoded)
-		if field.Condition != nil {
-			expressions := rawFlagExpressions[flagSlot{word: field.Condition.Word, bit: field.Condition.Bit}]
-			if len(expressions) == 0 {
-				return "", fmt.Errorf("conditional profile field %q has no flag group presence", field.Name)
-			}
-			present := e.nextTemp("present")
-			entry.prepare += fmt.Sprintf("%s := %s\nif %s {\n\t%s := func() error {\n%s\t\treturn nil\n\t}()\n\tif %s != nil {\n\t\tif IsLayerProjectionDrop(%s) { %s = false; %s.Reset() } else { return fmt.Errorf(\"encode optional field %s: %%w\", %s) }\n\t}\n}\n", present, strings.Join(expressions, " || "), present, hookErr, indentLayerCodec(statement, "\t\t"), hookErr, hookErr, present, encoded, field.Name, hookErr)
-			entry.present = present
-		} else {
-			entry.prepare += fmt.Sprintf("%s := func() error {\n%s\treturn nil\n}()\nif %s != nil { return fmt.Errorf(\"encode required field %s: %%w\", %s) }\n", hookErr, indentLayerCodec(statement, "\t"), hookErr, field.Name, hookErr)
+		entry.prepare += fmt.Sprintf("var %s *bin.Buffer\n", encoded)
+		expressions := rawFlagExpressions[flagSlot{word: field.Condition.Word, bit: field.Condition.Bit}]
+		if len(expressions) == 0 {
+			return "", fmt.Errorf("conditional profile field %q has no flag group presence", field.Name)
 		}
+		present := e.nextTemp("present")
+		entry.prepare += fmt.Sprintf("%s := %s\nif %s {\n\t%s = &bin.Buffer{}\n\t%s := func() error {\n%s\t\treturn nil\n\t}()\n\tif %s != nil {\n\t\tif IsLayerProjectionDrop(%s) { %s = false; %s.Reset() } else { return fmt.Errorf(\"encode optional field %s: %%w\", %s) }\n\t}\n}\n", present, strings.Join(expressions, " || "), present, encoded, hookErr, indentLayerCodec(statement, "\t\t"), hookErr, hookErr, present, encoded, field.Name, hookErr)
+		entry.present = present
 		entry.encoded = encoded
 		planned[profileOrdinal] = entry
 	}
@@ -2348,14 +2354,15 @@ func (e *layerCodecEmitter) buildFamilies() error {
 				cases = append(cases, current)
 			}
 		}
+		var projectCases, preflightCases, encodeCases []layerCodecSourceGroup
 		for _, current := range cases {
-			writeLayerCodecCaseLabel(&project, "\t", current.layers)
-			project.WriteString(indentLayerCodec(current.project, "\t\t"))
-			writeLayerCodecCaseLabel(&preflight, "\t", current.layers)
-			preflight.WriteString(indentLayerCodec(current.preflight, "\t\t"))
-			writeLayerCodecCaseLabel(&encodeBody, "\t", current.layers)
-			encodeBody.WriteString(indentLayerCodec(current.encode, "\t\t"))
+			projectCases = append(projectCases, layerCodecSourceGroup{current.layers, current.project})
+			preflightCases = append(preflightCases, layerCodecSourceGroup{current.layers, current.preflight})
+			encodeCases = append(encodeCases, layerCodecSourceGroup{current.layers, current.encode})
 		}
+		writeLayerCodecGroupedCases(&project, "\t", projectCases)
+		writeLayerCodecGroupedCases(&preflight, "\t", preflightCases)
+		writeLayerCodecGroupedCases(&encodeBody, "\t", encodeCases)
 		project.WriteString("\tdefault:\n\t\treturn nil, false, &LayerCodecError{Operation: \"project\", Profile: profile, Semantic: " + semanticID + ", Reason: \"unsupported exact profile\"}\n\t}\n}\n")
 		preflight.WriteString("\tdefault:\n\t\treturn 0, &LayerCodecError{Operation: \"preflight\", Profile: profile, Semantic: " + semanticID + ", Reason: \"unsupported exact profile\"}\n\t}\n}\n")
 		encodeBody.WriteString("\tdefault:\n\t\treturn &LayerCodecError{Operation: \"encode\", Profile: profile, Semantic: " + semanticID + ", Reason: \"unsupported exact profile\"}\n\t}\n}\n")
@@ -2511,6 +2518,7 @@ func (e *layerCodecEmitter) buildClasses() error {
 		if err != nil {
 			return err
 		}
+		encodeGroups := groupLayerCodecClassEncoders(groups)
 		classType := class.Canonical.Backend.Name
 		suffix := layerCodecClassSuffix(class.Canonical)
 		projectName := "layerProjectClass" + suffix
@@ -2528,7 +2536,7 @@ func (e *layerCodecEmitter) buildClasses() error {
 
 		var preflight strings.Builder
 		fmt.Fprintf(&preflight, "func layerPreflightClass%s(profile LayerProfile, value %s, state *layerCodecState) (int, error) {\n\tprojected, keep, err := %s(profile, value)\n\tif err != nil { return 0, err }\n\tif !keep { return 0, nil }\n\tswitch profile {\n", suffix, classType, projectName)
-		for _, group := range groups {
+		for _, group := range encodeGroups {
 			writeLayerCodecCaseLabel(&preflight, "\t", group.Layers)
 			preflight.WriteString("\t\tswitch value := projected.(type) {\n")
 			seenTypes := make(map[string]struct{})
@@ -2548,7 +2556,7 @@ func (e *layerCodecEmitter) buildClasses() error {
 		fmt.Fprintf(&encode, "\treturn layerCodecEncodeAtomic(profile, b, func() error { return %s(profile, value, b, state) })\n}\n", encodeBodyName)
 		fmt.Fprintf(&encodeBody, "func %s(profile LayerProfile, value %s, b *bin.Buffer, state *layerCodecState) error {\n", encodeBodyName, classType)
 		fmt.Fprintf(&encodeBody, "\tprojected, keep, err := %s(profile, value)\n\tif err != nil { return err }\n\tif !keep { return &LayerProjectionError{Profile: profile, Dropped: true, Reason: \"class value was projected out before encoding\"} }\n\tswitch profile {\n", projectName)
-		for _, group := range groups {
+		for _, group := range encodeGroups {
 			writeLayerCodecCaseLabel(&encodeBody, "\t", group.Layers)
 			encodeBody.WriteString("\t\tswitch value := projected.(type) {\n")
 			seenTypes := make(map[string]struct{})
