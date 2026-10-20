@@ -164,6 +164,16 @@ Adding a schema-identical next profile therefore only extends generated profile
 metadata and switch cases. A genuinely changed schema stops at generation time
 until its semantic policy and typed hook are supplied.
 
+### Layer 231 review record
+
+Canonical Layer 231 is frozen from Telegram Desktop `dev` at
+`91ed9dbf2004` (2026-10-17). Profiles 225-230 remain generated. The
+[Layer 231 review](LAYER231_REVIEW.md) records source provenance, the
+unchanged 243 reviewed policy decisions and the three mechanical additions
+(`urlAuthResultRequest`, `messages.acceptUrlAuth`,
+`inputTonConnectOauthSession`). The policy audit reported no new obligations
+and no stale keys.
+
 ### Layer 230 review record
 
 Canonical Layer 230 is frozen from Telegram Desktop 7.3.1. Profiles 225–229

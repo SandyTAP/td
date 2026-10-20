@@ -11,6 +11,17 @@ for source reference, but `gif-download` and `userbot` still depend on
 before they can be built against this renamed module and are not part of this
 fork's release gate.
 
+## Layer 231 release
+
+The canonical model is Layer 231 from Telegram Desktop `dev` at
+`91ed9dbf2004` (2026-10-17); exact profiles 225–230 remain available,
+including the 228/229 PageBlock storage codecs. The Layer 231 delta is
+mechanical: `urlAuthResultRequest` and `messages.acceptUrlAuth` gained new
+constructor CRCs, and `inputTonConnectOauthSession` was added. No reviewed
+policy decision changed and the policy audit reported no new obligations. See
+the source, conversion decisions and validation record in
+[Layer 231 review](_schema/layers/LAYER231_REVIEW.md).
+
 ## Layer 230 release
 
 The canonical model is Layer 230 from Telegram Desktop 7.3.1; exact profiles

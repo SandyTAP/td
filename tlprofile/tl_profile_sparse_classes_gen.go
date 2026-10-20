@@ -23,7 +23,7 @@ func layerDecodeClassAiComposeTone(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x9bad6414:
 			return layerDecodeWire9bad6414(profile, b, state)
@@ -43,7 +43,7 @@ func layerDecodeClassAuthAuthorization(profile LayerProfile, b *bin.Buffer, stat
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2ea2c0d4:
 			return layerDecodeWire2ea2c0d4(profile, b, state)
@@ -74,7 +74,7 @@ func layerDecodeClassAuthSentCode(profile LayerProfile, b *bin.Buffer, state *la
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2390fe44:
 			return layerDecodeWire2390fe44(profile, b, state)
@@ -96,7 +96,7 @@ func layerDecodeClassBotCommandScope(profile LayerProfile, b *bin.Buffer, state 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0a1321f3:
 			return layerDecodeWire0a1321f3(profile, b, state)
@@ -145,7 +145,7 @@ func layerDecodeClassBotInlineMessage(profile LayerProfile, b *bin.Buffer, state
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x051846fd:
 			return layerDecodeWire051846fd(profile, b, state)
@@ -177,7 +177,7 @@ func layerDecodeClassBotInlineResult(profile LayerProfile, b *bin.Buffer, state 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x11965f3a:
 			return layerDecodeWire11965f3a(profile, b, state)
@@ -197,7 +197,7 @@ func layerDecodeClassBotMenuButton(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4258c205:
 			return layerDecodeWire4258c205(profile, b, state)
@@ -219,7 +219,7 @@ func layerDecodeClassChannelAdminLogEventAction(profile LayerProfile, b *bin.Buf
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x02cc6383:
 			return layerDecodeWire02cc6383(profile, b, state)
@@ -339,7 +339,7 @@ func layerDecodeClassChannelLocation(profile LayerProfile, b *bin.Buffer, state 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x209b82db:
 			return layerDecodeWire209b82db(profile, b, state)
@@ -359,7 +359,7 @@ func layerDecodeClassChannelParticipant(profile LayerProfile, b *bin.Buffer, sta
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1b03f006:
 			return layerDecodeWire1b03f006(profile, b, state)
@@ -402,7 +402,7 @@ func layerDecodeClassChat(profile LayerProfile, b *bin.Buffer, state *layerCodec
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x17d493d5:
 			return layerDecodeWire17d493d5(profile, b, state)
@@ -450,7 +450,7 @@ func layerDecodeClassChatFull(profile LayerProfile, b *bin.Buffer, state *layerC
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2633421b:
 			return layerDecodeWire2633421b(profile, b, state)
@@ -472,7 +472,7 @@ func layerDecodeClassChatInvite(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x5a686d7c:
 			return layerDecodeWire5a686d7c(profile, b, state)
@@ -494,7 +494,7 @@ func layerDecodeClassChatParticipants(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x3cbc93f8:
 			return layerDecodeWire3cbc93f8(profile, b, state)
@@ -514,7 +514,7 @@ func layerDecodeClassChatPhoto(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1c6e1c11:
 			return layerDecodeWire1c6e1c11(profile, b, state)
@@ -534,7 +534,7 @@ func layerDecodeClassChatReactions(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x52928bca:
 			return layerDecodeWire52928bca(profile, b, state)
@@ -556,7 +556,7 @@ func layerDecodeClassChatTheme(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x3458f9c8:
 			return layerDecodeWire3458f9c8(profile, b, state)
@@ -585,7 +585,7 @@ func layerDecodeClassDialog(profile LayerProfile, b *bin.Buffer, state *layerCod
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x71bd134c:
 			return layerDecodeWire71bd134c(profile, b, state)
@@ -607,7 +607,7 @@ func layerDecodeClassDialogFilter(profile LayerProfile, b *bin.Buffer, state *la
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x363293ae:
 			return layerDecodeWire363293ae(profile, b, state)
@@ -638,7 +638,7 @@ func layerDecodeClassDialogPeer(profile LayerProfile, b *bin.Buffer, state *laye
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2f65c8e4:
 			return layerDecodeWire2f65c8e4(profile, b, state)
@@ -660,7 +660,7 @@ func layerDecodeClassDocument(profile LayerProfile, b *bin.Buffer, state *layerC
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x36f8c871:
 			return layerDecodeWire36f8c871(profile, b, state)
@@ -689,7 +689,7 @@ func layerDecodeClassDraftMessage(profile LayerProfile, b *bin.Buffer, state *la
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1b0c841a:
 			return layerDecodeWire1b0c841a(profile, b, state)
@@ -709,7 +709,7 @@ func layerDecodeClassEmojiStatus(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x07141dbf:
 			return layerDecodeWire07141dbf(profile, b, state)
@@ -733,7 +733,7 @@ func layerDecodeClassEncryptedMessage(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x23734b06:
 			return layerDecodeWire23734b06(profile, b, state)
@@ -753,7 +753,7 @@ func layerDecodeClassExportedChatInvite(profile LayerProfile, b *bin.Buffer, sta
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0xa22cbd96:
 			return layerDecodeWirea22cbd96(profile, b, state)
@@ -773,7 +773,7 @@ func layerDecodeClassForumTopic(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x023f109b:
 			return layerDecodeWire023f109b(profile, b, state)
@@ -793,7 +793,7 @@ func layerDecodeClassGeoPoint(profile LayerProfile, b *bin.Buffer, state *layerC
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1117dd5f:
 			return layerDecodeWire1117dd5f(profile, b, state)
@@ -813,7 +813,7 @@ func layerDecodeClassGroupCall(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x7780bcb4:
 			return layerDecodeWire7780bcb4(profile, b, state)
@@ -838,7 +838,7 @@ func layerDecodeClassInlineButtonType(profile LayerProfile, b *bin.Buffer, state
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2955bc38:
 			return layerDecodeWire2955bc38(profile, b, state)
@@ -878,7 +878,7 @@ func layerDecodeClassInlineQueryPeerType(profile LayerProfile, b *bin.Buffer, st
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0e3b2d0c:
 			return layerDecodeWire0e3b2d0c(profile, b, state)
@@ -917,7 +917,7 @@ func layerDecodeClassInputAiComposeTone(profile LayerProfile, b *bin.Buffer, sta
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0773c080:
 			return layerDecodeWire0773c080(profile, b, state)
@@ -962,7 +962,7 @@ func layerDecodeClassInputBotInlineMessage(profile LayerProfile, b *bin.Buffer, 
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x3380c786:
 			return layerDecodeWire3380c786(profile, b, state)
@@ -996,7 +996,7 @@ func layerDecodeClassInputBotInlineMessageID(profile LayerProfile, b *bin.Buffer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x890c3d89:
 			return layerDecodeWire890c3d89(profile, b, state)
@@ -1016,7 +1016,7 @@ func layerDecodeClassInputBotInlineResult(profile LayerProfile, b *bin.Buffer, s
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4fa417f2:
 			return layerDecodeWire4fa417f2(profile, b, state)
@@ -1040,7 +1040,7 @@ func layerDecodeClassInputChannel(profile LayerProfile, b *bin.Buffer, state *la
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x5b934f9d:
 			return layerDecodeWire5b934f9d(profile, b, state)
@@ -1062,7 +1062,7 @@ func layerDecodeClassInputCheckPasswordSRP(profile LayerProfile, b *bin.Buffer, 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x9880f658:
 			return layerDecodeWire9880f658(profile, b, state)
@@ -1091,7 +1091,7 @@ func layerDecodeClassInputDialogPeer(profile LayerProfile, b *bin.Buffer, state 
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x64600527:
 			return layerDecodeWire64600527(profile, b, state)
@@ -1113,7 +1113,7 @@ func layerDecodeClassInputDocument(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1abfb575:
 			return layerDecodeWire1abfb575(profile, b, state)
@@ -1133,7 +1133,7 @@ func layerDecodeClassInputGeoPoint(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x48222faf:
 			return layerDecodeWire48222faf(profile, b, state)
@@ -1153,7 +1153,7 @@ func layerDecodeClassInputGroupCall(profile LayerProfile, b *bin.Buffer, state *
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x8c10603f:
 			return layerDecodeWire8c10603f(profile, b, state)
@@ -1210,7 +1210,7 @@ func layerDecodeClassInputInvoice(profile LayerProfile, b *bin.Buffer, state *la
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0923d8d1:
 			return layerDecodeWire0923d8d1(profile, b, state)
@@ -1256,7 +1256,7 @@ func layerDecodeClassInputMedia(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x037c9330:
 			return layerDecodeWire037c9330(profile, b, state)
@@ -1327,7 +1327,7 @@ func layerDecodeClassInputNotifyPeer(profile LayerProfile, b *bin.Buffer, state 
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x193b4417:
 			return layerDecodeWire193b4417(profile, b, state)
@@ -1355,7 +1355,7 @@ func layerDecodeClassInputPaymentCredentials(profile LayerProfile, b *bin.Buffer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0aa1c39f:
 			return layerDecodeWire0aa1c39f(profile, b, state)
@@ -1379,7 +1379,7 @@ func layerDecodeClassInputPeer(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x27bcbbfc:
 			return layerDecodeWire27bcbbfc(profile, b, state)
@@ -1409,7 +1409,7 @@ func layerDecodeClassInputPhoto(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1cd7bf0d:
 			return layerDecodeWire1cd7bf0d(profile, b, state)
@@ -1429,7 +1429,7 @@ func layerDecodeClassInputPrivacyRule(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0ba52007:
 			return layerDecodeWire0ba52007(profile, b, state)
@@ -1469,7 +1469,7 @@ func layerDecodeClassInputQuickReplyShortcut(profile LayerProfile, b *bin.Buffer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x01190cf1:
 			return layerDecodeWire01190cf1(profile, b, state)
@@ -1500,7 +1500,7 @@ func layerDecodeClassInputReplyTo(profile LayerProfile, b *bin.Buffer, state *la
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x3bd4b7c2:
 			return layerDecodeWire3bd4b7c2(profile, b, state)
@@ -1529,7 +1529,7 @@ func layerDecodeClassInputRichMessage(profile LayerProfile, b *bin.Buffer, state
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x004b572c:
 			return layerDecodeWire004b572c(profile, b, state)
@@ -1572,7 +1572,7 @@ func layerDecodeClassInputStorePaymentPurpose(profile LayerProfile, b *bin.Buffe
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x160544ca:
 			return layerDecodeWire160544ca(profile, b, state)
@@ -1604,7 +1604,7 @@ func layerDecodeClassInputTheme(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x3c5693e9:
 			return layerDecodeWire3c5693e9(profile, b, state)
@@ -1624,7 +1624,7 @@ func layerDecodeClassInputUser(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1da448e2:
 			return layerDecodeWire1da448e2(profile, b, state)
@@ -1648,7 +1648,7 @@ func layerDecodeClassMediaArea(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x14455871:
 			return layerDecodeWire14455871(profile, b, state)
@@ -1693,7 +1693,7 @@ func layerDecodeClassMessage(profile LayerProfile, b *bin.Buffer, state *layerCo
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x7600b9d3:
 			return layerDecodeWire7600b9d3(profile, b, state)
@@ -2136,7 +2136,7 @@ func layerDecodeClassMessageAction(profile LayerProfile, b *bin.Buffer, state *l
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x031224c3:
 			return layerDecodeWire031224c3(profile, b, state)
@@ -2349,7 +2349,7 @@ func layerDecodeClassMessageEntity(profile LayerProfile, b *bin.Buffer, state *l
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0652c1c5:
 			return layerDecodeWire0652c1c5(profile, b, state)
@@ -2417,7 +2417,7 @@ func layerDecodeClassMessageExtendedMedia(profile LayerProfile, b *bin.Buffer, s
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0xad628cc8:
 			return layerDecodeWiread628cc8(profile, b, state)
@@ -2437,7 +2437,7 @@ func layerDecodeClassMessageMedia(profile LayerProfile, b *bin.Buffer, state *la
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x08cbec07:
 			return layerDecodeWire08cbec07(profile, b, state)
@@ -2491,7 +2491,7 @@ func layerDecodeClassMessagePeerVote(profile LayerProfile, b *bin.Buffer, state 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4628f6e6:
 			return layerDecodeWire4628f6e6(profile, b, state)
@@ -2513,7 +2513,7 @@ func layerDecodeClassMessageReplyHeader(profile LayerProfile, b *bin.Buffer, sta
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0e5af939:
 			return layerDecodeWire0e5af939(profile, b, state)
@@ -2533,7 +2533,7 @@ func layerDecodeClassMessagesFilter(profile LayerProfile, b *bin.Buffer, state *
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1bb00451:
 			return layerDecodeWire1bb00451(profile, b, state)
@@ -2600,7 +2600,7 @@ func layerDecodeClassNotifyPeer(profile LayerProfile, b *bin.Buffer, state *laye
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x226e6308:
 			return layerDecodeWire226e6308(profile, b, state)
@@ -2774,7 +2774,7 @@ func layerDecodeClassPageBlock(profile LayerProfile, b *bin.Buffer, state *layer
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x031f9590:
 			return layerDecodeWire031f9590(profile, b, state)
@@ -2881,7 +2881,7 @@ func layerDecodeClassPageListItem(profile LayerProfile, b *bin.Buffer, state *la
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2f58683c:
 			return layerDecodeWire2f58683c(profile, b, state)
@@ -2910,7 +2910,7 @@ func layerDecodeClassPageListOrderedItem(profile LayerProfile, b *bin.Buffer, st
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x15031189:
 			return layerDecodeWire15031189(profile, b, state)
@@ -2930,7 +2930,7 @@ func layerDecodeClassPeer(profile LayerProfile, b *bin.Buffer, state *layerCodec
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x36c6019a:
 			return layerDecodeWire36c6019a(profile, b, state)
@@ -2952,7 +2952,7 @@ func layerDecodeClassPeerColor(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0xb54b5acf:
 			return layerDecodeWireb54b5acf(profile, b, state)
@@ -2974,7 +2974,7 @@ func layerDecodeClassPhoneCall(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x14b0ed0c:
 			return layerDecodeWire14b0ed0c(profile, b, state)
@@ -3002,7 +3002,7 @@ func layerDecodeClassPhoto(profile LayerProfile, b *bin.Buffer, state *layerCode
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x2331b22d:
 			return layerDecodeWire2331b22d(profile, b, state)
@@ -3022,7 +3022,7 @@ func layerDecodeClassPollAnswer(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x199fed96:
 			return layerDecodeWire199fed96(profile, b, state)
@@ -3042,7 +3042,7 @@ func layerDecodeClassPrivacyRule(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x21461b5d:
 			return layerDecodeWire21461b5d(profile, b, state)
@@ -3082,7 +3082,7 @@ func layerDecodeClassProfileTab(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4d4bd46a:
 			return layerDecodeWire4d4bd46a(profile, b, state)
@@ -3114,7 +3114,7 @@ func layerDecodeClassPublicForward(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x01f2bf4a:
 			return layerDecodeWire01f2bf4a(profile, b, state)
@@ -3134,7 +3134,7 @@ func layerDecodeClassReaction(profile LayerProfile, b *bin.Buffer, state *layerC
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1b2286b8:
 			return layerDecodeWire1b2286b8(profile, b, state)
@@ -3158,7 +3158,7 @@ func layerDecodeClassRecentMeURL(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x46e1d13d:
 			return layerDecodeWire46e1d13d(profile, b, state)
@@ -3197,7 +3197,7 @@ func layerDecodeClassReplyMarkup(profile LayerProfile, b *bin.Buffer, state *lay
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x85dd99d1:
 			return layerDecodeWire85dd99d1(profile, b, state)
@@ -3221,7 +3221,7 @@ func layerDecodeClassRequestPeerType(profile LayerProfile, b *bin.Buffer, state 
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x339bef6c:
 			return layerDecodeWire339bef6c(profile, b, state)
@@ -3477,7 +3477,7 @@ func layerDecodeClassRichText(profile LayerProfile, b *bin.Buffer, state *layerC
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x01a9fbfc:
 			return layerDecodeWire01a9fbfc(profile, b, state)
@@ -3557,7 +3557,7 @@ func layerDecodeClassSavedDialog(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x64407ea7:
 			return layerDecodeWire64407ea7(profile, b, state)
@@ -3577,7 +3577,7 @@ func layerDecodeClassSecureRequiredType(profile LayerProfile, b *bin.Buffer, sta
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x027477b4:
 			return layerDecodeWire027477b4(profile, b, state)
@@ -3597,7 +3597,7 @@ func layerDecodeClassSecureValueError(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x00be3dfa:
 			return layerDecodeWire00be3dfa(profile, b, state)
@@ -3721,7 +3721,7 @@ func layerDecodeClassSendMessageAction(profile LayerProfile, b *bin.Buffer, stat
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x16bf744e:
 			return layerDecodeWire16bf744e(profile, b, state)
@@ -3781,7 +3781,7 @@ func layerDecodeClassStarGift(profile LayerProfile, b *bin.Buffer, state *layerC
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x313a9547:
 			return layerDecodeWire313a9547(profile, b, state)
@@ -3801,7 +3801,7 @@ func layerDecodeClassStarGiftAttribute(profile LayerProfile, b *bin.Buffer, stat
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4e7085ea:
 			return layerDecodeWire4e7085ea(profile, b, state)
@@ -3825,7 +3825,7 @@ func layerDecodeClassStarGiftAuctionState(profile LayerProfile, b *bin.Buffer, s
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x771a4e66:
 			return layerDecodeWire771a4e66(profile, b, state)
@@ -3847,7 +3847,7 @@ func layerDecodeClassStarsAmount(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x74aee3e0:
 			return layerDecodeWire74aee3e0(profile, b, state)
@@ -3867,7 +3867,7 @@ func layerDecodeClassStarsTransactionPeer(profile LayerProfile, b *bin.Buffer, s
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x250dbaf8:
 			return layerDecodeWire250dbaf8(profile, b, state)
@@ -3899,7 +3899,7 @@ func layerDecodeClassStatsGraph(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4a27eb2d:
 			return layerDecodeWire4a27eb2d(profile, b, state)
@@ -3921,7 +3921,7 @@ func layerDecodeClassStoryItem(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x16a4b93c:
 			return layerDecodeWire16a4b93c(profile, b, state)
@@ -3943,7 +3943,7 @@ func layerDecodeClassStoryReaction(profile LayerProfile, b *bin.Buffer, state *l
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x6090d6d5:
 			return layerDecodeWire6090d6d5(profile, b, state)
@@ -3965,7 +3965,7 @@ func layerDecodeClassStoryView(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x9083670b:
 			return layerDecodeWire9083670b(profile, b, state)
@@ -4010,7 +4010,7 @@ func layerDecodeClassTopPeerCategory(profile LayerProfile, b *bin.Buffer, state 
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0637b7ed:
 			return layerDecodeWire0637b7ed(profile, b, state)
@@ -5356,7 +5356,7 @@ func layerDecodeClassUpdate(profile LayerProfile, b *bin.Buffer, state *layerCod
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x0084cd5a:
 			return layerDecodeWire0084cd5a(profile, b, state)
@@ -5712,7 +5712,7 @@ func layerDecodeClassUpdates(profile LayerProfile, b *bin.Buffer, state *layerCo
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x313bc7f8:
 			return layerDecodeWire313bc7f8(profile, b, state)
@@ -5751,7 +5751,7 @@ func layerDecodeClassUser(profile LayerProfile, b *bin.Buffer, state *layerCodec
 		default:
 			return nil, &LayerCodecError{Operation: "decode", Profile: profile, WireID: id, Reason: "wire ID is not a constructor of exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0xb1b8cc83:
 			return layerDecodeWireb1b8cc83(profile, b, state)
@@ -5771,7 +5771,7 @@ func layerDecodeClassUserProfilePhoto(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x4f11bae1:
 			return layerDecodeWire4f11bae1(profile, b, state)
@@ -5791,7 +5791,7 @@ func layerDecodeClassUserStatus(profile LayerProfile, b *bin.Buffer, state *laye
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x008c703f:
 			return layerDecodeWire008c703f(profile, b, state)
@@ -5819,7 +5819,7 @@ func layerDecodeClassWallPaper(profile LayerProfile, b *bin.Buffer, state *layer
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0xa437c3ed:
 			return layerDecodeWirea437c3ed(profile, b, state)
@@ -5839,7 +5839,7 @@ func layerDecodeClassWebDocument(profile LayerProfile, b *bin.Buffer, state *lay
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x1c570ed1:
 			return layerDecodeWire1c570ed1(profile, b, state)
@@ -5859,7 +5859,7 @@ func layerDecodeClassWebPage(profile LayerProfile, b *bin.Buffer, state *layerCo
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x211a1788:
 			return layerDecodeWire211a1788(profile, b, state)
@@ -5883,7 +5883,7 @@ func layerDecodeClassWebPageAttribute(profile LayerProfile, b *bin.Buffer, state
 		return nil, fmt.Errorf("peek class constructor: %w", err)
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch id {
 		case 0x01c641c2:
 			return layerDecodeWire01c641c2(profile, b, state)
@@ -5916,7 +5916,7 @@ func layerEncodeClassAccountChatThemesBody(profile LayerProfile, value tg.Accoun
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountChatThemes:
 			return layerEncodeFamilyAccountChatThemesBody(profile, value, b, state)
@@ -5940,7 +5940,7 @@ func layerEncodeClassAccountEmailVerifiedBody(profile LayerProfile, value tg.Acc
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountEmailVerified:
 			return layerEncodeFamilyAccountEmailVerifiedBody(profile, value, b, state)
@@ -5964,7 +5964,7 @@ func layerEncodeClassAccountEmojiStatusesBody(profile LayerProfile, value tg.Acc
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountEmojiStatuses:
 			return layerEncodeFamilyAccountEmojiStatusesBody(profile, value, b, state)
@@ -5988,7 +5988,7 @@ func layerEncodeClassAccountResetPasswordResultBody(profile LayerProfile, value 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountResetPasswordFailedWait:
 			return layerEncodeFamilyAccountResetPasswordFailedWaitBody(profile, value, b, state)
@@ -6014,7 +6014,7 @@ func layerEncodeClassAccountSavedMusicIDsBody(profile LayerProfile, value tg.Acc
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountSavedMusicIDs:
 			return layerEncodeFamilyAccountSavedMusicIDsBody(profile, value, b, state)
@@ -6038,7 +6038,7 @@ func layerEncodeClassAccountSavedRingtoneBody(profile LayerProfile, value tg.Acc
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountSavedRingtone:
 			return layerEncodeFamilyAccountSavedRingtoneBody(profile, value, b, state)
@@ -6062,7 +6062,7 @@ func layerEncodeClassAccountSavedRingtonesBody(profile LayerProfile, value tg.Ac
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountSavedRingtones:
 			return layerEncodeFamilyAccountSavedRingtonesBody(profile, value, b, state)
@@ -6086,7 +6086,7 @@ func layerEncodeClassAccountThemesBody(profile LayerProfile, value tg.AccountThe
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountThemes:
 			return layerEncodeFamilyAccountThemesBody(profile, value, b, state)
@@ -6110,7 +6110,7 @@ func layerEncodeClassAccountWallPapersBody(profile LayerProfile, value tg.Accoun
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountWallPapers:
 			return layerEncodeFamilyAccountWallPapersBody(profile, value, b, state)
@@ -6140,7 +6140,7 @@ func layerEncodeClassAccountWebBrowserSettingsBody(profile LayerProfile, value t
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AccountWebBrowserSettings:
 			return layerEncodeFamilyAccountWebBrowserSettingsBody(profile, value, b, state)
@@ -6164,7 +6164,7 @@ func layerEncodeClassAiComposeToneBody(profile LayerProfile, value tg.AiComposeT
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AiComposeTone:
 			return layerEncodeFamilyAiComposeToneBody(profile, value, b, state)
@@ -6188,7 +6188,7 @@ func layerEncodeClassAicomposeTonesBody(profile LayerProfile, value tg.Aicompose
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AicomposeTones:
 			return layerEncodeFamilyAicomposeTonesBody(profile, value, b, state)
@@ -6212,7 +6212,7 @@ func layerEncodeClassAttachMenuBotsBody(profile LayerProfile, value tg.AttachMen
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AttachMenuBots:
 			return layerEncodeFamilyAttachMenuBotsBody(profile, value, b, state)
@@ -6236,7 +6236,7 @@ func layerEncodeClassAuthAuthorizationBody(profile LayerProfile, value tg.AuthAu
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AuthAuthorization:
 			return layerEncodeFamilyAuthAuthorizationBody(profile, value, b, state)
@@ -6260,7 +6260,7 @@ func layerEncodeClassAuthLoginTokenBody(profile LayerProfile, value tg.AuthLogin
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AuthLoginToken:
 			return layerEncodeFamilyAuthLoginTokenBody(profile, value, b, state)
@@ -6286,7 +6286,7 @@ func layerEncodeClassAuthSentCodeBody(profile LayerProfile, value tg.AuthSentCod
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.AuthSentCode:
 			return layerEncodeFamilyAuthSentCodeBody(profile, value, b, state)
@@ -6312,7 +6312,7 @@ func layerEncodeClassBotCommandScopeBody(profile LayerProfile, value tg.BotComma
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.BotCommandScopeChatAdmins:
 			return layerEncodeFamilyBotCommandScopeChatAdminsBody(profile, value, b, state)
@@ -6366,7 +6366,7 @@ func layerEncodeClassBotInlineMessageBody(profile LayerProfile, value tg.BotInli
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.BotInlineMessageMediaAuto:
 			return layerEncodeFamilyBotInlineMessageMediaAutoBody(profile, value, b, state)
@@ -6402,7 +6402,7 @@ func layerEncodeClassBotInlineResultBody(profile LayerProfile, value tg.BotInlin
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.BotInlineMediaResult:
 			return layerEncodeFamilyBotInlineMediaResultBody(profile, value, b, state)
@@ -6426,7 +6426,7 @@ func layerEncodeClassBotMenuButtonBody(profile LayerProfile, value tg.BotMenuBut
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.BotMenuButton:
 			return layerEncodeFamilyBotMenuButtonBody(profile, value, b, state)
@@ -6452,7 +6452,7 @@ func layerEncodeClassChannelAdminLogEventActionBody(profile LayerProfile, value 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelAdminLogEventActionChangeAbout:
 			return layerEncodeFamilyChannelAdminLogEventActionChangeAboutBody(profile, value, b, state)
@@ -6576,7 +6576,7 @@ func layerEncodeClassChannelLocationBody(profile LayerProfile, value tg.ChannelL
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelLocation:
 			return layerEncodeFamilyChannelLocationBody(profile, value, b, state)
@@ -6600,7 +6600,7 @@ func layerEncodeClassChannelParticipantBody(profile LayerProfile, value tg.Chann
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelParticipant:
 			return layerEncodeFamilyChannelParticipantBody(profile, value, b, state)
@@ -6632,7 +6632,7 @@ func layerEncodeClassChannelsChannelParticipantsBody(profile LayerProfile, value
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelsChannelParticipants:
 			return layerEncodeFamilyChannelsChannelParticipantsBody(profile, value, b, state)
@@ -6656,7 +6656,7 @@ func layerEncodeClassChannelsSponsoredMessageReportResultBody(profile LayerProfi
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelsSponsoredMessageReportResultAdsHidden:
 			return layerEncodeFamilyChannelsSponsoredMessageReportResultAdsHiddenBody(profile, value, b, state)
@@ -6698,7 +6698,7 @@ func layerEncodeClassChatBody(profile LayerProfile, value tg.ChatClass, b *bin.B
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.Channel:
 			return layerEncodeFamilyChannelBody(profile, value, b, state)
@@ -6742,7 +6742,7 @@ func layerEncodeClassChatFullBody(profile LayerProfile, value tg.ChatFullClass, 
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChannelFull:
 			return layerEncodeFamilyChannelFullBody(profile, value, b, state)
@@ -6768,7 +6768,7 @@ func layerEncodeClassChatInviteBody(profile LayerProfile, value tg.ChatInviteCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatInvite:
 			return layerEncodeFamilyChatInviteBody(profile, value, b, state)
@@ -6794,7 +6794,7 @@ func layerEncodeClassChatParticipantsBody(profile LayerProfile, value tg.ChatPar
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatParticipants:
 			return layerEncodeFamilyChatParticipantsBody(profile, value, b, state)
@@ -6818,7 +6818,7 @@ func layerEncodeClassChatPhotoBody(profile LayerProfile, value tg.ChatPhotoClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatPhoto:
 			return layerEncodeFamilyChatPhotoBody(profile, value, b, state)
@@ -6842,7 +6842,7 @@ func layerEncodeClassChatReactionsBody(profile LayerProfile, value tg.ChatReacti
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatReactionsAll:
 			return layerEncodeFamilyChatReactionsAllBody(profile, value, b, state)
@@ -6868,7 +6868,7 @@ func layerEncodeClassChatThemeBody(profile LayerProfile, value tg.ChatThemeClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatTheme:
 			return layerEncodeFamilyChatThemeBody(profile, value, b, state)
@@ -6892,7 +6892,7 @@ func layerEncodeClassChatlistsChatlistInviteBody(profile LayerProfile, value tg.
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatlistsChatlistInvite:
 			return layerEncodeFamilyChatlistsChatlistInviteBody(profile, value, b, state)
@@ -6916,7 +6916,7 @@ func layerEncodeClassContactsBlockedBody(profile LayerProfile, value tg.Contacts
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ContactsBlocked:
 			return layerEncodeFamilyContactsBlockedBody(profile, value, b, state)
@@ -6940,7 +6940,7 @@ func layerEncodeClassContactsContactsBody(profile LayerProfile, value tg.Contact
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ContactsContacts:
 			return layerEncodeFamilyContactsContactsBody(profile, value, b, state)
@@ -6964,7 +6964,7 @@ func layerEncodeClassContactsSponsoredPeersBody(profile LayerProfile, value tg.C
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ContactsSponsoredPeers:
 			return layerEncodeFamilyContactsSponsoredPeersBody(profile, value, b, state)
@@ -6988,7 +6988,7 @@ func layerEncodeClassContactsTopPeersBody(profile LayerProfile, value tg.Contact
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ContactsTopPeers:
 			return layerEncodeFamilyContactsTopPeersBody(profile, value, b, state)
@@ -7024,7 +7024,7 @@ func layerEncodeClassDialogBody(profile LayerProfile, value tg.DialogClass, b *b
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.Dialog:
 			return layerEncodeFamilyDialogBody(profile, value, b, state)
@@ -7050,7 +7050,7 @@ func layerEncodeClassDialogFilterBody(profile LayerProfile, value tg.DialogFilte
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.DialogFilter:
 			return layerEncodeFamilyDialogFilterBody(profile, value, b, state)
@@ -7086,7 +7086,7 @@ func layerEncodeClassDialogPeerBody(profile LayerProfile, value tg.DialogPeerCla
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.DialogPeer:
 			return layerEncodeFamilyDialogPeerBody(profile, value, b, state)
@@ -7112,7 +7112,7 @@ func layerEncodeClassDocumentBody(profile LayerProfile, value tg.DocumentClass, 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.Document:
 			return layerEncodeFamilyDocumentBody(profile, value, b, state)
@@ -7136,7 +7136,7 @@ func layerEncodeClassDraftMessageBody(profile LayerProfile, value tg.DraftMessag
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.DraftMessage:
 			return layerEncodeFamilyDraftMessageBody(profile, value, b, state)
@@ -7160,7 +7160,7 @@ func layerEncodeClassEmojiListBody(profile LayerProfile, value tg.EmojiListClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EmojiList:
 			return layerEncodeFamilyEmojiListBody(profile, value, b, state)
@@ -7184,7 +7184,7 @@ func layerEncodeClassEmojiStatusBody(profile LayerProfile, value tg.EmojiStatusC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EmojiStatus:
 			return layerEncodeFamilyEmojiStatusBody(profile, value, b, state)
@@ -7212,7 +7212,7 @@ func layerEncodeClassEncryptedChatBody(profile LayerProfile, value tg.EncryptedC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EncryptedChat:
 			return layerEncodeFamilyEncryptedChatBody(profile, value, b, state)
@@ -7242,7 +7242,7 @@ func layerEncodeClassEncryptedFileBody(profile LayerProfile, value tg.EncryptedF
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EncryptedFile:
 			return layerEncodeFamilyEncryptedFileBody(profile, value, b, state)
@@ -7266,7 +7266,7 @@ func layerEncodeClassEncryptedMessageBody(profile LayerProfile, value tg.Encrypt
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EncryptedMessage:
 			return layerEncodeFamilyEncryptedMessageBody(profile, value, b, state)
@@ -7296,7 +7296,7 @@ func layerEncodeClassEphemeralWelcomeMessagesBody(profile LayerProfile, value tg
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.EphemeralWelcomeMessages:
 			return layerEncodeFamilyEphemeralWelcomeMessagesBody(profile, value, b, state)
@@ -7320,7 +7320,7 @@ func layerEncodeClassExportedChatInviteBody(profile LayerProfile, value tg.Expor
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ChatInviteExported:
 			return layerEncodeFamilyChatInviteExportedBody(profile, value, b, state)
@@ -7344,7 +7344,7 @@ func layerEncodeClassForumTopicBody(profile LayerProfile, value tg.ForumTopicCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ForumTopic:
 			return layerEncodeFamilyForumTopicBody(profile, value, b, state)
@@ -7368,7 +7368,7 @@ func layerEncodeClassGeoPointBody(profile LayerProfile, value tg.GeoPointClass, 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.GeoPoint:
 			return layerEncodeFamilyGeoPointBody(profile, value, b, state)
@@ -7392,7 +7392,7 @@ func layerEncodeClassGroupCallBody(profile LayerProfile, value tg.GroupCallClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.GroupCall:
 			return layerEncodeFamilyGroupCallBody(profile, value, b, state)
@@ -7416,7 +7416,7 @@ func layerEncodeClassHelpAppConfigBody(profile LayerProfile, value tg.HelpAppCon
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpAppConfig:
 			return layerEncodeFamilyHelpAppConfigBody(profile, value, b, state)
@@ -7440,7 +7440,7 @@ func layerEncodeClassHelpAppUpdateBody(profile LayerProfile, value tg.HelpAppUpd
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpAppUpdate:
 			return layerEncodeFamilyHelpAppUpdateBody(profile, value, b, state)
@@ -7464,7 +7464,7 @@ func layerEncodeClassHelpCountriesListBody(profile LayerProfile, value tg.HelpCo
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpCountriesList:
 			return layerEncodeFamilyHelpCountriesListBody(profile, value, b, state)
@@ -7488,7 +7488,7 @@ func layerEncodeClassHelpDeepLinkInfoBody(profile LayerProfile, value tg.HelpDee
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpDeepLinkInfo:
 			return layerEncodeFamilyHelpDeepLinkInfoBody(profile, value, b, state)
@@ -7512,7 +7512,7 @@ func layerEncodeClassHelpPassportConfigBody(profile LayerProfile, value tg.HelpP
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpPassportConfig:
 			return layerEncodeFamilyHelpPassportConfigBody(profile, value, b, state)
@@ -7536,7 +7536,7 @@ func layerEncodeClassHelpPeerColorsBody(profile LayerProfile, value tg.HelpPeerC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpPeerColors:
 			return layerEncodeFamilyHelpPeerColorsBody(profile, value, b, state)
@@ -7560,7 +7560,7 @@ func layerEncodeClassHelpPromoDataBody(profile LayerProfile, value tg.HelpPromoD
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpPromoData:
 			return layerEncodeFamilyHelpPromoDataBody(profile, value, b, state)
@@ -7584,7 +7584,7 @@ func layerEncodeClassHelpTermsOfServiceUpdateBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpTermsOfServiceUpdate:
 			return layerEncodeFamilyHelpTermsOfServiceUpdateBody(profile, value, b, state)
@@ -7608,7 +7608,7 @@ func layerEncodeClassHelpTimezonesListBody(profile LayerProfile, value tg.HelpTi
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpTimezonesList:
 			return layerEncodeFamilyHelpTimezonesListBody(profile, value, b, state)
@@ -7632,7 +7632,7 @@ func layerEncodeClassHelpUserInfoBody(profile LayerProfile, value tg.HelpUserInf
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.HelpUserInfo:
 			return layerEncodeFamilyHelpUserInfoBody(profile, value, b, state)
@@ -7662,7 +7662,7 @@ func layerEncodeClassInlineButtonTypeBody(profile LayerProfile, value tg.InlineB
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InlineButtonTypeBuy:
 			return layerEncodeFamilyInlineButtonTypeBuyBody(profile, value, b, state)
@@ -7706,7 +7706,7 @@ func layerEncodeClassInlineQueryPeerTypeBody(profile LayerProfile, value tg.Inli
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InlineQueryPeerTypeBotPM:
 			return layerEncodeFamilyInlineQueryPeerTypeBotPMBody(profile, value, b, state)
@@ -7750,7 +7750,7 @@ func layerEncodeClassInputAiComposeToneBody(profile LayerProfile, value tg.Input
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputAiComposeToneDefault:
 			return layerEncodeFamilyInputAiComposeToneDefaultBody(profile, value, b, state)
@@ -7800,7 +7800,7 @@ func layerEncodeClassInputBotInlineMessageBody(profile LayerProfile, value tg.In
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputBotInlineMessageGame:
 			return layerEncodeFamilyInputBotInlineMessageGameBody(profile, value, b, state)
@@ -7838,7 +7838,7 @@ func layerEncodeClassInputBotInlineMessageIDBody(profile LayerProfile, value tg.
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputBotInlineMessageID:
 			return layerEncodeFamilyInputBotInlineMessageIDBody(profile, value, b, state)
@@ -7862,7 +7862,7 @@ func layerEncodeClassInputBotInlineResultBody(profile LayerProfile, value tg.Inp
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputBotInlineResult:
 			return layerEncodeFamilyInputBotInlineResultBody(profile, value, b, state)
@@ -7890,7 +7890,7 @@ func layerEncodeClassInputChannelBody(profile LayerProfile, value tg.InputChanne
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputChannel:
 			return layerEncodeFamilyInputChannelBody(profile, value, b, state)
@@ -7926,7 +7926,7 @@ func layerEncodeClassInputDialogPeerBody(profile LayerProfile, value tg.InputDia
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputDialogPeer:
 			return layerEncodeFamilyInputDialogPeerBody(profile, value, b, state)
@@ -7952,7 +7952,7 @@ func layerEncodeClassInputDocumentBody(profile LayerProfile, value tg.InputDocum
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputDocument:
 			return layerEncodeFamilyInputDocumentBody(profile, value, b, state)
@@ -7976,7 +7976,7 @@ func layerEncodeClassInputGeoPointBody(profile LayerProfile, value tg.InputGeoPo
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputGeoPoint:
 			return layerEncodeFamilyInputGeoPointBody(profile, value, b, state)
@@ -8000,7 +8000,7 @@ func layerEncodeClassInputGroupCallBody(profile LayerProfile, value tg.InputGrou
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputGroupCall:
 			return layerEncodeFamilyInputGroupCallBody(profile, value, b, state)
@@ -8026,7 +8026,7 @@ func layerEncodeClassInputInvoiceBody(profile LayerProfile, value tg.InputInvoic
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputInvoiceBusinessBotTransferStars:
 			return layerEncodeFamilyInputInvoiceBusinessBotTransferStarsBody(profile, value, b, state)
@@ -8076,7 +8076,7 @@ func layerEncodeClassInputMediaBody(profile LayerProfile, value tg.InputMediaCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputMediaContact:
 			return layerEncodeFamilyInputMediaContactBody(profile, value, b, state)
@@ -8152,7 +8152,7 @@ func layerEncodeClassInputNotifyPeerBody(profile LayerProfile, value tg.InputNot
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputNotifyBroadcasts:
 			return layerEncodeFamilyInputNotifyBroadcastsBody(profile, value, b, state)
@@ -8184,7 +8184,7 @@ func layerEncodeClassInputPaymentCredentialsBody(profile LayerProfile, value tg.
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPaymentCredentials:
 			return layerEncodeFamilyInputPaymentCredentialsBody(profile, value, b, state)
@@ -8212,7 +8212,7 @@ func layerEncodeClassInputPeerBody(profile LayerProfile, value tg.InputPeerClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPeerChannel:
 			return layerEncodeFamilyInputPeerChannelBody(profile, value, b, state)
@@ -8246,7 +8246,7 @@ func layerEncodeClassInputPhotoBody(profile LayerProfile, value tg.InputPhotoCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPhoto:
 			return layerEncodeFamilyInputPhotoBody(profile, value, b, state)
@@ -8270,7 +8270,7 @@ func layerEncodeClassInputPrivacyRuleBody(profile LayerProfile, value tg.InputPr
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPrivacyValueAllowAll:
 			return layerEncodeFamilyInputPrivacyValueAllowAllBody(profile, value, b, state)
@@ -8314,7 +8314,7 @@ func layerEncodeClassInputQuickReplyShortcutBody(profile LayerProfile, value tg.
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputQuickReplyShortcut:
 			return layerEncodeFamilyInputQuickReplyShortcutBody(profile, value, b, state)
@@ -8350,7 +8350,7 @@ func layerEncodeClassInputReplyToBody(profile LayerProfile, value tg.InputReplyT
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputReplyToEphemeralMessage:
 			return layerEncodeFamilyInputReplyToEphemeralMessageBody(profile, value, b, state)
@@ -8384,7 +8384,7 @@ func layerEncodeClassInputRichMessageBody(profile LayerProfile, value tg.InputRi
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputRichMessage:
 			return layerEncodeFamilyInputRichMessageBody(profile, value, b, state)
@@ -8410,7 +8410,7 @@ func layerEncodeClassInputStorePaymentPurposeBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputStorePaymentAuthCode:
 			return layerEncodeFamilyInputStorePaymentAuthCodeBody(profile, value, b, state)
@@ -8446,7 +8446,7 @@ func layerEncodeClassInputUserBody(profile LayerProfile, value tg.InputUserClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputUser:
 			return layerEncodeFamilyInputUserBody(profile, value, b, state)
@@ -8474,7 +8474,7 @@ func layerEncodeClassLangPackStringBody(profile LayerProfile, value tg.LangPackS
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.LangPackString:
 			return layerEncodeFamilyLangPackStringBody(profile, value, b, state)
@@ -8500,7 +8500,7 @@ func layerEncodeClassMediaAreaBody(profile LayerProfile, value tg.MediaAreaClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputMediaAreaChannelPost:
 			return layerEncodeFamilyInputMediaAreaChannelPostBody(profile, value, b, state)
@@ -8820,7 +8820,7 @@ func layerEncodeClassMessageActionBody(profile LayerProfile, value tg.MessageAct
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessageActionBoostApply:
 			return layerEncodeFamilyMessageActionBoostApplyBody(profile, value, b, state)
@@ -8982,7 +8982,7 @@ func layerEncodeClassMessageBody(profile LayerProfile, value tg.MessageClass, b 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.Message:
 			return layerEncodeFamilyMessageBody(profile, value, b, state)
@@ -9064,7 +9064,7 @@ func layerEncodeClassMessageEntityBody(profile LayerProfile, value tg.MessageEnt
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputMessageEntityMentionName:
 			return layerEncodeFamilyInputMessageEntityMentionNameBody(profile, value, b, state)
@@ -9136,7 +9136,7 @@ func layerEncodeClassMessageExtendedMediaBody(profile LayerProfile, value tg.Mes
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessageExtendedMedia:
 			return layerEncodeFamilyMessageExtendedMediaBody(profile, value, b, state)
@@ -9160,7 +9160,7 @@ func layerEncodeClassMessageMediaBody(profile LayerProfile, value tg.MessageMedi
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessageMediaContact:
 			return layerEncodeFamilyMessageMediaContactBody(profile, value, b, state)
@@ -9218,7 +9218,7 @@ func layerEncodeClassMessagePeerVoteBody(profile LayerProfile, value tg.MessageP
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagePeerVote:
 			return layerEncodeFamilyMessagePeerVoteBody(profile, value, b, state)
@@ -9244,7 +9244,7 @@ func layerEncodeClassMessageReplyHeaderBody(profile LayerProfile, value tg.Messa
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessageReplyHeader:
 			return layerEncodeFamilyMessageReplyHeaderBody(profile, value, b, state)
@@ -9268,7 +9268,7 @@ func layerEncodeClassMessagesAllStickersBody(profile LayerProfile, value tg.Mess
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesAllStickers:
 			return layerEncodeFamilyMessagesAllStickersBody(profile, value, b, state)
@@ -9292,7 +9292,7 @@ func layerEncodeClassMessagesAvailableEffectsBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesAvailableEffects:
 			return layerEncodeFamilyMessagesAvailableEffectsBody(profile, value, b, state)
@@ -9316,7 +9316,7 @@ func layerEncodeClassMessagesAvailableReactionsBody(profile LayerProfile, value 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesAvailableReactions:
 			return layerEncodeFamilyMessagesAvailableReactionsBody(profile, value, b, state)
@@ -9346,7 +9346,7 @@ func layerEncodeClassMessagesChatInviteJoinResultBody(profile LayerProfile, valu
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesChatInviteJoinResultOk:
 			return layerEncodeFamilyMessagesChatInviteJoinResultOkBody(profile, value, b, state)
@@ -9370,7 +9370,7 @@ func layerEncodeClassMessagesChatsBody(profile LayerProfile, value tg.MessagesCh
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesChats:
 			return layerEncodeFamilyMessagesChatsBody(profile, value, b, state)
@@ -9394,7 +9394,7 @@ func layerEncodeClassMessagesDhConfigBody(profile LayerProfile, value tg.Message
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesDhConfig:
 			return layerEncodeFamilyMessagesDhConfigBody(profile, value, b, state)
@@ -9418,7 +9418,7 @@ func layerEncodeClassMessagesDialogsBody(profile LayerProfile, value tg.Messages
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesDialogs:
 			return layerEncodeFamilyMessagesDialogsBody(profile, value, b, state)
@@ -9444,7 +9444,7 @@ func layerEncodeClassMessagesEmojiGameInfoBody(profile LayerProfile, value tg.Me
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesEmojiGameDiceInfo:
 			return layerEncodeFamilyMessagesEmojiGameDiceInfoBody(profile, value, b, state)
@@ -9468,7 +9468,7 @@ func layerEncodeClassMessagesEmojiGroupsBody(profile LayerProfile, value tg.Mess
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesEmojiGroups:
 			return layerEncodeFamilyMessagesEmojiGroupsBody(profile, value, b, state)
@@ -9492,7 +9492,7 @@ func layerEncodeClassMessagesExportedChatInviteBody(profile LayerProfile, value 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesExportedChatInvite:
 			return layerEncodeFamilyMessagesExportedChatInviteBody(profile, value, b, state)
@@ -9516,7 +9516,7 @@ func layerEncodeClassMessagesFavedStickersBody(profile LayerProfile, value tg.Me
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesFavedStickers:
 			return layerEncodeFamilyMessagesFavedStickersBody(profile, value, b, state)
@@ -9540,7 +9540,7 @@ func layerEncodeClassMessagesFeaturedStickersBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesFeaturedStickers:
 			return layerEncodeFamilyMessagesFeaturedStickersBody(profile, value, b, state)
@@ -9564,7 +9564,7 @@ func layerEncodeClassMessagesFilterBody(profile LayerProfile, value tg.MessagesF
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputMessagesFilterChatPhotos:
 			return layerEncodeFamilyInputMessagesFilterChatPhotosBody(profile, value, b, state)
@@ -9620,7 +9620,7 @@ func layerEncodeClassMessagesFoundStickerSetsBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesFoundStickerSets:
 			return layerEncodeFamilyMessagesFoundStickerSetsBody(profile, value, b, state)
@@ -9644,7 +9644,7 @@ func layerEncodeClassMessagesFoundStickersBody(profile LayerProfile, value tg.Me
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesFoundStickers:
 			return layerEncodeFamilyMessagesFoundStickersBody(profile, value, b, state)
@@ -9668,7 +9668,7 @@ func layerEncodeClassMessagesMessagesBody(profile LayerProfile, value tg.Message
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesChannelMessages:
 			return layerEncodeFamilyMessagesChannelMessagesBody(profile, value, b, state)
@@ -9696,7 +9696,7 @@ func layerEncodeClassMessagesQuickRepliesBody(profile LayerProfile, value tg.Mes
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesQuickReplies:
 			return layerEncodeFamilyMessagesQuickRepliesBody(profile, value, b, state)
@@ -9720,7 +9720,7 @@ func layerEncodeClassMessagesReactionsBody(profile LayerProfile, value tg.Messag
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesReactions:
 			return layerEncodeFamilyMessagesReactionsBody(profile, value, b, state)
@@ -9744,7 +9744,7 @@ func layerEncodeClassMessagesRecentStickersBody(profile LayerProfile, value tg.M
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesRecentStickers:
 			return layerEncodeFamilyMessagesRecentStickersBody(profile, value, b, state)
@@ -9768,7 +9768,7 @@ func layerEncodeClassMessagesSavedDialogsBody(profile LayerProfile, value tg.Mes
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesSavedDialogs:
 			return layerEncodeFamilyMessagesSavedDialogsBody(profile, value, b, state)
@@ -9794,7 +9794,7 @@ func layerEncodeClassMessagesSavedGifsBody(profile LayerProfile, value tg.Messag
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesSavedGifs:
 			return layerEncodeFamilyMessagesSavedGifsBody(profile, value, b, state)
@@ -9818,7 +9818,7 @@ func layerEncodeClassMessagesSavedReactionTagsBody(profile LayerProfile, value t
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesSavedReactionTags:
 			return layerEncodeFamilyMessagesSavedReactionTagsBody(profile, value, b, state)
@@ -9842,7 +9842,7 @@ func layerEncodeClassMessagesSentEncryptedMessageBody(profile LayerProfile, valu
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesSentEncryptedFile:
 			return layerEncodeFamilyMessagesSentEncryptedFileBody(profile, value, b, state)
@@ -9866,7 +9866,7 @@ func layerEncodeClassMessagesSponsoredMessagesBody(profile LayerProfile, value t
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesSponsoredMessages:
 			return layerEncodeFamilyMessagesSponsoredMessagesBody(profile, value, b, state)
@@ -9890,7 +9890,7 @@ func layerEncodeClassMessagesStickerSetBody(profile LayerProfile, value tg.Messa
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesStickerSet:
 			return layerEncodeFamilyMessagesStickerSetBody(profile, value, b, state)
@@ -9914,7 +9914,7 @@ func layerEncodeClassMessagesStickerSetInstallResultBody(profile LayerProfile, v
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesStickerSetInstallResultArchive:
 			return layerEncodeFamilyMessagesStickerSetInstallResultArchiveBody(profile, value, b, state)
@@ -9938,7 +9938,7 @@ func layerEncodeClassMessagesStickersBody(profile LayerProfile, value tg.Message
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MessagesStickers:
 			return layerEncodeFamilyMessagesStickersBody(profile, value, b, state)
@@ -9978,7 +9978,7 @@ func layerEncodeClassNotifyPeerBody(profile LayerProfile, value tg.NotifyPeerCla
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.NotifyBroadcasts:
 			return layerEncodeFamilyNotifyBroadcastsBody(profile, value, b, state)
@@ -10158,7 +10158,7 @@ func layerEncodeClassPageBlockBody(profile LayerProfile, value tg.PageBlockClass
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPageBlockMap:
 			return layerEncodeFamilyInputPageBlockMapBody(profile, value, b, state)
@@ -10260,7 +10260,7 @@ func layerEncodeClassPageListItemBody(profile LayerProfile, value tg.PageListIte
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PageListItemBlocks:
 			return layerEncodeFamilyPageListItemBlocksBody(profile, value, b, state)
@@ -10284,7 +10284,7 @@ func layerEncodeClassPageListOrderedItemBody(profile LayerProfile, value tg.Page
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PageListOrderedItemBlocks:
 			return layerEncodeFamilyPageListOrderedItemBlocksBody(profile, value, b, state)
@@ -10308,7 +10308,7 @@ func layerEncodeClassPaymentsCheckCanSendGiftResultBody(profile LayerProfile, va
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsCheckCanSendGiftResultFail:
 			return layerEncodeFamilyPaymentsCheckCanSendGiftResultFailBody(profile, value, b, state)
@@ -10332,7 +10332,7 @@ func layerEncodeClassPaymentsGiveawayInfoBody(profile LayerProfile, value tg.Pay
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsGiveawayInfo:
 			return layerEncodeFamilyPaymentsGiveawayInfoBody(profile, value, b, state)
@@ -10356,7 +10356,7 @@ func layerEncodeClassPaymentsPaymentFormBody(profile LayerProfile, value tg.Paym
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsPaymentForm:
 			return layerEncodeFamilyPaymentsPaymentFormBody(profile, value, b, state)
@@ -10382,7 +10382,7 @@ func layerEncodeClassPaymentsPaymentReceiptBody(profile LayerProfile, value tg.P
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsPaymentReceipt:
 			return layerEncodeFamilyPaymentsPaymentReceiptBody(profile, value, b, state)
@@ -10406,7 +10406,7 @@ func layerEncodeClassPaymentsPaymentResultBody(profile LayerProfile, value tg.Pa
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsPaymentResult:
 			return layerEncodeFamilyPaymentsPaymentResultBody(profile, value, b, state)
@@ -10430,7 +10430,7 @@ func layerEncodeClassPaymentsStarGiftActiveAuctionsBody(profile LayerProfile, va
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsStarGiftActiveAuctions:
 			return layerEncodeFamilyPaymentsStarGiftActiveAuctionsBody(profile, value, b, state)
@@ -10454,7 +10454,7 @@ func layerEncodeClassPaymentsStarGiftCollectionsBody(profile LayerProfile, value
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsStarGiftCollections:
 			return layerEncodeFamilyPaymentsStarGiftCollectionsBody(profile, value, b, state)
@@ -10478,7 +10478,7 @@ func layerEncodeClassPaymentsStarGiftsBody(profile LayerProfile, value tg.Paymen
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PaymentsStarGifts:
 			return layerEncodeFamilyPaymentsStarGiftsBody(profile, value, b, state)
@@ -10502,7 +10502,7 @@ func layerEncodeClassPeerBody(profile LayerProfile, value tg.PeerClass, b *bin.B
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PeerChannel:
 			return layerEncodeFamilyPeerChannelBody(profile, value, b, state)
@@ -10528,7 +10528,7 @@ func layerEncodeClassPeerColorBody(profile LayerProfile, value tg.PeerColorClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPeerColorCollectible:
 			return layerEncodeFamilyInputPeerColorCollectibleBody(profile, value, b, state)
@@ -10554,7 +10554,7 @@ func layerEncodeClassPhoneCallBody(profile LayerProfile, value tg.PhoneCallClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PhoneCall:
 			return layerEncodeFamilyPhoneCallBody(profile, value, b, state)
@@ -10586,7 +10586,7 @@ func layerEncodeClassPhotoBody(profile LayerProfile, value tg.PhotoClass, b *bin
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.Photo:
 			return layerEncodeFamilyPhotoBody(profile, value, b, state)
@@ -10610,7 +10610,7 @@ func layerEncodeClassPhotosPhotosBody(profile LayerProfile, value tg.PhotosPhoto
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PhotosPhotos:
 			return layerEncodeFamilyPhotosPhotosBody(profile, value, b, state)
@@ -10634,7 +10634,7 @@ func layerEncodeClassPollAnswerBody(profile LayerProfile, value tg.PollAnswerCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputPollAnswer:
 			return layerEncodeFamilyInputPollAnswerBody(profile, value, b, state)
@@ -10658,7 +10658,7 @@ func layerEncodeClassPrivacyRuleBody(profile LayerProfile, value tg.PrivacyRuleC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PrivacyValueAllowAll:
 			return layerEncodeFamilyPrivacyValueAllowAllBody(profile, value, b, state)
@@ -10702,7 +10702,7 @@ func layerEncodeClassProfileTabBody(profile LayerProfile, value tg.ProfileTabCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ProfileTabFiles:
 			return layerEncodeFamilyProfileTabFilesBody(profile, value, b, state)
@@ -10738,7 +10738,7 @@ func layerEncodeClassPublicForwardBody(profile LayerProfile, value tg.PublicForw
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.PublicForwardMessage:
 			return layerEncodeFamilyPublicForwardMessageBody(profile, value, b, state)
@@ -10762,7 +10762,7 @@ func layerEncodeClassReactionBody(profile LayerProfile, value tg.ReactionClass, 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ReactionCustomEmoji:
 			return layerEncodeFamilyReactionCustomEmojiBody(profile, value, b, state)
@@ -10790,7 +10790,7 @@ func layerEncodeClassRecentMeURLBody(profile LayerProfile, value tg.RecentMeURLC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.RecentMeURLChat:
 			return layerEncodeFamilyRecentMeURLChatBody(profile, value, b, state)
@@ -10820,7 +10820,7 @@ func layerEncodeClassReplyMarkupBody(profile LayerProfile, value tg.ReplyMarkupC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ReplyInlineMarkup:
 			return layerEncodeFamilyReplyInlineMarkupBody(profile, value, b, state)
@@ -10848,7 +10848,7 @@ func layerEncodeClassReportResultBody(profile LayerProfile, value tg.ReportResul
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.ReportResultAddComment:
 			return layerEncodeFamilyReportResultAddCommentBody(profile, value, b, state)
@@ -10874,7 +10874,7 @@ func layerEncodeClassRequestPeerTypeBody(profile LayerProfile, value tg.RequestP
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.RequestPeerTypeBroadcast:
 			return layerEncodeFamilyRequestPeerTypeBroadcastBody(profile, value, b, state)
@@ -10902,7 +10902,7 @@ func layerEncodeClassRequirementToContactBody(profile LayerProfile, value tg.Req
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.RequirementToContactEmpty:
 			return layerEncodeFamilyRequirementToContactEmptyBody(profile, value, b, state)
@@ -11164,7 +11164,7 @@ func layerEncodeClassRichTextBody(profile LayerProfile, value tg.RichTextClass, 
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.TextAnchor:
 			return layerEncodeFamilyTextAnchorBody(profile, value, b, state)
@@ -11248,7 +11248,7 @@ func layerEncodeClassSavedDialogBody(profile LayerProfile, value tg.SavedDialogC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.MonoForumDialog:
 			return layerEncodeFamilyMonoForumDialogBody(profile, value, b, state)
@@ -11272,7 +11272,7 @@ func layerEncodeClassSecureRequiredTypeBody(profile LayerProfile, value tg.Secur
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.SecureRequiredType:
 			return layerEncodeFamilySecureRequiredTypeBody(profile, value, b, state)
@@ -11296,7 +11296,7 @@ func layerEncodeClassSecureValueErrorBody(profile LayerProfile, value tg.SecureV
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.SecureValueError:
 			return layerEncodeFamilySecureValueErrorBody(profile, value, b, state)
@@ -11426,7 +11426,7 @@ func layerEncodeClassSendMessageActionBody(profile LayerProfile, value tg.SendMe
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile229, LayerProfile230:
+	case LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.InputSendMessageRichMessageDraftAction:
 			return layerEncodeFamilyInputSendMessageRichMessageDraftActionBody(profile, value, b, state)
@@ -11490,7 +11490,7 @@ func layerEncodeClassStarGiftAttributeBody(profile LayerProfile, value tg.StarGi
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StarGiftAttributeBackdrop:
 			return layerEncodeFamilyStarGiftAttributeBackdropBody(profile, value, b, state)
@@ -11518,7 +11518,7 @@ func layerEncodeClassStarGiftAuctionStateBody(profile LayerProfile, value tg.Sta
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StarGiftAuctionState:
 			return layerEncodeFamilyStarGiftAuctionStateBody(profile, value, b, state)
@@ -11544,7 +11544,7 @@ func layerEncodeClassStarGiftBody(profile LayerProfile, value tg.StarGiftClass, 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StarGift:
 			return layerEncodeFamilyStarGiftBody(profile, value, b, state)
@@ -11568,7 +11568,7 @@ func layerEncodeClassStarsAmountBody(profile LayerProfile, value tg.StarsAmountC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StarsAmount:
 			return layerEncodeFamilyStarsAmountBody(profile, value, b, state)
@@ -11592,7 +11592,7 @@ func layerEncodeClassStarsTransactionPeerBody(profile LayerProfile, value tg.Sta
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StarsTransactionPeer:
 			return layerEncodeFamilyStarsTransactionPeerBody(profile, value, b, state)
@@ -11628,7 +11628,7 @@ func layerEncodeClassStatsGraphBody(profile LayerProfile, value tg.StatsGraphCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StatsGraph:
 			return layerEncodeFamilyStatsGraphBody(profile, value, b, state)
@@ -11654,7 +11654,7 @@ func layerEncodeClassStickerSetCoveredBody(profile LayerProfile, value tg.Sticke
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StickerSetCovered:
 			return layerEncodeFamilyStickerSetCoveredBody(profile, value, b, state)
@@ -11682,7 +11682,7 @@ func layerEncodeClassStoriesAlbumsBody(profile LayerProfile, value tg.StoriesAlb
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StoriesAlbums:
 			return layerEncodeFamilyStoriesAlbumsBody(profile, value, b, state)
@@ -11706,7 +11706,7 @@ func layerEncodeClassStoriesAllStoriesBody(profile LayerProfile, value tg.Storie
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StoriesAllStories:
 			return layerEncodeFamilyStoriesAllStoriesBody(profile, value, b, state)
@@ -11730,7 +11730,7 @@ func layerEncodeClassStoryItemBody(profile LayerProfile, value tg.StoryItemClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StoryItem:
 			return layerEncodeFamilyStoryItemBody(profile, value, b, state)
@@ -11756,7 +11756,7 @@ func layerEncodeClassStoryReactionBody(profile LayerProfile, value tg.StoryReact
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StoryReaction:
 			return layerEncodeFamilyStoryReactionBody(profile, value, b, state)
@@ -11782,7 +11782,7 @@ func layerEncodeClassStoryViewBody(profile LayerProfile, value tg.StoryViewClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.StoryView:
 			return layerEncodeFamilyStoryViewBody(profile, value, b, state)
@@ -11832,7 +11832,7 @@ func layerEncodeClassTopPeerCategoryBody(profile LayerProfile, value tg.TopPeerC
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.TopPeerCategoryBotsApp:
 			return layerEncodeFamilyTopPeerCategoryBotsAppBody(profile, value, b, state)
@@ -11872,7 +11872,7 @@ func layerEncodeClassURLAuthResultBody(profile LayerProfile, value tg.URLAuthRes
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.URLAuthResultAccepted:
 			return layerEncodeFamilyURLAuthResultAcceptedBody(profile, value, b, state)
@@ -13212,7 +13212,7 @@ func layerEncodeClassUpdateBody(profile LayerProfile, value tg.UpdateClass, b *b
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UpdateAiComposeTones:
 			return layerEncodeFamilyUpdateAiComposeTonesBody(profile, value, b, state)
@@ -13572,7 +13572,7 @@ func layerEncodeClassUpdatesBody(profile LayerProfile, value tg.UpdatesClass, b 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UpdateShort:
 			return layerEncodeFamilyUpdateShortBody(profile, value, b, state)
@@ -13606,7 +13606,7 @@ func layerEncodeClassUpdatesChannelDifferenceBody(profile LayerProfile, value tg
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UpdatesChannelDifference:
 			return layerEncodeFamilyUpdatesChannelDifferenceBody(profile, value, b, state)
@@ -13632,7 +13632,7 @@ func layerEncodeClassUpdatesDifferenceBody(profile LayerProfile, value tg.Update
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UpdatesDifference:
 			return layerEncodeFamilyUpdatesDifferenceBody(profile, value, b, state)
@@ -13660,7 +13660,7 @@ func layerEncodeClassUploadCDNFileBody(profile LayerProfile, value tg.UploadCDNF
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UploadCDNFile:
 			return layerEncodeFamilyUploadCDNFileBody(profile, value, b, state)
@@ -13684,7 +13684,7 @@ func layerEncodeClassUploadFileBody(profile LayerProfile, value tg.UploadFileCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UploadFile:
 			return layerEncodeFamilyUploadFileBody(profile, value, b, state)
@@ -13708,7 +13708,7 @@ func layerEncodeClassUserBody(profile LayerProfile, value tg.UserClass, b *bin.B
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.User:
 			return layerEncodeFamilyUserBody(profile, value, b, state)
@@ -13732,7 +13732,7 @@ func layerEncodeClassUserProfilePhotoBody(profile LayerProfile, value tg.UserPro
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UserProfilePhoto:
 			return layerEncodeFamilyUserProfilePhotoBody(profile, value, b, state)
@@ -13756,7 +13756,7 @@ func layerEncodeClassUserStatusBody(profile LayerProfile, value tg.UserStatusCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UserStatusEmpty:
 			return layerEncodeFamilyUserStatusEmptyBody(profile, value, b, state)
@@ -13788,7 +13788,7 @@ func layerEncodeClassUsersSavedMusicBody(profile LayerProfile, value tg.UsersSav
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UsersSavedMusic:
 			return layerEncodeFamilyUsersSavedMusicBody(profile, value, b, state)
@@ -13812,7 +13812,7 @@ func layerEncodeClassUsersUsersBody(profile LayerProfile, value tg.UsersUsersCla
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.UsersUsers:
 			return layerEncodeFamilyUsersUsersBody(profile, value, b, state)
@@ -13836,7 +13836,7 @@ func layerEncodeClassWallPaperBody(profile LayerProfile, value tg.WallPaperClass
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.WallPaper:
 			return layerEncodeFamilyWallPaperBody(profile, value, b, state)
@@ -13866,7 +13866,7 @@ func layerEncodeClassWalletStateBody(profile LayerProfile, value tg.WalletStateC
 			_ = value
 			return &LayerCodecError{Operation: "encode", Profile: profile, Reason: "constructor is unavailable in exact class profile"}
 		}
-	case LayerProfile230:
+	case LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.WalletState:
 			return layerEncodeFamilyWalletStateBody(profile, value, b, state)
@@ -13890,7 +13890,7 @@ func layerEncodeClassWebDocumentBody(profile LayerProfile, value tg.WebDocumentC
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.WebDocument:
 			return layerEncodeFamilyWebDocumentBody(profile, value, b, state)
@@ -13914,7 +13914,7 @@ func layerEncodeClassWebPageAttributeBody(profile LayerProfile, value tg.WebPage
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.WebPageAttributeAiComposeTone:
 			return layerEncodeFamilyWebPageAttributeAiComposeToneBody(profile, value, b, state)
@@ -13948,7 +13948,7 @@ func layerEncodeClassWebPageBody(profile LayerProfile, value tg.WebPageClass, b 
 		return &LayerProjectionError{Profile: profile, Dropped: true, Reason: "class value was projected out before encoding"}
 	}
 	switch profile {
-	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230:
+	case LayerProfile225, LayerProfile226, LayerProfile227, LayerProfile228, LayerProfile229, LayerProfile230, LayerProfile231:
 		switch value := projected.(type) {
 		case *tg.WebPage:
 			return layerEncodeFamilyWebPageBody(profile, value, b, state)

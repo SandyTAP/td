@@ -26,6 +26,7 @@ const (
 	LayerProfile228       = Profile228
 	LayerProfile229       = Profile229
 	LayerProfile230       = Profile230
+	LayerProfile231       = Profile231
 	LayerProfileCanonical = ProfileCanonical
 )
 
@@ -731,6 +732,7 @@ const (
 	LayerSemanticTypeInputTheme                                                        = SemanticTypeInputTheme
 	LayerSemanticTypeInputThemeSettings                                                = SemanticTypeInputThemeSettings
 	LayerSemanticTypeInputThemeSlug                                                    = SemanticTypeInputThemeSlug
+	LayerSemanticTypeInputTonConnectOauthSession                                       = SemanticTypeInputTonConnectOauthSession
 	LayerSemanticTypeInputUser                                                         = SemanticTypeInputUser
 	LayerSemanticTypeInputUserEmpty                                                    = SemanticTypeInputUserEmpty
 	LayerSemanticTypeInputUserFromMessage                                              = SemanticTypeInputUserFromMessage

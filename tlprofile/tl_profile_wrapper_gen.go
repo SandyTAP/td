@@ -171,6 +171,31 @@ func tlLookupWrapperParser(profile Profile, wireID uint32) (tlWrapperParser, boo
 		case 0xdd289f8e:
 			return tlParseWrapperBody4, true
 		}
+	case Profile231:
+		switch wireID {
+		case 0x0dae54f8:
+			return tlParseWrapperBody3, true
+		case 0x1df92984:
+			return tlParseWrapperBody5, true
+		case 0x365275f2:
+			return tlParseWrapperBody7, true
+		case 0x3dc4b4f0:
+			return tlParseWrapperBody2, true
+		case 0xaca9fd2e:
+			return tlParseWrapperBody9, true
+		case 0xadbb0f94:
+			return tlParseWrapperBody8, true
+		case 0xbf9459b7:
+			return tlParseWrapperBody10, true
+		case 0xc1cd5ea9:
+			return tlParseWrapperBody0, true
+		case 0xcb9f372d:
+			return tlParseWrapperBody1, true
+		case 0xda9b0d0d:
+			return tlParseWrapperBody6, true
+		case 0xdd289f8e:
+			return tlParseWrapperBody4, true
+		}
 	}
 	return nil, false
 }
@@ -1135,6 +1160,8 @@ func tlKnownRPCWireID(wireID uint32) bool {
 	case 0x18201aae:
 		return true
 	case 0x182e6d6f:
+		return true
+	case 0x18dd4e92:
 		return true
 	case 0x18dea0ac:
 		return true

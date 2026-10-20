@@ -176,16 +176,16 @@ func TestLayerStaticModelTelegram225Through230(t *testing.T) {
 	if model.ResultObligationCount == 0 {
 		t.Fatal("real layer set produced no explicit result obligations")
 	}
-	if got, want := model.FamilyCount, 687; got != want {
+	if got, want := model.FamilyCount, 689; got != want {
 		t.Fatalf("projected families = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.RewriteCount, 2101; got != want {
+	if got, want := model.RewriteCount, 2107; got != want {
 		t.Errorf("rewrite variants = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.UnavailableCount, 783; got != want {
+	if got, want := model.UnavailableCount, 789; got != want {
 		t.Fatalf("unavailable variants = %d, want locked schema count %d", got, want)
 	}
-	if got, want := model.ObligationCount, 212; got != want {
+	if got, want := model.ObligationCount, 224; got != want {
 		t.Errorf("body obligation variants = %d, want locked schema count %d", got, want)
 	}
 	if got, want := model.ResultObligationCount, 4; got != want {
