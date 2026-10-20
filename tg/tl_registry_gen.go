@@ -32,7 +32,7 @@ var (
 )
 
 // Layer version of schema.
-const Layer = 230
+const Layer = 231
 
 // TypesMap returns mapping from type ids to TL type names.
 func TypesMap() map[uint32]string {
@@ -1106,7 +1106,7 @@ func TypesMap() map[uint32]string {
 		InputFolderPeerTypeID:                                                   "inputFolderPeer#fbd2c296",
 		FolderPeerTypeID:                                                        "folderPeer#e9baa668",
 		MessagesSearchCounterTypeID:                                             "messages.searchCounter#e844ebff",
-		URLAuthResultRequestTypeID:                                              "urlAuthResultRequest#3cd623ec",
+		URLAuthResultRequestTypeID:                                              "urlAuthResultRequest#bdca6167",
 		URLAuthResultAcceptedTypeID:                                             "urlAuthResultAccepted#623a8fa0",
 		URLAuthResultDefaultTypeID:                                              "urlAuthResultDefault#a9d6db1f",
 		ChannelLocationEmptyTypeID:                                              "channelLocationEmpty#bfb5ad8b",
@@ -1740,6 +1740,7 @@ func TypesMap() map[uint32]string {
 		WalletNftItemTypeID:                                                     "wallet.nftItem#3441fd1c",
 		WalletNftItemsTypeID:                                                    "wallet.nftItems#794d486f",
 		AuthFirebasePnvIntentTypeID:                                             "auth.firebasePnvIntent#df5ac00c",
+		InputTonConnectOauthSessionTypeID:                                       "inputTonConnectOauthSession#629f66ce",
 		InvokeAfterMsgRequestTypeID:                                             "invokeAfterMsg#cb9f372d",
 		InvokeAfterMsgsRequestTypeID:                                            "invokeAfterMsgs#3dc4b4f0",
 		InitConnectionRequestTypeID:                                             "initConnection#c1cd5ea9",
@@ -2052,7 +2053,7 @@ func TypesMap() map[uint32]string {
 		MessagesGetEmojiURLRequestTypeID:                                        "messages.getEmojiURL#d5b10c26",
 		MessagesGetSearchCountersRequestTypeID:                                  "messages.getSearchCounters#1bbcf300",
 		MessagesRequestURLAuthRequestTypeID:                                     "messages.requestUrlAuth#894cc99c",
-		MessagesAcceptURLAuthRequestTypeID:                                      "messages.acceptUrlAuth#67a3f0de",
+		MessagesAcceptURLAuthRequestTypeID:                                      "messages.acceptUrlAuth#18dd4e92",
 		MessagesHidePeerSettingsBarRequestTypeID:                                "messages.hidePeerSettingsBar#4facb138",
 		MessagesGetScheduledHistoryRequestTypeID:                                "messages.getScheduledHistory#f516760b",
 		MessagesGetScheduledMessagesRequestTypeID:                               "messages.getScheduledMessages#bdbb0464",
@@ -4312,6 +4313,7 @@ func NamesMap() map[string]uint32 {
 		"wallet.nftItem":                                                    WalletNftItemTypeID,
 		"wallet.nftItems":                                                   WalletNftItemsTypeID,
 		"auth.firebasePnvIntent":                                            AuthFirebasePnvIntentTypeID,
+		"inputTonConnectOauthSession":                                       InputTonConnectOauthSessionTypeID,
 		"invokeAfterMsg":                                                    InvokeAfterMsgRequestTypeID,
 		"invokeAfterMsgs":                                                   InvokeAfterMsgsRequestTypeID,
 		"initConnection":                                                    InitConnectionRequestTypeID,
@@ -6884,6 +6886,7 @@ func TypesConstructorMap() map[uint32]func() bin.Object {
 		WalletNftItemTypeID:                                                     func() bin.Object { return &WalletNftItem{} },
 		WalletNftItemsTypeID:                                                    func() bin.Object { return &WalletNftItems{} },
 		AuthFirebasePnvIntentTypeID:                                             func() bin.Object { return &AuthFirebasePnvIntent{} },
+		InputTonConnectOauthSessionTypeID:                                       func() bin.Object { return &InputTonConnectOauthSession{} },
 		InvokeAfterMsgRequestTypeID:                                             func() bin.Object { return &InvokeAfterMsgRequest{} },
 		InvokeAfterMsgsRequestTypeID:                                            func() bin.Object { return &InvokeAfterMsgsRequest{} },
 		InitConnectionRequestTypeID:                                             func() bin.Object { return &InitConnectionRequest{} },

@@ -303,7 +303,9 @@ func TestLayerSparseCodecModelRealSchemaStaysCompact(t *testing.T) {
 	}
 	t.Logf("sparse typed codec wires=%d families=%d classes=%d result_plans=%d",
 		wires, len(model.FamilyDeclarations), len(model.ClassDeclarations), len(model.SparseResultPlans))
-	if wires > 1500 || len(model.FamilyDeclarations) > 4000 || len(model.ClassDeclarations) > 1000 || len(model.SparseResultPlans) > 350 {
+	// Layer 231 measures 1501 wires after URL-auth and wallet-proof closure.
+	// Keep the independent source-byte/line and execution-plan ratio gates.
+	if wires > 1510 || len(model.FamilyDeclarations) > 4000 || len(model.ClassDeclarations) > 1000 || len(model.SparseResultPlans) > 350 {
 		t.Fatalf("sparse typed codec budget regressed: wires=%d families=%d classes=%d result_plans=%d",
 			wires, len(model.FamilyDeclarations), len(model.ClassDeclarations), len(model.SparseResultPlans))
 	}

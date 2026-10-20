@@ -42,7 +42,8 @@ const (
 	Profile228       Profile = 228
 	Profile229       Profile = 229
 	Profile230       Profile = 230
-	ProfileCanonical Profile = 230
+	Profile231       Profile = 231
+	ProfileCanonical Profile = 231
 )
 
 // ResolveProfile accepts only exact generated profiles.
@@ -60,6 +61,8 @@ func ResolveProfile(layer int) (Profile, bool) {
 		return Profile229, true
 	case Profile230:
 		return Profile230, true
+	case Profile231:
+		return Profile231, true
 	default:
 		return 0, false
 	}
@@ -767,6 +770,7 @@ const (
 	SemanticTypeInputTheme                                                        SemanticID = 0x65a48f160c1e3f56
 	SemanticTypeInputThemeSettings                                                SemanticID = 0xe3db0712506dc626
 	SemanticTypeInputThemeSlug                                                    SemanticID = 0x60a23421e1d27e21
+	SemanticTypeInputTonConnectOauthSession                                       SemanticID = 0x4299457cfd762e31
 	SemanticTypeInputUser                                                         SemanticID = 0x1eb851e01fe64022
 	SemanticTypeInputUserEmpty                                                    SemanticID = 0x1bfa4089d29a4663
 	SemanticTypeInputUserFromMessage                                              SemanticID = 0x37d522c606a9634d
@@ -4944,6 +4948,8 @@ func SemanticName(id SemanticID) (category, qname string, ok bool) {
 		return "type", "inputThemeSettings", true
 	case SemanticTypeInputThemeSlug:
 		return "type", "inputThemeSlug", true
+	case SemanticTypeInputTonConnectOauthSession:
+		return "type", "inputTonConnectOauthSession", true
 	case SemanticTypeInputUser:
 		return "type", "inputUser", true
 	case SemanticTypeInputUserEmpty:
@@ -10111,6 +10117,8 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 		return 0x8fde504f, true
 	case SemanticTypeInputThemeSlug:
 		return 0xf5890df1, true
+	case SemanticTypeInputTonConnectOauthSession:
+		return 0x629f66ce, true
 	case SemanticTypeInputUser:
 		return 0xf21158c6, true
 	case SemanticTypeInputUserEmpty:
@@ -12030,7 +12038,7 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticTypeURLAuthResultDefault:
 		return 0xa9d6db1f, true
 	case SemanticTypeURLAuthResultRequest:
-		return 0x3cd623ec, true
+		return 0xbdca6167, true
 	case SemanticTypeUser:
 		return 0xb1b8cc83, true
 	case SemanticTypeUserEmpty:
@@ -12882,7 +12890,7 @@ func canonicalWireID(id SemanticID) (uint32, bool) {
 	case SemanticMethodMessagesAcceptEncryption:
 		return 0x3dbc0415, true
 	case SemanticMethodMessagesAcceptURLAuth:
-		return 0x67a3f0de, true
+		return 0x18dd4e92, true
 	case SemanticMethodMessagesAddChatUser:
 		return 0xcbc6d107, true
 	case SemanticMethodMessagesAddPollAnswer:
@@ -13993,6 +14001,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputStorePaymentAuthCode:
 			return 0x9bb2636d, true
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
 		case SemanticTypeInputWalletImported:
 			return 0, false
 		case SemanticTypeInputWalletNew:
@@ -14201,6 +14211,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateWebBrowserSettings:
 			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
 		case SemanticTypeUser:
 			return 0x31774388, true
 		case SemanticTypeWalletEncryptedSecretPhrasePart:
@@ -14317,6 +14329,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodEphemeralSendMessage:
 			return 0, false
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		case SemanticMethodMessagesComposeRichMessageWithAI:
 			return 0, false
 		case SemanticMethodMessagesEditInlineBotMessage:
@@ -14524,6 +14538,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
 			return 0, false
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
 		case SemanticTypeInputWalletImported:
 			return 0, false
 		case SemanticTypeInputWalletNew:
@@ -14710,6 +14726,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateWalletTonConnectSession:
 			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
 		case SemanticTypeUser:
 			return 0x31774388, true
 		case SemanticTypeWalletEncryptedSecretPhrasePart:
@@ -14810,6 +14828,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodEphemeralSendMessage:
 			return 0, false
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		case SemanticMethodMessagesComposeRichMessageWithAI:
 			return 0, false
 		case SemanticMethodMessagesEditInlineBotMessage:
@@ -14993,6 +15013,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
 			return 0xe2b23b51, true
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
 		case SemanticTypeInputWalletImported:
 			return 0, false
 		case SemanticTypeInputWalletNew:
@@ -15121,6 +15143,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateWalletTonConnectSession:
 			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
 		case SemanticTypeUser:
 			return 0x31774388, true
 		case SemanticTypeWalletEncryptedSecretPhrasePart:
@@ -15217,6 +15241,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodEphemeralSendMessage:
 			return 0, false
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		case SemanticMethodMessagesComposeRichMessageWithAI:
 			return 0, false
 		case SemanticMethodMessagesRequestChatJoinWebView:
@@ -15360,6 +15386,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0x5b1ccb28, true
 		case SemanticTypeInputSendMessageRichMessageDraftAction:
 			return 0xe2b23b51, true
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
 		case SemanticTypeInputWalletImported:
 			return 0, false
 		case SemanticTypeInputWalletNew:
@@ -15468,6 +15496,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateWalletTonConnectSession:
 			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
 		case SemanticTypeWalletEncryptedSecretPhrasePart:
 			return 0, false
 		case SemanticTypeWalletExistingBalance:
@@ -15540,6 +15570,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodEphemeralSendMessage:
 			return 0x68cbd09f, true
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		case SemanticMethodPaymentsCreateOnrampSession:
 			return 0, false
 		case SemanticMethodPaymentsGetCurrencyRates:
@@ -15625,6 +15657,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeInputPasskeyCredentialFirebasePNV:
 			return 0x5b1ccb28, true
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
 		case SemanticTypeInputWalletImported:
 			return 0, false
 		case SemanticTypeInputWalletNew:
@@ -15703,6 +15737,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticTypeUpdateWalletTonConnectSession:
 			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
 		case SemanticTypeWalletEncryptedSecretPhrasePart:
 			return 0, false
 		case SemanticTypeWalletExistingBalance:
@@ -15759,6 +15795,8 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodBotsSetCustomVerification:
 			return 0x8b89dfbd, true
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		case SemanticMethodPaymentsCreateOnrampSession:
 			return 0, false
 		case SemanticMethodPaymentsGetCurrencyRates:
@@ -15827,6 +15865,51 @@ func WireID(profile Profile, semantic SemanticID) (uint32, bool) {
 			return 0, false
 		case SemanticMethodWalletTonConnectSubmitResponse:
 			return 0, false
+		}
+	case Profile230:
+		switch semantic {
+		case SemanticTypeInputKeyboardButtonRequestPeer:
+			return 0, false
+		case SemanticTypeInputKeyboardButtonURLAuth:
+			return 0, false
+		case SemanticTypeInputKeyboardButtonUserProfile:
+			return 0, false
+		case SemanticTypeInputPasskeyCredentialFirebasePNV:
+			return 0, false
+		case SemanticTypeInputTonConnectOauthSession:
+			return 0, false
+		case SemanticTypeKeyboardButtonBuy:
+			return 0, false
+		case SemanticTypeKeyboardButtonCallback:
+			return 0, false
+		case SemanticTypeKeyboardButtonCopy:
+			return 0, false
+		case SemanticTypeKeyboardButtonGame:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestGeoLocation:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPeer:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPhone:
+			return 0, false
+		case SemanticTypeKeyboardButtonRequestPoll:
+			return 0, false
+		case SemanticTypeKeyboardButtonSimpleWebView:
+			return 0, false
+		case SemanticTypeKeyboardButtonSwitchInline:
+			return 0, false
+		case SemanticTypeKeyboardButtonURL:
+			return 0, false
+		case SemanticTypeKeyboardButtonURLAuth:
+			return 0, false
+		case SemanticTypeKeyboardButtonUserProfile:
+			return 0, false
+		case SemanticTypeKeyboardButtonWebView:
+			return 0, false
+		case SemanticTypeURLAuthResultRequest:
+			return 0x3cd623ec, true
+		case SemanticMethodMessagesAcceptURLAuth:
+			return 0x67a3f0de, true
 		}
 	case ProfileCanonical:
 	default:
@@ -16321,6 +16404,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeHelpInviteText, true
 	case 0x18d1cdc2:
 		return SemanticTypeBotInlineMessageMediaContact, true
+	case 0x18dd4e92:
+		return SemanticMethodMessagesAcceptURLAuth, true
 	case 0x18dea0ac:
 		return SemanticMethodMessagesGetAvailableReactions, true
 	case 0x18e82537:
@@ -17781,6 +17866,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeSendMessageChooseContactAction, true
 	case 0x629f1980:
 		return SemanticTypeAuthLoginToken, true
+	case 0x629f66ce:
+		return SemanticTypeInputTonConnectOauthSession, true
 	case 0x62ba04d9:
 		return SemanticTypeUpdateNewChannelMessage, true
 	case 0x62d706b8:
@@ -19705,6 +19792,8 @@ func semanticByWireID(id uint32) (SemanticID, bool) {
 		return SemanticTypeMessagesExportedChatInvites, true
 	case 0xbdca2f75:
 		return SemanticMethodMessagesEditExportedChatInvite, true
+	case 0xbdca6167:
+		return SemanticTypeURLAuthResultRequest, true
 	case 0xbdcdaec0:
 		return SemanticTypeInputChatUploadedPhoto, true
 	case 0xbddb616e:

@@ -17,6 +17,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/01d83d3e22ffdb0deac55876ad1b6a63ab2bfc29e30346ff31054e132dff00c4",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/029faeaf17deacd1488e9cca2a14269b57b537946565759f223f1a79f1258701",
       "resolution": {
         "action": "reject-if-present",
@@ -159,6 +166,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/45d772a270afab219249428d15d3eff4745b3c1a763a0dc6ffb6713204ead7fe",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=229; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/473b46486ad9a56d4277e63b9619f9388d4605e58a7ae03b5f8af126f9a2fe3e",
       "resolution": {
         "action": "reject-if-present",
@@ -205,6 +219,13 @@
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=function:messages.forwardMessages; wire=0x13704a7c-\u003e0x13704a7c; field=from_ephemeral-\u003e; type=true-\u003e; source_shape=55539120ace3a576c93e5fa48aaabf2c79479c973a7e4b78c8d44ef5ab05453e; target_shape=615de77563ce878177f116413b1aa68c7ab90297ac78cc52fdec7f7885ba15f8"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/60da3c522acb46de908786e29beebfa94078face55596264d9ac10dcaee38882",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=230; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
       }
     },
     {
@@ -308,6 +329,13 @@
       }
     },
     {
+      "key": "layer-obligation/v1/field-projection/a50cdd45ad52ffde0977b46d5850a5eccf7bb4bd6d2a520592339699d093b088",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=227; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
+      }
+    },
+    {
       "key": "layer-obligation/v1/field-projection/a682b4ccb10bf37db7e171a695e76da32dcc5966346cc2bc6e0867c9d64591e1",
       "resolution": {
         "action": "project",
@@ -320,6 +348,13 @@
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=type:replyInlineMarkup; wire=0xb2b15770-\u003e0x48a30254; field=force_reply-\u003e; type=true-\u003e; source_shape=b75286e447b59ba4eac3e1c81771c95bd32ae4e218bae9f7fb1d4933afcf7852; target_shape=cf9ebdc5ee66d31a3c908a44ca0c32f0ae7fbcf0996385035aac50f31b47a2f9"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/aa552a50a2df301a3e86377b5731f26fd823f734130d3a39cd9d634ffbb5df24",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=228; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
       }
     },
     {
@@ -350,6 +385,13 @@
       "resolution": {
         "action": "reject-if-present",
         "note": "kind=field-projection; layer=225; direction=canonical-to-profile; semantic=type:username; wire=0xb4073647-\u003e0xb4073647; field=deletable-\u003e; type=true-\u003e; source_shape=c9a16c95891084fad65d139cbb84b967c3cc549b5d5053577e98ff237935cff1; target_shape=c07ca7e327cf30c74fcedae751f13984272ec682b6693b089a1c60cccf72b9c1"
+      }
+    },
+    {
+      "key": "layer-obligation/v1/field-projection/c2142fc01c8047638977d4c4e4d5d6428cdb8817f9e0ec1bb8721611ec642767",
+      "resolution": {
+        "action": "reject-if-present",
+        "note": "kind=field-projection; layer=226; direction=canonical-to-profile; semantic=function:messages.acceptUrlAuth; wire=0x18dd4e92-\u003e0x67a3f0de; field=tonconnect_session-\u003e; type=InputTonConnectOauthSession-\u003e; source_shape=070dac76828a508a4bf358bfd264b5033075003e043d2bfacb308c43cad2ba66; target_shape=ccfc5477dbde535fed0be0b3e8577e0a3ecf7a06ede9df0b1d4c41c18e79491d"
       }
     },
     {

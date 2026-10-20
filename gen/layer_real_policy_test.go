@@ -56,7 +56,7 @@ func TestRealLayerPolicy(t *testing.T) {
 	if unresolved := resolved.LayerConversionPlan().Report.Unresolved(); len(unresolved) != 0 {
 		t.Fatalf("real policy leaves %d unresolved obligations; first=%+v", len(unresolved), unresolved[0])
 	}
-	if got, want := len(document.Entries), 243; got != want {
+	if got, want := len(document.Entries), 249; got != want {
 		t.Fatalf("reviewed policy entry count = %d, want %d", got, want)
 	}
 	codec, err := resolved.buildLayerCodecModel("tg")
@@ -193,6 +193,16 @@ func realLayerResolution(obligation LayerObligation) (LayerObligationResolution,
 	// as an ordinary group command, so older profiles must project the entire
 	// vector element out.
 	if obligation.Kind == LayerObligationFieldProjection {
+		// An explicitly supplied Layer 231 wallet OAuth session expresses a
+		// wallet-connection choice, which an encoder must not silently replace
+		// with plain login. Optional response hints can use the drop default:
+		// plain login success does not constitute wallet authorization.
+		if obligation.Layer >= 225 && obligation.Layer < 231 {
+			switch obligation.Semantic.QName + ":" + obligation.Field {
+			case "messages.acceptUrlAuth:tonconnect_session":
+				return LayerObligationResolution{Action: LayerResolveRejectIfPresent}, true, nil
+			}
+		}
 		if obligation.Layer >= 225 && obligation.Layer < 230 {
 			switch obligation.Semantic.QName + ":" + obligation.Field {
 			case "username:deletable", "username:expired", "bots.checkUsername:additional", "auth.initFirebasePnvLogin:except_ids":

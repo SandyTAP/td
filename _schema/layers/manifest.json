@@ -1,5 +1,5 @@
 {
-  "canonical_layer": 230,
+  "canonical_layer": 231,
   "repository": "https://github.com/telegramdesktop/tdesktop.git",
   "source_path": "Telegram/SourceFiles/mtproto/scheme/api.tl",
   "overlays": [
@@ -153,6 +153,13 @@
       "commit": "d36272b193057a114ef3a9fe7f15a8f8b587c489",
       "blob": "57e72169e6e8fc8d36af957a96ca20f40b5d8a07",
       "sha256": "3bc699f8b5d31262609720c0a6e88291d953ae12bb5132484db57207c72c25fd"
+    },
+    {
+      "layer": 231,
+      "file": "layer-231.tl",
+      "commit": "91ed9dbf2004ed5531a94ecc4fe5751e008dc8ed",
+      "blob": "01e31d552dd496e592f262989c8452f7a3ce411a",
+      "sha256": "0921a7bba8be9ad7e615d1d4f8e068126a421e3cba18f499a16765f1ab6129bf"
     }
   ]
 }

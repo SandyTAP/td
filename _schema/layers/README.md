@@ -164,6 +164,16 @@ Adding a schema-identical next profile therefore only extends generated profile
 metadata and switch cases. A genuinely changed schema stops at generation time
 until its semantic policy and typed hook are supplied.
 
+### Layer 231 review record
+
+Canonical Layer 231 comes from official Telegram Desktop `dev@78ceaa548a`;
+exact profiles 225–230 remain available. The [Layer 231 review](LAYER231_REVIEW.md)
+locks provenance, URL-auth constructor changes and the request/response
+distinction: a supplied wallet OAuth session cannot be silently dropped, while
+optional wallet prompt metadata may be omitted for ordinary login on old
+clients. The policy has 249 entries (243 existing plus six request guards).
+No PTS/update or MTProto transport schema changes are part of this release.
+
 ### Layer 230 review record
 
 Canonical Layer 230 is frozen from Telegram Desktop 7.3.1. Profiles 225–229

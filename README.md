@@ -11,15 +11,17 @@ for source reference, but `gif-download` and `userbot` still depend on
 before they can be built against this renamed module and are not part of this
 fork's release gate.
 
-## Layer 230 release
+## Layer 231 release
 
-The canonical model is Layer 230 from Telegram Desktop 7.3.1; exact profiles
-225–229 remain available, including the 228/229 PageBlock storage codecs.
-Bot verification descriptions now use `tg.TextWithEntities`; passkey requests
-use the concrete `tg.InputPasskeyCredentialPublicKey` after the FirebasePNV
-credential was removed. New Wallet/TON Connect definitions are protocol types,
-not server business implementations. See the source, conversion decisions and
-validation record in [Layer 230 review](_schema/layers/LAYER230_REVIEW.md).
+The canonical model is Layer 231 from official Telegram Desktop 7.3.1 `dev`;
+exact profiles 225–230 remain available, including the 228/229 PageBlock
+storage codecs. URL authentication adds optional TON Connect OAuth metadata
+and a wallet-session input. Older profiles omit optional wallet hints while
+preserving ordinary login, but reject an explicitly supplied wallet session
+instead of silently changing the requested operation. Protocol support does
+not implement wallet OAuth business authorization. See the source, conversion
+decisions and verification in [Layer 231 review](_schema/layers/LAYER231_REVIEW.md);
+the [Layer 230 review](_schema/layers/LAYER230_REVIEW.md) remains historical.
 
 ## Fork maintenance
 
